@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2014 at 06:32 PM
+-- Generation Time: Mar 04, 2014 at 07:26 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -64,33 +64,81 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('1a420c9997545ce9ab1aa79256a4021b', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393867074, ''),
-('2ceecb3228e34e955a4964edb18f595d', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865688, ''),
-('2de2c9df76b152a75e2b8a65caf4a776', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865466, ''),
-('334c3b8b0c8be14c5441293c371f95a0', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865425, ''),
-('3430894e635a1128f01532c85137dc5d', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865667, ''),
-('3761c0a35748e05422f733a236ea4cb7', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393862852, ''),
-('39a40e7de47dec2057b7c6e3aa9e3c70', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393867121, ''),
-('3ab2513fe04cff04a4eee2776fd6718b', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865505, ''),
-('457c10d1f06302e0e4e77eb5305e1b40', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393867122, ''),
-('45d20e5b954397496bafce2cc3ce3572', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865680, ''),
-('4c1e250bc9f8e7dc3936f655e60fca65', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393867194, ''),
-('54bfc1dcc57cefc25717e1698c587ea3', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865666, ''),
-('5cf02eee3edb1276b08408f10cea978d', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865178, 'a:8:{s:9:"user_data";s:0:"";s:7:"user_id";s:1:"1";s:8:"username";s:5:"admin";s:9:"full_name";s:24:"Nguy?n Tr??ng Giang";s:7:"created";s:19:"2014-01-20 11:40:27";s:5:"email";s:20:"giangbeoit@gmail.com";s:6:"status";s:1:"1";s:4:"role";s:1:"1";}'),
-('67bdde24082e6aa1c1c29e1f0d5b094f', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865178, ''),
-('7132ee571f7eded7a6d9e4a81d79ad19', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865675, ''),
-('789e6a6bc57dd1078b9f23e3fc5a3117', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393867194, ''),
-('7c4ea0dd5dfd26969bbeb508b654512b', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393862950, ''),
-('8c12f115dfc6b5898bc184ad9acb32a6', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865688, ''),
-('8d589478c90b2675c12330340f0d0a76', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865505, ''),
-('b658feba1d012443ebf8717274961390', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865169, ''),
-('bbe15015aa2a1033b97d08f7fa138364', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393862958, ''),
-('c0f805130ada73c319504010aceac5e2', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393862766, ''),
-('c3c7e4b2261461a8dcd2623bc2e280b6', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865657, ''),
-('d006c4278b1092c5ad25b10332ab58a4', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865124, ''),
-('db1c679259b10e3e8a63abdd3405db2c', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393862958, 'a:8:{s:9:"user_data";s:0:"";s:7:"user_id";s:1:"1";s:8:"username";s:5:"admin";s:9:"full_name";s:24:"Nguy?n Tr??ng Giang";s:7:"created";s:19:"2014-01-20 11:40:27";s:5:"email";s:20:"giangbeoit@gmail.com";s:6:"status";s:1:"1";s:4:"role";s:1:"1";}'),
-('dd58c6ada6e0a92b4a58702baf175a1d', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393865449, ''),
-('e3a66b3768c9d39a536198b4ea0fb1ab', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393867074, '');
+('011cddf674d8cffd2b65a5136c00c478', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955120, ''),
+('03b37a5babf15b1f1be935c5041c85f5', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957479, ''),
+('048a5ba777f7faf9008829c76e38a61c', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955277, ''),
+('09be454d890d685185edabdcf19b4238', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955710, ''),
+('0a23ae3445a1317e98d794f60f72e5d2', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956256, ''),
+('0c0f35afad4776bbbb29e46df595ac6a', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957552, ''),
+('0edbde0ad453e6fe8e94efb05d6da3b5', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956989, ''),
+('105e68397a4f3dd26cc39696a5bafc55', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957551, ''),
+('1545a7ba256483ec96e7cf2948bab9bd', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956028, ''),
+('18f5b969c501adba419694457925cb3f', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956890, ''),
+('19ef16baa493d3e6ec4dfb1e2d621cb4', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956019, ''),
+('1c42833cf6e9c2998e87c9ca68e57231', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393954298, ''),
+('290624bacfb8724fe0679b6d9b1fefb4', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957476, ''),
+('29471a01a835a43183be706732ca567b', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957071, ''),
+('2a410ff316366d464c5b2750a813a605', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955596, ''),
+('306fc259aa38bbc470d1d2584453d54b', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955967, ''),
+('310c1eed53cb90e8f090972a8fab4633', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393954319, ''),
+('32ae794b4b6b95368e26eff6b02f8dd6', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955626, ''),
+('33930f2b29dc39d8faed7920404897a4', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957388, ''),
+('3986ea34017928a0ec16a30646b6b9de', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393954236, ''),
+('3ad7a02cd25a846d86477388f0e092d9', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955630, ''),
+('3c9c023e1fd99de0c3f3699b9a658192', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957064, ''),
+('413938d938d26bee3f363eecb221f4e5', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955257, ''),
+('422bf71e91bd9222332b4356d4dc6f6b', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393953296, ''),
+('46ed5b966423e112dd8755d50d3a63ca', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955939, ''),
+('50aae15cd891d3b36543f9336bbac1d2', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956466, ''),
+('51e4a8b05744fbffa325e48446296670', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393954578, ''),
+('593b6a9a4b711a8a9e15c7e314c6ba0e', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955576, ''),
+('5ac38298cef588fa273dfda51090a36e', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957218, ''),
+('620543ff04f2cd5fc765a9bbdcde91d5', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955105, ''),
+('65ed831fe6be8dddfe5efb6c9a03125b', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955949, ''),
+('679b3be400e6554fbe62fc245c7387e2', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957537, ''),
+('67a45e0812f0851b1b333872f1733aaf', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393954341, ''),
+('681bfe6908ed15bd9c61088a17ea61ec', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955384, ''),
+('6bb0123c42b9893c4406a45c1a8811c0', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393953730, ''),
+('6ce32e305dbedcd6ce5b7ef74233a94e', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956351, ''),
+('8081f4e57502d2f78d43c049b6167e04', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956985, ''),
+('89fabdcc90536f90b0f699713de9a71d', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957213, ''),
+('8de5680b3a915335e2fe5662bdcd92c2', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956447, ''),
+('91a668c93e63d58f0f1f7f2abbff9148', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955811, ''),
+('930a31d4abaaeeade0b29ad802348d4e', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956470, ''),
+('95452338388be283f45e1d90984cfe34', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955272, ''),
+('965905bcdf40c8c402062979e1e236f6', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956074, ''),
+('9a3070761838c842e7a327c8acf7fa97', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956252, ''),
+('9cf842a4e89344f7232ac60be6d3ad68', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955088, ''),
+('9ecceaa8c939c49e3a7baad37260f1bb', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393954484, ''),
+('a0013675b0cf85f7a6074b47586d4f04', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957291, ''),
+('a178bd90db8285fa9ff8d90037988993', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393953721, ''),
+('a18c3381a03367abbb2fd35b8c6622f8', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955184, ''),
+('a6e6a293f3a8ac03fc68a3aad7474ee3', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955070, ''),
+('a8193e2a4ba3ec3a0e68c9ee5be1a4e3', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955163, ''),
+('a92d8fbd0c9f1d84df4110616da23d10', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955573, ''),
+('b4c5a7d10d6f67dab108eba346c5b7aa', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956370, ''),
+('b5f559fa97e1fe4908b2146e21835216', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957483, ''),
+('b6aa68227e7a4f459c74019927be81dd', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393954239, ''),
+('baaa527021bc7d4a33204f0f452eb45b', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956070, ''),
+('bfa12f5717881979b0f00a228cf6a52c', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955822, ''),
+('ca4df7738d94673575834c6e98a2647b', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957375, ''),
+('cd51a913ada0344161530d837229489e', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955134, ''),
+('cda0a1e4f0330771bdcc4c3e1fcb88a6', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957067, ''),
+('cee219b0239f21bd6bb29e8c4059bf15', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393953729, ''),
+('d09afa14ada6de60b4b93bf33a62bb5c', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956356, ''),
+('d60c311b6ae6881100a43ccb2c2c804f', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955800, ''),
+('d8a38aba1535ac13b7367c6958b09204', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393954529, ''),
+('da3d309a59ea9e1450952c96aa4619ec', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955231, ''),
+('da6d56cb6ee13e9cdc2df640fade5f83', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955591, ''),
+('e05bce8a275604b5385ed0b47b5dc577', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957288, ''),
+('e2288eae026dc24398b6448f7863d859', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957394, ''),
+('e394516e2d24f7ab1ed18820e105d98b', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957531, ''),
+('e88941feb1227da83dda268a2321225c', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957533, ''),
+('ecf6f978c464e56c0ff0c87d5dacebcc', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393954582, ''),
+('ed19845ef1a4968aea3301a84d48482c', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393955941, ''),
+('f2da5fb2dee387d2666f24527f3bb7f1', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956994, ''),
+('f4e9fa58a3a59f0fe082c178cf23b1af', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393956442, ''),
+('f953a094f4fb58dbcae66472f680bed2', '::1', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (K', 1393957482, '');
 
 -- --------------------------------------------------------
 
@@ -125,7 +173,14 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   `login` varchar(50) COLLATE utf8_bin NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `login_attempts`
+--
+
+INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
+(7, '::1', 'demo', '2014-03-04 17:22:02');
 
 -- --------------------------------------------------------
 
@@ -213,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `full_name`, `phone`, `address`, `password`, `email`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `last_ip`, `last_login`, `created`, `modified`, `birthday`, `img`, `role`, `login_id`, `total_like`, `account_type`) VALUES
-(1, 'admin', 'Nguyễn Trường Giang', '01667039939', 'HCM', '$2a$08$6yOFqjSwRiUDeH0DBFo2IeK.SgYng/aOBwDAiunZyicoGD2xBRh5O', 'giangbeoit@gmail.com', 1, 0, NULL, NULL, NULL, '', '', '::1', '2014-03-03 17:54:48', '2014-01-20 11:40:27', '2014-03-03 16:54:48', '9/5/1991', '2cecdbb1cf075f53b965e50c41717c51.jpg', 1, '0', 2005, 0);
+(1, 'admin', 'Nguyễn Trường Giang', '01667039939', 'HCM', '$2a$08$6yOFqjSwRiUDeH0DBFo2IeK.SgYng/aOBwDAiunZyicoGD2xBRh5O', 'giangbeoit@gmail.com', 1, 0, NULL, NULL, NULL, '', '', '::1', '2014-03-04 18:22:09', '2014-01-20 11:40:27', '2014-03-04 17:22:09', '9/5/1991', '2cecdbb1cf075f53b965e50c41717c51.jpg', 1, '0', 2005, 0);
 
 -- --------------------------------------------------------
 
@@ -229,6 +284,20 @@ CREATE TABLE IF NOT EXISTS `user_autologin` (
   `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`key_id`,`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_product`
+--
+
+CREATE TABLE IF NOT EXISTS `user_product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `id_product` int(11) NOT NULL,
+  `create_date` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 

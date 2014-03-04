@@ -98,7 +98,7 @@
             <div class="box_menu_right">
                 <ul>
                                         <li class="main">
-                        <a href="<?php echo base_url();?>ctv/homectv/login" rel="khachhang" class="v_link">
+                        <a href="<?php echo base_url();?>ctv/productctv/ajax_get_product" rel="khachhang" class="v_link">
                             <div><img src="http://quanlybanhang.360vnit.com/icon/customers.png" alt=""></div>
                             Khách hàng
                         </a>
@@ -508,8 +508,7 @@
          <div>
              <div id="content"><div>
          </div>
-        <script type="text/javascript" src="http://quanlybanhang.360vnit.com/app/templates/js/core/amcharts.js"></script>
-<script type="text/javascript" src="http://quanlybanhang.360vnit.com/app/components/admincp/views/esset/admincp.js"></script>
+        
 <ul id="tabs">
     <!-- Tabs go here -->
     <li class="current">
@@ -572,13 +571,13 @@ $(document).ready(function() {
     //Fetch Initial Data
     var thang = 03;
     var nam = 2014;
-    $("#chart_banhang_theo_ngay").html('<img src="'+base_url+'"app/templates/images/loading.gif"> Đang tải dữ liệu biểu đồ');
-    $.getJSON(base_url+'ajax/banhang_theongay/?thang='+thang+'&nam='+nam, function(data) {
+    $("#chart_banhang_theo_ngay").html('<img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/images/loading.gif"> Đang tải dữ liệu biểu đồ');
+    $.getJSON('<?php echo base_url();?>ajax/banhang_theongay/?thang='+thang+'&nam='+nam, function(data) {
         $("#chart_banhang_theo_ngay").css({'height':'300px'});
         buildLineChart(data);
     
         // Thong ke theo nam
-        //$("#chart_tk_theonam").html('<img src="'+base_url+'"app/templates/images/loading.gif"> Đang tải dữ liệu biểu đồ');
+        //$("#chart_tk_theonam").html('<img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/app/templates/images/loading.gif"> Đang tải dữ liệu biểu đồ');
         /*$.getJSON(base_url+'ajax/thongke_theonam/?nam='+nam, function(data) {
             $("#chart_tk_theonam").css({'height':'400px'});
             buildLineLoinhuanNam(data);
@@ -592,8 +591,8 @@ $(document).ready(function() {
     $('#bieudo_theongay').click(function(e) {
         var thang = $("#ch_m").val();
         var nam = $("#ch_y").val();
-        $("#chart_banhang_theo_ngay").html('<img src="'+base_url+'"app/templates/images/loading.gif"> Đang tải dữ liệu biểu đồ');
-        $.getJSON(base_url+'ajax/banhang_theongay/?thang='+thang+'&nam='+nam, function(data) {
+        $("#chart_banhang_theo_ngay").html('<img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/images/loading.gif"> Đang tải dữ liệu biểu đồ');
+        $.getJSON('<?php echo base_url();?>ajax/banhang_theongay/?thang='+thang+'&nam='+nam, function(data) {
             $("#chart_banhang_theo_ngay").css({'height':'300px'});
             buildLineChart(data);
         });
@@ -603,11 +602,11 @@ $(document).ready(function() {
     //On Change Refresh Chart
     $('#bieudo_theonam').click(function(e) {
         var nam = $("#bd_y").val();
-        $("#chart_tk_theonam").html('<img src="'+base_url+'"app/templates/images/loading.gif"> Đang tải dữ liệu biểu đồ');
-        $.getJSON(base_url+'ajax/thongke_theonam/?nam='+nam, function(data) {
+        $("#chart_tk_theonam").html('<img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/images/loading.gif"> Đang tải dữ liệu biểu đồ');
+        $.getJSON('<?php echo base_url();?>ajax/thongke_theonam/?nam='+nam, function(data) {
             $("#chart_tk_theonam").css({'height':'400px'});
             buildLineLoinhuanNam(data);
-            $.get(base_url+'ajax/thongke_theonam_ajax/?nam='+nam, function(data) {
+            $.get('<?php echo base_url();?>ajax/thongke_theonam_ajax/?nam='+nam, function(data) {
                 $("#chart_tk_theonam_ajax").html(data);
             });
         });
