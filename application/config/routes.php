@@ -43,6 +43,7 @@ $route['trang-chu'] = "home/home/index";
 $route['p_c-(:any)-(:any)/p_p-(:any)-(:any)'] = "home/product/detail/$3";
 $route['p_c-(:any)-(:any)'] = "home/product/list_product/$1";
 $route['p_c-(:any)-(:any)/page/(:any)'] = "home/product/list_product/$1";
+$route['cong-tac-vien'] = "ctv/productctv/index";
 $route['404_override'] = '';
 $route['admin'] = "admin/index/login";
 $route['admin/login'] = "admin/index/login";
