@@ -71,5 +71,9 @@ class Product extends MY_Controller
         //$this->data['main_content']='product/detail_product';
         $this->load->view('home/layout_list',$this->data);
     }
+    public function add_to_cart()
+    {
+        print_r($this->input->post());exit;
+    }
 }
 ?>

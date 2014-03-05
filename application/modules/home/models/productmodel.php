@@ -50,7 +50,7 @@ class Productmodel extends CI_Model
     public function get_sale_off_product($id)
     {
         $id = intval($id);
-        $sql ="SELECT * FROM sale_off WHERE id_product = $id";
+        $sql ="SELECT * FROM sale_off WHERE id_product = $id AND exp_date >= now();";
         $query = $this->db->query($sql);
         return $query->result_array();
     }

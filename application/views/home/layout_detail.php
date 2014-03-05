@@ -164,7 +164,7 @@
 	<div class="formcontent">
 		<center>
 		<div id='add_to_cart_form_div'>
-			<form name='add_to_cart_form' action='' method='post' onsubmit='return add_to_cart()'>
+			<form name='add_to_cart_form' action='' method='post'>
 				<table width="330">
 					<tr>
 						<td width="100">
@@ -184,7 +184,7 @@
 					</tr>
 				</table>
 				<div style="clear:both"></div>
-				<input type="submit" name="submit_email" value='   Thêm vào giỏ   '  />
+				<input type="button" name="submit_email" onclick="add_to_cart_db(<?php echo $product_detail[0]['id_product']?>,'<?php echo base_url(); ?>');" value='Thêm vào giỏ'  />
 			</form>
 		</div>
 		<div id="add_to_cart_form_result">

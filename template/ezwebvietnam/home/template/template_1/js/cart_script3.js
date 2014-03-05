@@ -468,3 +468,21 @@ function clear_cart(){
 	$("#cart_content").html("");
 	count_product_quantity();
 }
+function add_to_cart_db(productid,url)
+{
+    var product_num = $('#product_num').val();
+    $.ajax({          
+        type: "POST",
+        url: url+'home/product/add_to_cart',
+        async:false,
+        cache: false,
+        dataType: "json",
+        data:{productid: productid,quantity:product_num},
+        success: function(data){
+            if(data.msg  == TRUE)
+            {
+                add_to_cart();
+            }
+        }
+    });
+}

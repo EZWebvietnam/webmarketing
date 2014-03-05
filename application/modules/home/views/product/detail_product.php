@@ -24,11 +24,14 @@
     $detail_sale_off = $this->productmodel->get_sale_off_product($product_detail[0]['id_product']);
     if(empty($detail_sale_off))
     {
+        $price = $product_detail[0]['cost'];
     ?>
     <center>
 		Giá gốc: <span class="orgin_price"><?php echo number_format($product_detail[0]['cost'])?></span>  VND/Khóa học
 	</center>
-    <?php } else {?>
+    <?php } else {
+        $price = $product_detail[0]['cost'] - ($product_detail[0]['cost'] - ($product_detail[0]['cost']*$detail_sale_off[0]['percent'])/100);
+        ?>
 	<center>
 		Giá gốc: <span class="orgin_price"><strike><?php echo number_format($product_detail[0]['cost'] - ($product_detail[0]['cost']*$detail_sale_off[0]['percent'])/100)?></strike></span>  VND/Khóa học
 	</center>
@@ -62,7 +65,7 @@ $('#defaultCountdown274').countdown({until: liftoffTime, padZeroes: true});
 				
 			<div>
 			<br>
-				<img src="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/images/mua.png" onclick="add_to_card_form(<?php echo $product_detail[0]['id_product']?>,<?php echo $product_detail[0]['cost']?>)" class="add_cart_button">
+				<img src="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/images/mua.png" onclick="add_to_card_form(<?php echo $product_detail[0]['id_product']?>,<?php echo $price?>)" class="add_cart_button">
 			</div>
 		</center>
 	</div>
