@@ -36,11 +36,20 @@
 		Giá gốc: <span class="orgin_price"><strike><?php echo number_format($product_detail[0]['cost'] - ($product_detail[0]['cost']*$detail_sale_off[0]['percent'])/100)?></strike></span>  VND/Khóa học
 	</center>
 	<div class="price_detail">
+        
 		<center>
 			<span class="price2"><?php echo number_format($product_detail[0]['cost'] - ($product_detail[0]['cost'] - ($product_detail[0]['cost']*$detail_sale_off[0]['percent'])/100))?></span> <span class="price2">(-<?php echo $detail_sale_off[0]['percent']?>%)</span> 
 		</center>
 	</div>
 	<?php } ?>
+    <?php 
+            if($this->uri->segment(4)!='' || $this->uri->segment(4)!=null)
+            {
+        ?>
+        <input type="hidden" name="id_ref" id="id_ref" value="<?php echo base64_encode($this->uri->segment(4));?>" />
+    <?php } else {?>
+        <input type="hidden" name="id_ref" id="id_ref" value="0" />
+    <?php } ?>
 	<div>
 	<br>
 		<center>

@@ -29,6 +29,38 @@ class Productctvmodel extends CI_Model
         $query = $this->db->query($sql);
         return count($query->result_array());
     }
+    public function list_customer($id_user,$number,$offset)
+    {
+        $id_user = intval($id_user);
+        $number = intval($number);
+        $offset = intval($offset);
+        $sql ="SELECT * FROM order_customer INNER JOIN order_detail ON order_customer.id = order_detail.order_id WHERE order_detail.id_ref = $id_user LIMIT $offset,$number";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+    public function count_list_customer($id_user)
+    {
+        $id_user = intval($id_user);
+        $sql ="SELECT * FROM order_customer INNER JOIN order_detail ON order_customer.id = order_detail.order_id WHERE order_detail.id_ref = $id_user";
+        $query = $this->db->query($sql);
+        return count($query->result_array());
+    }
+    public function list_thu_nhap($id_user,$number,$offset)
+    {
+        $id_user = intval($id_user);
+        $number = intval($number);
+        $offset = intval($offset);
+        $sql ="SELECT * FROM order_detail LEFT JOIN product ON product.id_product = order_detail.id_product WHERE order_detail.id_ref = $id_user LIMIT $offset,$number";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+    public function count_list_thu_nhap($id_user)
+    {
+        $id_user = intval($id_user);
+        $sql ="SELECT * FROM order_detail LEFT JOIN product ON product.id_product = order_detail.id_product WHERE order_detail.id_ref = $id_user";
+        $query = $this->db->query($sql);
+        return count($query->result_array());
+    }
     public function delete($id)
     {
         $this->db->delete('user_product',array('id'=>$id));
@@ -58,6 +90,18 @@ class Productctvmodel extends CI_Model
     {
         $this->db->insert('user_product',$data);
         return $this->db->insert_id();
+    }
+    public function da_linh($id_user)
+    {
+        $sql="SELECT * FROM order_detail WHERE id_ref = $id_user AND status_money = 1";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+    public function chua_linh($id_user)
+    {
+        $sql="SELECT * FROM order_detail WHERE id_ref = $id_user AND status_money = 0";
+        $query = $this->db->query($sql);
+        return $query->result_array();
     }
 }
 ?>

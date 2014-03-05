@@ -100,11 +100,9 @@ function LoadPagging(pi, ps, url, total_page,urlext) {
     return content;
 }
 
-function order_process(){
-	var c_string = getCookie("nccart");
-	if(c_string=="" || c_string == undefined){
-		alert("Vui lòng chọn sản phẩm trước!");
-	}else if( $("#o_realname").val() == ""){
+function order_process(app_main_url){
+	
+	 if( $("#o_realname").val() == ""){
 		alert("Vui lòng nhập họ tên!");
 		$("#o_realname").focus();
 	}else if( $("#o_address").val() == ""){
@@ -116,19 +114,16 @@ function order_process(){
 	}else if( $("#o_email").val() == ""){
 		alert("Vui lòng nhập email!");
 		$("#o_email").focus();
-	}else if( $("#o_sercuritycode").val() == ""){
-		alert("Vui lòng nhập mã bảo mật!");
-		$("#o_sercuritycode").focus();
-	}else{
+	} else {
 		try{
 			$("#o_content").css("display","none");
 			$("#o_email_form_content_loading").css("display","");
 			$.ajax({
-				url: app_main_url + '/ajax/' + my_safecode + '/order_process' + app_ext + '?' + new Date().getTime(),
+				url: app_main_url + 'home/product/check_out',
 				type: 'POST',
 				dataType: "html",
 				data: {
-					data_string : c_string,
+				
 					userurl : my_url,
 					realname : $("#o_realname").val(),
 					address : $("#o_address").val(),
@@ -145,22 +140,20 @@ function order_process(){
 					}else if(response=="product"){
 						$("#o_content").css("display","");
 						alert("Vui lòng chọn sản phẩm trước!");
-					}else if(response=="syskey"){
-						$("#o_content").css("display","");
-						alert("Mã bảo mật không đúng!");
-						$('#se_image2').attr('src','{$URL}/captcha/captcha.php?' + new Date().getTime());
 					}else{
 						$("#o_content_result").css("display","");
-						clear_cart();
+						
 					}
+                    delete_cart(app_main_url);
 				},
-				error: function(XMLHttpRequest, textStatus, exception) { alert("Ajax failure\n" + errortext); },
+				error: function(XMLHttpRequest, textStatus, exception) { alert("Ajax failure\n"); },
 				async: true
 			});
 		}catch(e){
 			alert(e)
 		}
 	}
+    
 }
 function set_url(){
 	//luu UL moi vao
@@ -180,26 +173,25 @@ function close_show_order_form(){
 	$("#hide_content").css("display","none");
 	$("#show_order_form").css("display","none");
 }
-function show_cart(){
+function show_cart(app_main_url){
 	//Show san pham trong gio hang
 	var c_string = getCookie("nccart");
 	$("#hide_content").css("display","");
 	$("#show_cart_form").css("display","");
 	$("#show_cart_form").draggable();
-	$("#cart_content").html("<img src='" + app_main_url + "/template/" + my_template + "/images/loading.gif' />");
+	$("#cart_content").html("<img src='" + app_main_url + "template/ezwebvietnam/home/images/loading.gif' />");
 	try{
 		$.ajax({
-			url: app_main_url + '/ajax/' + my_safecode + '/show_cart' + app_ext + '?' + new Date().getTime(),
+			url: app_main_url + 'home/product/ajax_show_cart',
 			type: 'POST',
 			dataType: "html",
 			data: {
-				data_string : c_string,
-				userurl : my_url,
+				data_string : c_string
 			},
 			success: function (response){
 				$("#cart_content").html(response);
 			},
-			error: function(XMLHttpRequest, textStatus, exception) { alert("Ajax failure\n" + errortext); },
+			error: function(XMLHttpRequest, textStatus, exception) { alert("Ajax failure\n"); },
 			async: true
 		});
 	}catch(e){
@@ -471,17 +463,54 @@ function clear_cart(){
 function add_to_cart_db(productid,url)
 {
     var product_num = $('#product_num').val();
+    var id_ref = $('#id_ref').val();
     $.ajax({          
         type: "POST",
         url: url+'home/product/add_to_cart',
         async:false,
         cache: false,
         dataType: "json",
-        data:{productid: productid,quantity:product_num},
+        data:{productid: productid,quantity:product_num,id_ref:id_ref},
         success: function(data){
-            if(data.msg  == TRUE)
+            if(data.msg  == true)
             {
                 add_to_cart();
+            }
+        }
+    });
+}
+function delete_product(id,base_url)
+{
+    $.ajax({          
+        type: "POST",
+        url: base_url+'home/product/delete_from_cart',
+        async:false,
+        cache: false,
+        dataType: "json",
+        data:{productid: id},
+        success: function(data){
+            if(data.msg  == true)
+            {
+                close_show_cart_form();
+                show_cart(base_url);
+            }
+        }
+    });
+}
+function delete_cart(base_url)
+{
+    $.ajax({          
+        type: "POST",
+        url: base_url+'home/product/delete_cart',
+        async:false,
+        cache: false,
+        dataType: "json",
+        
+        success: function(data){
+            if(data.msg  == true)
+            {
+                close_show_cart_form();
+                show_cart(base_url);
             }
         }
     });

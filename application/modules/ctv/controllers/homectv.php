@@ -13,7 +13,7 @@ class Homectv extends MY_Controller
     {
         if ($this->tank_auth->is_login_admin(TRUE)) {						// logged in, not activated
 
-			redirect('/admin/user/listuser');
+			redirect('/cong-tac-vien');
 
 		} else {
 
@@ -45,7 +45,7 @@ class Homectv extends MY_Controller
 
 						$data['login_by_email'])) {								// success
 
-                                                redirect('/admin/user/listuser');
+                                                redirect('/cong-tac-vien');
 
 
 
@@ -88,7 +88,7 @@ class Homectv extends MY_Controller
     function _show_message($message)
 	{
         $this->session->set_flashdata('message', $message);
-	   redirect('/admin/login');
+	   redirect('/cong-tac-vien/login');
 	}    
 }
 ?>

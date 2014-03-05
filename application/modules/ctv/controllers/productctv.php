@@ -6,10 +6,19 @@ class Productctv extends MY_Controller
         parent::__construct();
         $this->load->library('session');
         $this->load->model('productctvmodel');
+        $this->load->library('tank_auth');
+        $this->lang->load('tank_auth');
     }
     public function index()
     {
-        $this->load->view('ctv/index_layout_ctv');
+        if (!$this->tank_auth->is_logged_in())
+        {
+            redirect('/cong-tac-vien/login');
+        }
+        else
+        {
+            $this->load->view('ctv/index_layout_ctv');
+        }
     }
     public function ajax_get_product()
     {
@@ -89,6 +98,97 @@ class Productctv extends MY_Controller
             $this->data['product']=$product;
             $this->load->view('ajax_add_product',$this->data);
         }
+    }
+    public function ajax_get_customer()
+    {
+        $id_user = $this->session->userdata('user_id');
+        $this->load->helper('url');
+        $config['uri_segment'] = 5;
+        if($this->input->post('page_no'))
+        {
+        $page = $this->input->post('page_no');
+        }
+        else
+        {
+            $page = 1;
+        }
+        $config['per_page'] = 10;
+        $config['total_rows'] = $this->productctvmodel->count_list_customer($id_user);
+        if ($page == '') {
+            $page = 1;
+        }
+        $page1 = ($page - 1) * $config['per_page'];
+        if (!is_numeric($page)) {
+            show_404();
+            exit;
+        }
+       $num_pages = ceil($config['total_rows']/ $config['per_page']);
+       $array_sv = $this->productctvmodel->list_customer($id_user,$config['per_page'], $page1);
+       $this->data['total_page'] = $num_pages;
+       $this->data['offset'] = $page1;
+       $this->data['page']=$page;
+       $this->data['total']=$config['total_rows'];
+       $this->data['list_customer']=$array_sv;   
+       $this->load->view('ajax_get_customer',$this->data);
+    }
+    public function ajax_thu_nhap()
+    {
+        $id_user = $this->session->userdata('user_id');
+        $da_linh = $this->productctvmodel->da_linh($id_user);
+        if(empty($da_linh))
+        {
+            $tien_linh = 0;
+        }
+        else
+        {
+            foreach($da_linh as $linh)
+            {
+                $tien_linh +=$linh['commissions'];
+            }
+        }
+        $chua_linh = $this->productctvmodel->chua_linh($id_user);
+        $tien_chua_linh = 0;
+        if(empty($chua_linh))
+        {
+            $tien_chua_linh = 0;
+        }
+        else
+        {
+            foreach($chua_linh as $linh_)
+            {
+                $tien_chua_linh +=$linh_['commissions'];
+            }
+        }
+        $this->load->helper('url');
+        $config['uri_segment'] = 5;
+        if($this->input->post('page_no'))
+        {
+        $page = $this->input->post('page_no');
+        }
+        else
+        {
+            $page = 1;
+        }
+        $config['per_page'] = 10;
+        $config['total_rows'] = $this->productctvmodel->count_list_thu_nhap($id_user);
+        if ($page == '') {
+            $page = 1;
+        }
+        $page1 = ($page - 1) * $config['per_page'];
+        if (!is_numeric($page)) {
+            show_404();
+            exit;
+        }
+       $num_pages = ceil($config['total_rows']/ $config['per_page']);
+       $array_sv = $this->productctvmodel->list_thu_nhap($id_user,$config['per_page'], $page1);
+       $this->data['total_page'] = $num_pages;
+       $this->data['offset'] = $page1;
+       $this->data['page']=$page;
+       $this->data['total']=$config['total_rows'];
+       $this->data['list_tn']=$array_sv;   
+       $this->data['tien_linh']=$tien_linh;
+       $this->data['tien_chua_linh']=$tien_chua_linh;
+       $this->load->view('ajax_get_tn',$this->data);
     }
 }
 ?>

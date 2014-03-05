@@ -57,7 +57,7 @@
 	<div class='top_menu' >
 		<a href="<?php echo base_url();?>" class="home">Trang chủ</a>
 		<a href="/U1/contact.htm" class="contact">Liên hệ</a>
-		<a href="#"  onclick="show_cart()"  class="cart">
+		<a href="#"  onclick="show_cart('<?php echo base_url();?>')"  class="cart">
 			Giỏ hàng (<span id="product_number" style="color:#ef4232;font-weight:700">0</span>)
 		</a>
 	</div>
@@ -194,7 +194,7 @@
 				Hãy vào giỏ hàng để tiến hành đặt hàng.<br />
 				</b>
 				Xin chân thành cảm ơn<br /><br />
-				<input type="submit" name="submit_email" value='   Vào giỏ hàng   ' onclick="close_add_to_card_form();show_cart();" /> 
+				<input type="submit" name="submit_email" value='   Vào giỏ hàng   ' onclick="close_add_to_card_form();show_cart('<?php echo base_url();?>');" /> 
 				<input type="submit" name="submit_email" value='   Mua tiếp   ' onclick="close_add_to_card_form();" />
 			</center>
 		</div>
@@ -204,30 +204,13 @@
 <div id='show_cart_form' style="display:none;text-align:left">
 	<div  style="float:right;cursor:pointer;margin:0" onclick="close_show_cart_form()"><b>[x]</b></div>
 	<div class="form_header">Giỏ hàng <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/d_icon.png" width="30" alt="Xóa" style="cursor:pointer" onclick="if (confirm('Bạn có chăc muốn xóa?')) clear_cart()" /></div>
-	<table cellspacing='0' cellpadding='0' width="475" style="float:left">
-		<tr>
-			<td width="50" align="center">
-				Ảnh
-			</td>
-			<td>
-				Tên sản phẩm
-			</td>
-			<td width="75" align="center">
-				Đơn giá <br />VND
-			</td>
-			<td width="50" align="center">
-				Số lượng
-			</td>
-			<td width="80" align="center">
-				Thành tiền <br />VND
-			</td>
-			<td width="40" align="center">
-				Xóa
-			</td>
-		</tr>
-	</table>
+    <div id="cart_content">
+	
+    </div>
 	<div class="formcontent" style="height:280px;clear:both;margin-top:25px;overflow:auto;clear:both" onmouseover='$("#show_cart_form").draggable("disable");' onmouseout='$("#show_cart_form").draggable("enable");'>
-		<div id="cart_content"></div>
+		
+       
+        
 	</div>
 	<img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" onclick="show_order_form()" style="padding-top:5px" />
 </div>
@@ -296,7 +279,7 @@
 			</tr>
 		</table>
 		<center>
-		<img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" onclick="order_process()" style="padding-top:5px" />
+		<img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" onclick="order_process('<?php echo base_url();?>')" style="padding-top:5px" />
 		</center>
 	</div>
 	<div id="o_email_form_content_loading" style="display:none"><br /><br /><br /><center><img src="template/template_1/images/ajax-loader.gif" alt="loading" /></center></div>
