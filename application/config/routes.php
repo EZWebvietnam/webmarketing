@@ -46,8 +46,7 @@ $route['p_c-(:any)-(:any)/page/(:any)'] = "home/product/list_product/$1";
 $route['cong-tac-vien'] = "ctv/productctv/index";
 $route['cong-tac-vien/login'] = "ctv/homectv/login";
 $route['404_override'] = '';
-$route['admin'] = "admin/index/login";
-$route['admin/login'] = "admin/index/login";
+$route['quan-tri'] = "admin/login/index";
 
 
 /* End of file routes.php */
