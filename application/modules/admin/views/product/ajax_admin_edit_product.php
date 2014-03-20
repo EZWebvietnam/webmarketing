@@ -36,14 +36,14 @@
             <tr>
                 <td class="label">Phần trăm hoa hồng</td>
                 <td colspan="3">
-                    <input id="hoa_hong" type="texbox" name="hoa_hong"/>
+                    <input id="hoa_hong" type="texbox" name="hoa_hong" value="<?php echo $detail_product[0]['comission'] ?>"/>
                 </td>
             </tr>
             <tr>
                 <td class="label">Hình ảnh</td>
                 <td colspan="3">
                     <input type="file" name="userfile" />
-                    <input id="userfile" name="userfile" type="button" onClick="fileUpload(this.form,'<?php echo base_url();?>upload/do_upload','upload'); return false;">
+                    <input id="userfile" name="userfile" type="button" class="bt100" value="Upload" onClick="fileUpload(this.form,'<?php echo base_url();?>upload/do_upload','upload'); return false;">
                    <div id="upload"></div>
                     <input type='hidden' name='file' id='file'/>
                 </td>
