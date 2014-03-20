@@ -47,6 +47,7 @@ $route['cong-tac-vien'] = "ctv/productctv/index";
 $route['cong-tac-vien/login'] = "ctv/homectv/login";
 $route['404_override'] = '';
 $route['quan-tri'] = "admin/login/index";
+$route['quan-tri-vien'] = "admin/productadmin/index";
 
 
 /* End of file routes.php */
