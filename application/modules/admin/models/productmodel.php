@@ -33,6 +33,20 @@ class Productmodel extends CI_Model
         $this->db->insert('product',$data);
         return $this->db->insert_id();
     }
+    public function update_product($id,array $data)
+    {
+        $id = intval($id);
+        $this->db->where('id_product',$id);
+        $this->db->update('product',$data);
+    }
+    public function delete_user_product($id_product)
+    {
+        $this->db->delete('user_product',array('id_product'=>$id_product));
+    }
+     public function delete_user_product_2($id_user)
+    {
+        $this->db->delete('user_product',array('id_user'=>$id_user));
+    }
 }
 ?>
 

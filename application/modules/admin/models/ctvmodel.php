@@ -1,0 +1,32 @@
+<?php
+class Ctvmodel extends CI_Model
+{
+    public function __construct() {
+        parent::__construct();
+        $this->load->database();
+    }
+    public function load_ctv($number,$offset)
+    {
+        $sql ="SELECT * FROM users WHERE role = 4 LIMIT $offset,$number";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+    public function count_ctv()
+    {
+        $sql ="SELECT * FROM users WHERE role = 4";
+        $query = $this->db->query($sql);
+        return count($query->result_array());
+    }
+    public function detail_ctv($id_user)
+    {
+        $id_user = intval($id_user);
+        $sql ="SELECT * FROM users WHERE role = 4 AND id = $id_user";
+        $query = $this->db->query($sql);
+        return $query->result_array(); 
+    }
+    public function delete_ctv($id_user)
+    {
+        $this->db->delete('users',array('id'=>$id_user));
+    }
+}
+?>

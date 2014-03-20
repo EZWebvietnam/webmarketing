@@ -8,47 +8,47 @@
 </script>
 <div class="h-pop">
     <div class="h-icon"></div>
-    <h3>Thêm khóa học</h3>
+    <h3>Chi tiết cộng tác viên</h3>
 </div>
 <div class="m-pop">
     <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/js/core/price_format.js"></script>
-    <form action="<?php echo base_url(); ?>admin/productadmin/view/<?php echo $detail_product[0]['id_product'] ?>" method="post" accept-charset="utf-8" id="adminform"><input type="hidden" name="id" value="74">
+    <form action="<?php echo base_url(); ?>admin/ctvadmin/view/<?php echo $detail_ctv[0]['id'] ?>" method="post" accept-charset="utf-8" id="adminform"><input type="hidden" name="id" value="74">
         <table class="form" style="width: 550px;">
 
             <tr>
-                <td class="label">Tên khóa học</td>
+                <td class="label">Họ tên</td>
                 <td colspan="3">
-                    <?php echo $detail_product[0]['title'] ?>
+                    <?php echo $detail_ctv[0]['full_name'] ?>
                 </td>
             </tr>
              <tr>
-                <td class="label">Ngày hết hạn</td>
+                <td class="label">SĐT</td>
                 <td colspan="3">
-                    <?php echo $detail_product[0]['exp_date'] ?>
+                    <?php echo $detail_ctv[0]['phone'] ?>
                 </td>
             </tr>
             <tr>
-                <td class="label">Giá</td>
+                <td class="label">Địa chỉ</td>
                 <td colspan="3">
-                    <?php echo $detail_product[0]['cost'] ?>
+                    <?php echo $detail_ctv[0]['address'] ?>
                 </td>
             </tr>
             <tr>
-                <td class="label">Tóm tắt</td>
+                <td class="label">Email</td>
                 <td colspan="3">
-                    <textarea id="editor1"><?php echo $detail_product[0]['description'] ?></textarea>
-                    <script type="text/javascript">
-                                CKEDITOR.replace('editor1');
-                            </script>
+                    <?php echo $detail_ctv[0]['email'] ?>
                 </td>
             </tr>
             <tr>
-                <td class="label">Nội dung</td>
+                <td class="label">IP Last Login</td>
                 <td colspan="3">
-                    <textarea id="editor2"><?php echo $detail_product[0]['content'] ?></textarea>
-                    <script type="text/javascript">
-                                CKEDITOR.replace('editor2');
-                            </script>
+                    <?php echo $detail_ctv[0]['last_ip'] ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Last Login</td>
+                <td colspan="3">
+                    <?php echo date('d/m/Y h:i:s',strtotime($detail_ctv[0]['last_login'])); ?>
                 </td>
             </tr>
             <td></td>

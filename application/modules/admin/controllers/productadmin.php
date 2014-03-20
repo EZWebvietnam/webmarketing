@@ -36,11 +36,12 @@ class Productadmin extends MY_Controller {
         $this->data['page'] = $page;
         $this->data['total'] = $config['total_rows'];
         $this->data['list_product'] = $array_sv;
-        $this->load->view('ajax_admin_get_product', $this->data);
+        $this->load->view('product/ajax_admin_get_product', $this->data);
     }
 
     public function delete($id) {
         $this->productmodel->delete_product($id);
+        $this->productmodel->delete_user_product($id);
         $array = array('error' => 0, 'msg' => "Xóa thành công");
         echo json_encode($array);
     }
@@ -50,6 +51,7 @@ class Productadmin extends MY_Controller {
         $array = $this->input->post('ar_id');
         foreach ($array as $k => $v) {
             $this->productmodel->delete_product($v);
+            $this->productmodel->delete_user_product($v);
         }
         $array = array('error' => 0, 'msg' => "Xóa thành công");
         echo json_encode($array);
@@ -65,66 +67,72 @@ class Productadmin extends MY_Controller {
             show_404();
             exit;
         }
-        $this->data['detail_product']=$detail;
-        $this->load->view('ajax_admin_view_product',$this->data);
+        $this->data['detail_product'] = $detail;
+        $this->load->view('product/ajax_admin_view_product', $this->data);
     }
-    public function add()
-    {
-        if($this->input->post())
-        {
-            $this->load->library('upload');
-            $image_upload_folder = $_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/product';
-            if (!file_exists($image_upload_folder)) {
-                mkdir($image_upload_folder, DIR_WRITE_MODE, true);
-            }
-            $this->upload_config = array(
-                'upload_path' => $image_upload_folder,
-                'allowed_types' => 'png|jpg|jpeg|bmp|tiff',
-                'max_size' => 2048,
-                'remove_space' => true,
-                'encrypt_name' => true,
-                );
-            $this->upload->initialize($this->upload_config);
-            if (!$this->upload->do_upload()) {
-                $data['error_file'] = $this->upload->display_errors();
-                $file = '';
-            } else {
-                $file_info = $this->upload->data();
-            }
-            print_r($_FILES);exit;
-            if (!empty($file_info)) {
-                $file = $file_info['file_name'];
-            }
-            else
-            {
-                $file='';
-            }
+
+    public function add() {
+        if ($this->input->post()) {
             $data_save = array(
-                'title'=>$this->input->post('title'),
-                'exp_date'=>$this->input->post('exp_date'),
-                'id_cate'=>$this->input->post('category'),
-                'cost'=>$this->input->post('cost'),
-                'description'=>stripslashes($this->input->post('description')),
-                'content'=>stripslashes($this->input->post('content')),
-                'comission'=>$this->input->post('hoa_hong'),
-                'img'=>$file
+                'title' => $this->input->post('title'),
+                'exp_date' => $this->input->post('exp_date'),
+                'id_cate' => $this->input->post('category'),
+                'cost' => $this->input->post('cost'),
+                'description' => stripslashes($this->input->post('description')),
+                'content' => stripslashes($this->input->post('content')),
+                'comission' => $this->input->post('hoa_hong'),
+                'img' => $this->input->post('file')
             );
-            $id =$this->productmodel->add_product($data_save);
-            if($id>0)
-            {
-                $array = array('error'=>0,'msg'=>'Thêm thành công');
-            }
-            else
-            {
-                $array = array('error'=>1,'msg'=>'Thêm thất bại');
-            }
+            $this->productmodel->add_product($data_save);
+            $array = array('error' => 0, 'msg' => 'Update thành công');
             echo json_encode($array);
-        }
-        else
-        {
+        } else {
             $this->load->model('categorymodel');
             $this->data['list_cate'] = $this->categorymodel->list_category();
-            $this->load->view('ajax_admin_add_product',$this->data);
+            $this->load->view('product/ajax_admin_add_product', $this->data);
+        }
+    }
+
+    public function edit($id = null) {
+        if (empty($id)) {
+            show_404();
+            exit;
+        }
+        $detail = $this->productmodel->view_product($id);
+        if (empty($detail)) {
+            show_404();
+            exit;
+        }
+        if ($this->input->post()) {
+            $file = $this->input->post('file');
+            if ($file != '') {
+                $data_save = array(
+                    'title' => $this->input->post('title'),
+                    'exp_date' => $this->input->post('exp_date'),
+                    'id_cate' => $this->input->post('category'),
+                    'cost' => $this->input->post('cost'),
+                    'description' => stripslashes($this->input->post('description')),
+                    'content' => stripslashes($this->input->post('content')),
+                    'comission' => $this->input->post('hoa_hong'),
+                    'img' => $file
+                );
+            } else {
+                $data_save = array(
+                    'title' => $this->input->post('title'),
+                    'exp_date' => $this->input->post('exp_date'),
+                    'id_cate' => $this->input->post('category'),
+                    'cost' => $this->input->post('cost'),
+                    'description' => stripslashes($this->input->post('description')),
+                    'content' => stripslashes($this->input->post('content')),
+                    'comission' => $this->input->post('hoa_hong')
+                );
+            }
+            $this->productmodel->update_product($id, $data_save);
+            $array = array('error' => 0, 'msg' => 'Cập nhập thành công');
+            echo json_encode($array);
+        } else {
+            $this->data['detail_product'] = $detail;
+            $this->load->view('product/ajax_admin_edit_product', $this->data);
         }
     }
 

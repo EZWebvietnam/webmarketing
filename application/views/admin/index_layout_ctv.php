@@ -18,7 +18,7 @@
 <script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/js/core/jquery.validate.min.js?v=2.0" charset="UTF-8"></script>
 
 <script src="<?php echo base_url() ?>plugin/ckeditor/ckeditor.js"></script>
-
+<script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/js/upload.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/fancybox/jquery.fancybox-1.3.4.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/fancybox/jquery.easing-1.3.pack.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
@@ -100,9 +100,9 @@
                         </a>
                     </li>  
                                                             <li class="main">
-                        <a href="<?php echo base_url();?>ctv/productctv/ajax_get_customer" rel="npp" class="v_link">
-                            <div><img src="http://quanlybanhang.360vnit.com/icon/hire-me.png" alt=""></div>
-                            Khách hàng
+                        <a href="<?php echo base_url();?>admin/ctvadmin/list_ctv" rel="npp" class="v_link">
+                            <div><img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/hire-me.png" alt=""></div>
+                            Cộng Tác Viên
                         </a>
                     </li> 
                                     </ul>

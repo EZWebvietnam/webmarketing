@@ -101,7 +101,7 @@
                         <td><?php echo $product_ref['description']?></td>
                         <td><?php echo $product_ref['exp_date']?></td>
                         <td><?php echo $product_ref['cost']?></td>
-                        <td align="center">
+                        <td align="center"><a class="grouped_elements" href="<?php echo base_url();?>admin/productadmin/edit/<?php echo $product_ref['id_product']?>" title="Sửa"><img width="16" height="16" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/edit.png"></a>
                             <a class="grouped_elements" href="<?php echo base_url();?>admin/productadmin/view/<?php echo $product_ref['id_product']?>" title="Xóa"><img width="16" height="16" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/view.png"></a>
                            <a class="delete_record" href="<?php echo base_url();?>admin/productadmin/delete/<?php echo $product_ref['id_product']?>" title="Xóa"><img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/del.png"></a>        
                         </td>
