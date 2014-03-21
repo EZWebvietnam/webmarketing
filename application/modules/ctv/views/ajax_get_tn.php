@@ -31,7 +31,7 @@
                      <div class="h-title">Thống kê thu nhập</div>
                   </td>
                   <td>
-                     <div class="h-title">Đã lĩnh: <?php echo number_format($tien_linh);?></div>||<div class="h-title">Chưa lĩnh: <?php echo number_format($tien_chua_linh);?></div>||<div class="h-title">Còn dư: <?php echo number_format($tien_chua_linh - $tien_linh);?></div>
+                     <div class="h-title">Đã lĩnh: <?php echo number_format($tien_linh);?></div>||<div class="h-title">Chưa lĩnh: <?php echo number_format($tien_chua_linh);?></div>||<div class="h-title">Còn dư: <?php echo number_format($tien_chua_linh);?></div>
                   </td>
                </tr>
             </table>

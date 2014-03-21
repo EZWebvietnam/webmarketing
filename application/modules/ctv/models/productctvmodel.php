@@ -50,14 +50,14 @@ class Productctvmodel extends CI_Model
         $id_user = intval($id_user);
         $number = intval($number);
         $offset = intval($offset);
-        $sql ="SELECT * FROM order_detail LEFT JOIN product ON product.id_product = order_detail.id_product WHERE order_detail.id_ref = $id_user LIMIT $offset,$number";
+        $sql ="SELECT *,order_detail.id as id_order_d,order_customer.status as stt_o FROM order_detail LEFT JOIN product ON product.id_product = order_detail.id_product INNER JOIN order_customer ON order_customer.id = order_detail.order_id WHERE order_detail.id_ref = $id_user AND order_customer.status = 1 LIMIT $offset,$number";
         $query = $this->db->query($sql);
         return $query->result_array();
     }
     public function count_list_thu_nhap($id_user)
     {
         $id_user = intval($id_user);
-        $sql ="SELECT * FROM order_detail LEFT JOIN product ON product.id_product = order_detail.id_product WHERE order_detail.id_ref = $id_user";
+        $sql ="SELECT * FROM order_detail LEFT JOIN product ON product.id_product = order_detail.id_product INNER JOIN order_customer ON order_customer.id = order_detail.order_id WHERE order_detail.id_ref = $id_user AND order_customer.status = 1";
         $query = $this->db->query($sql);
         return count($query->result_array());
     }
@@ -93,13 +93,13 @@ class Productctvmodel extends CI_Model
     }
     public function da_linh($id_user)
     {
-        $sql="SELECT * FROM order_detail WHERE id_ref = $id_user AND status_money = 1";
+        $sql="SELECT * FROM order_detail INNER JOIN order_customer ON order_customer.id = order_detail.order_id WHERE order_detail.id_ref = $id_user AND order_detail.status_money = 1 AND order_customer.status = 1";
         $query = $this->db->query($sql);
         return $query->result_array();
     }
     public function chua_linh($id_user)
     {
-        $sql="SELECT * FROM order_detail WHERE id_ref = $id_user AND status_money = 0";
+        $sql="SELECT * FROM order_detail INNER JOIN order_customer ON order_customer.id = order_detail.order_id WHERE order_detail.id_ref = $id_user AND order_detail.status_money = 0 AND order_customer.status = 1";
         $query = $this->db->query($sql);
         return $query->result_array();
     }

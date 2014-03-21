@@ -179,14 +179,13 @@ class Product extends MY_Controller
             'phone'=>$phone,
             'email'=>$email,
             'yahoo'=>$yahoo,
-            'create_date'=>strtotime('now'));
+            'create_date'=>strtotime('now'),
+            'id_ref'=>$id_ref_c
+             );
             $id = $this->productmodel->insert_order($data_insert);
-           
             if($id>0)
             {
-                
                 $cart = $this->productmodel->load_cart($ip_user);
-                
                 foreach($cart as $crt)
                 {
                     $data_order_detail = array(

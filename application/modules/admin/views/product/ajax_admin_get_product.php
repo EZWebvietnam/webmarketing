@@ -21,7 +21,7 @@
        });
    });
 </script>
-<div id="result">
+<div id="khoahoc_content">
    <table class="table_full" style="width: 100%;">
       <tr>
          <td style="background: #FFF;padding: 5px 5px 5px 5px;" valign="top">
@@ -45,7 +45,7 @@
                      <thead>
                         <tr>
                            <th class="head" colspan="7">
-                              <a class="del" onclick="return action_del('admindata_kh','khachhang');"><span>Xóa</span></a>                                Có <?php echo count($list_product)?> khóa học <span class="pages"><span class="pagebar-mainbody">
+                              <a class="del" onclick="return action_del('admindata_kh','khoahoc_content');"><span>Xóa</span></a>                                Có <?php echo count($list_product)?> khóa học <span class="pages"><span class="pagebar-mainbody">
                            <?php 
                            if($total_page == 1 || $page == 1)
                            {
@@ -156,7 +156,7 @@
                   function khachhang(page_no){  
                       load_show();   
                       $.post("<?php echo base_url();?>admin/productadmin/list_product",{'page_no':page_no},function(data){
-                          $("#result").html(data);                                            
+                          $("#khoahoc_content").html(data);                                            
                           load_hide();
                       });
                   }

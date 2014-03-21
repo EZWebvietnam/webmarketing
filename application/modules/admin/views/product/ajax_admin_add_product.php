@@ -117,7 +117,7 @@
                     dataType: "json",
                     success: function(data) {
                         $.fancybox.close();
-                        reload_callback("<?php echo base_url(); ?>admin/productadmin/list_product", page, 'result');
+                        reload_callback("<?php echo base_url(); ?>admin/productadmin/list_product", page, 'khoahoc_content');
                         show_msg(data.msg);
                     }
                 });

@@ -28,5 +28,11 @@ class Ctvmodel extends CI_Model
     {
         $this->db->delete('users',array('id'=>$id_user));
     }
+    public function update_ctv($id_user,array $data)
+    {
+        $this->db->where('id',$id_user);
+        $this->db->where('role',4);
+        $this->db->update('users',$data);
+    }
 }
 ?>

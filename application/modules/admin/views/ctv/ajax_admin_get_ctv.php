@@ -9,7 +9,7 @@
        });
    });
 </script>
-<div id="result">
+<div id="khachhang_content">
    <table class="table_full" style="width: 100%;">
       <tr>
          <td style="background: #FFF;padding: 5px 5px 5px 5px;" valign="top">
@@ -89,7 +89,9 @@
                         <td><?php echo $ctv_ref['phone']?></td>
                         <td><?php echo $ctv_ref['address']?></td>
                         <td><?php echo $ctv_ref['email']?></td>
-                        <td align="center"><a class="grouped_elements" href="<?php echo base_url();?>admin/ctvadmin/edit/<?php echo $ctv_ref['id']?>" title="Sửa"><img width="16" height="16" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/edit.png"></a>
+                        <td align="center">
+                            <a class="grouped_elements" href="<?php echo base_url();?>admin/ctvadmin/edit/<?php echo $ctv_ref['id']?>" title="Sửa"><img width="16" height="16" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/edit.png"></a>
+                            <a class="grouped_elements" href="<?php echo base_url();?>admin/ctvadmin/order_view/<?php echo $ctv_ref['id']?>" title="Sửa"><img width="16" height="16" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/order.png"></a>
                             <a class="grouped_elements" href="<?php echo base_url();?>admin/ctvadmin/view/<?php echo $ctv_ref['id']?>" title="Xóa"><img width="16" height="16" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/view.png"></a>
                             <a class="delete_record" href="<?php echo base_url();?>admin/ctvadmin/delete/<?php echo $ctv_ref['id']?>" title="Xóa"><img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/del.png"></a>        
                         </td>
@@ -98,7 +100,7 @@
                      <tfoot>
                         <td colspan="7">
                            <a class="del" onclick="return action_del('admindata_kh','khachhang');"><span>Xóa</span></a>                            
-                           Có <?php echo count($list_ctv)?> khóa học 
+                           Có <?php echo count($list_ctv)?> CTV
                            <span class="pages">
                            <span class="pagebar-mainbody">
                            <?php 
@@ -144,11 +146,10 @@
                   function khachhang(page_no){  
                       load_show();   
                       $.post("<?php echo base_url();?>admin/ctvadmin/list_ctv",{'page_no':page_no},function(data){
-                          $("#result").html(data);                                            
+                          $("#khachhang_content").html(data);                                            
                           load_hide();
                       });
                   }
-                  
                </script>  
             </div>
          </td>

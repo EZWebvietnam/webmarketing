@@ -154,7 +154,6 @@ $(function() {
         var page = $(this).parents('form').find("input#page").val();
         var callback = $(this).parents('form').find("input#callback").val();
         var div = $(this).parents('div.sub_tabui').attr('id');
-
         link = $(this).attr('href');
         if(link !=''){
             jConfirm('Bạn có chắc chắn muốn xóa mục đã chọn.<br />Chọn <b>Đồng ý</b> hoặc <b>Hủy bỏ</b>','Thông báo',function(r) {

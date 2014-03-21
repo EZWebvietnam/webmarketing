@@ -135,6 +135,7 @@ class Productctv extends MY_Controller
     {
         $id_user = $this->session->userdata('user_id');
         $da_linh = $this->productctvmodel->da_linh($id_user);
+        $tien_linh = 0;
         if(empty($da_linh))
         {
             $tien_linh = 0;
