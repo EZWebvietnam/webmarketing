@@ -125,8 +125,8 @@
 			</li>
     	    <?php } ?>
     	    <li>
-				<a  href='/U1/89p_hoi-thao.htm'>
-			Hội Thảo		</a>
+				<a  href='<?php echo base_url();?>hoi-dap'>
+			Hỏi Đáp		</a>
 			</li>
     	    <li>
 				<a  href='/U1/50c_tuyen-dung.htm'>

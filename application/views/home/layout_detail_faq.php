@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 		<head>
-			<title>VinaMos.vn</title>
+			<title>VinaMos.vn - Kiếm tiền qua facebook</title>
 			<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 			<meta name="Author" content="tranchaulong@gmail.com" />
 			<meta name="Publisher" content="tranchaulong@gmail.com" />
@@ -12,13 +12,14 @@
 			<meta name="rating" content="general" />
 			<meta name="keywords" content="internet marketing,marketing online,chien luoc marketing online,hoc marketing online,giai phap marketing online,thuc hanh marketing online,cong cu thuc thuc hanh marketing online,ung dung marketing online,he thong marketing online ,tu van marketing online, website thong minh , website ban hang ,khoa hoc marketing online ,hoc truc tuyen , hoi thao truc tuyen, tiet kiem chi phi marketing online ,kiem tien tren mang, kiem tien online, tiep thi marketing online, marketing" />
 			<meta name="description" content="internet marketing,marketing online,chien luoc marketing online,hoc marketing online,giai phap marketing online,thuc hanh marketing online,cong cu thuc thuc hanh marketing online,ung dung marketing online,he thong marketing online ,tu van marketing online, website thong minh , website ban hang ,khoa hoc marketing online ,hoc truc tuyen , hoi thao truc tuyen, tiet kiem chi phi marketing online ,kiem tien tren mang, kiem tien online, tiep thi marketing online, marketing" />
-			<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/css.css" media="screen"  />
-			<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/jquery.countdown.css" media="screen"  />
-			<script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/home/scripts/main.htm"></script>
-			<script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/js/jquery-1.8.3.js"></script>
-			<script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/js/jquery.tools.min.js"></script>
-			<script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/js/jquery.countdown2.js"></script>
-			<script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/js/jquery-ui.js"></script>
+			<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/css.css" media="screen"  />
+			<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/jquery.countdown.css" media="screen"  />
+			<script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/scripts/main.htm"></script>
+			<script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/jquery-1.8.3.js"></script>
+            <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/jquery.plugin.js"></script>
+			<script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/jquery.tools.min.js"></script>
+			<script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/jquery.countdown.js"></script>
+			<script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/jquery-ui.js"></script>
 
 			<script type="text/javascript">
 				var curent_price = 0;
@@ -34,7 +35,7 @@
 				var my_template = "template_1";
 				var my_curent_page = "U1";
 			</script>
-			<script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/js/cart_script3.js"></script>
+			<script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/cart_script3.js"></script>
 
 	
 </head>
@@ -56,13 +57,13 @@
 	<div class='top_menu' >
 		<a href="<?php echo base_url();?>" class="home">Trang chủ</a>
 		<a href="/U1/contact.htm" class="contact">Liên hệ</a>
-		<a href="#"  onclick="show_cart()"  class="cart">
+		<a href="#"  onclick="show_cart('<?php echo base_url();?>')"  class="cart">
 			Giỏ hàng (<span id="product_number" style="color:#ef4232;font-weight:700">0</span>)
 		</a>
 	</div>
 	<div class='login_form'>
 					<form style='margin:0px;padding:0px' method='post' action='/login.htm'>
-				<input style='float:right;margin-top:-5px' type="image" src="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/images/login.png" name="submit" value='submit' width="126" height="32" />
+				<input style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/login.png" name="submit" value='submit' width="126" height="32" />
 				<input type="text" name="username" size="20" style="width:160px;border:0;height:23px;color:#005398;font-style: italic; " onblur="if (this.value=='') this.value='Tài khoản...';" onfocus="if (this.value=='Tài khoản...') this.value='';" value='Tài khoản...' />
 				<input type="password" name="password" size="20" style="width:160px;border:0;height:23px;color:#005398;font-style: italic;margin-left:38px" onblur="if (this.value=='') this.value='Mật khẩu...';" onfocus="if (this.value=='Mật khẩu...') this.value='';" value='Mật khẩu...' />
 				<input type='checkbox' name='save_loginfo' value='1' id='save_loginfo' style='margin-left:10px' />
@@ -73,7 +74,7 @@
 
 <div style='width:1000px;margin: 0 auto 0 auto;'>
 	<ul id='menu'>
-			    <?php 
+            <?php 
             foreach($list_cate as $list_cate_menu)
             {
             ?>
@@ -83,8 +84,8 @@
 			</li>
     	    <?php } ?>
     	    <li>
-				<a  href='<?php echo base_url();?>hoi-dap'>
-			Hỏi Đáp		</a>
+				<a  href='/U1/89p_hoi-thao.htm'>
+			Hội Thảo		</a>
 			</li>
     	    <li>
 				<a  href='/U1/50c_tuyen-dung.htm'>
@@ -150,7 +151,7 @@
 			<div style="clear:both"></div>
 			<input type="submit" name="submit_email" value='   Gửi   '  />
 		</form>
-		<div id="email_form_content_loading" style="display:none"><br /><br /><br /><center><img src="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/images/ajax-loader.gif" alt="loading" /></center></div>
+		<div id="email_form_content_loading" style="display:none"><br /><br /><br /><center><img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/ajax-loader.gif" alt="loading" /></center></div>
 		</center>
 		</div>
 	</div>
@@ -163,7 +164,7 @@
 	<div class="formcontent">
 		<center>
 		<div id='add_to_cart_form_div'>
-			<form name='add_to_cart_form' action='' method='post' onsubmit='return add_to_cart()'>
+			<form name='add_to_cart_form' action='' method='post'>
 				<table width="330">
 					<tr>
 						<td width="100">
@@ -183,7 +184,7 @@
 					</tr>
 				</table>
 				<div style="clear:both"></div>
-				<input type="submit" name="submit_email" value='   Thêm vào giỏ   '  />
+				<input type="button" name="submit_email" onclick="add_to_cart_db(<?php echo $product_detail[0]['id_product']?>,'<?php echo base_url(); ?>');" value='Thêm vào giỏ'  />
 			</form>
 		</div>
 		<div id="add_to_cart_form_result">
@@ -193,7 +194,7 @@
 				Hãy vào giỏ hàng để tiến hành đặt hàng.<br />
 				</b>
 				Xin chân thành cảm ơn<br /><br />
-				<input type="submit" name="submit_email" value='   Vào giỏ hàng   ' onclick="close_add_to_card_form();show_cart();" /> 
+				<input type="submit" name="submit_email" value='   Vào giỏ hàng   ' onclick="close_add_to_card_form();show_cart('<?php echo base_url();?>');" /> 
 				<input type="submit" name="submit_email" value='   Mua tiếp   ' onclick="close_add_to_card_form();" />
 			</center>
 		</div>
@@ -202,33 +203,16 @@
 </div>
 <div id='show_cart_form' style="display:none;text-align:left">
 	<div  style="float:right;cursor:pointer;margin:0" onclick="close_show_cart_form()"><b>[x]</b></div>
-	<div class="form_header">Giỏ hàng <img src="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/images/d_icon.png" width="30" alt="Xóa" style="cursor:pointer" onclick="if (confirm('Bạn có chăc muốn xóa?')) clear_cart()" /></div>
-	<table cellspacing='0' cellpadding='0' width="475" style="float:left">
-		<tr>
-			<td width="50" align="center">
-				Ảnh
-			</td>
-			<td>
-				Tên sản phẩm
-			</td>
-			<td width="75" align="center">
-				Đơn giá <br />VND
-			</td>
-			<td width="50" align="center">
-				Số lượng
-			</td>
-			<td width="80" align="center">
-				Thành tiền <br />VND
-			</td>
-			<td width="40" align="center">
-				Xóa
-			</td>
-		</tr>
-	</table>
+	<div class="form_header">Giỏ hàng <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/d_icon.png" width="30" alt="Xóa" style="cursor:pointer" onclick="if (confirm('Bạn có chăc muốn xóa?')) clear_cart()" /></div>
+    <div id="cart_content">
+	
+    </div>
 	<div class="formcontent" style="height:280px;clear:both;margin-top:25px;overflow:auto;clear:both" onmouseover='$("#show_cart_form").draggable("disable");' onmouseout='$("#show_cart_form").draggable("enable");'>
-		<div id="cart_content"></div>
+		
+       
+        
 	</div>
-	<img src="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" onclick="show_order_form()" style="padding-top:5px" />
+	<img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" onclick="show_order_form()" style="padding-top:5px" />
 </div>
 
 
@@ -295,10 +279,10 @@
 			</tr>
 		</table>
 		<center>
-		<img src="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" onclick="order_process()" style="padding-top:5px" />
+		<img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" onclick="order_process('<?php echo base_url();?>')" style="padding-top:5px" />
 		</center>
 	</div>
-	<div id="o_email_form_content_loading" style="display:none"><br /><br /><br /><center><img src="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/images/ajax-loader.gif" alt="loading" /></center></div>
+	<div id="o_email_form_content_loading" style="display:none"><br /><br /><br /><center><img src="template/template_1/images/ajax-loader.gif" alt="loading" /></center></div>
 </div>
 
 <script type='text/javascript'>
@@ -337,272 +321,98 @@ if(checkform_email!="true"){
 </script>
 <div id="body_bg">
 	<div id='main_body_content2'>
-		<!--Widget-->
-					<!--/Widget-->
-		<div style="background:#fff;margin:0;padding:10px 10px 10px 0">
-	<div style="moz-border-radius: 5px;-webkit-border-radius: 5px;background: #def3ff;padding: 10px;">
-			<div style="clear:both">
-	<div style="float:left;background:url(<?php echo base_url();?>template/ezwebvietnam/home/uploads/tivi.png) top left no-repeat;width:603px;height:401px;padding:36px 36px 36px 38px">
-    <?php 
-    foreach($clip_top as $cl_top)
-    {
-    ?>
-    <iframe allowfullscreen="" frameborder="0" height="338" name="video" src="//www.youtube.com/embed/<?php echo $cl_top['code']?>" width="600"></iframe>
-    <?php } ?>
-    </div>    
-    <div style="float:right;width:258px;">  
-    <?php 
-    foreach($list_clip_right as $l_c_r)
-    {
-    ?>
-    <div style="border:1px solid #00436f;padding:10px;margin:5px;font-size:12px;color:#fff;background:#fff">  <table>  	  		
-    <tr>  			
-    <td width="88">
-    <img alt="" height="50" src="<?php echo base_url();?>file/uploads/no_image.gif" style="border: 4px solid rgb(0, 113, 187);" width="80" /></td>  			
-    <td width="200"><a href="//www.youtube.com/embed/<?php echo $l_c_r['code']?>" target="video"><b><?php echo $l_c_r['title']?></b></a></td>  		</tr>  	  </table>  </div> 
-    <?php } ?>   
-    <div style="clear:both">&nbsp;</div>  
-</div>		</div>
-	
-</div>
-
-	<div style='clear:both'></div>
-	<div style="background:#fff;margin:0;padding:10px 10px 10px 0">
-<style>
-.infiniteCarousel {
-  width: 960px;
-  position: relative;
-  height: 185px;
-  background:url(<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/images/product_special_bg.png) center center no-repeat;
-}
-
-.infiniteCarousel .wrapper {
-  width: 880px; /* .infiniteCarousel width - (.wrapper margin-left + .wrapper margin-right) */
-  overflow: auto;
-  height: 220px;
-  margin: 0 40px;
-  position: absolute;
-  top: 0;
-}
-
-.infiniteCarousel ul a img {
-  border: 5px solid #0e7aff;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-}
-
-.infiniteCarousel .wrapper ul {
-  width: 1px; /* single item * n */
-  list-style-image:none;
-  list-style-position:outside;
-  list-style-type:none;
-  margin:0;
-  padding:0;
-  position: absolute;
-  top: 0;
-}
-
-.infiniteCarousel ul li {
-  display:block;
-  float:left;
-  margin: 0px;
-  height: 220px;
-  width: 220px;
-}
-
-.infiniteCarousel ul li img {
-    -webkit-transition: border-color 400ms;
-}
-
-.infiniteCarousel ul:hover li img {
-  border-color: #000;
-}
-
-.infiniteCarousel ul:hover li:hover img {
-  border-color: #333;
-}
-
-.infiniteCarousel ul li a img {
-  display:block;
-}
-
-.infiniteCarousel .arrow {
-  display: block;
-  height: 36px;
-  width: 37px;
-  background: url(<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/images/product_special_arrow.png) no-repeat 0 0;
-  text-indent: -999px;
-  position: absolute;
-  top: 74px;
-  cursor: pointer;
-  outline: 0;
-}
-
-.infiniteCarousel .forward {
-  background-position: 0 0;
-  right: 0;
-}
-
-.infiniteCarousel .back {
-  background-position: 0 -72px;
-  left: 0;
-}
-
-.infiniteCarousel .forward:hover {
-  background-position: 0 -36px;
-}
-
-.infiniteCarousel .back:hover {
-  background-position: 0 -108px;
-}
-</style>
-<div class="product_special">
-	<div class="header"><i>ĐẶT BIỆT</i></div>
-		 <div class="infiniteCarousel">
-		  <div class="wrapper">
-			<ul>
-            <?php 
-            foreach($list_product as $l_p)
-            {
-            ?>
-							<li>
-					<a href="<?php echo base_url()?>p_c-<?php echo $l_p['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($l_p['name']))) ?>/p_p-<?php echo $l_p['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($l_p['title']))) ?>">
-                    <?php 
-                    if(file_exists($_SERVER['DOCUMENT_ROOT'].ROT_DIR.'file/uploads/product/'.$l_p['img']) && is_file($_SERVER['DOCUMENT_ROOT'].ROT_DIR.'file/uploads/product/'.$l_p['img']) && $l_p['img']!='')
-                    {
-                    ?>
-						<img src="<?php echo base_url();?>file/uploads/product/<?php echo $l_p['img']?>" width="180" alt="<?php echo $l_p['title']?>" />
-                        <?php } else { ?>
-                        <img src="<?php echo base_url();?>file/uploads/no_image.gif" width="180" alt="<?php echo $l_p['title']?>" />
-                        <?php } ?>
-					</a>
-				</li>
-			<?php } ?>				
-						</ul>        
-		  </div>
+	<div id="main_page">
+		<div id="center222">
+		<?php echo $this->load->view($main_content);?>
+							
+					<div style='hight:1px'>&nbsp;</div>
+			<div style='clear:both'></div>
+			<!--Widget-->
+						<!--/Widget-->
 		</div>
 	
-</div>
-
-<script type="text/javascript" charset="utf-8">
-
-(function () {
-    $.fn.infiniteCarousel = function () {
-        function repeat(str, n) {
-            return new Array( n + 1 ).join(str);
-        }
-        
-        return this.each(function () {
-            // magic!
-            var $wrapper = $('> div', this).css('overflow', 'hidden'),
-                $slider = $wrapper.find('> ul').width(9999),
-                $items = $slider.find('> li'),
-                $single = $items.filter(':first')
-                
-                singleWidth = $single.outerWidth(),
-                visible = Math.ceil($wrapper.innerWidth() / singleWidth),
-                currentPage = 1,
-                pages = Math.ceil($items.length / visible);
-                
-            /* TASKS */
-            
-            // 1. pad the pages with empty element if required
-            if ($items.length % visible != 0) {
-                // pad
-                $slider.append(repeat('<li class="empty" />', visible - ($items.length % visible)));
-                $items = $slider.find('> li');
-            }
-            
-            // 2. create the carousel padding on left and right (cloned)
-            $items.filter(':first').before($items.slice(-visible).clone().addClass('cloned'));
-            $items.filter(':last').after($items.slice(0, visible).clone().addClass('cloned'));
-            $items = $slider.find('> li');
-            
-            // 3. reset scroll
-            $wrapper.scrollLeft(singleWidth * visible);
-            
-            // 4. paging function
-            function gotoPage(page) {
-                var dir = page < currentPage ? -1 : 1,
-                    n = Math.abs(currentPage - page),
-                    left = singleWidth * dir * visible * n;
-                
-                $wrapper.filter(':not(:animated)').animate({
-                    scrollLeft : '+=' + left
-                }, 500, function () {
-                    // if page == last page - then reset position
-                    if (page > pages) {
-                        $wrapper.scrollLeft(singleWidth * visible);
-                        page = 1;
-                    } else if (page == 0) {
-                        page = pages;
-                        $wrapper.scrollLeft(singleWidth * visible * pages);
-                    }
-                    
-                    currentPage = page;
-                });
-            }
-            
-            // 5. insert the back and forward link
-            $wrapper.after('<a href="#" class="arrow back"></a><a href="#" class="arrow forward"></a>');
-            
-            // 6. bind the back and forward links
-            $('a.back', this).click(function () {
-                gotoPage(currentPage - 1);
-                return false;
-            });
-            
-            $('a.forward', this).click(function () {
-                gotoPage(currentPage + 1);
-                return false;
-            });
-            
-            $(this).bind('goto', function (event, page) {
-                gotoPage(page);
-            });
-            
-            // THIS IS NEW CODE FOR THE AUTOMATIC INFINITE CAROUSEL
-            $(this).bind('next', function () {
-                gotoPage(currentPage + 1);
-            });
-        });
-    };
-})(jQuery);
-
-$(document).ready(function () {
-    // THIS IS NEW CODE FOR THE AUTOMATIC INFINITE CAROUSEL
-    var autoscrolling = true;
-    
-    $('.infiniteCarousel').infiniteCarousel().mouseover(function () {
-        autoscrolling = false;
-    }).mouseout(function () {
-        autoscrolling = true;
-    });
-    
-    setInterval(function () {
-        if (autoscrolling) {
-            $('.infiniteCarousel').trigger('next');
-        }
-    }, 2000);
-});
-
-
-</script>
-<div style="clear:both;height:50px"></div>
-</div>	<!--Widget-->
-					<!--/Widget-->
 	</div>
+	<div id='left_block' >
+	<div style="padding:5px">
+	<!--Widget-->
+ <?php 
+ foreach($list_product_sale as $product_sale)
+ {
+ ?>
+<div>
+	<p style="text-align: center;">
+    <a href="<?php echo base_url();?>p_c-<?php echo $product_sale['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($product_sale['name']))) ?>/p_p-<?php echo $product_sale['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($product_sale['title']))) ?>">
+    <?php 
+    if(file_exists($_SERVER['DOCUMENT_ROOT'].ROT_DIR.'file/uploads/sale/'.$product_sale['img']) && is_file($_SERVER['DOCUMENT_ROOT'].ROT_DIR.'file/uploads/sale/'.$product_sale['img']) && $product_sale['img']!='')
+    {
+    ?>
+    <img alt="" src="<?php echo base_url();?>file/uploads/sale/<?php echo $product_sale['img']?>" style="width: 240px; height: 300px;" />
+    <?php } else {?>
+    <img alt="" src="<?php echo base_url();?>file/uploads/no_image.gif" style="width: 240px; height: 300px;" />
+    <?php } ?>
+    </a></p>    
+    <p style="text-align: center;"><a href="<?php echo base_url();?>p_c-<?php echo $product_sale['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($product_sale['name']))) ?>/p_p-<?php echo $product_sale['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($product_sale['title']))) ?>" style="line-height: 1.6em;">
+    </a><br />  &nbsp;</p>  
+</div>
+<?php } ?>
+									<div>
+	  <div class="g-ytsubscribe" data-channel="khanhmarketingonline" data-layout="full">&nbsp;</div>  
+</div>
+									<div>
+	<p><a href="http://tenten.vn/" target="_blank"><img alt="" src="https://vinamos.vn//uploads/1/son2.png" style="width: 240px; height: 120px;" /></a></p>
+
+</div>
+									<div>
+	<p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/dXyvwBX6FDA" width="235"></iframe></p>
+
+</div>
+									<div>
+	<p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/wicGL9W2DTQ" width="235"></iframe></p>
+
+</div>
+									<div>
+	<p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/iZFiMOKPzjk" width="235"></iframe></p>
+
+</div>
+									<div>
+	<p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/gj_xH97tMbI" width="235"></iframe></p>
+
+</div>
+									<div>
+	<p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/bBR2PsEmN1M" width="235"></iframe></p>
+
+</div>
+									<div>
+	<p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/VuqkHVpIExI" width="235"></iframe></p>
+
+</div>
+									<div>
+	<p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/vjZ2BIKjqxs" width="235"></iframe></p>
+
+</div>
+									<div>
+	<p><a href="http://www.ngoinhamang.net" title="Hosting - Domain - Email - Thuê Server - Thiết kế Website"><img alt="Hosting - Domain - Email - Thuê Server - Thiết kế Website" src="http://www.ngoinhamang.net/hosting-email-server-domain.gif" title="Hosting - Domain - Email - Thuê Server - Thiết kế Website" /> </a></p>  
+</div>
+									<div>
+
+</div>
+								<!--/Widget-->
+	</div>
+</div>	<div style='clear:both'></div>
+	</div>
+	<!--Widget-->
+					<!--/Widget-->
 	<div id="footer">
 <div style="height:30px;padding:7px 10px 0 10px;color:#fff;margin:0 0 10px 0">
 	<div style="float:left">
 		<a href="/U1"><font color="#ffffff">Trang chủ</font></a> 
-								</div>
+									> <a href="/U1/90p_dao-tao-marketing-online.htm"><font color="#ffffff">Đào Tạo Marketing Online</font></a> 
+						</div>
 </div>
 <p style="text-align: center;"><span style="color:#FFF0F5;"><span style="font-size: small; font-family: Arial; line-height: 1.6em;">&nbsp; &nbsp;&nbsp;</span><span style="font-family: Arial; line-height: 1.6em; font-size: 16px;"><strong>&nbsp;C&Ocirc;NG TY TƯ VẤN Đ&Agrave;O TẠO TIẾP THỊ TRỰC TUYẾN VINA (VINA M.O.S)</strong></span></span></p>    <p style="text-align: center;"><span style="color:#FFF0F5;"><strong><span style="font-size:16px;"><span style="font-family: Arial;"><span style="line-height: 20px;">D66 Đường số 6 - Khu D&acirc;n Cư Him Lam&nbsp;</span>&nbsp;- Q.7&nbsp;- TP.HCM&nbsp;</span></span></strong></span></p>    <p style="text-align: center;"><span style="color:#FFF0F5;"><strong><span style="font-size:16px;"><span style="font-family: Arial;">Hotline: 0909.140.539</span></span></strong></span></p>
 <br />
 Developed by <a href="http://smartsoftware.vn" target="_blank">SmartSoftware</a>
 </div>
 
-<!-- End Piwik Code --></div>
 </body>
 </html>

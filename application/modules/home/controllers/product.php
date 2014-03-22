@@ -95,7 +95,7 @@ class Product extends MY_Controller
                 }
                 if($id_ref!=0)
                 {
-                    $comission = (($price*$product_detail[0]['comission'])/100);
+                    $comission = (($price*$product_detail[0]['comission'])/100)*$quantity;
                 }
                 else
                 {
@@ -207,6 +207,69 @@ class Product extends MY_Controller
             }
         }
         
+    }
+    public function faq_list()
+    {
+        $this->load->model('faq');
+        $this->load->helper('url');
+        $config['uri_segment'] = 5;
+        $page = $this->uri->segment(3);
+        $config['per_page'] = 10;
+        $config['total_rows'] = $this->faq->count_faq();
+        if ($page == '') {
+            $page = 1;
+        }
+        $page1 = ($page - 1) * $config['per_page'];
+        if (!is_numeric($page)) {
+            show_404();
+            exit;
+        }
+       $num_pages = ceil($config['total_rows']/ $config['per_page']);
+       $array_sv = $this->faq->list_faq($config['per_page'], $page1);
+       $this->data['total_page'] = $num_pages;
+       $this->data['offset'] = $page1;
+       $this->data['page']=$page;
+       $this->data['total']=$config['total_rows'];
+       $this->data['list']=$array_sv;
+        $this->load->view('home/layout_faq',$this->data);
+    }
+    public function detail_faq($id)
+    {
+        $this->load->model('faq');
+        $this->data['detail'] = $this->faq->faq_detail($id);
+        $this->data['list_product_sale']=$this->productmodel->get_list_product_sale_off();
+        $this->data['main_content']='product/detail_faq';
+        $this->load->view('home/layout_detail',$this->data);
+    }
+    public function send_faq()
+    {
+        $this->load->model('faq');
+        if($this->input->post())
+        {
+            $title = $this->input->post('title');
+            $name = $this->input->post('name');
+            $email = $this->input->post('email');
+            $content = stripslashes($this->input->post('content'));
+            $data_insert = array(
+                'title'=>$title,
+                'name'=>$name,
+                'email'=>$email,
+                'question'=>$content,
+                'status'=>0,
+                'create_date'=>strtotime('now')
+            );
+            $id = $this->faq->insert_faq($data_insert);
+            if($id>0)
+            {
+                redirect('/hoi-dap');
+            }
+        }
+        else
+        {
+            $this->data['list_product_sale']=$this->productmodel->get_list_product_sale_off();
+            $this->data['main_content']='product/faq_send';
+            $this->load->view('home/layout_detail',$this->data);
+        }
     }
 }
 ?>

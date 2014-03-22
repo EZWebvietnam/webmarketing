@@ -113,6 +113,18 @@
                            <div class="box_menu">
             <div class="box_menu_right">
                 <ul>
+                <li class="main">
+                        <a href="<?php echo base_url();?>admin/orderadmin/list_order" rel="khohang" class="v_link">
+                            <div><img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/unit-icon.png" alt=""></div>
+                            Hóa đơn
+                        </a>
+                    </li>
+            <li class="main">
+                        <a href="<?php echo base_url();?>admin/faqadmin/list_faq" rel="faq" class="v_link">
+                            <div><img src="http://quanlybanhang.360vnit.com/icon/store.png" alt=""></div>
+                            Hỏi đáp
+                        </a>
+                    </li>
                                         <li class="main">
                         <a href="<?php echo base_url();?>ctv/productctv/ajax_thu_nhap" rel="khohang" class="v_link">
                             <div><img src="http://quanlybanhang.360vnit.com/icon/store.png" alt=""></div>

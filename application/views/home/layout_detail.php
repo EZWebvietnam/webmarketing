@@ -20,6 +20,7 @@
 			<script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/jquery.tools.min.js"></script>
 			<script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/jquery.countdown.js"></script>
 			<script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/jquery-ui.js"></script>
+                        <script type="text/javascript" src="<?php echo base_url(); ?>plugin/ckeditor/ckeditor.js"></script>
 
 			<script type="text/javascript">
 				var curent_price = 0;
@@ -84,8 +85,8 @@
 			</li>
     	    <?php } ?>
     	    <li>
-				<a  href='/U1/89p_hoi-thao.htm'>
-			Hội Thảo		</a>
+				<a  href='<?php echo base_url();?>hoi-dap'>
+			Hỏi Đáp		</a>
 			</li>
     	    <li>
 				<a  href='/U1/50c_tuyen-dung.htm'>

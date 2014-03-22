@@ -46,6 +46,9 @@ $route['p_c-(:any)-(:any)/page/(:any)'] = "home/product/list_product/$1";
 $route['cong-tac-vien'] = "ctv/productctv/index";
 $route['cong-tac-vien/login'] = "ctv/homectv/login";
 $route['404_override'] = '';
+$route['hoi-dap']='home/product/faq_list';
+$route['gui-cau-hoi']='home/product/send_faq';
+$route['hoi-dap-(:any)-(:any)'] = 'home/product/detail_faq/$1';
 $route['quan-tri'] = "admin/login/index";
 $route['quan-tri-vien'] = "admin/productadmin/index";
 
