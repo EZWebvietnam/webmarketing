@@ -94,13 +94,13 @@
                 <ul>
                                         <li class="main">
                         <a href="<?php echo base_url();?>ctv/productctv/ajax_get_product" rel="khachhang" class="v_link">
-                            <div><img src="http://quanlybanhang.360vnit.com/icon/customers.png" alt=""></div>
+                            <div><img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/customers.png" alt=""></div>
                             Khóa học
                         </a>
                     </li>  
                                                             <li class="main">
                         <a href="<?php echo base_url();?>ctv/productctv/ajax_get_customer" rel="npp" class="v_link">
-                            <div><img src="http://quanlybanhang.360vnit.com/icon/hire-me.png" alt=""></div>
+                            <div><img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/hire-me.png" alt=""></div>
                             Khách hàng
                         </a>
                     </li> 
@@ -114,11 +114,16 @@
                 <ul>
                                         <li class="main">
                         <a href="<?php echo base_url();?>ctv/productctv/ajax_thu_nhap" rel="khohang" class="v_link">
-                            <div><img src="http://quanlybanhang.360vnit.com/icon/store.png" alt=""></div>
+                            <div><img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/store.png" alt=""></div>
                             Thu nhập
                         </a>
                     </li>
-                           
+                    <li class="main">
+                        <a href="<?php echo base_url();?>ctv/messagememberctv/list_message" rel="donvitinh" class="v_link">
+                            <div><img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/unit-icon.png" alt=""></div>
+                           Tin nhắn
+                        </a>
+                    </li>    
                                               
                     
                                          

@@ -125,6 +125,12 @@
                             Hỏi đáp
                         </a>
                     </li>
+             <li class="main">
+                        <a href="<?php echo base_url();?>admin/messageadmin/list_message" rel="message" class="v_link">
+                            <div><img width="32" height="32" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/mail.png" alt=""></div>
+                            Tin nhắn
+                        </a>
+                    </li>
                                         <li class="main">
                         <a href="<?php echo base_url();?>ctv/productctv/ajax_thu_nhap" rel="khohang" class="v_link">
                             <div><img src="http://quanlybanhang.360vnit.com/icon/store.png" alt=""></div>
