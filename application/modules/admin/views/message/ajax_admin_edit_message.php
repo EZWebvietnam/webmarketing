@@ -64,6 +64,7 @@
                     data: dataString,
                     mimeType: "multipart/form-data",
                     dataType: "json",
+                    cache: false,
                     success: function(data) {
                         $.fancybox.close();
                         reload_callback("<?php echo base_url(); ?>admin/messageadmin/list_message", page, 'message_content');

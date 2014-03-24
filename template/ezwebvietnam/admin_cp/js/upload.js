@@ -1,5 +1,5 @@
 
-function fileUpload(form, action_url, div_id) {
+function fileUpload(form, action_url, div_id,current_action) {
     // Create the iframe...
     var iframe = document.createElement("iframe");
     iframe.setAttribute("id", "upload_iframe");
@@ -49,6 +49,6 @@ function fileUpload(form, action_url, div_id) {
 
     // Submit the form...
     form.submit();
-
+    form.setAttribute("action", current_action);
     document.getElementById(div_id).innerHTML = "Uploading...";
 }

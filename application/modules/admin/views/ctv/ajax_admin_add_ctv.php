@@ -117,6 +117,7 @@ $password = array(
                 url: "<?php echo base_url();?>admin/ctvadmin/check_email_ajax",
                 data: {email:email},
                 dataType: "json",
+                cache: false,
                 success: function(data) {
                     if(data.error!=0)
                     {

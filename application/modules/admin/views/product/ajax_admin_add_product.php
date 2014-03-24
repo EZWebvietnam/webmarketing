@@ -30,7 +30,7 @@
             <tr>
                 <td class="label">Danh mục</td>
                 <td colspan="3">
-                    <select name="category">
+                    <select name="category" id="category">
                         <?php
                         foreach ($list_cate as $cate) {
                             ?>
@@ -54,8 +54,8 @@
             <tr>
                 <td class="label">Hình ảnh</td>
                 <td colspan="3">
-                    <input type="file" name="userfile" />
-                    <input id="userfile" name="userfile" type="button" class="bt100" value="Upload" onClick="fileUpload(this.form,'<?php echo base_url();?>upload/do_upload','upload'); return false;">
+                    <input type="file" name="userfile"/>
+                    <input id="userfile" name="userfile" type="button" class="bt100" value="Upload" onClick="fileUpload(this.form,'<?php echo base_url();?>upload/do_upload','upload','<?php echo base_url(); ?>admin/productadmin/add'); return false;">
                    <div id="upload"></div>
                     <input type='hidden' name='file' id='file'/>
                 </td>
@@ -109,12 +109,15 @@
             , submitHandler: function(form) {
                 var page = 1;
                 dataString = $("#adminform").serialize();
+                var description = CKEDITOR.instances['editor1'].getData();
+                var content = CKEDITOR.instances['editor2'].getData();
                 $.ajax({
                     type: "POST",
                     url: $("#adminform").attr('action'),
-                    data: dataString,
+                    data: {title:$('#title_').val(),exp_date:$('#exp_date_').val(),category:$('#category').val(),cost_:$('#cost').val(),hoa_hong:$('#hoa_hong').val(),file:$('#file').val(),description:description,content:content},
                     mimeType: "multipart/form-data",
                     dataType: "json",
+                    cache: false,
                     success: function(data) {
                         $.fancybox.close();
                         reload_callback("<?php echo base_url(); ?>admin/productadmin/list_product", page, 'khoahoc_content');

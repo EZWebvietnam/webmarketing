@@ -42,8 +42,8 @@
             <tr>
                 <td class="label">Hình ảnh</td>
                 <td colspan="3">
-                    <input type="file" name="userfile" />
-                    <input id="userfile" name="userfile" type="button" class="bt100" value="Upload" onClick="fileUpload(this.form,'<?php echo base_url();?>upload/do_upload','upload'); return false;">
+                    <input type="file" name="userfile"/>
+                    <input id="userfile" name="userfile" type="button" class="bt100" value="Upload" onClick="fileUpload(this.form,'<?php echo base_url();?>upload/do_upload','upload','<?php echo base_url(); ?>admin/productadmin/edit/'+<?php echo $detail_product[0]['id_product'] ?>'); return false;">
                    <div id="upload"></div>
                     <input type='hidden' name='file' id='file'/>
                 </td>
@@ -103,15 +103,18 @@
             , submitHandler: function(form) {
                 var page = 1;
                 dataString = $("#adminform").serialize();
+                var description = CKEDITOR.instances['editor1'].getData();
+                var content = CKEDITOR.instances['editor2'].getData();
                 $.ajax({
                     type: "POST",
                     url: $("#adminform").attr('action'),
-                    data: dataString,
+                    data: {title:$('#title_').val(),exp_date:$('#exp_date_').val(),category:$('#category').val(),cost_:$('#cost').val(),hoa_hong:$('#hoa_hong').val(),file:$('#file').val(),description:description,content:content},
                     mimeType: "multipart/form-data",
                     dataType: "json",
+                    cache: false,
                     success: function(data) {
                         $.fancybox.close();
-                        reload_callback("<?php echo base_url(); ?>admin/productadmin/list_product", page, 'result');
+                        reload_callback("<?php echo base_url(); ?>admin/productadmin/list_product", page, 'khoahoc_content');
                         show_msg(data.msg);
                     }
                 });

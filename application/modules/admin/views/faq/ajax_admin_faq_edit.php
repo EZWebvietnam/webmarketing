@@ -79,6 +79,7 @@
                     data: dataString,
                     mimeType: "multipart/form-data",
                     dataType: "json",
+                    cache: false,
                     success: function(data) {
                         $.fancybox.close();
                         reload_callback("<?php echo base_url(); ?>admin/faqadmin/list_faq", page, 'faq_content');
