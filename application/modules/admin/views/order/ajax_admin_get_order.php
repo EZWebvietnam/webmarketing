@@ -19,7 +19,7 @@
                      <div class="h-title">Danh sách Hóa Đơn</div>
                   </td>
                   <td style="float: right;">
-                     <div class="addlink"><a href="<?php echo base_url(); ?>admin/ctvadmin/add" class="add grouped_elements"><span>Thêm mới</span></a></div>
+                     
                   </td>
                </tr>
             </table>
@@ -96,7 +96,7 @@ $status = array('0'=>'Khách hàng Chưa thanh toán','1'=>'Khách Đã thanh to
                         <td><?php echo $ctv_ref['email']?></td>
                         <td><?php echo $status[$ctv_ref['status']]?></td>
                         <td align="center">
-                            <a class="grouped_elements" href="<?php echo base_url();?>admin/orderadmin/edit/<?php echo $ctv_ref['id']?>" title="Sửa"><img width="16" height="16" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/edit.png"></a>
+                            
                             <a class="grouped_elements" href="<?php echo base_url();?>admin/orderadmin/view_order_detail/<?php echo $ctv_ref['id']?>" title="Xem chi tiết"><img width="16" height="16" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/order.png"></a>
                             
                             <a class="delete_record" href="<?php echo base_url();?>admin/orderadmin/delete/<?php echo $ctv_ref['id']?>" title="Xóa"><img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/del.png"></a>        
@@ -105,7 +105,7 @@ $status = array('0'=>'Khách hàng Chưa thanh toán','1'=>'Khách Đã thanh to
                      <?php }?>       
                      <tfoot>
                         <td colspan="7">
-                           <a class="del" onclick="return action_del('admindata_kh','khachhang');"><span>Xóa</span></a>                            
+                           <a class="del" onclick="return action_del('admindata_kh','order');"><span>Xóa</span></a>                            
                            Có <?php echo count($list_ctv)?> Hóa Đơn
                            <span class="pages">
                            <span class="pagebar-mainbody">

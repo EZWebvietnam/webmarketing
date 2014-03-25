@@ -5,13 +5,28 @@ class Productadmin extends MY_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('productmodel');
+        $this->load->helper(array('form','url'));
+        $this->load->library('session');
+        $this->load->library('tank_auth');
+        $this->lang->load('tank_auth');
+        $this->load->library('form_validation');
+        
     }
 
     public function index() {
+        if(!$this->tank_auth->is_login_admin(TRUE))
+        {
+           redirect('/quan-tri');
+        }
         $this->load->view('admin/index_layout_ctv');
     }
 
     public function list_product() {
+        if(!$this->tank_auth->is_login_admin(TRUE))
+        {
+            show_404();
+            exit;
+        }
         $this->load->helper('url');
         $config['uri_segment'] = 5;
         if ($this->input->post('page_no')) {
@@ -40,6 +55,11 @@ class Productadmin extends MY_Controller {
     }
 
     public function delete($id) {
+        if(!$this->tank_auth->is_login_admin(TRUE))
+        {
+            show_404();
+            exit;
+        }
         $this->productmodel->delete_product($id);
         $this->productmodel->delete_user_product($id);
         $array = array('error' => 0, 'msg' => "Xóa thành công");
@@ -47,7 +67,11 @@ class Productadmin extends MY_Controller {
     }
 
     public function deletes() {
-
+        if(!$this->tank_auth->is_login_admin(TRUE))
+        {
+            show_404();
+            exit;
+        }
         $array = $this->input->post('ar_id');
         foreach ($array as $k => $v) {
             $this->productmodel->delete_product($v);
@@ -58,6 +82,11 @@ class Productadmin extends MY_Controller {
     }
 
     public function view($id = null) {
+        if(!$this->tank_auth->is_login_admin(TRUE))
+        {
+            show_404();
+            exit;
+        }
         if (empty($id)) {
             show_404();
             exit;
@@ -72,8 +101,13 @@ class Productadmin extends MY_Controller {
     }
 
     public function add() {
+        if(!$this->tank_auth->is_login_admin(TRUE))
+        {
+            show_404();
+            exit;
+        }
         if ($this->input->post()) {
-            
+            echo intval($this->input->post('cost'));exit;
             $clip = $this->input->post('clip');
             $data_save = array(
                 'title' => $this->input->post('title'),
@@ -94,6 +128,10 @@ class Productadmin extends MY_Controller {
                 foreach($clip as $k=>$v)
                 {
                     $clip_2 = explode('?v=', $v);
+                    if(empty($clip_2))
+                    {
+                        $clip_2 = explode('&v=', $v);
+                    }
                     $data_clip = array('id_product'=>$id,'code'=>$clip_2[1],'create_date'=>strtotime('now'));
                     $this->productmodel->insert_clip($data_clip);
                     $data_clip = array();
@@ -109,6 +147,11 @@ class Productadmin extends MY_Controller {
     }
 
     public function edit($id = null) {
+        if(!$this->tank_auth->is_login_admin(TRUE))
+        {
+            show_404();
+            exit;
+        }
         if (empty($id)) {
             show_404();
             exit;
@@ -152,3 +195,4 @@ class Productadmin extends MY_Controller {
     }
 
 }
+?>

@@ -8,10 +8,15 @@ class Productctv extends MY_Controller
         $this->load->model('productctvmodel');
         $this->load->library('tank_auth');
         $this->lang->load('tank_auth');
+        if(!$this->tank_auth->is_login_ctv(TRUE))
+        {
+            show_404();
+            exit;
+        }
     }
     public function index()
     {
-        if (!$this->tank_auth->is_logged_in())
+        if (!$this->tank_auth->is_login_ctv(TRUE))
         {
             redirect('/cong-tac-vien/login');
         }

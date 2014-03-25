@@ -73,14 +73,9 @@
                                                 <div class="box_menu">
                                                     <div class="box_menu_right">
                                                         <ul>
+                                                           
                                                             <li class="main">
-                                                                <a href="http://quanlybanhang.360vnit.com/index.php/accountinfo" class="grouped_elements">
-                                                                    <div><img src="http://quanlybanhang.360vnit.com/icon/taikhoan.png" alt=""></div>
-                                                                    Tài khoản                        
-                                                                </a>
-                                                            </li>
-                                                            <li class="main">
-                                                                <a href="http://quanlybanhang.360vnit.com/index.php/accountinfo/doimatkhau" class="grouped_elements">
+                                                                <a href="<?php echo base_url();?>admin/login/change_pass" class="grouped_elements">
                                                                     <div><img src="http://quanlybanhang.360vnit.com/icon/change_pass.png" alt=""></div>
                                                                     Đổi mật khẩu                        
                                                                 </a>
@@ -144,9 +139,15 @@
                                                                 </a>
                                                             </li>
                                                             <li class="main">
+                                                                <a href="<?php echo base_url(); ?>admin/saleadmin/list_sale" rel="sale" class="v_link">
+                                                                    <div><img src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/store.png" alt=""></div>
+                                                                    Khuyến mại
+                                                                </a>
+                                                            </li>
+                                                            <li class="main">
                                                                 <a href="<?php echo base_url(); ?>admin/settingadmin/list_setting" rel="setting" class="v_link">
                                                                     <div><img src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/store.png" alt=""></div>
-                                                                    Liên hệ
+                                                                    Cấu hình
                                                                 </a>
                                                             </li>
                                                         </ul>

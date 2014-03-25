@@ -56,7 +56,7 @@ $(document).ready(function() {
                 dataType: "json",
                 success: function(data) {
                     $.fancybox.close();  
-                    reload_callback("<?php echo base_url();?>ctv/productctv/ajax_get_product",page,'result');
+                    reload_callback("<?php echo base_url();?>ctv/productctv/ajax_get_product",page,'product');
                     show_msg(data.msg);
                 }
             }); 

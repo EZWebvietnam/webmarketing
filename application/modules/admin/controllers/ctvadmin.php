@@ -9,6 +9,11 @@ class Ctvadmin extends MY_Controller
         $this->load->library('tank_auth');
         $this->lang->load('tank_auth');
         $this->load->library('form_validation');
+        if(!$this->tank_auth->is_login_admin(TRUE))
+        {
+            show_404();
+            exit;
+        }
     }
     public function list_ctv()
     {
@@ -246,4 +251,3 @@ class Ctvadmin extends MY_Controller
     }
 }
 ?>
-

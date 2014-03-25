@@ -36,7 +36,7 @@ function full_url($s) {
                 <div class="box-content">
                     <div class="box_find">
                     </div>
-                    <form  method="post" accept-charset="utf-8" id="admindata_kh">
+                    <form  method="post" accept-charset="utf-8" id="admindata_mess">
                         <input type="hidden" id="page" value="0"/>
                         <input type="hidden" id="callback" value="<?php echo base_url(); ?>ctv/productctv/ajax_get_customer"/>
                         <table class="admindata">

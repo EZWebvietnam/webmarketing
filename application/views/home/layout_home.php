@@ -342,7 +342,14 @@ if(checkform_email!="true"){
     <div style="border:1px solid #00436f;padding:10px;margin:5px;font-size:12px;color:#fff;background:#fff">  <table>  	  		
     <tr>  			
     <td width="88">
-    <img alt="" height="50" src="<?php echo base_url();?>file/uploads/no_image.gif" style="border: 4px solid rgb(0, 113, 187);" width="80" /></td>  			
+        <?php 
+       if(file_exists($_SERVER['DOCUMENT_ROOT'].ROT_DIR.'file/uploads/product/'.$l_c_r['img']) && is_file($_SERVER['DOCUMENT_ROOT'].ROT_DIR.'file/uploads/product/'.$l_c_r['img']) && $l_c_r['img']!='')
+       {
+        ?>
+    <img alt="" height="50" src="<?php echo base_url();?>file/uploads/product/<?php echo $l_c_r['img'] ?>" style="border: 4px solid rgb(0, 113, 187);" width="80" /></td>  			
+       <?php } else {?> 
+           <img alt="" height="50" src="<?php echo base_url();?>file/uploads/no_image.gif" style="border: 4px solid rgb(0, 113, 187);" width="80" /></td>  		
+           <?php } ?>
     <td width="200"><a href="//www.youtube.com/embed/<?php echo $l_c_r['code']?>" target="video"><b><?php echo $l_c_r['title']?></b></a></td>  		</tr>  	  </table>  </div> 
     <?php } ?>   
     <div style="clear:both">&nbsp;</div>  

@@ -36,7 +36,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>template/ezwebvietnam/admin_cp/css/datetheme.css">
 <script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/js/core/jquery.ui.core.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/js/core/jquery.ui.datepicker.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/js/core/jquery.ui.widget.js"></script
+<script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/js/core/jquery.ui.widget.js"></script>
 
  
 
@@ -72,13 +72,9 @@
         <div class="box_menu">
             <div class="box_menu_right">
                 <ul>         
+                         
                     <li class="main">
-                        <a href="http://quanlybanhang.360vnit.com/index.php/accountinfo" class="grouped_elements">
-                            <div><img src="http://quanlybanhang.360vnit.com/icon/taikhoan.png" alt=""></div>
-                            Tài khoản                        </a>
-                    </li>       
-                    <li class="main">
-                        <a href="http://quanlybanhang.360vnit.com/index.php/accountinfo/doimatkhau" class="grouped_elements">
+                        <a href="<?php echo base_url();?>ctv/homectv/change_pass" class="grouped_elements">
                             <div><img src="http://quanlybanhang.360vnit.com/icon/change_pass.png" alt=""></div>
                             Đổi mật khẩu                        </a>
                     </li> 

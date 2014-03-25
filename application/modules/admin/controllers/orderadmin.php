@@ -4,6 +4,16 @@ class Orderadmin extends MY_Controller
     public function __construct() {
         parent::__construct();
         $this->load->model('ordermodel');
+        $this->load->helper(array('form','url'));
+        $this->load->library('session');
+        $this->load->library('tank_auth');
+        $this->lang->load('tank_auth');
+        $this->load->library('form_validation');
+        if(!$this->tank_auth->is_login_admin(TRUE))
+        {
+            show_404();
+            exit;
+        }
     }
     public function list_order()
     {

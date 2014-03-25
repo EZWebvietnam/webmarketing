@@ -54,4 +54,3 @@ class Productmodel extends CI_Model
     }
 }
 ?>
-

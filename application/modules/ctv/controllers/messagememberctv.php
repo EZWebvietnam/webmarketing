@@ -9,6 +9,11 @@ class Messagememberctv extends MY_Controller
         $this->load->library('tank_auth');
         $this->lang->load('tank_auth');
         $this->load->library('session');
+        if(!$this->tank_auth->is_login_ctv(TRUE))
+        {
+            show_404();
+            exit;
+        }
     }
     public function list_message()
     {

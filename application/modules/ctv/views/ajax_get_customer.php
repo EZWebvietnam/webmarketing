@@ -21,7 +21,7 @@
        });
    });
 </script>
-<div id="result">
+<div id="customer">
    <table class="table_full" style="width: 100%;">
       <tr>
          <td style="background: #FFF;padding: 5px 5px 5px 5px;" valign="top">
@@ -36,7 +36,7 @@
             <div class="box-content">
                <div class="box_find">
                </div>
-               <form  method="post" accept-charset="utf-8" id="admindata_kh">
+               <form  method="post" accept-charset="utf-8" id="admindata_cus">
                   <input type="hidden" id="page" value="0"/>
                   <input type="hidden" id="callback" value="<?php echo base_url();?>ctv/productctv/ajax_get_customer"/>
                   <table class="admindata">
@@ -151,7 +151,7 @@
                   function khachhang(page_no){  
                       load_show();   
                       $.post("<?php echo base_url();?>ctv/productctv/ajax_get_product",{'page_no':page_no},function(data){
-                          $("#result").html(data);                                            
+                          $("#customer").html(data);                                            
                           load_hide();
                       });
                   }

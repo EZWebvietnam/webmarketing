@@ -36,6 +36,18 @@ class Tank_auth {
         $this->autologin();
     }
 
+    public function check_pass($id,$pass) {
+        
+        $user = $this->ci->users->get_user_by_id($id, 1);
+        $hasher = new PasswordHash(
+                $this->ci->config->item('phpass_hash_strength', 'tank_auth'), $this->ci->config->item('phpass_hash_portable', 'tank_auth'));
+        if ($hasher->CheckPassword($pass, $user->password)) {
+            return TRUE;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * Login user on the site. Return TRUE if login is successful
      * (user exists and activated, password is correct), otherwise FALSE.
@@ -122,7 +134,14 @@ class Tank_auth {
     function is_logged_in($activated = TRUE) {
         return $this->ci->session->userdata('status') === ($activated ? STATUS_ACTIVATED : STATUS_NOT_ACTIVATED);
     }
-
+    function is_login_ctv($activated = TRUE) {
+        $array = $this->ci->users->get_user_role_ctv();
+        if (in_array($this->ci->session->userdata('role'), $array)) {
+            return $this->ci->session->userdata('status') === ($activated ? STATUS_ACTIVATED : STATUS_NOT_ACTIVATED);
+        } else {
+            return 0;
+        }
+    }
     function is_login_admin($activated = TRUE) {
         $array = $this->ci->users->get_user_role();
         if (in_array($this->ci->session->userdata('role'), $array)) {
@@ -151,7 +170,11 @@ class Tank_auth {
         $hashed_password = $hasher->HashPassword($password);
         return $hashed_password;
     }
-
+    public function change_pass($user_id,$pass)
+    {
+        $hashed_password = $this->hash_password($pass);
+        $this->ci->users->change_password($user_id, $hashed_password);
+    }
     /**
      * Get username
      *
@@ -171,7 +194,7 @@ class Tank_auth {
      * @param	bool
      * @return	array
      */
-    function create_user($username, $email, $password, $fullname, $phone, $role, $email_activation,$add) {
+    function create_user($username, $email, $password, $fullname, $phone, $role, $email_activation, $add) {
         if ((strlen($username) > 0) AND ! $this->ci->users->is_username_available($username)) {
             $this->error = array('username' => 'auth_username_in_use');
         } elseif (!$this->ci->users->is_email_available($email)) {
@@ -191,9 +214,9 @@ class Tank_auth {
                 'last_ip' => $this->ci->input->ip_address(),
                 'activated' => 1,
                 'role' => $role,
-                'address'=>$add,
-                'phone'=>$phone
-            ); 
+                'address' => $add,
+                'phone' => $phone
+            );
             if ($email_activation) {
                 $data['new_email_key'] = md5(rand() . microtime());
             }
