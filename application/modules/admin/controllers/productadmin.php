@@ -79,7 +79,7 @@ class Productadmin extends MY_Controller {
                 'title' => $this->input->post('title'),
                 'exp_date' => $this->input->post('exp_date'),
                 'id_cate' => $this->input->post('category'),
-                'cost' => $this->input->post('cost'),
+                'cost' => intval($this->input->post('cost')),
                 'description' => stripslashes($this->input->post('description')),
                 'content' => stripslashes($this->input->post('content')),
                 'comission' => $this->input->post('hoa_hong'),
