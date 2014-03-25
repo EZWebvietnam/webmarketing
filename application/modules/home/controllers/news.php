@@ -31,5 +31,26 @@ class News extends MY_Controller
        $this->data['list']=$array_sv;
         $this->load->view('home/layout_list_new',$this->data);
     }
+    public function detail($id)
+    {
+        $this->load->model('productmodel');
+        $this->data['list_product_sale']=$this->productmodel->get_list_product_sale_off();
+        if(empty($id))
+        {
+            show_404();exit;
+        }
+        if(!is_numeric($id))
+        {
+            show_404();
+            exit;
+        }
+        $this->data['detail']=$this->newshomemodel->detail($id);
+        if(empty($this->data['detail']))
+        {
+            show_404();exit;
+        }
+        $this->data['main_content']='new/detail_new';
+        $this->load->view('home/layout_detail',$this->data);
+    }
 }
 ?>

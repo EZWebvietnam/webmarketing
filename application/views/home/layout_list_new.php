@@ -107,11 +107,11 @@
                 <form style='margin:0px;padding:0px' method='post' action='/login.htm'>
                     <input style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/login.png" name="submit" value='submit' width="126" height="32" />
                     <input type="text" name="username" size="20" style="width:160px;border:0;height:23px;color:#005398;font-style: italic; " onblur="if (this.value == '')
-                                            this.value = 'Tài khoản...';" onfocus="if (this.value == 'Tài khoản...')
-                                                        this.value = '';" value='Tài khoản...' />
+                                this.value = 'Tài khoản...';" onfocus="if (this.value == 'Tài khoản...')
+                                            this.value = '';" value='Tài khoản...' />
                     <input type="password" name="password" size="20" style="width:160px;border:0;height:23px;color:#005398;font-style: italic;margin-left:38px" onblur="if (this.value == '')
-                                            this.value = 'Mật khẩu...';" onfocus="if (this.value == 'Mật khẩu...')
-                                                        this.value = '';" value='Mật khẩu...' />
+                                this.value = 'Mật khẩu...';" onfocus="if (this.value == 'Mật khẩu...')
+                                            this.value = '';" value='Mật khẩu...' />
                     <input type='checkbox' name='save_loginfo' value='1' id='save_loginfo' style='margin-left:10px' />
                     <label for="save_loginfo" style='font: italic 13px Arial;color: #fff'>Ghi nhớ đăng nhập</label>
                 </form>
@@ -132,14 +132,15 @@
                     <a  href='<?php echo base_url(); ?>hoi-dap'>
                         Hỏi Đáp		</a>
                 </li>
-                <li>
-                    <a  href='/U1/50c_tuyen-dung.htm'>
-                        Tuyển Dụng		</a>
-                </li>
-                <li>
-                    <a  href='/U1/13c_tin-tuc.htm'>
+                 <li>
+                    <a  href='<?php echo base_url(); ?>tin-tuc'>
                         Tin Tức		</a>
                 </li>
+                <li>
+                    <a  href='<?php echo base_url();?>lien-he'>
+                        Liên hệ		</a>
+                </li>
+                
             </ul>
             <div style='clear:both'></div>
         </div>
@@ -240,7 +241,7 @@
                             </b>
                             Xin chân thành cảm ơn<br /><br />
                             <input type="submit" name="submit_email" value='   Vào giỏ hàng   ' onclick="close_add_to_card_form();
-                                        show_cart();" /> 
+                                    show_cart();" /> 
                             <input type="submit" name="submit_email" value='   Mua tiếp   ' onclick="close_add_to_card_form();" />
                         </center>
                     </div>
@@ -250,7 +251,7 @@
         <div id='show_cart_form' style="display:none;text-align:left">
             <div  style="float:right;cursor:pointer;margin:0" onclick="close_show_cart_form()"><b>[x]</b></div>
             <div class="form_header">Giỏ hàng <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/d_icon.png" width="30" alt="Xóa" style="cursor:pointer" onclick="if (confirm('Bạn có chăc muốn xóa?'))
-                    clear_cart()" /></div>
+                        clear_cart()" /></div>
             <table cellspacing='0' cellpadding='0' width="475" style="float:left">
                 <tr>
                     <td width="50" align="center">
@@ -391,7 +392,7 @@
                             <ul class="pager"></ul>
                             <script type="text/javascript">
                                 $(function() {
-                                    $('.pager').html(LoadPagging(<?php echo $page ?>, <?php echo $total ?>, 'http://www.dcbland.com/thanh-vien/log-giao-dich',<?php echo $total_page ?>));
+                                    $('.pager').html(LoadPagging(<?php echo $page ?>, <?php echo $total ?>, '<?php echo base_url(); ?>tin-tuc',<?php echo $total_page ?>));
                                 });
                             </script>
 
@@ -407,13 +408,13 @@
                                 <div class="news2">
                                     <div style="float:left;border:1px solid #fff;padding:3px;margin:4px">
                                         <a href="<?php echo base_url(); ?>tin-tuc-<?php echo $list_product_cate['id'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['title']))) ?>">
-    <?php
-    if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/new/' . $list_product_cate['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/new/' . $list_product_cate['img']) && $list_product_cate['img'] != '') {
-        ?>
+                                            <?php
+                                            if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/new/' . $list_product_cate['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/new/' . $list_product_cate['img']) && $list_product_cate['img'] != '') {
+                                                ?>
                                                 <img src="<?php echo base_url(); ?>file/uploads/new/<?php echo $list_product_cate['img'] ?>" alt="<?php echo $list_product_cate['title'] ?>" width="120">
-                                            <?php } else { ?>
+                                                <?php } else { ?>
                                                     <img src="<?php echo base_url(); ?>file/uploads/no_image.gif" alt="<?php echo $list_product_cate['title'] ?>" width="120">
-                                                <?php } ?>
+                                                    <?php } ?>
                                                     </a>
                                                     </div>
                                                     <a href="<?php echo base_url(); ?>tin-tuc-<?php echo $list_product_cate['id'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['title']))) ?>"><h3><b><?php echo $list_product_cate['title'] ?></b></h3></a>
@@ -421,7 +422,7 @@
 
 
 
-                                                        <p><span style="font-size: small;"><span style="color: rgb(51, 51, 51);"><span style="font-family: Arial;"><?php echo sub_string(loaibohtmltrongvanban($list_product_cate['content']),200) ?></span></span></span></p>  
+                                                        <p><span style="font-size: small;"><span style="color: rgb(51, 51, 51);"><span style="font-family: Arial;"><?php echo sub_string(loaibohtmltrongvanban($list_product_cate['content']), 200) ?></span></span></span></p>  
 
                                                         <div class="detail_button">
                                                             <a href="<?php echo base_url(); ?>tin-tuc-<?php echo $list_product_cate['id'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['title']))) ?>">Xem chi tiết</a>
@@ -430,7 +431,7 @@
                                                     </div>
                                                     <div style="clear:both"></div>
                                                     </div>
-<?php } ?>
+                                                <?php } ?>
                                                 <div class="news3"></div>	<div style="height:1px;clear:both"></div>
                                                 <div style="float:right"></div>
                                                 <div style="height:1px;clear:both"></div>

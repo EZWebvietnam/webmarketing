@@ -17,5 +17,11 @@ class Newshomemodel extends CI_Model
         $query = $this->db->query($sql);
         return count($query->result_array());
     }
+    public function detail($id)
+    {
+         $sql="SELECT * FROM news WHERE id = $id";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
 }
 ?>

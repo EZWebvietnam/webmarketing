@@ -56,7 +56,7 @@
 	<div class='top_menu' >
 		<a href="<?php echo base_url();?>" class="home">Trang chủ</a>
 		<a href="/U1/contact.htm" class="contact">Liên hệ</a>
-		<a href="#"  onclick="show_cart()"  class="cart">
+		<a href="#"  onclick="show_cart('<?php echo base_url();?>')"  class="cart">
 			Giỏ hàng (<span id="product_number" style="color:#ef4232;font-weight:700">0</span>)
 		</a>
 	</div>
@@ -87,13 +87,13 @@
 			Hỏi Đáp		</a>
 			</li>
     	    <li>
-				<a  href='/U1/50c_tuyen-dung.htm'>
-			Tuyển Dụng		</a>
-			</li>
-    	    <li>
-				<a  href='/U1/13c_tin-tuc.htm'>
-			Tin Tức		</a>
-			</li>
+                    <a  href='<?php echo base_url(); ?>tin-tuc'>
+                        Tin Tức		</a>
+                </li>
+                <li>
+                    <a  href='<?php echo base_url();?>lien-he'>
+                        Liên hệ		</a>
+                </li>
     	</ul>
 	<div style='clear:both'></div>
 </div>
@@ -204,26 +204,7 @@
 	<div  style="float:right;cursor:pointer;margin:0" onclick="close_show_cart_form()"><b>[x]</b></div>
 	<div class="form_header">Giỏ hàng <img src="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/images/d_icon.png" width="30" alt="Xóa" style="cursor:pointer" onclick="if (confirm('Bạn có chăc muốn xóa?')) clear_cart()" /></div>
 	<table cellspacing='0' cellpadding='0' width="475" style="float:left">
-		<tr>
-			<td width="50" align="center">
-				Ảnh
-			</td>
-			<td>
-				Tên sản phẩm
-			</td>
-			<td width="75" align="center">
-				Đơn giá <br />VND
-			</td>
-			<td width="50" align="center">
-				Số lượng
-			</td>
-			<td width="80" align="center">
-				Thành tiền <br />VND
-			</td>
-			<td width="40" align="center">
-				Xóa
-			</td>
-		</tr>
+		
 	</table>
 	<div class="formcontent" style="height:280px;clear:both;margin-top:25px;overflow:auto;clear:both" onmouseover='$("#show_cart_form").draggable("disable");' onmouseout='$("#show_cart_form").draggable("enable");'>
 		<div id="cart_content"></div>

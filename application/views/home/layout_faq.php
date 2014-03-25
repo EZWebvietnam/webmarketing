@@ -132,13 +132,13 @@
                     <a  href='<?php echo base_url();?>hoi-dap'>
 			Hỏi Đáp		</a>
                 </li>
-                <li>
-                    <a  href='/U1/50c_tuyen-dung.htm'>
-                        Tuyển Dụng		</a>
+               <li>
+                    <a  href='<?php echo base_url(); ?>tin-tuc'>
+                        Tin Tức		</a>
                 </li>
                 <li>
-                    <a  href='/U1/13c_tin-tuc.htm'>
-                        Tin Tức		</a>
+                    <a  href='<?php echo base_url();?>lien-he'>
+                        Liên hệ		</a>
                 </li>
             </ul>
             <div style='clear:both'></div>
