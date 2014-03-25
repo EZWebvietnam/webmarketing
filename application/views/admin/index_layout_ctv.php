@@ -61,7 +61,7 @@
                                                     <div class="box_menu_right">
                                                         <ul>
                                                             <li class="main">
-                                                                <a href="<?php echo base_url(); ?>ctv/homectv/logout" class="v_link">
+                                                                <a href="<?php echo base_url(); ?>admin/login/logout" class="v_link">
                                                                     <div><img src="http://quanlybanhang.360vnit.com/icon/logout.png" alt=""></div>
                                                                     Thoát                        
                                                                 </a>

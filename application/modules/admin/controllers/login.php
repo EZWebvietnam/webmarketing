@@ -67,6 +67,17 @@ class Login extends MY_Controller {
         }
         echo json_encode($data);
     }
+    function logout()
+	{
+		$this->tank_auth->logout();
+        $this->session->sess_create();
+		$this->_show_message($this->lang->line('auth_message_logged_out'));
+	}
 
+    function _show_message($message)
+	{
+        $this->session->set_flashdata('message', $message);
+	   redirect('/quan-tri');
+	}  
 }
 ?>

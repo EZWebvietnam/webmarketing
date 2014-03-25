@@ -31,21 +31,11 @@ $password = array(
     <?php echo form_input($password); ?>            
 </div>
 <div class="account_login">
-    <a href="javascript:;" onclick="forgot_pass();">Quên mật khẩu</a>
+    
 </div>
 <input type="submit" class="button_login" title="Đăng nhập" id="btnDangnhap" value="Đăng nhập" name="btnDangnhap">
 </form></div>
-<div id="div_forgot_pass" style="display: none;">
-<div class="swap_input" style="margin-top: 82px;margin-bottom: 22px;">
-    <div class="label">Địa chỉ Email</div>
-    <input type="text" name="email" id="email" value="">
-</div>
-
-<div class="account_login">
-    <a href="javascript:;" onclick="form_login();">Màn hình đăng nhập</a>
-</div>
-<input type="submit" class="button_login" title="Quên mật khẩu" id="btnDangnhap" onclick="send_pass();" value="Gửi mật khẩu" name="btnDangnhap">
-</div>        </div>
+        </div>
         <!--<div class="version">Version: 2.0</div>
         <div class="copy">Copyright 2010 - All rights reserved.</div>-->
     </div>
