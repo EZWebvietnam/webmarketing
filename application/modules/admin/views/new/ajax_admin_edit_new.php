@@ -50,7 +50,7 @@
             <tr>
                 <td class="label">Hình ảnh</td>
                 <td colspan="3">
-                    <input type="file" name="userfile" id="file"/>
+                    <input type="file" name="userfile"/>
                     <input id="upload_file"  type="button" class="bt100" value="Upload" onClick="">
                     <div id="iframeId">
                         <div id="upload"></div>
