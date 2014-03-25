@@ -132,9 +132,9 @@
                                                                 </a>
                                                             </li>
                                                             <li class="main">
-                                                                <a href="<?php echo base_url(); ?>ctv/productctv/ajax_thu_nhap" rel="khohang" class="v_link">
+                                                                <a href="<?php echo base_url(); ?>admin/contactadmin/list_contact" rel="contact" class="v_link">
                                                                     <div><img src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/store.png" alt=""></div>
-                                                                    Thu nhập
+                                                                    Liên hệ
                                                                 </a>
                                                             </li>
                                                             <li class="main">

@@ -5,6 +5,7 @@ class Product extends MY_Controller
     {
         parent::__construct();
         parent::list_cate();
+        parent::info_company();
         $this->load->library('session');
         $this->load->model('productmodel');
     }
@@ -70,8 +71,9 @@ class Product extends MY_Controller
        $this->data['total']=$config['total_rows'];
        $this->data['list']=$array_sv;
        $this->data['cate_detail']=$this->catemodel->cate_detail($id);
+       $this->data['list_product_sale']=$this->productmodel->get_list_product_sale_off();
         //$this->data['main_content']='product/detail_product';
-        $this->load->view('home/layout_list',$this->data);
+       $this->load->view('home/layout_list',$this->data);
     }
     public function add_to_cart()
     {

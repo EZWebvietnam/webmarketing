@@ -207,6 +207,7 @@ if (defined('ENVIRONMENT'))
      define('DB_PASS','');
      define('ROT_DIR','/webmarketing/');
      define('BASE_URL','http://localhost/webmarketing/');
+     define('MAIL_ADMIN','giangbeoit@gmail.com');
  }
  else
  {
@@ -216,6 +217,7 @@ if (defined('ENVIRONMENT'))
     define('DB_PASS','a123456');
     define('ROT_DIR','/webmarketing/');
     define('BASE_URL','http://giangbeo.com/webmarketing/');
+    define('MAIL_ADMIN','giangbeoit@gmail.com');
  }
 require_once BASEPATH.'core/CodeIgniter.php';
 

@@ -73,6 +73,8 @@ class Productadmin extends MY_Controller {
 
     public function add() {
         if ($this->input->post()) {
+            
+            $clip = $this->input->post('clip');
             $data_save = array(
                 'title' => $this->input->post('title'),
                 'exp_date' => $this->input->post('exp_date'),
@@ -83,8 +85,21 @@ class Productadmin extends MY_Controller {
                 'comission' => $this->input->post('hoa_hong'),
                 'img' => $this->input->post('file')
             );
-            $this->productmodel->add_product($data_save);
-            $array = array('error' => 0, 'msg' => 'Update thành công');
+            $id = $this->productmodel->add_product($data_save);
+            if($clip!='')
+            {
+                $clip_2 = array();
+                $data_clip = array();
+                $clip = explode(';', $clip);
+                foreach($clip as $k=>$v)
+                {
+                    $clip_2 = explode('?v=', $v);
+                    $data_clip = array('id_product'=>$id,'code'=>$clip_2[1],'create_date'=>strtotime('now'));
+                    $this->productmodel->insert_clip($data_clip);
+                    $data_clip = array();
+                }
+            }
+            $array = array('error' => 0, 'msg' => 'Thêm thành công');
             echo json_encode($array);
         } else {
             $this->load->model('categorymodel');

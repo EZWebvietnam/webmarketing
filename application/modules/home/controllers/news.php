@@ -4,6 +4,7 @@ class News extends MY_Controller
     public function __construct() {
         parent::__construct();
          parent::list_cate();
+         parent::info_company();
         $this->load->library('session');
         $this->load->model('newshomemodel');
     }
@@ -29,6 +30,8 @@ class News extends MY_Controller
        $this->data['page']=$page;
        $this->data['total']=$config['total_rows'];
        $this->data['list']=$array_sv;
+       $this->load->model('productmodel');
+       $this->data['list_product_sale']=$this->productmodel->get_list_product_sale_off();
         $this->load->view('home/layout_list_new',$this->data);
     }
     public function detail($id)

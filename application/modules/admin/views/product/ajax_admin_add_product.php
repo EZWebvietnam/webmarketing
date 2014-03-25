@@ -61,6 +61,12 @@
                 </td>
             </tr>
             <tr>
+                <td class="label">Clip: (Các link cách nhau bởi dấu ;)</td>
+                <td colspan="3">
+                    <input id="clip" type="texbox" name="clip"/>
+                </td>
+            </tr>
+            <tr>
                 <td class="label">Tóm tắt</td>
                 <td colspan="3">
                     <textarea id="editor1" name="description"></textarea>
@@ -114,7 +120,7 @@
                 $.ajax({
                     type: "POST",
                     url: $("#adminform").attr('action'),
-                    data: {title:$('#title_').val(),exp_date:$('#exp_date_').val(),category:$('#category').val(),cost_:$('#cost').val(),hoa_hong:$('#hoa_hong').val(),file:$('#file').val(),description:description,content:content},
+                    data: {title:$('#title_').val(),exp_date:$('#exp_date_').val(),category:$('#category').val(),cost_:$('#cost').val(),hoa_hong:$('#hoa_hong').val(),file:$('#file').val(),description:description,content:content,clip:($('#clip').val())},
                     mimeType: "multipart/form-data",
                     dataType: "json",
                     cache: false,

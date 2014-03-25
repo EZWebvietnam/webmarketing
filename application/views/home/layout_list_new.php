@@ -132,15 +132,15 @@
                     <a  href='<?php echo base_url(); ?>hoi-dap'>
                         Hỏi Đáp		</a>
                 </li>
-                 <li>
+                <li>
                     <a  href='<?php echo base_url(); ?>tin-tuc'>
                         Tin Tức		</a>
                 </li>
                 <li>
-                    <a  href='<?php echo base_url();?>lien-he'>
+                    <a  href='<?php echo base_url(); ?>lien-he'>
                         Liên hệ		</a>
                 </li>
-                
+
             </ul>
             <div style='clear:both'></div>
         </div>
@@ -447,12 +447,25 @@
                                                 <div id='left_block' >
                                                     <div style="padding:5px">
                                                         <!--Widget-->
-                                                        <div>
-                                                            <p style="text-align: center;"><a href="https://vinamos.vn/U1/59p_tai-lieu-marketing-online/31p_bo-tai-lieu-thuc-hanh-marketing-online.htm"><img alt="" src="https://vinamos.vn//uploads/1/vinamos(240x300)-1.gif" style="width: 240px; height: 300px;" /></a></p>    <p style="text-align: center;"><a href="https://vinamos.vn/U1/111p_dao-tao-offline-/74p_kiem-tien-qua-facebook.htm" style="line-height: 1.6em;"><img alt="" src="https://vinamos.vn//uploads/1386/Kiemtienquafacebook/Kiem_tien_qua_facebook.gif" style="width: 240px; height: 299px;" /></a><br />  &nbsp;</p>  
-                                                        </div>
-                                                        <div>
-                                                            <p><a href="http://www.ngoinhamang.net" title="Hosting - Domain - Email - Thuê Server - Thiết kế Website"><img alt="Hosting - Domain - Email - Thuê Server - Thiết kế Website" src="http://www.ngoinhamang.net/hosting-email-server-domain.gif" title="Hosting - Domain - Email - Thuê Server - Thiết kế Website" /> </a></p>  
-                                                        </div>
+                                                        <?php
+                                                        foreach ($list_product_sale as $product_sale) {
+                                                            ?>
+                                                            <div>
+                                                                <p style="text-align: center;">
+                                                                    <a href="<?php echo base_url(); ?>p_c-<?php echo $product_sale['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($product_sale['name']))) ?>/p_p-<?php echo $product_sale['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($product_sale['title']))) ?>">
+                                                                        <?php
+                                                                        if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/sale/' . $product_sale['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/sale/' . $product_sale['img']) && $product_sale['img'] != '') {
+                                                                            ?>
+                                                                            <img alt="" src="<?php echo base_url(); ?>file/uploads/sale/<?php echo $product_sale['img'] ?>" style="width: 240px; height: 300px;" />
+                                                                        <?php } else { ?>
+                                                                            <img alt="" src="<?php echo base_url(); ?>file/uploads/no_image.gif" style="width: 240px; height: 300px;" />
+                                                                        <?php } ?>
+                                                                    </a></p>    
+                                                                <p style="text-align: center;"><a href="<?php echo base_url(); ?>p_c-<?php echo $product_sale['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($product_sale['name']))) ?>/p_p-<?php echo $product_sale['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($product_sale['title']))) ?>" style="line-height: 1.6em;">
+                                                                    </a><br />  &nbsp;</p>  
+                                                            </div>
+                                                        <?php } ?>
+
                                                         <div>
                                                             <p style="text-align: center;"><iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FHocMarketingOnline&width=270&height=350&colorscheme=light&show_faces=true&border_color&stream=false&header=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:240px; height:350px;" allowtransparency="true"></iframe></p>
                                                         </div>
@@ -507,7 +520,7 @@
                                                             > <a href="/U1/59p_tai-lieu-marketing-online.htm"><font color="#ffffff">Tài Liệu Marketing Online</font></a> 
                                                         </div>
                                                     </div>
-                                                    <p style="text-align: center;"><span style="color:#FFF0F5;"><span style="font-size: small; font-family: Arial; line-height: 1.6em;">&nbsp; &nbsp;&nbsp;</span><span style="font-family: Arial; line-height: 1.6em; font-size: 16px;"><strong>&nbsp;C&Ocirc;NG TY TƯ VẤN Đ&Agrave;O TẠO TIẾP THỊ TRỰC TUYẾN VINA (VINA M.O.S)</strong></span></span></p>    <p style="text-align: center;"><span style="color:#FFF0F5;"><strong><span style="font-size:16px;"><span style="font-family: Arial;"><span style="line-height: 20px;">D66 Đường số 6 - Khu D&acirc;n Cư Him Lam&nbsp;</span>&nbsp;- Q.7&nbsp;- TP.HCM&nbsp;</span></span></strong></span></p>    <p style="text-align: center;"><span style="color:#FFF0F5;"><strong><span style="font-size:16px;"><span style="font-family: Arial;">Hotline: 0909.140.539</span></span></strong></span></p>
+                                                    <p style="text-align: center;"><span style="color:#FFF0F5;"><span style="font-size: small; font-family: Arial; line-height: 1.6em;"><?php echo $info_company[0]['address'] ?></span></span></p>    <p style="text-align: center;"><span style="color:#FFF0F5;"><strong><span style="font-size:16px;"><span style="font-family: Arial;"><span style="line-height: 20px;">D66 Đường số 6 - Khu D&acirc;n Cư Him Lam&nbsp;</span>&nbsp;- Q.7&nbsp;- TP.HCM&nbsp;</span></span></strong></span></p>    <p style="text-align: center;"><span style="color:#FFF0F5;"><strong><span style="font-size:16px;"><span style="font-family: Arial;">Hotline: 0909.140.539</span></span></strong></span></p>
                                                     <br />
                                                     Developed by <a href="http://smartsoftware.vn" target="_blank">SmartSoftware</a>
                                                 </div>

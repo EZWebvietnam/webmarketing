@@ -47,6 +47,11 @@ class Productmodel extends CI_Model
     {
         $this->db->delete('user_product',array('id_user'=>$id_user));
     }
+    public function insert_clip(array $data)
+    {
+        $this->db->insert('clip_marketing',$data);
+        return $this->db->insert_id();
+    }
 }
 ?>
 

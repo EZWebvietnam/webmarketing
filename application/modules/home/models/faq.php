@@ -29,5 +29,16 @@ class Faq extends CI_Model
         $this->db->insert('faq',$data);
         return $this->db->insert_id();
     }
+    public function insert_contact(array $data)
+    {
+        $this->db->insert('contact',$data);
+        return $this->db->insert_id();
+    }
+    public function info_com()
+    {
+        $sql ="SELECT * FROM info_company";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
 }
 ?>

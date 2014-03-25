@@ -51,6 +51,7 @@ $route['gui-cau-hoi']='home/product/send_faq';
 $route['tin-tuc']='home/news/list_news';
 $route['tin-tuc-(:any)-(:any)']='home/news/detail/$1';
 $route['hoi-dap-(:any)-(:any)'] = 'home/product/detail_faq/$1';
+$route['lien-he'] = 'home/home/contact';
 $route['quan-tri'] = "admin/login/index";
 $route['quan-tri-vien'] = "admin/productadmin/index";
 
