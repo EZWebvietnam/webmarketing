@@ -101,5 +101,11 @@ class Productmodel extends CI_Model
         $this->db->insert('order_detail',$data);
         return $this->db->insert_id();
     }
+    public function load_clip()
+    {
+        $sql="SELECT * FROM clip_marketing ORDER BY rand() LIMIT 8";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
 }
 ?>

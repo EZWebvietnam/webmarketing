@@ -129,15 +129,15 @@
                     </li>
                 <?php } ?>
                 <li>
-                    <a  href='<?php echo base_url();?>hoi-dap'>
-			Hỏi Đáp		</a>
+                    <a  href='<?php echo base_url(); ?>hoi-dap'>
+                        Hỏi Đáp		</a>
                 </li>
-               <li>
+                <li>
                     <a  href='<?php echo base_url(); ?>tin-tuc'>
                         Tin Tức		</a>
                 </li>
                 <li>
-                    <a  href='<?php echo base_url();?>lien-he'>
+                    <a  href='<?php echo base_url(); ?>lien-he'>
                         Liên hệ		</a>
                 </li>
             </ul>
@@ -391,7 +391,7 @@
                             <ul class="pager"></ul>
                             <script type="text/javascript">
                                 $(function() {
-                                    $('.pager').html(LoadPagging(<?php echo $page ?>, <?php echo $total ?>, '<?php echo base_url();?>hoi-dap',<?php echo $total_page ?>));
+                                    $('.pager').html(LoadPagging(<?php echo $page ?>, <?php echo $total ?>, '<?php echo base_url(); ?>hoi-dap',<?php echo $total_page ?>));
                                 });
                             </script>
 
@@ -406,14 +406,14 @@
                                 ?>
                                 <div class="news2">
                                     <a href="<?php echo base_url(); ?>hoi-dap-<?php echo $list_product_cate['id'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['title']))) ?>"><h3><b><?php echo $list_product_cate['title'] ?></b></h3></a>
-                                        <p><span style="font-size: small;"><span style="color: rgb(51, 51, 51);"><span style="font-family: Arial;"><?php echo $list_product_cate['question'] ?></span></span></span></p>      
-                                            <div class="detail_button">
-                                                <a href="<?php echo base_url(); ?>hoi-dap-<?php echo $list_product_cate['id'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['title']))) ?>">Xem chi tiết</a>
-                                            </div>
+                                    <p><span style="font-size: small;"><span style="color: rgb(51, 51, 51);"><span style="font-family: Arial;"><?php echo $list_product_cate['question'] ?></span></span></span></p>      
+                                    <div class="detail_button">
+                                        <a href="<?php echo base_url(); ?>hoi-dap-<?php echo $list_product_cate['id'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['title']))) ?>">Xem chi tiết</a>
+                                    </div>
                                     <div style="clear:both"></div>
                                 </div>
                             <?php } ?>
-                            Muốn gửi câu hỏi ? Click <a href="<?php echo base_url();?>gui-cau-hoi">Gửi câu hỏi</a>
+                            Muốn gửi câu hỏi ? Click <a href="<?php echo base_url(); ?>gui-cau-hoi">Gửi câu hỏi</a>
                             <div class="news3"></div>	<div style="height:1px;clear:both"></div>
                             <div style="float:right"></div>
                             <div style="height:1px;clear:both"></div>
@@ -439,38 +439,14 @@
                         <div>
                             <div class="g-ytsubscribe" data-channel="khanhmarketingonline" data-layout="full">&nbsp;</div>  
                         </div>
-                        <div>
-                            <p><a href="http://tenten.vn/" target="_blank"><img alt="" src="https://vinamos.vn//uploads/1/son2.png" style="width: 240px; height: 120px;" /></a></p>
+                        <?php
+                        foreach ($list_clip as $clip) {
+                            ?>
+                            <div>
+                                <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/<?php echo $clip['code'] ?>" width="235"></iframe></p>
 
-                        </div>
-                        <div>
-                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/dXyvwBX6FDA" width="235"></iframe></p>
-
-                        </div>
-                        <div>
-                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/wicGL9W2DTQ" width="235"></iframe></p>
-
-                        </div>
-                        <div>
-                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/iZFiMOKPzjk" width="235"></iframe></p>
-
-                        </div>
-                        <div>
-                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/gj_xH97tMbI" width="235"></iframe></p>
-
-                        </div>
-                        <div>
-                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/VuqkHVpIExI" width="235"></iframe></p>
-
-                        </div>
-                        <div>
-                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/bBR2PsEmN1M" width="235"></iframe></p>
-
-                        </div>
-                        <div>
-                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/vjZ2BIKjqxs" width="235"></iframe></p>
-
-                        </div>
+                            </div>
+                        <?php } ?>
                         <div>
 
                         </div>
@@ -487,7 +463,7 @@
                         > <a href="/U1/59p_tai-lieu-marketing-online.htm"><font color="#ffffff">Tài Liệu Marketing Online</font></a> 
                     </div>
                 </div>
-                <p style="text-align: center;"><span style="color:#FFF0F5;"><span style="font-size: small; font-family: Arial; line-height: 1.6em;">&nbsp; &nbsp;&nbsp;</span><span style="font-family: Arial; line-height: 1.6em; font-size: 16px;"><strong><?php echo $info_company[0]['address']?></strong></span></span></p>    <p style="text-align: center;"><span style="color:#FFF0F5;"><strong><span style="font-size:16px;"><span style="font-family: Arial;"><span style="line-height: 20px;">D66 Đường số 6 - Khu D&acirc;n Cư Him Lam&nbsp;</span>&nbsp;- Q.7&nbsp;- TP.HCM&nbsp;</span></span></strong></span></p>    <p style="text-align: center;"><span style="color:#FFF0F5;"><strong><span style="font-size:16px;"><span style="font-family: Arial;">Hotline: 0909.140.539</span></span></strong></span></p>
+                <p style="text-align: center;"><span style="color:#FFF0F5;"><span style="font-size: small; font-family: Arial; line-height: 1.6em;">&nbsp; &nbsp;&nbsp;</span><span style="font-family: Arial; line-height: 1.6em; font-size: 16px;"><strong><?php echo $info_company[0]['address'] ?></strong></span></span></p>    <p style="text-align: center;"><span style="color:#FFF0F5;"><strong><span style="font-size:16px;"><span style="font-family: Arial;"><span style="line-height: 20px;">D66 Đường số 6 - Khu D&acirc;n Cư Him Lam&nbsp;</span>&nbsp;- Q.7&nbsp;- TP.HCM&nbsp;</span></span></strong></span></p>    <p style="text-align: center;"><span style="color:#FFF0F5;"><strong><span style="font-size:16px;"><span style="font-family: Arial;">Hotline: 0909.140.539</span></span></strong></span></p>
                 <br />
                 Developed by <a href="http://smartsoftware.vn" target="_blank">SmartSoftware</a>
             </div>

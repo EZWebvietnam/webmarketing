@@ -6,6 +6,7 @@ class Home extends MY_Controller
         parent::__construct();
         parent::list_cate();
         parent::info_company();
+        parent::load_clip();
         $this->load->model('productmodel');
     }
     public function index()

@@ -19,6 +19,11 @@ class MY_Controller extends CI_Controller
         $this->load->model('faq');
         $this->data['info_company'] = $this->faq->info_com();
     }
+    public function load_clip()
+    {
+        $this->load->model('productmodel');
+        $this->data['list_clip'] = $this->productmodel->load_clip();
+    }
 }
 ?>
 

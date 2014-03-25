@@ -5,6 +5,7 @@ class News extends MY_Controller
         parent::__construct();
          parent::list_cate();
          parent::info_company();
+         parent::load_clip();
         $this->load->library('session');
         $this->load->model('newshomemodel');
     }

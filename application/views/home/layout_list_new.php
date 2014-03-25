@@ -472,38 +472,15 @@
                                                         <div>
                                                             <div class="g-ytsubscribe" data-channel="khanhmarketingonline" data-layout="full">&nbsp;</div>  
                                                         </div>
+                                                        <?php 
+                                                        foreach($list_clip as $clip)
+                                                        {
+                                                        ?>
                                                         <div>
-                                                            <p><a href="http://tenten.vn/" target="_blank"><img alt="" src="https://vinamos.vn//uploads/1/son2.png" style="width: 240px; height: 120px;" /></a></p>
+                                                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/<?php echo $clip['code']?>" width="235"></iframe></p>
 
                                                         </div>
-                                                        <div>
-                                                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/dXyvwBX6FDA" width="235"></iframe></p>
-
-                                                        </div>
-                                                        <div>
-                                                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/wicGL9W2DTQ" width="235"></iframe></p>
-
-                                                        </div>
-                                                        <div>
-                                                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/iZFiMOKPzjk" width="235"></iframe></p>
-
-                                                        </div>
-                                                        <div>
-                                                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/gj_xH97tMbI" width="235"></iframe></p>
-
-                                                        </div>
-                                                        <div>
-                                                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/VuqkHVpIExI" width="235"></iframe></p>
-
-                                                        </div>
-                                                        <div>
-                                                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/bBR2PsEmN1M" width="235"></iframe></p>
-
-                                                        </div>
-                                                        <div>
-                                                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/vjZ2BIKjqxs" width="235"></iframe></p>
-
-                                                        </div>
+                                                        <?php } ?>
                                                         <div>
 
                                                         </div>

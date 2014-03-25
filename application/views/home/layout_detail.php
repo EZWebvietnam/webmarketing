@@ -289,7 +289,7 @@
                     <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" onclick="order_process('<?php echo base_url(); ?>')" style="padding-top:5px" />
                 </center>
             </div>
-            <div id="o_email_form_content_loading" style="display:none"><br /><br /><br /><center><img src="template/template_1/images/ajax-loader.gif" alt="loading" /></center></div>
+            <div id="o_email_form_content_loading" style="display:none"><br /><br /><br /><center><img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/ajax-loader.gif" alt="loading" /></center></div>
         </div>
 
         <script type='text/javascript'>
@@ -363,41 +363,16 @@
                         <div>
                             <div class="g-ytsubscribe" data-channel="khanhmarketingonline" data-layout="full">&nbsp;</div>  
                         </div>
-                        <div>
-                            <p><a href="http://tenten.vn/" target="_blank"><img alt="" src="https://vinamos.vn//uploads/1/son2.png" style="width: 240px; height: 120px;" /></a></p>
+                        
+                        <?php 
+                                                        foreach($list_clip as $clip)
+                                                        {
+                                                        ?>
+                                                        <div>
+                                                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/<?php echo $clip['code']?>" width="235"></iframe></p>
 
-                        </div>
-                        <div>
-                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/dXyvwBX6FDA" width="235"></iframe></p>
-
-                        </div>
-                        <div>
-                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/wicGL9W2DTQ" width="235"></iframe></p>
-
-                        </div>
-                        <div>
-                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/iZFiMOKPzjk" width="235"></iframe></p>
-
-                        </div>
-                        <div>
-                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/gj_xH97tMbI" width="235"></iframe></p>
-
-                        </div>
-                        <div>
-                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/bBR2PsEmN1M" width="235"></iframe></p>
-
-                        </div>
-                        <div>
-                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/VuqkHVpIExI" width="235"></iframe></p>
-
-                        </div>
-                        <div>
-                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/vjZ2BIKjqxs" width="235"></iframe></p>
-
-                        </div>
-                        <div>
-                            <p><a href="http://www.ngoinhamang.net" title="Hosting - Domain - Email - Thuê Server - Thiết kế Website"><img alt="Hosting - Domain - Email - Thuê Server - Thiết kế Website" src="http://www.ngoinhamang.net/hosting-email-server-domain.gif" title="Hosting - Domain - Email - Thuê Server - Thiết kế Website" /> </a></p>  
-                        </div>
+                                                        </div>
+                                                        <?php } ?>
                         <div>
 
                         </div>
