@@ -2,16 +2,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 		<head>
-			<title>VinaMos.vn</title>
-			<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-			<meta name="Author" content="tranchaulong@gmail.com" />
-			<meta name="Publisher" content="tranchaulong@gmail.com" />
-			<meta name="Copyright" content="tranchaulong@gmail.com" />
-			<meta name="robots" content="all,index,follow" />
-			<meta name="distribution" content="global" />
-			<meta name="rating" content="general" />
-			<meta name="keywords" content="internet marketing,marketing online,chien luoc marketing online,hoc marketing online,giai phap marketing online,thuc hanh marketing online,cong cu thuc thuc hanh marketing online,ung dung marketing online,he thong marketing online ,tu van marketing online, website thong minh , website ban hang ,khoa hoc marketing online ,hoc truc tuyen , hoi thao truc tuyen, tiet kiem chi phi marketing online ,kiem tien tren mang, kiem tien online, tiep thi marketing online, marketing" />
-			<meta name="description" content="internet marketing,marketing online,chien luoc marketing online,hoc marketing online,giai phap marketing online,thuc hanh marketing online,cong cu thuc thuc hanh marketing online,ung dung marketing online,he thong marketing online ,tu van marketing online, website thong minh , website ban hang ,khoa hoc marketing online ,hoc truc tuyen , hoi thao truc tuyen, tiet kiem chi phi marketing online ,kiem tien tren mang, kiem tien online, tiep thi marketing online, marketing" />
+			<title><?php echo $header['title']?></title>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+        <meta name="Author" content="<?php echo $header['author']?>" />
+        <meta name="Publisher" content="<?php echo $header['publisher']?>" />
+        <meta name="Copyright" content="<?php echo $header['copyright']?>" />
+        <meta name="robots" content="<?php echo $header['robots']?>" />
+        <meta name="distribution" content="<?php echo $header['distribution']?>" />
+        <meta name="rating" content="<?php echo $header['rating']?>" />
+        <meta name="keywords" content="<?php echo $header['keywords']?>" />
+        <meta property="fb:app_id" content="150104728527998">
+
+
+            <meta name="description" content="<?php echo $header['description']?>" />
 			<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/css.css" media="screen"  />
 			<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/jquery.countdown.css" media="screen"  />
 			<script type="text/javascript" src="<?php echo base_url();?>template/ezwebvietnam/home/scripts/main.htm"></script>

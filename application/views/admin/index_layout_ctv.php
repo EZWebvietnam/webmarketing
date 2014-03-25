@@ -143,6 +143,12 @@
                                                                     Tin tức
                                                                 </a>
                                                             </li>
+                                                            <li class="main">
+                                                                <a href="<?php echo base_url(); ?>admin/settingadmin/list_setting" rel="setting" class="v_link">
+                                                                    <div><img src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/store.png" alt=""></div>
+                                                                    Liên hệ
+                                                                </a>
+                                                            </li>
                                                         </ul>
                                                         <div class="title_menu">Danh mục</div>
                                                     </div>
