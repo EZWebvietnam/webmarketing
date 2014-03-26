@@ -93,7 +93,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#cost_').priceFormat();
+        //$('#cost_').priceFormat();
         $("#adminform").validate({
             rules: {
                 title: "required",

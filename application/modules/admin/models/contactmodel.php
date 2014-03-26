@@ -32,5 +32,17 @@ class Contactmodel extends CI_Model
     {
         $this->db->delete('contact',array('id'=>$id));
     }
+    public function get_info()
+    {
+        $this->db->select();
+        $this->db->where('id',1);
+        $query = $this->db->get('info_company');
+        return $query->result_array();
+    }
+    public function update_info($id,array $data)
+    {
+        $this->db->where('id',$id);
+        $this->db->update('info_company',$data);
+    }
 }
 ?>

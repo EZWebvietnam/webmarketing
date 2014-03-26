@@ -172,7 +172,23 @@ class Settingadmin extends MY_Controller {
         $root->appendChild($doc->createTextNode("\n"));
         $doc->save($link);
     }
-
+    public function edit_address()
+    {
+        $this->load->model('contactmodel');
+        if($this->input->post())
+        {
+            $data_save = array();
+            $data_save = array('address'=>stripslashes($this->input->post('address')));
+            $this->contactmodel->update_info(1,$data_save);
+            $data_msg = array('error' => 0, 'msg' => 'Update Setting thanh cong');
+            echo json_encode($data_msg);
+        }
+        else
+        {
+            $this->data['detail']=$this->contactmodel->get_info();
+            $this->load->view('setting/ajax_admin_edit_info',$this->data);
+        }
+    }
 }
 
 ?>

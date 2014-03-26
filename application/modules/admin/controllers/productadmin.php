@@ -132,7 +132,6 @@ class Productadmin extends MY_Controller {
             exit;
         }
         if ($this->input->post()) {
-            echo intval($this->input->post('cost'));exit;
             $clip = $this->input->post('clip');
             $data_save = array(
                 'title' => $this->input->post('title'),
