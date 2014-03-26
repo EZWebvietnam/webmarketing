@@ -9,6 +9,10 @@ class Home extends MY_Controller
         parent::load_clip();
         parent::load_header();
         $this->load->model('productmodel');
+        $this->load->helper(array('form','url'));
+        $this->load->library('form_validation');
+        $this->load->library('tank_auth');
+        $this->lang->load('tank_auth');
     }
     public function index()
     {
@@ -44,6 +48,21 @@ class Home extends MY_Controller
             $this->data['main_content']='home_view/contact';
             $this->load->view('home/layout_detail',$this->data);
         }
+    }
+    public function check_email()
+    {
+        $this->load->model('users');
+        $email = $this->input->post('email');
+        $result = $this->users->get_user_by_email($email);
+        if(empty($result))
+        {
+            $data = array('error'=>1);
+        }
+        else
+        {
+            $data = array('error'=>0);
+        }
+        echo json_encode($data);
     }
 }
 ?>

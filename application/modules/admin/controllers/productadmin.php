@@ -27,6 +27,11 @@ class Productadmin extends MY_Controller {
             show_404();
             exit;
         }
+        if($this->session->userdata('role')!=1)
+        {
+            show_404();
+            exit;
+        }
         $this->load->helper('url');
         $config['uri_segment'] = 5;
         if ($this->input->post('page_no')) {
@@ -60,6 +65,11 @@ class Productadmin extends MY_Controller {
             show_404();
             exit;
         }
+        if($this->session->userdata('role')!=1)
+        {
+            show_404();
+            exit;
+        }
         $this->productmodel->delete_product($id);
         $this->productmodel->delete_user_product($id);
         $array = array('error' => 0, 'msg' => "Xóa thành công");
@@ -68,6 +78,11 @@ class Productadmin extends MY_Controller {
 
     public function deletes() {
         if(!$this->tank_auth->is_login_admin(TRUE))
+        {
+            show_404();
+            exit;
+        }
+        if($this->session->userdata('role')!=1)
         {
             show_404();
             exit;
@@ -87,6 +102,11 @@ class Productadmin extends MY_Controller {
             show_404();
             exit;
         }
+        if($this->session->userdata('role')!=1)
+        {
+            show_404();
+            exit;
+        }
         if (empty($id)) {
             show_404();
             exit;
@@ -102,6 +122,11 @@ class Productadmin extends MY_Controller {
 
     public function add() {
         if(!$this->tank_auth->is_login_admin(TRUE))
+        {
+            show_404();
+            exit;
+        }
+        if($this->session->userdata('role')!=1)
         {
             show_404();
             exit;
@@ -148,6 +173,11 @@ class Productadmin extends MY_Controller {
 
     public function edit($id = null) {
         if(!$this->tank_auth->is_login_admin(TRUE))
+        {
+            show_404();
+            exit;
+        }
+        if($this->session->userdata('role')!=1)
         {
             show_404();
             exit;

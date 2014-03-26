@@ -14,6 +14,11 @@ class Saleadmin extends MY_Controller
             show_404();
             exit;
         }
+        if($this->session->userdata('role')!=1)
+        {
+            show_404();
+            exit;
+        }
     }
     public function list_sale()
     {

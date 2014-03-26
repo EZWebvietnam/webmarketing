@@ -87,12 +87,22 @@
                                             </div>
                                             <div id="div_danhmuc" class="menucontent">
                                                 <div class="box_menu">
+                                                    <?php 
+                                                    if($this->session->userdata('role')==1)
+                                                    {
+                                                    ?>
                                                     <div class="box_menu_right">
                                                         <ul>
                                                             <li class="main">
                                                                 <a href="<?php echo base_url(); ?>admin/productadmin/list_product" rel="khachhang" class="v_link">
                                                                     <div><img src="http://quanlybanhang.360vnit.com/icon/customers.png" alt=""></div>
                                                                     Khóa học
+                                                                </a>
+                                                            </li>
+                                                            <li class="main">
+                                                                <a href="<?php echo base_url(); ?>admin/accountadmin/list_account" rel="account" class="v_link">
+                                                                    <div><img src="http://quanlybanhang.360vnit.com/icon/customers.png" alt=""></div>
+                                                                    User
                                                                 </a>
                                                             </li>
                                                             <li class="main">
@@ -104,10 +114,15 @@
                                                         </ul>
                                                         <div class="title_menu">Khách hàng</div>
                                                     </div>
+                                                    <?php } ?>
                                                 </div>
                                                 <div class="box_menu">
                                                     <div class="box_menu_right">
                                                         <ul>
+                                                            <?php 
+                                                    if($this->session->userdata('role')==1)
+                                                    {
+                                                    ?>
                                                             <li class="main">
                                                                 <a href="<?php echo base_url(); ?>admin/orderadmin/list_order" rel="khohang" class="v_link">
                                                                     <div><img src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/unit-icon.png" alt=""></div>
@@ -132,12 +147,7 @@
                                                                     Liên hệ
                                                                 </a>
                                                             </li>
-                                                            <li class="main">
-                                                                <a href="<?php echo base_url(); ?>admin/newsadmin/list_new" rel="news" class="v_link">
-                                                                    <div><img src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/store.png" alt=""></div>
-                                                                    Tin tức
-                                                                </a>
-                                                            </li>
+                                                            
                                                             <li class="main">
                                                                 <a href="<?php echo base_url(); ?>admin/saleadmin/list_sale" rel="sale" class="v_link">
                                                                     <div><img src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/store.png" alt=""></div>
@@ -148,6 +158,13 @@
                                                                 <a href="<?php echo base_url(); ?>admin/settingadmin/list_setting" rel="setting" class="v_link">
                                                                     <div><img src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/store.png" alt=""></div>
                                                                     Cấu hình
+                                                                </a>
+                                                            </li>
+                                                    <?php } ?>
+                                                            <li class="main">
+                                                                <a href="<?php echo base_url(); ?>admin/newsadmin/list_new" rel="news" class="v_link">
+                                                                    <div><img src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/store.png" alt=""></div>
+                                                                    Tin tức
                                                                 </a>
                                                             </li>
                                                         </ul>
