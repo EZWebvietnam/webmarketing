@@ -49,6 +49,12 @@
                 </td>
             </tr>
             <tr>
+                <td class="label">Tỉnh / Thành phố</td>
+                <td colspan="3">
+                    <?php echo $list_province_admin[$detail_ctv[0]['province']] ?>
+                </td>
+            </tr>
+            <tr>
                 <td class="label">Email</td>
                 <td colspan="3">
                     <?php echo $detail_ctv[0]['email'] ?>

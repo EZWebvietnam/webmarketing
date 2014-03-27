@@ -94,7 +94,7 @@
             <div class='banner_header'>
             </div>
             <div class='logo'>
-                <img src='/uploads/.vinamos.vn/2013/02/25/715/1341760607-png1361787802.png' width='220' height='80' alt='' />
+                <img src='<?php echo base_url();?>file/uploads/logo/<?php echo $header['logo']?>' width='220' height='80' alt='' />
             </div>
             <div class='top_menu' >
                 <a href="<?php echo base_url(); ?>" class="home">Trang chủ</a>
@@ -494,7 +494,7 @@
                                                         <?php } ?>
 
                                                         <div>
-                                                            <p style="text-align: center;"><iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FHocMarketingOnline&width=270&height=350&colorscheme=light&show_faces=true&border_color&stream=false&header=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:240px; height:350px;" allowtransparency="true"></iframe></p>
+                                                            <p style="text-align: center;"><iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fvietmongco.vn&amp;width=240&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:240px; height:290px;" allowTransparency="true"></iframe></p>
                                                         </div>
                                                         <div>
                                                             <iframe src="http://www.youtube.com/subscribe_widget?p=vietmongco" 

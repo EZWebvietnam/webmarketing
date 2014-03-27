@@ -60,5 +60,22 @@ class MY_Controller extends CI_Controller
         }
         $this->data['header']=$data_setting;
     }
+    public function list_province()
+    {
+        $this->load->model('users');
+        $list_district = $this->users->get_province();
+        $this->data['list_province'] = $list_district;
+    }
+    public function list_province_admin()
+    {
+        $this->load->model('ctvmodel');
+        $list_district = $this->ctvmodel->get_province();
+        $a = array();
+        foreach($list_district as $k)
+        {
+            $a[$k['provinceid']]=$k['name'];
+        }
+        $this->data['list_province_admin'] = $a;
+    }
 }
 ?>

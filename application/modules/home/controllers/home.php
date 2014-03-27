@@ -8,6 +8,7 @@ class Home extends MY_Controller {
         parent::info_company();
         parent::load_clip();
         parent::load_header();
+        parent::list_province();
         $this->load->model('productmodel');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
@@ -77,8 +78,9 @@ class Home extends MY_Controller {
             $skype = $this->input->post('skype');
             $bank = $this->input->post('bank');
             $email_bank = $this->input->post('stk');
+            $province = $this->input->post('province');
             $email_activation = $this->config->item('email_activation', 'tank_auth');
-            if (!is_null($data = $this->tank_auth->create_user2($username, $email, $password, $full_name, $phone, $sex, $birth_day, $address, $yahoo, $skype, $bank, $email_bank, '4', $email_activation,0))) {
+            if (!is_null($data = $this->tank_auth->create_user2($username, $email, $password, $full_name, $phone, $sex, $birth_day, $address, $yahoo, $skype, $bank, $email_bank, '4', $email_activation,0,$province))) {
                 if ($email_activation) {
                     $data['site_name'] = $this->config->item('website_name', 'tank_auth');
                     $data['activation_period'] = $this->config->item('email_activation_expire', 'tank_auth') / 3600;

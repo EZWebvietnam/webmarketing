@@ -87,7 +87,15 @@ class Settingadmin extends MY_Controller {
             $root->appendChild($doc->createTextNode("\n"));
             $root->appendChild($doc->createElement('keywords', $this->input->post('keyword')));
             $root->appendChild($doc->createTextNode("\n"));
-            $root->appendChild($doc->createElement('logo', $this->input->post('logo')));
+            $file = $this->input->post('file');
+            if($file!='')
+            {
+                $root->appendChild($doc->createElement('logo', $file));
+            }
+            else
+            {
+                 $root->appendChild($doc->createElement('logo', $this->input->post('logo')));
+            }
             $root->appendChild($doc->createTextNode("\n"));
             $root->appendChild($doc->createElement('icon', $this->input->post('icon')));
             $root->appendChild($doc->createTextNode("\n"));

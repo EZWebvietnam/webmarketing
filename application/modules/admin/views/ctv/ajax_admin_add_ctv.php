@@ -90,6 +90,19 @@ $password = array(
                 </td>
             </tr>
             <tr>
+                <td class="label">Tỉnh / Thành phố</td>
+                <td colspan="3">
+                    <select name="province">
+                        <?php 
+                        foreach($list_province_admin as $k=>$v)
+                        {
+                             ?>
+                        <option value="<?php echo $k?>"> <?php echo $v?></option>
+                        <?php  } ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td class="label">Yahoo</td>
                 <td colspan="3">
                     <input type="text" value="" name="yahoo"/>

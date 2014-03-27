@@ -63,6 +63,23 @@
                 </td>
             </tr>
             <tr>
+                <td class="label">Tỉnh / Thành phố</td>
+                <td colspan="3">
+                    <select name="province">
+                        <?php 
+                        foreach($list_province_admin as $k=>$v)
+                        {
+                            if($k == $detail_ctv[0]['province'])
+                            {
+                        ?>
+                        <option selected="" value="<?php echo $k?>"> <?php echo $v?></option>
+                        <?php } else {?>
+                        <option value="<?php echo $k?>"> <?php echo $v?></option>
+                        <?php } } ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td class="label">Yahoo</td>
                 <td colspan="3">
                     <input type="text" value="<?php echo $detail_ctv[0]['yahoo'] ?>" name="yahoo"/>

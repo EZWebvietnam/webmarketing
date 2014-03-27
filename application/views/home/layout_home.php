@@ -57,7 +57,7 @@
             <div class='banner_header'>
             </div>
             <div class='logo'>
-                <img src='/uploads/.vinamos.vn/2013/02/25/715/1341760607-png1361787802.png' width='220' height='80' alt='' />
+                <img src='<?php echo base_url();?>file/uploads/logo/<?php echo $header['logo']?>' width='220' height='80' alt='' />
             </div>
             <div class='top_menu' >
                 <a href="<?php echo base_url(); ?>" class="home">Trang chủ</a>

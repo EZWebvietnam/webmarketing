@@ -69,10 +69,23 @@
                     <textarea name="descriptions" id="descriptions"> <?php echo $setting['description'] ?></textarea>
                 </td>
             </tr>
-             <tr>
+            <tr>
                 <td class="label">Logo</td>
                 <td colspan="3">
-                    <input id="logo" type="text" value="<?php echo $setting['logo'] ?>" name ="logo"/>
+                    <?php 
+                    if(file_exists($_SERVER['DOCUMENT_ROOT'].ROT_DIR.'file/uploads/logo/'.$setting['logo']) && is_file($_SERVER['DOCUMENT_ROOT'].ROT_DIR.'file/uploads/logo/'.$setting['logo'])&&$setting['logo']!='')
+                    {
+                    ?>
+                    <img src="<?php echo base_url();?>file/uploads/logo/<?php echo $setting['logo']?>" width="100" height="100"/>
+                    <?php } else {?>
+                    <img src="<?php echo base_url();?>file/uploads/no_image.gif" width="100" height="100"/>
+                    <?php } ?>
+                    <br/>
+                    <input type="text" name="logo" value="<?php echo $setting['logo']?>"/><br/>
+                    <input type="file" name="userfile"/><br/>
+                    <input id="userfile" name="userfile" type="button" class="bt100" value="Upload" onClick="fileUpload(this.form,'<?php echo base_url();?>upload/upload_logo','upload','<?php echo base_url(); ?>admin/settingadmin/edit'); return false;">
+                   <div id="upload"></div>
+                    <input type='hidden' name='file' id='file'/>
                 </td>
             </tr>
             <tr>

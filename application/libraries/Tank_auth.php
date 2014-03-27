@@ -229,7 +229,7 @@ class Tank_auth {
         }
         return NULL;
     }
-    function create_user2($username, $email, $password, $fullname, $phone,$sex,$birth_day,$address,$yahoo,$skype,$bank,$stk, $role, $email_activation,$active) {
+    function create_user2($username, $email, $password, $fullname, $phone,$sex,$birth_day,$address,$yahoo,$skype,$bank,$stk, $role, $email_activation,$active,$province) {
         if ((strlen($username) > 0) AND ! $this->ci->users->is_username_available($username)) {
             $this->error = array('username' => 'auth_username_in_use');
         } elseif (!$this->ci->users->is_email_available($email)) {
@@ -256,7 +256,8 @@ class Tank_auth {
                 'birthday'=>$birth_day,
                 'bank'=>$bank,
                 'stk'=>$stk,
-                'sex'=>$sex
+                'sex'=>$sex,
+                'province'=>$province
             );
             if ($email_activation) {
                 $data['new_email_key'] = md5(rand() . microtime());

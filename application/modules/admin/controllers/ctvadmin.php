@@ -3,6 +3,7 @@ class Ctvadmin extends MY_Controller
 {
     public function __construct() {
         parent::__construct();
+          parent::list_province_admin();
         $this->load->model('ctvmodel');
         $this->load->helper(array('form','url'));
         $this->load->library('session');
@@ -118,7 +119,7 @@ class Ctvadmin extends MY_Controller
             $bank = $this->input->post('bank');
             $stk = $this->input->post('stk');
             $birth_day = $this->input->post('birth_day');
-            
+            $province = $this->input->post('province');
             $sex = $this->input->post('radio');
             if($password!='')
             {
@@ -133,7 +134,8 @@ class Ctvadmin extends MY_Controller
                     'bank'=>$bank,
                     'stk'=>$stk,
                     'birthday'=>$birth_day,
-                    'sex'=>$sex
+                    'sex'=>$sex,
+                    'province'=>$province
                 );
             }
             else
@@ -147,7 +149,8 @@ class Ctvadmin extends MY_Controller
                     'bank'=>$bank,
                     'stk'=>$stk,
                     'birthday'=>$birth_day,
-                    'sex'=>$sex
+                    'sex'=>$sex,
+                    'province'=>$province
                 );
             }
             $this->ctvmodel->update_ctv($id,$data_save);
@@ -179,8 +182,9 @@ class Ctvadmin extends MY_Controller
                 $stk = $this->input->post('stk');
                 $birth_day = $this->input->post('birth_day');
                 $sex = $this->input->post('radio');
+                $province = $this->input->post('province');
                 if (!is_null($data = $this->tank_auth->create_user2(
-                                $use_username ? $this->form_validation->set_value('username') : '', $this->form_validation->set_value('sEmail'), $this->form_validation->set_value('sPassWord1'),$full_name,$phone,$sex,$birth_day,$add,$yahoo,$skype,$bank,$stk,'4',$email_activation,1))) {                                    // success
+                                $use_username ? $this->form_validation->set_value('username') : '', $this->form_validation->set_value('sEmail'), $this->form_validation->set_value('sPassWord1'),$full_name,$phone,$sex,$birth_day,$add,$yahoo,$skype,$bank,$stk,'4',$email_activation,1,$province))) {                                    // success
                     $data['site_name'] = $this->config->item('website_name', 'tank_auth');
                     if ($email_activation) {                                    // send "activate" email
                         $data['activation_period'] = $this->config->item('email_activation_expire', 'tank_auth') / 3600;

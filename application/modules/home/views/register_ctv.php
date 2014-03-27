@@ -51,7 +51,17 @@
                     </tr>
                     <tr>
                         <td>Tỉnh thành</td>
-                        <td>Table Cell</td>
+                        <td>
+                            <select name="province">
+                                <?php 
+                                foreach($list_province as $province)
+                                {
+                                ?>
+                                <option value="<?php echo $province['provinceid']?>"><?php echo $province['name']?></option>
+                                <?php } ?>
+                                
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>Điện thoại</td>
@@ -62,11 +72,11 @@
                         <td><input class="required email" id="email" name="email" type="text" class="text"/></td>
                     </tr>
                     <tr>
-                        <td>Yahoo<span class="rq"> * </span></td>
+                        <td>Yahoo</td>
                         <td><input  id="yahoo" name="yahoo" type="text" class="text"/></td>
                     </tr>
                     <tr>
-                        <td>Skype<span class="rq"> * </span></td>
+                        <td>Skype</td>
                         <td><input  id="skype" name="skype" type="text" class="text"/></td>
                     </tr>
                     <tr>
