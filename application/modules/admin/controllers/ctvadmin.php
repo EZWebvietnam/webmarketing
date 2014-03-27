@@ -113,6 +113,13 @@ class Ctvadmin extends MY_Controller
             $phone = $this->input->post('phone');
             $add = $this->input->post('address');
             $password = $this->input->post('password');
+            $yahoo = $this->input->post('yahoo');
+            $skype = $this->input->post('skype');
+            $bank = $this->input->post('bank');
+            $stk = $this->input->post('stk');
+            $birth_day = $this->input->post('birth_day');
+            
+            $sex = $this->input->post('radio');
             if($password!='')
             {
                 $password = $this->tank_auth->hash_password($password);
@@ -120,7 +127,13 @@ class Ctvadmin extends MY_Controller
                     'full_name'=>$full_name,
                     'phone'=>$phone,
                     'address'=>$add,
-                    'password'=>$password
+                    'password'=>$password,
+                    'yahoo'=>$yahoo,
+                    'skype'=>$skype,
+                    'bank'=>$bank,
+                    'stk'=>$stk,
+                    'birthday'=>$birth_day,
+                    'sex'=>$sex
                 );
             }
             else
@@ -128,7 +141,13 @@ class Ctvadmin extends MY_Controller
                 $data_save = array(
                     'full_name'=>$full_name,
                     'phone'=>$phone,
-                    'address'=>$add
+                    'address'=>$add,
+                    'yahoo'=>$yahoo,
+                    'skype'=>$skype,
+                    'bank'=>$bank,
+                    'stk'=>$stk,
+                    'birthday'=>$birth_day,
+                    'sex'=>$sex
                 );
             }
             $this->ctvmodel->update_ctv($id,$data_save);
@@ -154,8 +173,14 @@ class Ctvadmin extends MY_Controller
                 $full_name = $this->input->post('full_name');
                 $add = $this->input->post('address');
                 $phone = $this->input->post('phone');
-                if (!is_null($data = $this->tank_auth->create_user(
-                                $use_username ? $this->form_validation->set_value('username') : '', $this->form_validation->set_value('sEmail'), $this->form_validation->set_value('sPassWord1'),$full_name,$phone,'4',$email_activation, $add))) {                                    // success
+                $yahoo = $this->input->post('yahoo');
+                $skype = $this->input->post('skype');
+                $bank = $this->input->post('bank');
+                $stk = $this->input->post('stk');
+                $birth_day = $this->input->post('birth_day');
+                $sex = $this->input->post('radio');
+                if (!is_null($data = $this->tank_auth->create_user2(
+                                $use_username ? $this->form_validation->set_value('username') : '', $this->form_validation->set_value('sEmail'), $this->form_validation->set_value('sPassWord1'),$full_name,$phone,$sex,$birth_day,$add,$yahoo,$skype,$bank,$stk,'4',$email_activation,1))) {                                    // success
                     $data['site_name'] = $this->config->item('website_name', 'tank_auth');
                     if ($email_activation) {                                    // send "activate" email
                         $data['activation_period'] = $this->config->item('email_activation_expire', 'tank_auth') / 3600;

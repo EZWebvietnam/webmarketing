@@ -4,6 +4,7 @@
         $("input").each(function() {
             $("input.readonly").css('background-color', '#f2f2f2');
         });
+        $( "#birth_day" ).datepicker({ dateFormat: 'yy/mm/dd' });
     });
 </script>
 <div class="h-pop">
@@ -33,9 +34,56 @@
                 </td>
             </tr>
             <tr>
+                <td class="label">Giới tính</td>
+                <td colspan="3">
+                    <?php 
+                    if($detail_ctv[0]['sex']==0)
+                    {
+                        ?>
+                    <input checked="" type="radio" name="radio" value="0"/>Nam<input type="radio" name="radio" value="1"/>Nữ
+                            <?php
+                    }
+                    else
+                    {
+                    ?>
+                    <input type="radio" name="radio" value="0"/>Nam<input type="radio" name="radio" value="1" checked=""/>Nữ
+                    <?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Ngày sinh</td>
+                <td colspan="3">
+                    <input type="text" value="<?php echo $detail_ctv[0]['birthday'] ?>" id="birth_day" name="birth_day"/>
+                </td>
+            </tr>
+            <tr>
                 <td class="label">Địa chỉ</td>
                 <td colspan="3">
                     <input type="text" value="<?php echo $detail_ctv[0]['address'] ?>" name="address"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Yahoo</td>
+                <td colspan="3">
+                    <input type="text" value="<?php echo $detail_ctv[0]['yahoo'] ?>" name="yahoo"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Skype</td>
+                <td colspan="3">
+                    <input type="text" value="<?php echo $detail_ctv[0]['skype'] ?>" name="skype"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Ngân hàng / Ví điện tử</td>
+                <td colspan="3">
+                    <input type="text" value="<?php echo $detail_ctv[0]['bank'] ?>" name="bank"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">STK/Email giao dịch</td>
+                <td colspan="3">
+                    <input type="text" value="<?php echo $detail_ctv[0]['stk'] ?>" name="stk"/>
                 </td>
             </tr>
             <tr>

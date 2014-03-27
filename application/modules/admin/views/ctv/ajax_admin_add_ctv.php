@@ -4,6 +4,7 @@
         $("input").each(function() {
             $("input.readonly").css('background-color', '#f2f2f2');
         });
+        $( "#birth_day" ).datepicker({ dateFormat: 'yy/mm/dd' });
     });
 </script>
 <div class="h-pop">
@@ -70,9 +71,46 @@ $password = array(
                 </td>
             </tr>
             <tr>
+                <td class="label">Giới tính</td>
+                <td colspan="3">
+                     <input type="radio" name="radio" value="0"/>Nam<input type="radio" name="radio" value="1"/>Nữ
+                </td>
+            </tr>
+           
+            <tr>
+                <td class="label">Ngày sinh</td>
+                <td colspan="3">
+                    <input type="text" value="" id="birth_day" name="birth_day"/>
+                </td>
+            </tr>
+            <tr>
                 <td class="label">Địa chỉ</td>
                 <td colspan="3">
                     <input type="text" value="" name="address"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Yahoo</td>
+                <td colspan="3">
+                    <input type="text" value="" name="yahoo"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Skype</td>
+                <td colspan="3">
+                    <input type="text" value="" name="skype"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Ngân hàng / Ví điện tử</td>
+                <td colspan="3">
+                    <input type="text" value="" name="bank"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">STK/Email giao dịch</td>
+                <td colspan="3">
+                    <input type="text" value="" name="stk"/>
                 </td>
             </tr>
             <tr>

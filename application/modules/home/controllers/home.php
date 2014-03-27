@@ -78,15 +78,17 @@ class Home extends MY_Controller {
             $bank = $this->input->post('bank');
             $email_bank = $this->input->post('stk');
             $email_activation = $this->config->item('email_activation', 'tank_auth');
-            if (!is_null($data = $this->tank_auth->create_user2($username, $email, $password, $full_name, $phone, $sex, $birth_day, $address, $yahoo, $skype, $bank, $email_bank, '4', $email_activation))) {
+            if (!is_null($data = $this->tank_auth->create_user2($username, $email, $password, $full_name, $phone, $sex, $birth_day, $address, $yahoo, $skype, $bank, $email_bank, '4', $email_activation,0))) {
                 if ($email_activation) {
                     $data['site_name'] = $this->config->item('website_name', 'tank_auth');
                     $data['activation_period'] = $this->config->item('email_activation_expire', 'tank_auth') / 3600;
                     $this->_send_email('activate', $email, $email, $data, 'Đăng Ký Tài Khoản Thành Công');
                 }
+                
                 $this->data['main_content'] = 'register_success';
                 $this->load->view('home/layout_detail', $this->data);
             }
+
         } else {
             
             $this->data['main_content'] = 'register_ctv';

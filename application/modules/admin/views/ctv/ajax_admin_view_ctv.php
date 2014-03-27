@@ -27,6 +27,21 @@
                     <?php echo $detail_ctv[0]['phone'] ?>
                 </td>
             </tr>
+             <tr>
+                 <?php 
+                $array = array('0'=>'Nam','1'=>'Nữ');
+                 ?>
+                <td class="label">Giới tính</td>
+                <td colspan="3">
+                    <?php echo $array[$detail_ctv[0]['sex']] ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Ngày sinh</td>
+                <td colspan="3">
+                    <?php echo $detail_ctv[0]['birthday'] ?>
+                </td>
+            </tr>
             <tr>
                 <td class="label">Địa chỉ</td>
                 <td colspan="3">
@@ -37,6 +52,30 @@
                 <td class="label">Email</td>
                 <td colspan="3">
                     <?php echo $detail_ctv[0]['email'] ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Yahoo</td>
+                <td colspan="3">
+                    <?php echo $detail_ctv[0]['yahoo'] ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Skype</td>
+                <td colspan="3">
+                    <?php echo $detail_ctv[0]['skype'] ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Ngân hàng / Ví điện tử</td>
+                <td colspan="3">
+                    <?php echo $detail_ctv[0]['bank'] ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">STK/Email giao dịch</td>
+                <td colspan="3">
+                    <?php echo $detail_ctv[0]['stk'] ?>
                 </td>
             </tr>
             <tr>
