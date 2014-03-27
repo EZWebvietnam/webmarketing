@@ -2,19 +2,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <title><?php echo $header['title']?></title>
+        <title><?php echo $header['title'] ?></title>
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-        <meta name="Author" content="<?php echo $header['author']?>" />
-        <meta name="Publisher" content="<?php echo $header['publisher']?>" />
-        <meta name="Copyright" content="<?php echo $header['copyright']?>" />
-        <meta name="robots" content="<?php echo $header['robots']?>" />
-        <meta name="distribution" content="<?php echo $header['distribution']?>" />
-        <meta name="rating" content="<?php echo $header['rating']?>" />
-        <meta name="keywords" content="<?php echo $header['keywords']?>" />
+        <meta name="Author" content="<?php echo $header['author'] ?>" />
+        <meta name="Publisher" content="<?php echo $header['publisher'] ?>" />
+        <meta name="Copyright" content="<?php echo $header['copyright'] ?>" />
+        <meta name="robots" content="<?php echo $header['robots'] ?>" />
+        <meta name="distribution" content="<?php echo $header['distribution'] ?>" />
+        <meta name="rating" content="<?php echo $header['rating'] ?>" />
+        <meta name="keywords" content="<?php echo $header['keywords'] ?>" />
         <meta property="fb:app_id" content="150104728527998">
 
 
-            <meta name="description" content="<?php echo $header['description']?>" />
+            <meta name="description" content="<?php echo $header['description'] ?>" />
             <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/css.css" media="screen"  />
             <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/jquery.countdown.css" media="screen"  />
             <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/scripts/main.htm"></script>
@@ -104,30 +104,57 @@
                 </a>
             </div>
             <div class='login_form'>
-                <form style='margin:0px;padding:0px' method='post' action='/login.htm'>
-                    <input style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/login.png" name="submit" value='submit' width="126" height="32" />
-                    <input type="text" name="username" size="20" style="width:160px;border:0;height:23px;color:#005398;font-style: italic; " onblur="if (this.value == '')
-                                this.value = 'Tài khoản...';" onfocus="if (this.value == 'Tài khoản...')
-                                            this.value = '';" value='Tài khoản...' />
-                    <input type="password" name="password" size="20" style="width:160px;border:0;height:23px;color:#005398;font-style: italic;margin-left:38px" onblur="if (this.value == '')
-                                this.value = 'Mật khẩu...';" onfocus="if (this.value == 'Mật khẩu...')
-                                            this.value = '';" value='Mật khẩu...' />
-                    <input type='checkbox' name='save_loginfo' value='1' id='save_loginfo' style='margin-left:10px' />
-                    <label for="save_loginfo" style='font: italic 13px Arial;color: #fff'>Ghi nhớ đăng nhập</label>
-                </form>
+                <?php
+                $login = array(
+                    'name' => 'login',
+                    'id' => 'login',
+                    'value' => set_value('login'),
+                    'maxlength' => 80,
+                    'maxsize' => 30,
+                    'class' => 'input-large span10',
+                    'style' => 'width:200px;border:0;height:23px;color:#005398;font-style: italic;',
+                    'placeholder' => 'Username'
+                );
+                $password = array(
+                    'name' => 'password',
+                    'id' => 'password',
+                    'maxsize' => 30,
+                    'class' => 'input-large span10',
+                    'type' => 'password',
+                    'style' => 'padding-left:10px;width:200px;border:0;height:23px;color:#005398;font-style: italic;',
+                    'placeholder' => 'Password'
+                );
+                if (!$this->tank_auth->is_login_ctv(TRUE)) {
+                    ?>
+                    <form style='margin:0px;padding:0px' method='post' action='<?php echo base_url(); ?>cong-tac-vien/login'>
+
+                        <input onclick="window.location.href = '<?php echo base_url(); ?>cong-tac-vien/register';
+                                return false;" style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/button-title-register.png" name="ss" value='ss' width="126" height="32" />
+                        <input style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/button-title-login.png" name="submit" value='submit' width="126" height="32" />
+                        <?php echo form_input($login); ?>
+                        <?php echo form_input($password); ?>
+
+                    </form>
+                <?php } else { ?>
+                    <style>
+                        .setting{
+                            padding-left:100px;width:160px;border:0;height:23px;color:white;font-style: italic;
+                        }
+                        .setting a {
+                            color:white !important;
+                        }
+
+                    </style>
+                    <span style="margin-top:-5px;width:160px;border:0;height:23px;color:white;font-style: italic;"> Xin chào <?php echo $this->session->userdata('username') ?> </span><span class="setting"> <a href="<?php echo base_url(); ?>cong-tac-vien">Cộng tác viên</a></span>
+                <?php } ?>
             </div>
         </div>
 
         <div style='width:1000px;margin: 0 auto 0 auto;'>
             <ul id='menu'>
-                        <?php
-                        foreach ($list_cate as $list_cate_menu) {
-                            ?>
-                    <li>
-                        <a id="<?php echo $list_cate_menu['id_cate'] ?>" href='<?php echo base_url(); ?>p_c-<?php echo $list_cate_menu['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($list_cate_menu['name']))) ?>'>
-    <?php echo $list_cate_menu['name'] ?></a>
-                    </li>
-<?php } ?>
+                <li>
+                    <a href='<?php echo base_url(); ?>'>Sản phẩm</a>
+                </li>
                 <li>
                     <a  href='<?php echo base_url(); ?>hoi-dap'>
                         Hỏi Đáp		</a>
@@ -382,171 +409,194 @@
                         <div id="main2">
                             <div class="right_header"><?php echo $cate_detail[0]['name'] ?></div>
                             <div class="news1"></div>
-                                        <?php
-                                        foreach ($list as $list_product_cate) {
-                                            ?>
+                            <?php
+                            foreach ($list as $list_product_cate) {
+                                ?>
                                 <div class="news2">
                                     <div style="float:left;border:1px solid #fff;padding:3px;margin:4px">
                                         <a href="<?php echo base_url(); ?>p_c-<?php echo $list_product_cate['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['name']))) ?>/p_p-<?php echo $list_product_cate['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['title']))) ?>">
-                                                <?php
-                                                if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/product/' . $list_product_cate['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/product/' . $list_product_cate['img']) && $list_product_cate['img'] != '') {
-                                                    ?>
+                                            <?php
+                                            if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/product/' . $list_product_cate['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/product/' . $list_product_cate['img']) && $list_product_cate['img'] != '') {
+                                                ?>
                                                 <img src="<?php echo base_url(); ?>file/uploads/product/<?php echo $list_product_cate['img'] ?>" alt="<?php echo $list_product_cate['title'] ?>" width="120"/>
-    <?php } else { ?>
-                                                    <img src="<?php echo base_url(); ?>file/uploads/no_image.gif" alt="<?php echo $list_product_cate['title'] ?>" width="120">
-                                                        <?php } ?>
-                                                    </a>
-                                                    </div>
-                                                    <a href="<?php echo base_url(); ?>p_c-<?php echo $list_product_cate['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['name']))) ?>/p_p-<?php echo $list_product_cate['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['title']))) ?>"><h3><b><?php echo $list_product_cate['title'] ?></b></h3></a>
-                                                    <div style="position:relative;margin-top:10px">
-                                                        <?php
-                                                        $detail_sale = $this->productmodel->get_sale_off_product($list_product_cate['id_product']);
-                                                        if (!empty($detail_sale)) {
+                                            <?php } else { ?>
+                                                <img src="<?php echo base_url(); ?>file/uploads/no_image.gif" alt="<?php echo $list_product_cate['title'] ?>" width="120">
+                                                <?php } ?>
+                                        </a>
+                                    </div>
+                                    <a href="<?php echo base_url(); ?>p_c-<?php echo $list_product_cate['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['name']))) ?>/p_p-<?php echo $list_product_cate['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['title']))) ?>"><h3><b><?php echo $list_product_cate['title'] ?></b></h3></a>
+                                    <div style="position:relative;margin-top:10px">
+                                        <?php
+                                        $detail_sale = $this->productmodel->get_sale_off_product($list_product_cate['id_product']);
+                                        if (!empty($detail_sale)) {
+                                            ?>
+                                            <div class="product_style_1">
+                                                <table width="290">
+                                                    <tbody><tr>
+                                                            <td width="120"><a>Giá gốc:</a></td>
+                                                            <td><span class="orgin_price"><strike><?php echo number_format($list_product_cate['cost']) ?></strike> VND/Bộ </span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="120"><a>Giá:</a></td>
+                                                            <td><span class="price"><?php echo number_format($list_product_cate['cost'] - ($detail_sale[0]['percent'] * $list_product_cate['cost']) / 100) ?></span> VND/Bộ </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="120"><a>Giảm:</a></td>
+                                                            <td><span class="price"><?php echo $detail_sale[0]['percent'] ?></span>%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="120"><a>Số người đã mua:</a></td>
+                                                            <td><span class="price"> 868 </span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <?php
+                                                            $date_ex = explode('/', $detail_sale[0]['exp_date']);
                                                             ?>
-                                                            <div class="product_style_1">
-                                                                <table width="290">
-                                                                    <tbody><tr>
-                                                                            <td width="120"><a>Giá gốc:</a></td>
-                                                                            <td><span class="orgin_price"><strike><?php echo number_format($list_product_cate['cost']) ?></strike> VND/Bộ </span></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="120"><a>Giá:</a></td>
-                                                                            <td><span class="price"><?php echo number_format($list_product_cate['cost'] - ($detail_sale[0]['percent'] * $list_product_cate['cost']) / 100) ?></span> VND/Bộ </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="120"><a>Giảm:</a></td>
-                                                                            <td><span class="price"><?php echo $detail_sale[0]['percent'] ?></span>%</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="120"><a>Số người đã mua:</a></td>
-                                                                            <td><span class="price"> 868 </span></td>
-                                                                        </tr>
-                                                                        <tr>
-        <?php
-        $date_ex = explode('/', $detail_sale[0]['exp_date']);
-        ?>
-                                                                            <script type="text/javascript">
+                                                            <script type="text/javascript">
 
-                                                                                $(function() {
-                                                                                    var liftoffTime = new Date(<?php echo $date_ex[2] ?>,<?php echo $date_ex[1] ?> - 1,<?php echo $date_ex[0] ?>);
-                                                                                    $('#defaultCountdown231').countdown({until: liftoffTime, padZeroes: true});
-                                                                                });
+                                                                $(function() {
+                                                                    var liftoffTime = new Date(<?php echo $date_ex[2] ?>,<?php echo $date_ex[1] ?> - 1,<?php echo $date_ex[0] ?>);
+                                                                    $('#defaultCountdown231').countdown({until: liftoffTime, padZeroes: true});
+                                                                });
 
-                                                                            </script>
-                                                                            <td width="120"><a>Thời gian còn lại:</a></td>
-                                                                            <td><span id="defaultCountdown231" class="hasCountdown"><b></b></span></td>
-                                                                        </tr>
-                                                                    </tbody></table>
+                                                            </script>
+                                                            <td width="120"><a>Thời gian còn lại:</a></td>
+                                                            <td><span id="defaultCountdown231" class="hasCountdown"><b></b></span></td>
+                                                        </tr>
+                                                    </tbody></table>
 
-                                                            </div>
-    <?php } else { ?>
-                                                            <div class="product_style_1">
-                                                                <table width="290">
-                                                                    <tbody><tr>
-                                                                            <td width="120"><a>Giá gốc:</a></td>
-                                                                            <td><span class="orgin_price"><strike><?php echo number_format($list_product_cate['cost']); ?></strike> VND/Bộ </span></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="120"><a>Giá:</a></td>
-                                                                            <td><span class="price">0</span> VND/Bộ </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="120"><a>Giảm:</a></td>
-                                                                            <td><span class="price">0</span>%</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="120"><a>Số người đã mua:</a></td>
-                                                                            <td><span class="price"> 868 </span></td>
-                                                                        </tr>
+                                            </div>
+                                        <?php } else { ?>
+                                            <div class="product_style_1">
+                                                <table width="290">
+                                                    <tbody><tr>
+                                                            <td width="120"><a>Giá gốc:</a></td>
+                                                            <td><span class="orgin_price"><strike><?php echo number_format($list_product_cate['cost']); ?></strike> VND/Bộ </span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="120"><a>Giá:</a></td>
+                                                            <td><span class="price">0</span> VND/Bộ </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="120"><a>Giảm:</a></td>
+                                                            <td><span class="price">0</span>%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="120"><a>Số người đã mua:</a></td>
+                                                            <td><span class="price"> 868 </span></td>
+                                                        </tr>
 
-                                                                    </tbody></table>
+                                                    </tbody></table>
 
-                                                            </div>
-    <?php } ?>
-                                                        <div class="product_style_2_1">
-                                                            <div class="product_style_2_2">
-                                                                <p><span style="font-size: small;"><span style="color: rgb(51, 51, 51);"><span style="font-family: Arial;"><?php echo $list_product_cate['description'] ?></span></span></span></p>  
-                                                            </div>
-                                                            <div class="detail_button">
-                                                                <a href="<?php echo base_url(); ?>p_c-<?php echo $list_product_cate['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['name']))) ?>/p_p-<?php echo $list_product_cate['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['title']))) ?>">Xem chi tiết</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div style="clear:both"></div>
-                                                    </div>
-<?php } ?>
-                                                <div class="news3"></div>	<div style="height:1px;clear:both"></div>
-                                                <div style="float:right"></div>
-                                                <div style="height:1px;clear:both"></div>
-                                                </div>
+                                            </div>
+                                        <?php } ?>
+                                        <div class="product_style_2_1">
+                                            <div class="product_style_2_2">
+                                                <p><span style="font-size: small;"><span style="color: rgb(51, 51, 51);"><span style="font-family: Arial;"><?php echo $list_product_cate['description'] ?></span></span></span></p>  
+                                            </div>
+                                            <div class="detail_button">
+                                                <a href="<?php echo base_url(); ?>p_c-<?php echo $list_product_cate['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['name']))) ?>/p_p-<?php echo $list_product_cate['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['title']))) ?>">Xem chi tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            <?php } ?>
+                            <div class="news3"></div>	<div style="height:1px;clear:both"></div>
+                            <div style="float:right"></div>
+                            <div style="height:1px;clear:both"></div>
+                        </div>
 
-                                                <div style="hight:1px">&nbsp;</div>
-                                                <div style="clear:both"></div>
-                                                <!--Widget-->
-                                                <!--/Widget-->
-                                                </div>
+                        <div style="hight:1px">&nbsp;</div>
+                        <div style="clear:both"></div>
+                        <!--Widget-->
+                        <!--/Widget-->
+                    </div>
 
-                                                </div>
-                                                <div id='left_block' >
-                                                    <div style="padding:5px">
-                                                        <!--Widget-->
-<?php
-foreach ($list_product_sale as $product_sale) {
-    ?>
-                                                            <div>
-                                                                <p style="text-align: center;">
-                                                                    <a href="<?php echo base_url(); ?>p_c-<?php echo $product_sale['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($product_sale['name']))) ?>/p_p-<?php echo $product_sale['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($product_sale['title']))) ?>">
-                                                                        <?php
-                                                                        if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/sale/' . $product_sale['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/sale/' . $product_sale['img']) && $product_sale['img'] != '') {
-                                                                            ?>
-                                                                            <img alt="" src="<?php echo base_url(); ?>file/uploads/sale/<?php echo $product_sale['img'] ?>" style="width: 240px; height: 300px;" />
-    <?php } else { ?>
-                                                                            <img alt="" src="<?php echo base_url(); ?>file/uploads/no_image.gif" style="width: 240px; height: 300px;" />
-    <?php } ?>
-                                                                    </a></p>    
-                                                                <p style="text-align: center;"><a href="<?php echo base_url(); ?>p_c-<?php echo $product_sale['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($product_sale['name']))) ?>/p_p-<?php echo $product_sale['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($product_sale['title']))) ?>" style="line-height: 1.6em;">
-                                                                    </a><br />  &nbsp;</p>  
-                                                            </div>
-<?php } ?>
+                </div>
+                <div id='left_block' >
+                    <div style="padding:5px">
+                        <!--Widget-->
+                        <?php
+                        foreach ($list_product_sale as $product_sale) {
+                            ?>
+                            <div>
+                                <p style="text-align: center;">
+                                    <a href="<?php echo base_url(); ?>">
+                                        <?php
+                                        if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/sale/' . $product_sale['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/sale/' . $product_sale['img']) && $product_sale['img'] != '') {
+                                            ?>
+                                            <img alt="" src="<?php echo base_url(); ?>file/uploads/sale/<?php echo $product_sale['img'] ?>" style="width: 240px; height: 300px;" />
+                                        <?php } else { ?>
+                                            <img alt="" src="<?php echo base_url(); ?>file/uploads/no_image.gif" style="width: 240px; height: 300px;" />
+                                        <?php } ?>
+                                    </a></p>    
+                                <p style="text-align: center;"><a href="<?php echo base_url(); ?>" style="line-height: 1.6em;">
+                                    </a><br />  &nbsp;</p>  
+                            </div>
+                        <?php } ?>
 
-                                                        <div>
-                                                            <p style="text-align: center;"><iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FHocMarketingOnline&width=270&height=350&colorscheme=light&show_faces=true&border_color&stream=false&header=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:240px; height:350px;" allowtransparency="true"></iframe></p>
-                                                        </div>
-                                                        <div>
-                                                            <div class="g-ytsubscribe" data-channel="khanhmarketingonline" data-layout="full">&nbsp;</div>  
-                                                        </div>
-                                                        
-                                                        <?php 
-                                                        foreach($list_clip as $clip)
-                                                        {
-                                                        ?>
-                                                        <div>
-                                                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/<?php echo $clip['code']?>" width="235"></iframe></p>
+                        <div>
+                            <p style="text-align: center;"><iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FHocMarketingOnline&width=270&height=350&colorscheme=light&show_faces=true&border_color&stream=false&header=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:240px; height:350px;" allowtransparency="true"></iframe></p>
+                        </div>
+                        <div>
+                            <iframe src="http://www.youtube.com/subscribe_widget?p=vietmongco" 
+                                    style="overflow: hidden; height: 105px; width: 240px; border: 0;" 
+                                    scrolling="no" frameBorder="0">
+                            </iframe>
+                            <div class="g-ytsubscribe" data-channel="vietmongco" data-layout="full">&nbsp;</div>  
+                        </div>
 
-                                                        </div>
-                                                        <?php } ?>
-                                                        <div>
+                        <!--
+                        <?php
+                        foreach ($list_clip as $clip) {
+                            ?>
+    <div>
+    <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/<?php echo $clip['code'] ?>" width="235"></iframe></p>
 
-                                                        </div>
-                                                        <!--/Widget-->
-                                                    </div>
-                                                </div>	<div style='clear:both'></div>
-                                                </div>
-                                                <!--Widget-->
-                                                <!--/Widget-->
-                                                <div id="footer">
-                                                    <div style="height:30px;padding:7px 10px 0 10px;color:#fff;margin:0 0 10px 0">
-                                                        <div style="float:left">
-                                                            <a href="/U1"><font color="#ffffff">Trang chủ</font></a> 
-                                                            > <a href="/U1/59p_tai-lieu-marketing-online.htm"><font color="#ffffff">Tài Liệu Marketing Online</font></a> 
-                                                        </div>
-                                                    </div>
-                                                    <p style="text-align: center;"><span style="color:#FFF0F5;"><span style="font-size: small; font-family: Arial; line-height: 1.6em;">&nbsp; &nbsp;&nbsp;</span><span style="font-family: Arial; line-height: 1.6em; font-size: 16px;"><strong><?php echo $info_company[0]['address'] ?></strong></span></span></p>    <p style="text-align: center;"><span style="color:#FFF0F5;"><strong><span style="font-size:16px;"><span style="font-family: Arial;"><span style="line-height: 20px;">D66 Đường số 6 - Khu D&acirc;n Cư Him Lam&nbsp;</span>&nbsp;- Q.7&nbsp;- TP.HCM&nbsp;</span></span></strong></span></p>    <p style="text-align: center;"><span style="color:#FFF0F5;"><strong><span style="font-size:16px;"><span style="font-family: Arial;">Hotline: 0909.140.539</span></span></strong></span></p>
-                                                    <br />
-                                                    Developed by <a href="http://smartsoftware.vn" target="_blank">SmartSoftware</a>
-                                                </div>
+    </div>
+                        <?php } ?>
+                        -->
+                        <div>
 
-                                                <!-- End Piwik Code --></div>
+                        </div>
+                        <!--/Widget-->
+                    </div>
+                </div>	<div style='clear:both'></div>
+            </div>
+            <!--Widget-->
+            <!--/Widget-->
+            <div id="footer">
 
-                                                </body>
-                                                </html>
+
+                <p style="text-align: center;"><span style="color:#FFF0F5;"><span style="font-size: small; font-family: Arial; line-height: 1.6em;">&nbsp; &nbsp;&nbsp;</span><span style="font-family: Arial; line-height: 1.6em; font-size: 16px;"><strong><?php echo $info_company[0]['address'] ?></strong></span></span></p>        
+                <div style='width:1000px;margin: 0 auto 0 auto;'>
+                    <ul id='menu_foot'>
+
+                        <li>
+                            <a  href='<?php echo base_url(); ?>hoi-dap'>
+                                Hỏi Đáp		</a>
+                        </li>
+                        <li>
+                            <a  href='<?php echo base_url(); ?>tin-tuc'>
+                                Tin Tức		</a>
+                        </li>
+                        <li>
+                            <a  href='<?php echo base_url(); ?>lien-he'>
+                                Liên hệ		</a>
+                        </li>
+                        <li>
+                            <a  href='<?php echo base_url(); ?>lien-he'>
+                                Liên hệ		</a>
+                        </li>
+                    </ul>
+                    <div style='clear:both'></div>
+                </div>
+                <br />
+                Developed by <a href="http://www.facebook.com/ezwebvietnam" target="_blank">EZWebVietnam</a>
+            </div>
+
+            <!-- End Piwik Code --></div>
+
+    </body>
+</html>

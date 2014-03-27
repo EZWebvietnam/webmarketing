@@ -9,6 +9,10 @@ class News extends MY_Controller
          parent::load_header();
         $this->load->library('session');
         $this->load->model('newshomemodel');
+                $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->load->library('tank_auth');
+        $this->lang->load('tank_auth');
     }
     public function list_news()
     {

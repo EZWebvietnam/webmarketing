@@ -481,7 +481,7 @@ text-decoration:none;
 #menu li
 {
 	float: left;
-	padding: 0 0 10px 0;
+	padding: 0 0 10px 21px;
 	position: relative;
 	line-height: 0;
 }
@@ -791,7 +791,7 @@ font-weight:700;
 	width:500px;
 	background:#fff;
 	z-index:1000;
-	border-radius:1ex;/*các trình duy?t khác*/
+	border-radius:1ex;/*cï¿½c trï¿½nh duy?t khï¿½c*/
 	-webkit-border-radius:1ex;/*Safari & google chrome*/
     -moz-border-radius:1ex;/*Firefox*/
 	padding:10px;
@@ -806,7 +806,7 @@ font-weight:700;
 	width:500px;
 	background:#fff;
 	z-index:1000;
-	border-radius:1ex;/*các trình duy?t khác*/
+	border-radius:1ex;/*cï¿½c trï¿½nh duy?t khï¿½c*/
 	-webkit-border-radius:1ex;/*Safari & google chrome*/
     -moz-border-radius:1ex;/*Firefox*/
 	padding:10px;
@@ -821,7 +821,7 @@ font-weight:700;
 	width:500px;
 	background:#fff;
 	z-index:1000;
-	border-radius:1ex;/*các trình duy?t khác*/
+	border-radius:1ex;/*cï¿½c trï¿½nh duy?t khï¿½c*/
 	-webkit-border-radius:1ex;/*Safari & google chrome*/
     -moz-border-radius:1ex;/*Firefox*/
 	padding:10px;
@@ -836,7 +836,7 @@ font-weight:700;
 	width:500px;
 	background:#fff;
 	z-index:1000;
-	border-radius:1ex;/*các trình duy?t khác*/
+	border-radius:1ex;/*cï¿½c trï¿½nh duy?t khï¿½c*/
 	-webkit-border-radius:1ex;/*Safari & google chrome*/
     -moz-border-radius:1ex;/*Firefox*/
 	padding:10px;
@@ -846,7 +846,7 @@ font-weight:700;
 }
 #emailform .formcontent{
 
-	border-radius:1ex;/*các trình duy?t khác*/
+	border-radius:1ex;/*cï¿½c trï¿½nh duy?t khï¿½c*/
 	-webkit-border-radius:1ex;/*Safari & google chrome*/
     -moz-border-radius:1ex;/*Firefox*/
 	background:#fff;
@@ -1026,3 +1026,29 @@ div#links111 * {
 #scrollbar1 .thumb .end { overflow: hidden; height: 5px; width: 13px; }
 #scrollbar1 .disable{ display: none; }
 .noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; }
+#menu_foot {
+width: 100%;
+margin: 0;
+padding: 10px 0 0 0;
+list-style: none;
+height: 37px;
+text-align: left;
+
+}
+#menu_foot li {
+float: left;
+padding: 0 0 10px 0;
+position: relative;
+line-height: 0;
+width:238px;
+}
+#menu_foot a {
+float: left;
+height: 25px;
+padding: 0 10px;
+color: #fff;
+text-transform: uppercase;
+font: bold 12px/25px Arial, Helvetica;
+text-decoration: none;
+text-shadow: 0 1px 0 #000;
+}

@@ -10,6 +10,10 @@ class Product extends MY_Controller
         parent::load_header();
         $this->load->library('session');
         $this->load->model('productmodel');
+                $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->load->library('tank_auth');
+        $this->lang->load('tank_auth');
     }
     public function detail($id = null)
     {
@@ -214,6 +218,7 @@ class Product extends MY_Controller
     }
     public function faq_list()
     {
+         $this->data['list_product_sale']=$this->productmodel->get_list_product_sale_off();
         $this->load->model('faq');
         $this->load->helper('url');
         $config['uri_segment'] = 5;

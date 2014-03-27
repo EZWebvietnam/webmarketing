@@ -40,17 +40,20 @@
 
 $route['default_controller'] = "home/index";
 $route['trang-chu'] = "home/home/index";
+$route['ref/(:any)'] = "home/home/index";
 $route['p_c-(:any)-(:any)/p_p-(:any)-(:any)'] = "home/product/detail/$3";
 $route['p_c-(:any)-(:any)'] = "home/product/list_product/$1";
 $route['p_c-(:any)-(:any)/page/(:any)'] = "home/product/list_product/$1";
 $route['cong-tac-vien'] = "ctv/productctv/index";
 $route['cong-tac-vien/login'] = "ctv/homectv/login";
+$route['cong-tac-vien/register'] = "home/home/register";
 $route['404_override'] = '';
 $route['hoi-dap']='home/product/faq_list';
 $route['gui-cau-hoi']='home/product/send_faq';
 $route['tin-tuc']='home/news/list_news';
 $route['tin-tuc-(:any)-(:any)']='home/news/detail/$1';
 $route['hoi-dap-(:any)-(:any)'] = 'home/product/detail_faq/$1';
+$route['active-user/(:any)/(:any)']='home/home/activate';
 $route['lien-he'] = 'home/home/contact';
 $route['quan-tri'] = "admin/login/index";
 $route['quan-tri-vien'] = "admin/productadmin/index";

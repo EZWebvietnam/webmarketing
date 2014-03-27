@@ -7,13 +7,15 @@ class Productmodel extends CI_Model
     }
     public function list_product($number,$offset)
     {
-        $sql ="SELECT * FROM product LIMIT $offset,$number";
+        //$sql ="SELECT * FROM product LIMIT $offset,$number";
+        $sql ="SELECT * FROM product WHERE id_product = 1 LIMIT $offset,$number";
         $query = $this->db->query($sql);
         return $query->result_array();
     }
     public function count_product()
     {
-        $sql ="SELECT * FROM product";
+        //$sql ="SELECT * FROM product";
+        $sql ="SELECT * FROM product WHERE id_product = 1";
         $query = $this->db->query($sql);
         return count($query->result_array());
     }

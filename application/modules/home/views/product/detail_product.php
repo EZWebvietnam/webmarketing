@@ -84,7 +84,7 @@
 
             <div>
                 <br>
-                <img id="btn_mua" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/mua.png" onclick="click_time();" class="add_cart_button">
+                <img id="btn_mua" width="169" height="40" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/mua_1.png" onclick="click_time();" class="add_cart_button">
             </div>
         </center>
     </div>

@@ -89,6 +89,7 @@
                            <th>Ngày hết hạn</th>
                            <th>Giá</th>
                            <th>Hoa hồng</th>
+                           <th>Link</th>
                            <th class="publish">Chức năng</th>
                         </tr>
                      </thead>
@@ -103,6 +104,7 @@
                         <td><?php echo $product_ref['exp_date']?></td>
                         <td><?php echo $product_ref['cost']?></td>
                         <td><?php echo ($product_ref['cost']*$product_ref['comission'])/100?></td>
+                        <td><a href="<?php echo base_url();?>ref/<?php echo $this->session->userdata('user_id') ?>">Link</a></td>
                         <td align="center">
                            <a class="delete_record" href="<?php echo base_url();?>ctv/productctv/delete/<?php echo $product_ref['user_product_id']?>" title="Xóa"><img src="http://quanlybanhang.360vnit.com/app/templates/icon/del.png"></a>        
                         </td>

@@ -108,7 +108,7 @@
                 $.ajax({
                     type: "POST",
                     url: $("#adminform").attr('action'),
-                    data: {title:$('#title_').val(),exp_date:$('#exp_date_').val(),category:$('#category').val(),cost_:$('#cost').val(),hoa_hong:$('#hoa_hong').val(),file:$('#file').val(),description:description,content:content},
+                    data: {title:$('#title').val(),exp_date:$('#exp_date').val(),category:$('#category').val(),cost:$('#cost').val(),hoa_hong:$('#hoa_hong').val(),file:$('#file').val(),description:description,content:content},
                     mimeType: "multipart/form-data",
                     dataType: "json",
                     cache: false,

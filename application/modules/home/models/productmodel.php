@@ -27,7 +27,7 @@ class Productmodel extends CI_Model
     public function product_detail($id)
     {
         $id = intval($id);
-         $sql ="SELECT * FROM product INNER JOIN cate_product ON cate_product.id_cate = product.id_cate WHERE id_product = $id";
+         $sql ="SELECT * FROM product  WHERE id_product = $id";
         $query = $this->db->query($sql);
         return $query->result_array();
     }
@@ -56,7 +56,7 @@ class Productmodel extends CI_Model
     }
     public function get_list_product_sale_off()
     {
-         $sql ="SELECT * FROM sale_off INNER JOIN product ON sale_off.id_product = product.id_product INNER JOIN cate_product ON cate_product.id_cate = product.id_cate  ORDER BY rand() LIMIT 2";
+         $sql ="SELECT * FROM sale_off INNER JOIN product ON sale_off.id_product = product.id_product AND sale_off.exp_date >=now()  ORDER BY rand() LIMIT 2";
         $query = $this->db->query($sql);
         return $query->result_array();
     }

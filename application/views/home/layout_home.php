@@ -19,9 +19,11 @@
             <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/jquery.countdown.css" media="screen"  />
             <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/scripts/main.htm"></script>
             <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/jquery-1.8.3.js"></script>
+            <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/jquery.plugin.js"></script>
             <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/jquery.tools.min.js"></script>
-            <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/jquery.countdown2.js"></script>
+            <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/jquery.countdown.js"></script>
             <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/jquery-ui.js"></script>
+            <script type="text/javascript" src="<?php echo base_url(); ?>plugin/ckeditor/ckeditor.js"></script>
 
             <script type="text/javascript">
                 var curent_price = 0;
@@ -37,32 +39,6 @@
                 }
                 var my_template = "template_1";
                 var my_curent_page = "U1";
-            </script>
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $('#btn_register').attr('disabled', 'disabled');
-
-                    $('#useremail').change(function() {
-                        $.ajax({
-                            type: "POST",
-                            url: '<?php echo base_url(); ?>home/home/check_email',
-                            data: {email: $(this).val()},
-                            mimeType: "multipart/form-data",
-                            dataType: "json",
-                            cache: false,
-                            success: function(data) {
-                                if (data.error == 1)
-                                {
-                                    $('#btn_register').attr('disabled', 'disabled');
-                                }
-                                else
-                                {
-                                    $('#btn_register').attr('disabled', false);
-                                }
-                            }
-                        });
-                    });
-                });
             </script>
             <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/cart_script3.js"></script>
 
@@ -99,8 +75,8 @@
                     'maxlength' => 80,
                     'maxsize' => 30,
                     'class' => 'input-large span10',
-                    'style'=>'width:160px;border:0;height:23px;color:#005398;font-style: italic;',
-                    'placeholder'=>'Username'
+                    'style' => 'width:200px;border:0;height:23px;color:#005398;font-style: italic;',
+                    'placeholder' => 'Username'
                 );
                 $password = array(
                     'name' => 'password',
@@ -108,45 +84,39 @@
                     'maxsize' => 30,
                     'class' => 'input-large span10',
                     'type' => 'password',
-                    'style'=>'width:160px;border:0;height:23px;color:#005398;font-style: italic;',
-                    'placeholder'=>'Password'
+                    'style' => 'padding-left:10px;width:200px;border:0;height:23px;color:#005398;font-style: italic;',
+                    'placeholder' => 'Password'
                 );
-                if(!$this->tank_auth->is_login_ctv(TRUE))
-                {
-                ?>
-                <form style='margin:0px;padding:0px' method='post' action='<?php echo base_url(); ?>cong-tac-vien/login'>
-                    <input style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/login.png" name="submit" value='submit' width="126" height="32" />
-                    
-                    <?php echo form_input($login); ?>
-                    <?php echo form_input($password); ?>
-                    <input type='checkbox' name='save_loginfo' value='1' id='save_loginfo' style='margin-left:10px' />
-                    <label for="save_loginfo" style='font: italic 13px Arial;color: #fff'>Ghi nhớ đăng nhập</label>
-                </form>
+                if (!$this->tank_auth->is_login_ctv(TRUE)) {
+                    ?>
+                    <form style='margin:0px;padding:0px' method='post' action='<?php echo base_url(); ?>cong-tac-vien/login'>
+
+                        <input onclick="window.location.href = '<?php echo base_url(); ?>cong-tac-vien/register';
+                                return false;" style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/button-title-register.png" name="ss" value='ss' width="126" height="32" />
+                        <input style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/button-title-login.png" name="submit" value='submit' width="126" height="32" />
+                        <?php echo form_input($login); ?>
+                        <?php echo form_input($password); ?>
+
+                    </form>
                 <?php } else { ?>
-                <style>
-                    .setting{
-                        padding-left:100px;width:160px;border:0;height:23px;color:white;font-style: italic;
-                    }
-                    .setting a {
-                        color:white !important;
-                    }
-                    
-                </style>
-                <span style="margin-top:-5px;width:160px;border:0;height:23px;color:white;font-style: italic;"> Xin chào <?php echo $this->session->userdata('username')?> </span><span class="setting"> <a href="<?php echo base_url();?>cong-tac-vien">Cộng tác viên</a></span>
+                    <style>
+                        .setting{
+                            padding-left:100px;width:160px;border:0;height:23px;color:white;font-style: italic;
+                        }
+                        .setting a {
+                            color:white !important;
+                        }
+
+                    </style>
+                    <span style="margin-top:-5px;width:160px;border:0;height:23px;color:white;font-style: italic;"> Xin chào <?php echo $this->session->userdata('username') ?> </span><span class="setting"> <a href="<?php echo base_url(); ?>cong-tac-vien">Cộng tác viên</a></span>
                 <?php } ?>
             </div>
         </div>
-
         <div style='width:1000px;margin: 0 auto 0 auto;'>
             <ul id='menu'>
-<?php
-foreach ($list_cate as $list_cate_menu) {
-    ?>
-                    <li>
-                        <a id="<?php echo $list_cate_menu['id_cate'] ?>" href='<?php echo base_url(); ?>p_c-<?php echo $list_cate_menu['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($list_cate_menu['name']))) ?>'>
-    <?php echo $list_cate_menu['name'] ?></a>
-                    </li>
-                        <?php } ?>
+                <li>
+                    <a href='<?php echo base_url();?>'>Sản phẩm</a>
+                </li>
                 <li>
                     <a  href='<?php echo base_url(); ?>hoi-dap'>
                         Hỏi Đáp		</a>
@@ -213,7 +183,7 @@ foreach ($list_cate as $list_cate_menu) {
                                 </tr>
                             </table>
                             <div style="clear:both"></div>
-                            <input id="btn_register" type="submit" name="submit_email" value='   Gửi   '  />
+                            <input type="submit" name="submit_email" value='   Gửi   '  />
                         </form>
                         <div id="email_form_content_loading" style="display:none"><br /><br /><br /><center><img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/ajax-loader.gif" alt="loading" /></center></div>
                     </center>
@@ -228,7 +198,7 @@ foreach ($list_cate as $list_cate_menu) {
             <div class="formcontent">
                 <center>
                     <div id='add_to_cart_form_div'>
-                        <form name='add_to_cart_form' action='' method='post' onsubmit='return add_to_cart()'>
+                        <form name='add_to_cart_form' action='' method='post'>
                             <table width="330">
                                 <tr>
                                     <td width="100">
@@ -248,7 +218,7 @@ foreach ($list_cate as $list_cate_menu) {
                                 </tr>
                             </table>
                             <div style="clear:both"></div>
-                            <input type="submit" name="submit_email" value='   Thêm vào giỏ   '  />
+                            <input type="button" name="submit_email" onclick="add_to_cart_db(<?php echo $product_detail[0]['id_product'] ?>, '<?php echo base_url(); ?>');" value='Thêm vào giỏ'  />
                         </form>
                     </div>
                     <div id="add_to_cart_form_result">
@@ -259,7 +229,7 @@ foreach ($list_cate as $list_cate_menu) {
                             </b>
                             Xin chân thành cảm ơn<br /><br />
                             <input type="submit" name="submit_email" value='   Vào giỏ hàng   ' onclick="close_add_to_card_form();
-                                    show_cart();" /> 
+                                    show_cart('<?php echo base_url(); ?>');" /> 
                             <input type="submit" name="submit_email" value='   Mua tiếp   ' onclick="close_add_to_card_form();" />
                         </center>
                     </div>
@@ -270,11 +240,13 @@ foreach ($list_cate as $list_cate_menu) {
             <div  style="float:right;cursor:pointer;margin:0" onclick="close_show_cart_form()"><b>[x]</b></div>
             <div class="form_header">Giỏ hàng <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/d_icon.png" width="30" alt="Xóa" style="cursor:pointer" onclick="if (confirm('Bạn có chăc muốn xóa?'))
                         clear_cart()" /></div>
-            <table cellspacing='0' cellpadding='0' width="475" style="float:left">
+            <div id="cart_content">
 
-            </table>
+            </div>
             <div class="formcontent" style="height:280px;clear:both;margin-top:25px;overflow:auto;clear:both" onmouseover='$("#show_cart_form").draggable("disable");' onmouseout='$("#show_cart_form").draggable("enable");'>
-                <div id="cart_content"></div>
+
+
+
             </div>
             <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" onclick="show_order_form()" style="padding-top:5px" />
         </div>
@@ -343,7 +315,7 @@ foreach ($list_cate as $list_cate_menu) {
                     </tr>
                 </table>
                 <center>
-                    <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" onclick="order_process()" style="padding-top:5px" />
+                    <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" onclick="order_process('<?php echo base_url(); ?>')" style="padding-top:5px" />
                 </center>
             </div>
             <div id="o_email_form_content_loading" style="display:none"><br /><br /><br /><center><img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/ajax-loader.gif" alt="loading" /></center></div>
@@ -385,274 +357,50 @@ foreach ($list_cate as $list_cate_menu) {
         </script>
         <div id="body_bg">
             <div id='main_body_content2'>
-                <!--Widget-->
-                <!--/Widget-->
-                <div style="background:#fff;margin:0;padding:10px 10px 10px 0">
-                    <div style="moz-border-radius: 5px;-webkit-border-radius: 5px;background: #def3ff;padding: 10px;">
-                        <div style="clear:both">
-                            <div style="float:left;background:url(<?php echo base_url(); ?>template/ezwebvietnam/home/uploads/tivi.png) top left no-repeat;width:603px;height:401px;padding:36px 36px 36px 38px">
-<?php
-foreach ($clip_top as $cl_top) {
-    ?>
-                                    <iframe allowfullscreen="" frameborder="0" height="338" name="video" src="//www.youtube.com/embed/<?php echo $cl_top['code'] ?>" width="600"></iframe>
-                                <?php } ?>
-                            </div>    
-                            <div style="float:right;width:258px;">  
-<?php
-foreach ($list_clip_right as $l_c_r) {
-    ?>
-                                    <div style="border:1px solid #00436f;padding:10px;margin:5px;font-size:12px;color:#fff;background:#fff">  <table>  	  		
-                                            <tr>  			
-                                                <td width="88">
-    <?php
-    if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/product/' . $l_c_r['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/product/' . $l_c_r['img']) && $l_c_r['img'] != '') {
-        ?>
-                                                        <img alt="" height="50" src="<?php echo base_url(); ?>file/uploads/product/<?php echo $l_c_r['img'] ?>" style="border: 4px solid rgb(0, 113, 187);" width="80" /></td>  			
-                                                    <?php } else { ?> 
-                                                    <img alt="" height="50" src="<?php echo base_url(); ?>file/uploads/no_image.gif" style="border: 4px solid rgb(0, 113, 187);" width="80" /></td>  		
-                                                <?php } ?>
-                                                <td width="200"><a href="//www.youtube.com/embed/<?php echo $l_c_r['code'] ?>" target="video"><b><?php echo $l_c_r['title'] ?></b></a></td>  		</tr>  	  </table>  </div> 
-                                            <?php } ?>   
-                                <div style="clear:both">&nbsp;</div>  
-                            </div>		</div>
+                <div id="main_page" style="word-break: break-all;">
+                    <div id="center222">
+                        <?php echo $this->load->view($main_content); ?>
 
+                        <div style='hight:1px'>&nbsp;</div>
+                        <div style='clear:both'></div>
+                        <!--Widget-->
+                        <!--/Widget-->
                     </div>
 
-                    <div style='clear:both'></div>
-                    <div style="background:#fff;margin:0;padding:10px 10px 10px 0">
-                        <style>
-                            .infiniteCarousel {
-                                width: 960px;
-                                position: relative;
-                                height: 185px;
-                                background:url(<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/product_special_bg.png) center center no-repeat;
-                            }
-
-                            .infiniteCarousel .wrapper {
-                                width: 880px; /* .infiniteCarousel width - (.wrapper margin-left + .wrapper margin-right) */
-                                overflow: auto;
-                                height: 220px;
-                                margin: 0 40px;
-                                position: absolute;
-                                top: 0;
-                            }
-
-                            .infiniteCarousel ul a img {
-                                border: 5px solid #0e7aff;
-                                -moz-border-radius: 5px;
-                                -webkit-border-radius: 5px;
-                            }
-
-                            .infiniteCarousel .wrapper ul {
-                                width: 1px; /* single item * n */
-                                list-style-image:none;
-                                list-style-position:outside;
-                                list-style-type:none;
-                                margin:0;
-                                padding:0;
-                                position: absolute;
-                                top: 0;
-                            }
-
-                            .infiniteCarousel ul li {
-                                display:block;
-                                float:left;
-                                margin: 0px;
-                                height: 220px;
-                                width: 220px;
-                            }
-
-                            .infiniteCarousel ul li img {
-                                -webkit-transition: border-color 400ms;
-                            }
-
-                            .infiniteCarousel ul:hover li img {
-                                border-color: #000;
-                            }
-
-                            .infiniteCarousel ul:hover li:hover img {
-                                border-color: #333;
-                            }
-
-                            .infiniteCarousel ul li a img {
-                                display:block;
-                            }
-
-                            .infiniteCarousel .arrow {
-                                display: block;
-                                height: 36px;
-                                width: 37px;
-                                background: url(<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/product_special_arrow.png) no-repeat 0 0;
-                                text-indent: -999px;
-                                position: absolute;
-                                top: 74px;
-                                cursor: pointer;
-                                outline: 0;
-                            }
-
-                            .infiniteCarousel .forward {
-                                background-position: 0 0;
-                                right: 0;
-                            }
-
-                            .infiniteCarousel .back {
-                                background-position: 0 -72px;
-                                left: 0;
-                            }
-
-                            .infiniteCarousel .forward:hover {
-                                background-position: 0 -36px;
-                            }
-
-                            .infiniteCarousel .back:hover {
-                                background-position: 0 -108px;
-                            }
-                        </style>
-                        <div class="product_special">
-                            <div class="header"><i>ĐẶT BIỆT</i></div>
-                            <div class="infiniteCarousel">
-                                <div class="wrapper">
-                                    <ul>
-<?php
-foreach ($list_product as $l_p) {
-    ?>
-                                            <li>
-                                                <a href="<?php echo base_url() ?>p_c-<?php echo $l_p['id_cate'] ?>-<?php echo mb_strtolower(url_title(removesign($l_p['name']))) ?>/p_p-<?php echo $l_p['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($l_p['title']))) ?>">
-    <?php
-    if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/product/' . $l_p['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/product/' . $l_p['img']) && $l_p['img'] != '') {
-        ?>
-                                                        <img src="<?php echo base_url(); ?>file/uploads/product/<?php echo $l_p['img'] ?>" width="180" alt="<?php echo $l_p['title'] ?>" />
-                                                    <?php } else { ?>
-                                                        <img src="<?php echo base_url(); ?>file/uploads/no_image.gif" width="180" alt="<?php echo $l_p['title'] ?>" />
-                                                    <?php } ?>
-                                                </a>
-                                            </li>
-<?php } ?>				
-                                    </ul>        
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <script type="text/javascript" charset="utf-8">
-
-                            (function() {
-                                $.fn.infiniteCarousel = function() {
-                                    function repeat(str, n) {
-                                        return new Array(n + 1).join(str);
-                                    }
-
-                                    return this.each(function() {
-                                        // magic!
-                                        var $wrapper = $('> div', this).css('overflow', 'hidden'),
-                                                $slider = $wrapper.find('> ul').width(9999),
-                                                $items = $slider.find('> li'),
-                                                $single = $items.filter(':first')
-
-                                        singleWidth = $single.outerWidth(),
-                                                visible = Math.ceil($wrapper.innerWidth() / singleWidth),
-                                                currentPage = 1,
-                                                pages = Math.ceil($items.length / visible);
-
-                                        /* TASKS */
-
-                                        // 1. pad the pages with empty element if required
-                                        if ($items.length % visible != 0) {
-                                            // pad
-                                            $slider.append(repeat('<li class="empty" />', visible - ($items.length % visible)));
-                                            $items = $slider.find('> li');
-                                        }
-
-                                        // 2. create the carousel padding on left and right (cloned)
-                                        $items.filter(':first').before($items.slice(-visible).clone().addClass('cloned'));
-                                        $items.filter(':last').after($items.slice(0, visible).clone().addClass('cloned'));
-                                        $items = $slider.find('> li');
-
-                                        // 3. reset scroll
-                                        $wrapper.scrollLeft(singleWidth * visible);
-
-                                        // 4. paging function
-                                        function gotoPage(page) {
-                                            var dir = page < currentPage ? -1 : 1,
-                                                    n = Math.abs(currentPage - page),
-                                                    left = singleWidth * dir * visible * n;
-
-                                            $wrapper.filter(':not(:animated)').animate({
-                                                scrollLeft: '+=' + left
-                                            }, 500, function() {
-                                                // if page == last page - then reset position
-                                                if (page > pages) {
-                                                    $wrapper.scrollLeft(singleWidth * visible);
-                                                    page = 1;
-                                                } else if (page == 0) {
-                                                    page = pages;
-                                                    $wrapper.scrollLeft(singleWidth * visible * pages);
-                                                }
-
-                                                currentPage = page;
-                                            });
-                                        }
-
-                                        // 5. insert the back and forward link
-                                        $wrapper.after('<a href="#" class="arrow back"></a><a href="#" class="arrow forward"></a>');
-
-                                        // 6. bind the back and forward links
-                                        $('a.back', this).click(function() {
-                                            gotoPage(currentPage - 1);
-                                            return false;
-                                        });
-
-                                        $('a.forward', this).click(function() {
-                                            gotoPage(currentPage + 1);
-                                            return false;
-                                        });
-
-                                        $(this).bind('goto', function(event, page) {
-                                            gotoPage(page);
-                                        });
-
-                                        // THIS IS NEW CODE FOR THE AUTOMATIC INFINITE CAROUSEL
-                                        $(this).bind('next', function() {
-                                            gotoPage(currentPage + 1);
-                                        });
-                                    });
-                                };
-                            })(jQuery);
-
-                            $(document).ready(function() {
-                                // THIS IS NEW CODE FOR THE AUTOMATIC INFINITE CAROUSEL
-                                var autoscrolling = true;
-
-                                $('.infiniteCarousel').infiniteCarousel().mouseover(function() {
-                                    autoscrolling = false;
-                                }).mouseout(function() {
-                                    autoscrolling = true;
-                                });
-
-                                setInterval(function() {
-                                    if (autoscrolling) {
-                                        $('.infiniteCarousel').trigger('next');
-                                    }
-                                }, 2000);
-                            });
-
-
-                        </script>
-                        <div style="clear:both;height:50px"></div>
-                    </div>	<!--Widget-->
-                    <!--/Widget-->
                 </div>
-                <div id="footer">
-                    <div style="height:30px;padding:7px 10px 0 10px;color:#fff;margin:0 0 10px 0">
-                        <div style="float:left">
-                            <a href="/U1"><font color="#ffffff">Trang chủ</font></a> 
-                        </div>
-                    </div>
-                    <p style="text-align: center;"><span style="color:#FFF0F5;"><span style="font-size: small; font-family: Arial; line-height: 1.6em;">&nbsp; &nbsp;&nbsp;</span><span style="font-family: Arial; line-height: 1.6em; font-size: 16px;"><strong><?php echo $info_company[0]['address'] ?></strong></span></span></p>    <p style="text-align: center;"><span style="color:#FFF0F5;"><strong><span style="font-size:16px;"><span style="font-family: Arial;"><span style="line-height: 20px;">D66 Đường số 6 - Khu D&acirc;n Cư Him Lam&nbsp;</span>&nbsp;- Q.7&nbsp;- TP.HCM&nbsp;</span></span></strong></span></p>    <p style="text-align: center;"><span style="color:#FFF0F5;"><strong><span style="font-size:16px;"><span style="font-family: Arial;">Hotline: 0909.140.539</span></span></strong></span></p>
-                    <br />
-                    Developed by <a href="http://smartsoftware.vn" target="_blank">SmartSoftware</a>
-                </div>
+                	<div style='clear:both'></div>
+            </div>
+            <!--Widget-->
+            <!--/Widget-->
+            <div id="footer">
+                
+                
+                <p style="text-align: center;"><span style="color:#FFF0F5;"><span style="font-size: small; font-family: Arial; line-height: 1.6em;">&nbsp; &nbsp;&nbsp;</span><span style="font-family: Arial; line-height: 1.6em; font-size: 16px;"><strong><?php echo $info_company[0]['address'] ?></strong></span></span></p>        
+                <div style='width:1000px;margin: 0 auto 0 auto;'>
+            <ul id='menu_foot'>
+              
+                <li>
+                    <a  href='<?php echo base_url(); ?>hoi-dap'>
+                        Hỏi Đáp		</a>
+                </li>
+                <li>
+                    <a  href='<?php echo base_url(); ?>tin-tuc'>
+                        Tin Tức		</a>
+                </li>
+                <li>
+                    <a  href='<?php echo base_url(); ?>lien-he'>
+                        Liên hệ		</a>
+                </li>
+                <li>
+                    <a  href='<?php echo base_url(); ?>lien-he'>
+                        Liên hệ		</a>
+                </li>
+            </ul>
+            <div style='clear:both'></div>
+        </div>
+                <br />
+                Developed by <a href="http://www.facebook.com/ezwebvietnam" target="_blank">EZWebVietnam</a>
+            </div>
 
-                <!-- End Piwik Code --></div>
     </body>
 </html>
