@@ -1,3 +1,4 @@
+
 <style>
     #main_body_content2 {
     background: url(<?php echo base_url();?>template/ezwebvietnam/home/template/template_1/images/content_bg_1.png) top left repeat-y !important;
@@ -11,30 +12,63 @@
         margin-left: 24px !important;
     }
 </style>
+
 <div class="product_detail_1">
+    
     <div class="pro_name">
         <?php echo $product_detail[0]['title'] ?>
     </div>
+   
     <br>
     <?php
     $detail_sale_off = $this->productmodel->get_sale_off_product($product_detail[0]['id_product']);
+    $count_buy = $this->productmodel->count_order_product($product_detail[0]['id_product']);
     if (empty($detail_sale_off)) {
         $price = $product_detail[0]['cost'];
         ?>
         <center>
             Giá gốc: <span class="orgin_price"><?php echo number_format($product_detail[0]['cost']) ?></span>  VND
         </center>
+    <div>
+            <br>
+            <center>
+                Số người đã mua:<br><span class="price2"> <?php echo $count_buy;?> </span><br>
+            </center>
+        </div>
         <?php
     } else {
-        $price = $product_detail[0]['cost'] - ($product_detail[0]['cost'] - ($product_detail[0]['cost'] * $detail_sale_off[0]['percent']) / 100);
+        $price = ($product_detail[0]['cost'] - ($product_detail[0]['cost'] * $detail_sale_off[0]['percent']) / 100);
         ?>
         <center>
-            Giá gốc: <span class="orgin_price"><strike><?php echo number_format($product_detail[0]['cost'] - ($product_detail[0]['cost'] * $detail_sale_off[0]['percent']) / 100) ?></strike></span>  VND
+            Giá gốc: <span class="orgin_price"><strike><?php echo number_format($product_detail[0]['cost']) ?></strike></span>  VND
         </center>
         <div class="price_detail">
 
             <center>
-                <span class="price2"><?php echo number_format($product_detail[0]['cost'] - ($product_detail[0]['cost'] - ($product_detail[0]['cost'] * $detail_sale_off[0]['percent']) / 100)) ?></span> <span class="price2">(-<?php echo $detail_sale_off[0]['percent'] ?>%)</span> 
+                <span class="price2"><?php echo number_format(($product_detail[0]['cost'] - ($product_detail[0]['cost'] * $detail_sale_off[0]['percent']) / 100)) ?></span> <span class="price2">(-<?php echo $detail_sale_off[0]['percent'] ?>%)</span> 
+            </center>
+        </div>
+        <div>
+            <br>
+            <center>
+                Số người đã mua:<br><span class="price2"> <?php echo $count_buy;?> </span><br>
+                Thời gian khuyến mại còn lại:
+                <?php
+                $date = $detail_sale_off[0]['exp_date'];
+                $date_ex = explode('-', $date);
+                $date = explode(' ', $date_ex[2]);
+                ?>
+                <script type="text/javascript">
+                    $(function() {
+                        var liftoffTime = new Date(<?php echo $date_ex[0] ?>,<?php echo $date_ex[1]-1 ?> ,<?php echo $date[0] ?>);
+                        $('#defaultCountdown274').countdown({until: liftoffTime, padZeroes: true});
+                    });
+                    
+
+                </script>
+                <div id="defaultCountdown274" style="text-align:center;font-size:10px" class="hasCountdown"></div>
+
+                
             </center>
         </div>
     <?php } ?>

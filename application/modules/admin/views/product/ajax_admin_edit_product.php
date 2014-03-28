@@ -1,6 +1,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
+        $( "#exp_date" ).datepicker({ dateFormat: 'yy-mm-dd' });
         $("input").each(function() {
             $("input.readonly").css('background-color', '#f2f2f2');
         });
@@ -8,7 +9,7 @@
 </script>
 <div class="h-pop">
     <div class="h-icon"></div>
-    <h3>Thêm khóa học</h3>
+    <h3>Sửa</h3>
 </div>
 <div class="m-pop">
     <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/js/core/price_format.js"></script>
@@ -46,6 +47,12 @@
                     <input id="userfile" name="userfile" type="button" class="bt100" value="Upload" onClick="fileUpload(this.form,'<?php echo base_url();?>upload/do_upload','upload','<?php echo base_url(); ?>admin/productadmin/edit/'+<?php echo $detail_product[0]['id_product'] ?>'); return false;">
                    <div id="upload"></div>
                     <input type='hidden' name='file' id='file'/>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Clip: (Các link cách nhau bởi dấu ;)</td>
+                <td colspan="3">
+                    <input id="clip" type="texbox" name="clip"/>
                 </td>
             </tr>
             <tr>
@@ -108,7 +115,7 @@
                 $.ajax({
                     type: "POST",
                     url: $("#adminform").attr('action'),
-                    data: {title:$('#title').val(),exp_date:$('#exp_date').val(),category:$('#category').val(),cost:$('#cost').val(),hoa_hong:$('#hoa_hong').val(),file:$('#file').val(),description:description,content:content},
+                    data: {title:$('#title').val(),exp_date:$('#exp_date').val(),category:$('#category').val(),cost:$('#cost').val(),hoa_hong:$('#hoa_hong').val(),file:$('#file').val(),description:description,content:content,clip:$('#clip').val()},
                     mimeType: "multipart/form-data",
                     dataType: "json",
                     cache: false,

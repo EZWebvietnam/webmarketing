@@ -96,7 +96,7 @@
                                                             <li class="main">
                                                                 <a href="<?php echo base_url(); ?>admin/productadmin/list_product" rel="khachhang" class="v_link">
                                                                     <div><img src="http://quanlybanhang.360vnit.com/icon/customers.png" alt=""></div>
-                                                                    Khóa học
+                                                                    Quản trị
                                                                 </a>
                                                             </li>
                                                             <li class="main">

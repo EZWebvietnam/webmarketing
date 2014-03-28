@@ -22,6 +22,8 @@ class Home extends MY_Controller {
         $this->data['list_product'] = $this->productmodel->list_product_home();
         $this->data['main_content'] = 'home_view/home';
         $this->load->view('home/layout_home', $this->data);*/
+        $this->data['clip_top'] = $this->productmodel->load_top_clip();
+       
         $detail_product = $this->productmodel->product_detail(1);
         $this->data['main_content']='home_view/detail_home';
         $this->data['product_detail']=$detail_product;

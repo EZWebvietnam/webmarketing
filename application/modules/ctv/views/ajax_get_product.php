@@ -104,7 +104,14 @@
                         <td><?php echo $product_ref['exp_date']?></td>
                         <td><?php echo $product_ref['cost']?></td>
                         <td><?php echo ($product_ref['cost']*$product_ref['comission'])/100?></td>
+                        <?php 
+                        if($product_ref['position']==0)
+                        {
+                        ?>
                         <td><a href="<?php echo base_url();?>ref/<?php echo $this->session->userdata('user_id') ?>">Link</a></td>
+                        <?php } else {?>
+                        <td><a href="<?php echo base_url();?>san-pham/<?php echo $product_ref['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($product_ref['title'])))?>/ref/<?php echo $this->session->userdata('user_id') ?>">Link</a></td>
+                        <?php } ?>
                         <td align="center">
                            <a class="delete_record" href="<?php echo base_url();?>ctv/productctv/delete/<?php echo $product_ref['user_product_id']?>" title="Xóa"><img src="http://quanlybanhang.360vnit.com/app/templates/icon/del.png"></a>        
                         </td>

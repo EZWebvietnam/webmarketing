@@ -88,7 +88,7 @@ class Homectv extends MY_Controller
     function _show_message($message)
 	{
         $this->session->set_flashdata('message', $message);
-	   redirect('/cong-tac-vien/login');
+	    redirect('../'.ROT_DIR);
 	}  
     public function change_pass()
     {

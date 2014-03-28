@@ -8,7 +8,7 @@ class Productmodel extends CI_Model
     }
     public function load_top_clip()
     {
-        $sql ="SELECT * FROM clip_marketing INNER JOIN product ON product.id_product = clip_marketing.id_product ORDER BY rand() LIMIT 1";
+        $sql ="SELECT * FROM clip_marketing INNER JOIN product ON product.id_product = clip_marketing.id_product AND clip_marketing.id_product = 1 ORDER BY rand() LIMIT 1";
         $query = $this->db->query($sql);
         return $query->result_array();
     }
@@ -31,19 +31,18 @@ class Productmodel extends CI_Model
         $query = $this->db->query($sql);
         return $query->result_array();
     }
-    public function list_product_id_cate($id,$number,$offset)
+    public function list_product_id_cate($number,$offset)
     {
-        $id = intval($id);
+        //$id = intval($id);
         $number = intval($number);
         $offset = intval($offset);
-        $sql ="SELECT * FROM product INNER JOIN cate_product ON cate_product.id_cate = product.id_cate WHERE product.id_cate = $id LIMIT $offset,$number";
+        $sql ="SELECT * FROM product WHERE id_product NOT IN(1) LIMIT $offset,$number";
         $query = $this->db->query($sql);
         return $query->result_array();
     }
-    public function count_list_product_id_cate($id)
+    public function count_list_product_id_cate()
     {
-        $id = intval($id);
-        $sql ="SELECT * FROM product INNER JOIN cate_product ON cate_product.id_cate = product.id_cate WHERE product.id_cate = $id";
+        $sql ="SELECT * FROM product WHERE id_product NOT IN(1)";
         $query = $this->db->query($sql);
         return count($query->result_array());
     }
@@ -106,6 +105,12 @@ class Productmodel extends CI_Model
         $sql="SELECT * FROM clip_marketing ORDER BY rand() LIMIT 8";
         $query = $this->db->query($sql);
         return $query->result_array();
+    }
+    public function count_order_product($id)
+    {
+        $sql="SELECT * FROM order_detail WHERE id_product = $id";
+        $query = $this->db->query($sql);
+        return count($query->result_array());
     }
 }
 ?>

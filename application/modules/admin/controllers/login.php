@@ -77,7 +77,7 @@ class Login extends MY_Controller {
     function _show_message($message)
 	{
         $this->session->set_flashdata('message', $message);
-	   redirect('/quan-tri');
+	   redirect('../'.ROT_DIR);
 	}  
 }
 ?>

@@ -8,14 +8,14 @@ class Productmodel extends CI_Model
     public function list_product($number,$offset)
     {
         //$sql ="SELECT * FROM product LIMIT $offset,$number";
-        $sql ="SELECT * FROM product WHERE id_product = 1 LIMIT $offset,$number";
+        $sql ="SELECT * FROM product LIMIT $offset,$number";
         $query = $this->db->query($sql);
         return $query->result_array();
     }
     public function count_product()
     {
         //$sql ="SELECT * FROM product";
-        $sql ="SELECT * FROM product WHERE id_product = 1";
+        $sql ="SELECT * FROM product";
         $query = $this->db->query($sql);
         return count($query->result_array());
     }
@@ -53,6 +53,10 @@ class Productmodel extends CI_Model
     {
         $this->db->insert('clip_marketing',$data);
         return $this->db->insert_id();
+    }
+    public function delete_clip($id)
+    {
+        $this->db->delete('clip_marketing',array('id_product'=>$id));
     }
 }
 ?>

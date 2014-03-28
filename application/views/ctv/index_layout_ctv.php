@@ -91,7 +91,7 @@
                                         <li class="main">
                         <a href="<?php echo base_url();?>ctv/productctv/ajax_get_product" rel="khachhang" class="v_link">
                             <div><img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/customers.png" alt=""></div>
-                            Khóa học
+                           Quản trị
                         </a>
                     </li>  
                                                             <li class="main">

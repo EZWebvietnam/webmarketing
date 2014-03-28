@@ -77,7 +77,7 @@ class Productctvmodel extends CI_Model
         $string = addslashes($string);
         if($string!='')
         {
-            $sql ="SELECT * FROM product WHERE id_product NOT IN ($string) AND id_product = 1";
+            $sql ="SELECT * FROM product WHERE id_product NOT IN ($string)";
         }
         else
         {

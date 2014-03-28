@@ -48,7 +48,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        $( "#exp_date" ).datepicker({ dateFormat: 'd/m/yy' });
+        $( "#exp_date" ).datepicker({ dateFormat: 'yy-mm-dd' });
         $("#adminform").validate({
             rules: {
                 percent: "required",

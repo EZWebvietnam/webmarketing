@@ -87,7 +87,7 @@
             <div class='banner_content'>
                 <!--Widget-->
                 <div style="width:1000px">
-                    <p style="margin:0;padding:0"><img alt="" src="https://vinamos.vn//uploads/1178/bannervinamos3.png" /></p>  
+                    <p style="margin:0;padding:0"><img alt="" src="<?php echo base_url();?>template/ezwebvietnam/home/bannervinamos3.png" /></p>  
                 </div>
                 <!--/Widget-->
             </div>
@@ -153,7 +153,10 @@
         <div style='width:1000px;margin: 0 auto 0 auto;'>
             <ul id='menu'>
                 <li>
-                    <a href='<?php echo base_url(); ?>'>Sản phẩm</a>
+                    <a href='<?php echo base_url(); ?>'>Trang Chủ</a>
+                </li>
+                <li>
+                    <a href='<?php echo base_url(); ?>san-pham'>Sản Phẩm</a>
                 </li>
                 <li>
                     <a  href='<?php echo base_url(); ?>hoi-dap'>

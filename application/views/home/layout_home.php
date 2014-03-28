@@ -50,14 +50,14 @@
             <div class='banner_content'>
                 <!--Widget-->
                 <div style="width:1000px">
-                    <p style="margin:0;padding:0"><img alt="" src="https://vinamos.vn//uploads/1178/bannervinamos3.png" /></p>  
+                    <p style="margin:0;padding:0"><img alt="" src="<?php echo base_url();?>template/ezwebvietnam/home/bannervinamos3.png" /></p>  
                 </div>
                 <!--/Widget-->
             </div>
             <div class='banner_header'>
             </div>
             <div class='logo'>
-                <img src='<?php echo base_url();?>file/uploads/logo/<?php echo $header['logo']?>' width='220' height='80' alt='' />
+                <img src='<?php echo base_url(); ?>file/uploads/logo/<?php echo $header['logo'] ?>' width='220' height='80' alt='' />
             </div>
             <div class='top_menu' >
                 <a href="<?php echo base_url(); ?>" class="home">Trang chủ</a>
@@ -115,7 +115,10 @@
         <div style='width:1000px;margin: 0 auto 0 auto;'>
             <ul id='menu'>
                 <li>
-                    <a href='<?php echo base_url();?>'>Sản phẩm</a>
+                    <a href='<?php echo base_url(); ?>'>Trang Chủ</a>
+                </li>
+                <li>
+                    <a href='<?php echo base_url(); ?>san-pham'>Sản Phẩm</a>
                 </li>
                 <li>
                     <a  href='<?php echo base_url(); ?>hoi-dap'>
@@ -357,6 +360,22 @@
         </script>
         <div id="body_bg">
             <div id='main_body_content2'>
+                
+                <div style="background:#fff;margin:0;padding:10px 10px 10px 0;">
+                    <div style="moz-border-radius: 5px;-webkit-border-radius: 5px;padding: 10px;">
+                        <div style="clear:both">
+                            <div style="background:url(<?php echo base_url(); ?>template/ezwebvietnam/home/uploads/tivi.png) top left no-repeat;width:603px;height:401px;padding:36px 36px 36px 38px">
+                                <?php
+                                foreach ($clip_top as $cl_top) {
+                                    ?>
+                                    <iframe allowfullscreen="" frameborder="0" height="338" name="video" src="//www.youtube.com/embed/<?php echo $cl_top['code'] ?>" width="600"></iframe>
+                                <?php } ?>
+                            </div>    
+                        </div>
+
+                    </div>
+                </div>
+                    
                 <div id="main_page" style="word-break: break-all;">
                     <div id="center222">
                         <?php echo $this->load->view($main_content); ?>
@@ -368,36 +387,36 @@
                     </div>
 
                 </div>
-                	<div style='clear:both'></div>
+                <div style='clear:both'></div>
             </div>
             <!--Widget-->
             <!--/Widget-->
             <div id="footer">
-                
-                
+
+
                 <p style="text-align: center;"><span style="color:#FFF0F5;"><span style="font-size: small; font-family: Arial; line-height: 1.6em;">&nbsp; &nbsp;&nbsp;</span><span style="font-family: Arial; line-height: 1.6em; font-size: 16px;"><strong><?php echo $info_company[0]['address'] ?></strong></span></span></p>        
                 <div style='width:1000px;margin: 0 auto 0 auto;'>
-            <ul id='menu_foot'>
-              
-                <li>
-                    <a  href='<?php echo base_url(); ?>hoi-dap'>
-                        Hỏi Đáp		</a>
-                </li>
-                <li>
-                    <a  href='<?php echo base_url(); ?>tin-tuc'>
-                        Tin Tức		</a>
-                </li>
-                <li>
-                    <a  href='<?php echo base_url(); ?>lien-he'>
-                        Liên hệ		</a>
-                </li>
-                <li>
-                    <a  href='<?php echo base_url(); ?>lien-he'>
-                        Liên hệ		</a>
-                </li>
-            </ul>
-            <div style='clear:both'></div>
-        </div>
+                    <ul id='menu_foot'>
+
+                        <li>
+                            <a  href='<?php echo base_url(); ?>hoi-dap'>
+                                Hỏi Đáp		</a>
+                        </li>
+                        <li>
+                            <a  href='<?php echo base_url(); ?>tin-tuc'>
+                                Tin Tức		</a>
+                        </li>
+                        <li>
+                            <a  href='<?php echo base_url(); ?>lien-he'>
+                                Liên hệ		</a>
+                        </li>
+                        <li>
+                            <a  href='<?php echo base_url(); ?>lien-he'>
+                                Liên hệ		</a>
+                        </li>
+                    </ul>
+                    <div style='clear:both'></div>
+                </div>
                 <br />
                 Developed by <a href="http://www.facebook.com/ezwebvietnam" target="_blank">EZWebVietnam</a>
             </div>

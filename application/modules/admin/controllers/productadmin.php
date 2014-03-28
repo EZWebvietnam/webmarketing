@@ -215,6 +215,30 @@ class Productadmin extends MY_Controller {
                 );
             }
             $this->productmodel->update_product($id, $data_save);
+            $clip = $this->input->post('clip');
+           
+            if($clip!='')
+            {
+                
+                $clip_2 = array();
+                $data_clip = array();
+                $clip = explode(';', $clip);
+                foreach($clip as $k=>$v)
+                {
+                    $clip_2 = explode('?v=', $v);
+                    if(empty($clip_2))
+                    {
+                        $clip_2 = explode('&v=', $v);
+                    }
+                    if(!empty($clip_2))
+                    {
+                        $this->productmodel->delete_clip($id);
+                        $data_clip = array('id_product'=>$id,'code'=>$clip_2[1],'create_date'=>strtotime('now'));
+                        $this->productmodel->insert_clip($data_clip);
+                        $data_clip = array();
+                    }
+                }
+            }
             $array = array('error' => 0, 'msg' => 'Cập nhập thành công');
             echo json_encode($array);
         } else {

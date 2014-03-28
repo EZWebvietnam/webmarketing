@@ -28,10 +28,10 @@
             <table style="width: 100%;">
                <tr>
                   <td>
-                     <div class="h-title">Danh sách khóa học</div>
+                     <div class="h-title">Danh sách</div>
                   </td>
                   <td style="float: right;">
-                     <!--<div class="addlink"><a href="<?php echo base_url(); ?>admin/productadmin/add" class="add grouped_elements"><span>Thêm mới</span></a></div>-->
+                     <div class="addlink"><a href="<?php echo base_url(); ?>admin/productadmin/add" class="add grouped_elements"><span>Thêm mới</span></a></div>
                   </td>
                </tr>
             </table>
@@ -45,7 +45,7 @@
                      <thead>
                         <tr>
                            <th class="head" colspan="7">
-                              <a class="del" onclick="return action_del('admindata_kh','khoahoc');"><span>Xóa</span></a>                                Có <?php echo count($list_product)?> khóa học <span class="pages"><span class="pagebar-mainbody">
+                              <a class="del" onclick="return action_del('admindata_kh','khoahoc');"><span>Xóa</span></a>                                Có <?php echo count($list_product)?><span class="pages"><span class="pagebar-mainbody">
                            <?php 
                            if($total_page == 1 || $page == 1)
                            {
@@ -84,14 +84,16 @@
                         </tr>
                         <tr>
                            <th class="checkbox"><input type="checkbox" name="sa" id="sa" onclick="check_chose('sa', 'ar_id[]', 'admindata_kh')"></th>
-                           <th class="id">Tên khóa học</th>
+                           <th class="id">Tên</th>
                            <th>Giới thiệu</th>
                            <th>Ngày hết hạn</th>
+                           <th>Vị trí hiển thị</th>
                            <th>Giá</th>
                            <th class="publish">Chức năng</th>
                         </tr>
                      </thead>
                      <?php 
+                     $array = array('0'=>'Trang chủ','1'=>'Trang sản phẩm');
                         foreach($list_product as $product_ref)
                         {
                         ?>
@@ -100,17 +102,23 @@
                         <td><?php echo $product_ref['title']?></td>
                         <td><?php echo $product_ref['description']?></td>
                         <td><?php echo $product_ref['exp_date']?></td>
+                        <td><?php echo $array[$product_ref['position']]?></td>
                         <td><?php echo $product_ref['cost']?></td>
                         <td align="center"><a class="grouped_elements" href="<?php echo base_url();?>admin/productadmin/edit/<?php echo $product_ref['id_product']?>" title="Sửa"><img width="16" height="16" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/edit.png"></a>
                             <a class="grouped_elements" href="<?php echo base_url();?>admin/productadmin/view/<?php echo $product_ref['id_product']?>" title="Xem chi tiết"><img width="16" height="16" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/view.png"></a>
+                            <?php 
+                            if($product_ref['position']!=0)
+                            {
+                            ?>
                            <a class="delete_record" href="<?php echo base_url();?>admin/productadmin/delete/<?php echo $product_ref['id_product']?>" title="Xóa"><img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/del.png"></a>        
+                            <?php } ?>
                         </td>
                      </tr>
                      <?php }?>       
                      <tfoot>
                         <td colspan="7">
                            <a class="del" onclick="return action_del('admindata_kh','khachhang');"><span>Xóa</span></a>                            
-                           Có <?php echo count($list_product)?> khóa học 
+                           Có <?php echo count($list_product)?>
                            <span class="pages">
                            <span class="pagebar-mainbody">
                            <?php 
