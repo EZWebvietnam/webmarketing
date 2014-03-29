@@ -11,8 +11,7 @@ class Accountadmin extends MY_Controller
         $this->load->library('form_validation');
         if(!$this->tank_auth->is_login_admin(TRUE))
         {
-            show_404();
-            exit;
+            redirect('/quan-tri');
         }
         if($this->session->userdata('role')!=1)
         {
@@ -162,7 +161,7 @@ class Accountadmin extends MY_Controller
             show_404();
             exit;
         }
-        if($id!=2)
+        if($id!=1)
         {
             $this->ctvmodel->delete_ctv($id);
             $this->load->model('productmodel');
@@ -176,7 +175,7 @@ class Accountadmin extends MY_Controller
         $this->load->model('productmodel');
         $array = $this->input->post('ar_id');
         foreach ($array as $k => $v) {
-            if($v!=2)
+            if($v!=1)
             {
                 $this->ctvmodel->delete_ctv($v);
                 $this->productmodel->delete_user_product_2($v);

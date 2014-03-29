@@ -11,8 +11,7 @@ class Settingadmin extends MY_Controller {
         $this->load->library('form_validation');
         if(!$this->tank_auth->is_login_admin(TRUE))
         {
-            show_404();
-            exit;
+             redirect('/quan-tri');
         }
         if($this->session->userdata('role')!=1)
         {
@@ -22,7 +21,7 @@ class Settingadmin extends MY_Controller {
     }
 
     public function list_setting() {
-        $link = $_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'setting.xml';
+        $link = PATH_FOLDER . ROT_DIR . 'setting.xml';
         $doc = new DOMDocument();
         $doc->load($link);
 

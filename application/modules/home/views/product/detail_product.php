@@ -63,13 +63,19 @@
                 </script>
                 <div id="defaultCountdown274" style="text-align:center;font-size:10px" class="hasCountdown"></div>
 
+               
+            </center>
+        </div>
+    <?php } ?>
+    <div>
+            <br>
+            <center>
                 <div>
                     <br>
                     <img id="btn_mua" width="169" height="40" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/mua_1.png" onclick="add_to_card_form(<?php echo $product_detail[0]['id_product'] ?>,<?php echo $price ?>);" class="add_cart_button">
                 </div>
             </center>
         </div>
-    <?php } ?>
     <?php
     if ($this->uri->segment(4) != '' || $this->uri->segment(4) != null) {
         ?>

@@ -208,16 +208,18 @@ if (defined('ENVIRONMENT'))
      define('ROT_DIR','/webmarketing/');
      define('BASE_URL','http://localhost/webmarketing/');
      define('MAIL_ADMIN','giangbeoit@gmail.com');
+     define('PATH_FOLDER',$_SERVER['DOCUMENT_ROOT']);
  }
  else
  {
-  
-    define('DB_NAME','jcbckiod_9fay');
-    define('DB_USER','jcbckiod_9fay');
-    define('DB_PASS','a123456');
-    define('ROT_DIR','/webmarketing/');
-    define('BASE_URL','http://giangbeo.com/webmarketing/');
+    define('HOST','mysql-server'); 
+    define('DB_NAME','quantri24v1');
+    define('DB_USER','quantri24v1');
+    define('DB_PASS','aA123456');
+    define('ROT_DIR','/');
+    define('BASE_URL','http://vietmongco.vn/');
     define('MAIL_ADMIN','giangbeoit@gmail.com');
+    define('PATH_FOLDER','/export/linux/www/vn/o/c/vietmongco/0/7/quantri24.H1207/vietmongco.vn');
  }
 require_once BASEPATH.'core/CodeIgniter.php';
 

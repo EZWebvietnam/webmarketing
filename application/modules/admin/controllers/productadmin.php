@@ -24,8 +24,7 @@ class Productadmin extends MY_Controller {
     public function list_product() {
         if(!$this->tank_auth->is_login_admin(TRUE))
         {
-            show_404();
-            exit;
+             redirect('/quan-tri');
         }
         if($this->session->userdata('role')!=1)
         {
@@ -62,8 +61,7 @@ class Productadmin extends MY_Controller {
     public function delete($id) {
         if(!$this->tank_auth->is_login_admin(TRUE))
         {
-            show_404();
-            exit;
+            redirect('/quan-tri');
         }
         if($this->session->userdata('role')!=1)
         {
@@ -79,8 +77,7 @@ class Productadmin extends MY_Controller {
     public function deletes() {
         if(!$this->tank_auth->is_login_admin(TRUE))
         {
-            show_404();
-            exit;
+            redirect('/quan-tri');
         }
         if($this->session->userdata('role')!=1)
         {
@@ -99,8 +96,7 @@ class Productadmin extends MY_Controller {
     public function view($id = null) {
         if(!$this->tank_auth->is_login_admin(TRUE))
         {
-            show_404();
-            exit;
+             redirect('/quan-tri');
         }
         if($this->session->userdata('role')!=1)
         {
@@ -123,8 +119,7 @@ class Productadmin extends MY_Controller {
     public function add() {
         if(!$this->tank_auth->is_login_admin(TRUE))
         {
-            show_404();
-            exit;
+            redirect('/quan-tri');
         }
         if($this->session->userdata('role')!=1)
         {
@@ -173,8 +168,7 @@ class Productadmin extends MY_Controller {
     public function edit($id = null) {
         if(!$this->tank_auth->is_login_admin(TRUE))
         {
-            show_404();
-            exit;
+             redirect('/quan-tri');
         }
         if($this->session->userdata('role')!=1)
         {

@@ -11,8 +11,7 @@ class Contactadmin extends MY_Controller {
         $this->lang->load('tank_auth');
         if(!$this->tank_auth->is_login_admin(TRUE))
         {
-            show_404();
-            exit;
+            redirect('/quan-tri');
         }
         if($this->session->userdata('role')!=1)
         {

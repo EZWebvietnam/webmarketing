@@ -5,6 +5,15 @@ class Newsadmin extends MY_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('newsmodel');
+        $this->load->helper(array('form','url'));
+        $this->load->library('session');
+        $this->load->library('tank_auth');
+        $this->lang->load('tank_auth');
+        $this->load->library('form_validation');
+        if(!$this->tank_auth->is_login_admin(TRUE))
+        {
+            redirect('/quan-tri');
+        }
     }
 
     public function list_new() {

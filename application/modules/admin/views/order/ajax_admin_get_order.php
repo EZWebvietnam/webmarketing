@@ -9,6 +9,7 @@
        });
    });
 </script>
+
 <div id="order_content">
    <table class="table_full" style="width: 100%;">
       <tr>
@@ -81,6 +82,7 @@ $status = array('0'=>'Khách hàng Chưa thanh toán','1'=>'Khách Đã thanh to
                            <th>Đia chỉ</th>
                            <th>Email</th>
                            <td>Tình trạng</td>
+                           <td>Thanh toán</td>
                            <th class="publish">Chức năng</th>
                         </tr>
                      </thead>
@@ -95,6 +97,14 @@ $status = array('0'=>'Khách hàng Chưa thanh toán','1'=>'Khách Đã thanh to
                         <td><?php echo $ctv_ref['address']?></td>
                         <td><?php echo $ctv_ref['email']?></td>
                         <td><?php echo $status[$ctv_ref['status']]?></td>
+                        <td>
+                            <?php if($ctv_ref['status']==0)
+                            {?>
+                            <img width="16" height="16" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/0.png" style="cursor: pointer;" title="Chưa thanh toán" onclick="change_status_order(<?php echo $ctv_ref['id']?>,<?php echo $page?>)"/>
+                            <?php } else {?>
+                            <img width="16" height="16" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/1.png" title="Đã thanh toán"/>
+                            <?php } ?>
+                        </td>
                         <td align="center">
                             
                             <a class="grouped_elements" href="<?php echo base_url();?>admin/orderadmin/view_order_detail/<?php echo $ctv_ref['id']?>" title="Xem chi tiết"><img width="16" height="16" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/order.png"></a>
@@ -149,6 +159,12 @@ $status = array('0'=>'Khách hàng Chưa thanh toán','1'=>'Khách Đã thanh to
                </form>
                 
                <script type="text/javascript">
+                   function change_status_order(id,page)
+                   {
+                       $.post("<?php echo base_url();?>admin/orderadmin/change_status_order",{'id':id},function(data){
+                      });
+                       khachhang(page);
+                   }
                   function khachhang(page_no){  
                       load_show();   
                       $.post("<?php echo base_url();?>admin/orderadmin/list_order",{'page_no':page_no},function(data){

@@ -59,6 +59,27 @@ class Ordermodel extends CI_Model
         $query = $this->db->query($sql);
         return $query->result_array();
     }
-   
+    public function update_order($id,array $data)
+    {
+        $this->db->where('id',$id);
+        $this->db->update('order_customer',$data);
+    }
+    public function order_detail_list($number,$offset)
+    {
+        $sql="SELECT *,order_detail.id as id_order_detail,order_detail.id_ref as id_ref_detail FROM order_detail  INNER JOIN order_customer ON order_customer.id = order_detail.order_id LEFT JOIN users ON order_detail.id_ref = users.id INNER JOIN product ON product.id_product = order_detail.id_product LIMIT $offset,$number";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+    public function count_order_detail()
+    {
+        $sql="SELECT * FROM order_detail INNER JOIN order_customer ON order_customer.id = order_detail.order_id LEFT JOIN users ON order_detail.id_ref = users.id INNER JOIN product ON product.id_product = order_detail.id_product";
+        $query = $this->db->query($sql);
+        return count($query->result_array());
+    }
+    public function update_order_detail($id,array $data)
+    {
+        $this->db->where('id',$id);
+        $this->db->update('order_detail',$data);
+    }
 }
 ?>

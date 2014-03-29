@@ -176,7 +176,7 @@ class Product extends MY_Controller
             'email'=>$email,
             'yahoo'=>$yahoo,
             'create_date'=>strtotime('now'),
-            'id_ref'=>$id_ref_c
+            'id_ref'=>0
              );
             $id = $this->productmodel->insert_order($data_insert);
             if($id>0)

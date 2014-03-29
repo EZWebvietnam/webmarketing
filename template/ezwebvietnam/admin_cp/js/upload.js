@@ -35,6 +35,7 @@ function fileUpload(form, action_url, div_id,current_action) {
             document.getElementById('file').value=b.file_name
             // Del the iframe...
             setTimeout('iframeId.parentNode.removeChild(iframeId)', 250);
+            document.getElementById(div_id).innerHTML = "Upload thành công";
         }
 
     if (iframeId.addEventListener) iframeId.addEventListener("load", eventHandler, true);
@@ -50,5 +51,6 @@ function fileUpload(form, action_url, div_id,current_action) {
     // Submit the form...
     form.submit();
     form.setAttribute("action", current_action);
-    document.getElementById(div_id).innerHTML = "Uploading...";
+    document.getElementById(div_id).innerHTML = "Uploading....";
+    
 }

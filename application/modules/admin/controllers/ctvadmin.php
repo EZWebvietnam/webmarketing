@@ -12,8 +12,7 @@ class Ctvadmin extends MY_Controller
         $this->load->library('form_validation');
         if(!$this->tank_auth->is_login_admin(TRUE))
         {
-            show_404();
-            exit;
+           redirect('/quan-tri');
         }
         if($this->session->userdata('role')!=1)
         {

@@ -70,7 +70,7 @@ class Home extends MY_Controller {
         if ($this->input->post()) {
             $username = $this->input->post('username');
             $full_name = $this->input->post('full_name');
-            $password = $this->input->post('passwrod');
+            $password = $this->input->post('password');
             $sex = $this->input->post('radio');
             $birth_day = $this->input->post('birth_day');
             $address = $this->input->post('address');
