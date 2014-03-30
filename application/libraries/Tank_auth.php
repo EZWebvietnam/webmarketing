@@ -77,6 +77,7 @@ class Tank_auth {
                     if ($user->banned == 1) {         // fail - banned
                         $this->error = array('banned' => $user->ban_reason);
                     } else {
+                        $this->logout();
                         $this->ci->session->set_userdata(array(
                             'user_id' => $user->id,
                             'username' => $user->username,
@@ -121,7 +122,7 @@ class Tank_auth {
     function logout() {
         $this->delete_autologin();
         // See http://codeigniter.com/forums/viewreply/662369/ as the reason for the next line
-        $this->ci->session->set_userdata(array('user_id' => '', 'username' => '', 'status' => ''));
+        $this->ci->session->set_userdata(array('user_id' => '', 'username' => '', 'status' => '','role'=>'','username'=>'','full_name'=>'','status'=>'','email'=>'','created'=>''));
         $this->ci->session->sess_destroy();
     }
 

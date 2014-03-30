@@ -49,6 +49,8 @@ class News extends MY_Controller
         {
             show_404();exit;
         }
+        $id = explode('-', $id);
+        $id = $id[0];
         if(!is_numeric($id))
         {
             show_404();

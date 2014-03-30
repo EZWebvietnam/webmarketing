@@ -86,7 +86,9 @@ class Product extends MY_Controller
                 $product_sale_off_check = $this->productmodel->get_sale_off_product($id_product);
                 if(!empty($product_sale_off_check))
                 {
-                    $price = $product_detail - (($product_sale_off_check[0]['percent']*$product_detail[0]['cost'])/100);
+                   
+                    $percent_and_cost = $product_sale_off_check[0]['percent']*$product_detail[0]['cost'];
+                    $price = $product_detail[0]['cost'] - ($percent_and_cost/100);
                 }
                 else
                 {

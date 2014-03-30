@@ -310,7 +310,7 @@ __lc.license = 4150291;
             <div class="form_header">
                 Đặt hàng
             </div>
-            <div style="clear:both;margin-top:25px;display:none" id="o_content_result"><p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Ch&uacute;c mừng bạn đ&atilde; đăng k&yacute;&nbsp;th&agrave;nh c&ocirc;ng!</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Ch&uacute;ng t&ocirc;i đ&atilde; gửi th&ocirc;ng b&aacute;o&nbsp;về Email của bạn, bạn h&atilde;y kiểm tra Email của m&igrave;nh trong &iacute;t ph&uacute;t nữa.</span></span></span></p></div>
+            <div style="clear:both;margin-top:25px;display:none" id="o_content_result"><p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Chúc mừng bạn đã đặt hàng thành công!</span></span></span></p>    </div>
             <div class="formcontent" style="clear:both;margin-top:25px" id="o_content">
                 <table cellspacing='2' cellpadding='0' width="480" >
                     <tr>
@@ -376,7 +376,7 @@ __lc.license = 4150291;
 
                 </table>
                 <center>
-                    <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" id="checkout" onclick="order_process()" style="padding-top:5px" />
+                    <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" id="checkout" onclick="order_process('<?php echo base_url();?>')" style="padding-top:5px" />
                 </center>
             </div>
             <div id="o_email_form_content_loading" style="display:none"><br /><br /><br /><center><img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/ajax-loader.gif" alt="loading" /></center></div>

@@ -10,7 +10,7 @@
    });
 </script>
 
-<div id="order_content">
+<div id="order_detail_content">
    <table class="table_full" style="width: 100%;">
       <tr>
          <td style="background: #FFF;padding: 5px 5px 5px 5px;" valign="top">
@@ -157,13 +157,14 @@ $status = array('0'=>'Chưa nhận tiền','1'=>'Đã nhận tiền')
                    function change_status_order(id,page)
                    {
                        $.post("<?php echo base_url();?>admin/orderadmin/change_status_order_detail",{'id':id},function(data){
+                           khachhang(page);
                       });
-                       khachhang(page);
+                       
                    }
                   function khachhang(page_no){  
                       load_show();   
                       $.post("<?php echo base_url();?>admin/orderadmin/list_order_detail",{'page_no':page_no},function(data){
-                          $("#order_content").html(data);                                            
+                          $("#order_detail_content").html(data);                                            
                           load_hide();
                       });
                   }

@@ -162,8 +162,9 @@ $status = array('0'=>'Khách hàng Chưa thanh toán','1'=>'Khách Đã thanh to
                    function change_status_order(id,page)
                    {
                        $.post("<?php echo base_url();?>admin/orderadmin/change_status_order",{'id':id},function(data){
+                           khachhang(page);
                       });
-                       khachhang(page);
+                      
                    }
                   function khachhang(page_no){  
                       load_show();   

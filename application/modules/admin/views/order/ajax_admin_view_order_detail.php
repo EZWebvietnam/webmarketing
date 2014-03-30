@@ -50,7 +50,7 @@ $status = array('0'=>'Khách hàng Chưa thanh toán','1'=>'Khách Đã thanh to
 		
 	</tr>
         <?php $total_money +=$order['quantity']*$order['price'];
-               $hoa_hong =  +$order['commissions'];
+               $hoa_hong +=  $order['commissions'];
         
         } ?>
 </table>

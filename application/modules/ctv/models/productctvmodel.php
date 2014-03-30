@@ -81,7 +81,7 @@ class Productctvmodel extends CI_Model
         }
         else
         {
-            $sql ="SELECT * FROM product WHERE id_product = 1";
+            $sql ="SELECT * FROM product";
         }
         $query = $this->db->query($sql);
         return $query->result_array();
