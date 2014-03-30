@@ -19,10 +19,15 @@
             <tr>
                 <td class="label">Địa chỉ</td>
                 <td colspan="3">
-                    <textarea id="editor2"><?php echo $detail[0]['address'] ?></textarea>
-                    <script type="text/javascript">
-                                CKEDITOR.replace('editor2');
-                            </script>
+                    <textarea id="editor1" style="margin: 2px; width: 404px; height: 354px;"><?php echo htmlspecialchars($detail[0]['address']) ?></textarea>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Footer</td>
+                <td colspan="3">
+                    <textarea id="editor2" style="margin: 2px; width: 404px; height: 354px;"><?php echo $detail[0]['footer'] ?></textarea>
+                    
                 </td>
             </tr>
             <tr>
@@ -53,11 +58,11 @@
             , submitHandler: function(form) {
                 var page = 1;
                 dataString = $("#adminform").serialize();
-                var content = CKEDITOR.instances['editor2'].getData();
+               
                 $.ajax({
                     type: "POST",
                     url: $("#adminform").attr('action'),
-                    data: {address:content},
+                    data: {address:$('#editor1').val(),footer:$('#editor2').val()},
                     mimeType: "multipart/form-data",
                     dataType: "json",
                     cache: false,

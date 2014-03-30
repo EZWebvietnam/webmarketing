@@ -219,10 +219,16 @@ class Productadmin extends MY_Controller {
                 $clip = explode(';', $clip);
                 foreach($clip as $k=>$v)
                 {
-                    $clip_2 = explode('?v=', $v);
-                    if(empty($clip_2))
+                    if(strpos('?v=',$v))
                     {
-                        $clip_2 = explode('&v=', $v);
+                    $clip_2 = explode('?v=', $v);
+                    }
+                    else
+                    {
+                        if(empty($clip_2))
+                        {
+                            $clip_2 = explode('watch?&v=', $v);
+                        }
                     }
                     if(!empty($clip_2))
                     {

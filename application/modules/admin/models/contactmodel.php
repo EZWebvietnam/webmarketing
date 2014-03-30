@@ -44,5 +44,16 @@ class Contactmodel extends CI_Model
         $this->db->where('id',$id);
         $this->db->update('info_company',$data);
     }
+    public function get_about()
+    {
+        $sql="SELECT * FROM about WHERE id = 1";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+    public function update_about(array $data)
+    {
+        $this->db->where('id',1);
+        $this->db->update('about',$data);
+    }
 }
 ?>

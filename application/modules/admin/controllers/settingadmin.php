@@ -185,7 +185,7 @@ class Settingadmin extends MY_Controller {
         if($this->input->post())
         {
             $data_save = array();
-            $data_save = array('address'=>stripslashes($this->input->post('address')));
+            $data_save = array('address'=>stripslashes($this->input->post('address')),'footer'=>$this->input->post('footer'));
             $this->contactmodel->update_info(1,$data_save);
             $data_msg = array('error' => 0, 'msg' => 'Update Setting thanh cong');
             echo json_encode($data_msg);
@@ -196,6 +196,22 @@ class Settingadmin extends MY_Controller {
             $this->load->view('setting/ajax_admin_edit_info',$this->data);
         }
     }
+    public function about()
+    {
+        $this->load->model('contactmodel');
+        if($this->input->post())
+        {
+            $data_save = array('content'=>$this->input->post('content'));
+            $this->contactmodel->update_about($data_save);
+            $array = array('error'=>0,'msg'=>'Update thành công');
+            echo json_encode($array);
+        }
+        else
+        {
+            
+            $this->data['about'] = $this->contactmodel->get_about();
+            $this->load->view('setting/ajax_admin_edit_about',$this->data);
+        }
+    }
 }
-
 ?>

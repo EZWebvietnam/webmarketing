@@ -46,7 +46,7 @@
         <div>
             <br>
             <center>
-                Số người đã mua:<br><span class="price2"> <?php echo $count_buy;?> </span><br>
+                Số người đã mua:<br><span class="price2"> <?php echo $count_buy; ?> </span><br>
                 Thời gian khuyến mại còn lại:
                 <?php
                 $date = $detail_sale_off[0]['exp_date'];
@@ -55,27 +55,27 @@
                 ?>
                 <script type="text/javascript">
                     $(function() {
-                        var liftoffTime = new Date(<?php echo $date_ex[0] ?>,<?php echo $date_ex[1]-1 ?> ,<?php echo $date[0] ?>);
+                        var liftoffTime = new Date(<?php echo $date_ex[0] ?>,<?php echo $date_ex[1] - 1 ?>,<?php echo $date[0] ?>);
                         $('#defaultCountdown274').countdown({until: liftoffTime, padZeroes: true});
                     });
-                    
+
 
                 </script>
                 <div id="defaultCountdown274" style="text-align:center;font-size:10px" class="hasCountdown"></div>
 
-               
+
             </center>
         </div>
     <?php } ?>
     <div>
-            <br>
-            <center>
-                <div>
-                    <br>
-                    <img id="btn_mua" width="169" height="40" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/mua_1.png" onclick="add_to_card_form(<?php echo $product_detail[0]['id_product'] ?>,<?php echo $price ?>);" class="add_cart_button">
-                </div>
-            </center>
-        </div>
+        <br>
+        <center>
+            <div>
+                <br>
+                <img id="btn_mua" width="169" height="40" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/mua_1.png" onclick="add_to_card_form(<?php echo $product_detail[0]['id_product'] ?>,<?php echo $price ?>);" class="add_cart_button">
+            </div>
+        </center>
+    </div>
     <?php
     if ($this->uri->segment(4) != '' || $this->uri->segment(4) != null) {
         ?>
@@ -90,11 +90,32 @@
 </div>
 <div style="hight:1px">&nbsp;</div>
 <div style="clear:both"></div>
+
 <div class="product_detail_2">
     <div class="right_header">NỘI DUNG CHI TIẾT</div>
     <div style="padding:10px">
         <?php echo $product_detail[0]['content'] ?>
     </div>
+    <?php 
+    if(!empty($list_clip))
+    {
+    ?>
+    <div style="background:#fff;margin:0;padding:10px 10px 10px 0;">
+        <div style="moz-border-radius: 5px;-webkit-border-radius: 5px;padding: 10px;">
+            <div style="clear:both">
+                <div style="background:url(<?php echo base_url();?>template/ezwebvietnam/home/uploads/tivi.png) top left no-repeat;width:603px;height:401px;padding:36px 36px 36px 38px">
+                    <?php 
+                    foreach($list_clip as $clip)
+                    {
+                    ?>
+                    <iframe allowfullscreen="" frameborder="0" height="338" name="video" src="//www.youtube.com/embed/<?php echo $clip['code']?>" width="600"></iframe>
+                    <?php }  ?>
+                </div>    
+            </div>
+
+        </div>
+    </div>
+    <?php } ?>
     <div id="main2"></div>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {

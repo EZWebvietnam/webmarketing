@@ -50,7 +50,7 @@
             <div class='banner_content'>
                 <!--Widget-->
                 <div style="width:1000px">
-                    <p style="margin:0;padding:0"><img alt="" src="<?php echo base_url();?>template/ezwebvietnam/home/bannervinamos3.png" /></p>  
+                    <p style="margin:0;padding:0"><img alt="" src="<?php echo base_url(); ?>template/ezwebvietnam/home/bannervinamos3.png" /></p>  
                 </div>
                 <!--/Widget-->
             </div>
@@ -92,7 +92,7 @@
                     <form style='margin:0px;padding:0px' method='post' action='<?php echo base_url(); ?>cong-tac-vien/login'>
 
                         <input onclick="window.location.href = '<?php echo base_url(); ?>cong-tac-vien/register';
-                                return false;" style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/button-title-register.png" name="ss" value='ss' width="126" height="32" />
+                                    return false;" style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/button-title-register.png" name="ss" value='ss' width="126" height="32" />
                         <input style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/button-title-login.png" name="submit" value='submit' width="126" height="32" />
                         <?php echo form_input($login); ?>
                         <?php echo form_input($password); ?>
@@ -116,6 +116,9 @@
             <ul id='menu'>
                 <li>
                     <a href='<?php echo base_url(); ?>'>Trang Chủ</a>
+                </li>
+                <li>
+                    <a href='<?php echo base_url(); ?>gioi-thieu'>Giới thiệu</a>
                 </li>
                 <li>
                     <a href='<?php echo base_url(); ?>san-pham'>Sản Phẩm</a>
@@ -177,7 +180,7 @@
                                     </td>
                                     <td>
                                         <div style="float:left">
-                                            <input type='text'  name='sercuritycode' id='sercuritycode'  class="textbox" style="width:50px" />
+                                            <input type='text'  name='sercuritycode' id='sercuritycode'  class="textbox" style="width:50px" /><?php echo $image; ?>
                                             <br />
                                             <a href="#" onclick="$('#se_image').attr('src', '/captcha/captcha.php?' + new Date().getTime())">Đổi hình</a>
                                         </div>
@@ -265,6 +268,14 @@
                 <table cellspacing='2' cellpadding='0' width="480" >
                     <tr>
                         <td width="100" align="right">
+
+                        </td>
+                        <td>
+                            Bạn không thể click Đặt hàng nếu không điền hoặc điền không đúng mã bảo mật
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100" align="right">
                             Họ và tên (*):
                         </td>
                         <td>
@@ -296,6 +307,18 @@
                         </td>
                     </tr>
                     <tr>
+                        <td width="100" align="right" valign="top">
+                            Mã bảo mật:
+                        </td>
+                        <td>
+                            <div style="float:left">
+                                <input type='text'  name='sercuritycode' id='o_sercuritycode'  style="width:80px" /><div id="image_cpc"><?php echo $image; ?></div>
+                                <a style="cursor: pointer;" id="change_captcha">Đổi ảnh khác</a>
+                            </div>
+                            <span id='sercuritycode_e' style="color:#f00;font-size:11px"></span>
+                        </td>
+                    </tr>
+                    <tr>
                         <td width="100" align="right">
                             Yahoo:
                         </td>
@@ -303,22 +326,12 @@
                             <input type="text" id="o_yahoo" name="o_yahoo" size="30" />
                         </td>
                     </tr>
-                    <tr>
-                        <td width="100" align="right" valign="top">
-                            Mã bảo mật:
-                        </td>
-                        <td>
-                            <div style="float:left">
-                                <input type='text'  name='o_sercuritycode' id='o_sercuritycode'  style="width:50px" />
-                                <br />
-                                <a href="#" onclick="$('#se_image2').attr('src', '/captcha/captcha.php?' + new Date().getTime())">Đổi hình</a>
-                            </div>
-                            <span id='sercuritycode_e' style="color:#f00;font-size:11px"></span>
-                        </td>
-                    </tr>
+
                 </table>
                 <center>
-                    <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" onclick="order_process('<?php echo base_url(); ?>')" style="padding-top:5px" />
+                    <div id="button_checkout">
+                        <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button_" id="checkout" onclick="order_process('<?php echo base_url(); ?>')" style="padding-top:5px" />
+                    </div>
                 </center>
             </div>
             <div id="o_email_form_content_loading" style="display:none"><br /><br /><br /><center><img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/ajax-loader.gif" alt="loading" /></center></div>
@@ -326,6 +339,46 @@
 
         <script type='text/javascript'>
             $(document).ready(function() {
+                $("#footer").each(function() {
+                    var $this = $(this);
+                    $this.html($this.html().replace(/&nbsp;/g, ''));
+                });
+                document.getElementById('checkout').style.pointerEvents = 'none';
+                $("#o_sercuritycode").change(function() {
+                    $.ajax({
+                        type: "POST",
+                        url: '<?php echo base_url(); ?>home/home/check_captcha_ajax',
+                        data: {captcha: $('#o_sercuritycode').val()},
+                        mimeType: "multipart/form-data",
+                        dataType: "json",
+                        cache: false,
+                        success: function(data) {
+                            if (data.error == 1)
+                            {
+                                document.getElementById('checkout').style.pointerEvents = 'none';
+                            }
+                            else
+                            {
+                                document.getElementById('checkout').style.pointerEvents = 'auto';
+                            }
+                        }
+                    });
+                });
+                $('#change_captcha').click(function() {
+                    $.ajax({
+                        type: "POST",
+                        url: '<?php echo base_url(); ?>home/home/create_captcha_ajax',
+                        mimeType: "multipart/form-data",
+                        dataType: "json",
+                        cache: false,
+                        success: function(data) {
+                            if (data.error == 0)
+                            {
+                                $('#image_cpc').html(data.img);
+                            }
+                        }
+                    });
+                });
                 $("#hide_content").css("width", screen.width + 'px');
                 $("#hide_content").css("height", screen.height + 'px');
                 $("#emailform").css("left", ((screen.width / 2) - 250) + 'px');
@@ -333,7 +386,6 @@
                 $("#show_cart_form").css("left", ((screen.width / 2) - 250) + 'px');
                 $("#show_order_form").css("left", ((screen.width / 2) - 250) + 'px');
                 var checkform_email = getCookie('closeform');
-
                 if (checkform_email != "true") {
                     $("#emailform").css("display", "");
                     $("#hide_content").css("display", "");
@@ -360,7 +412,7 @@
         </script>
         <div id="body_bg">
             <div id='main_body_content2'>
-                
+
                 <div style="background:#fff;margin:0;padding:10px 10px 10px 0;">
                     <div style="moz-border-radius: 5px;-webkit-border-radius: 5px;padding: 10px;">
                         <div style="clear:both">
@@ -375,7 +427,7 @@
 
                     </div>
                 </div>
-                    
+
                 <div id="main_page" style="word-break: break-all;">
                     <div id="center222">
                         <?php echo $this->load->view($main_content); ?>
@@ -392,32 +444,8 @@
             <!--Widget-->
             <!--/Widget-->
             <div id="footer">
-
-
-                <p style="text-align: center;"><span style="color:#FFF0F5;"><span style="font-size: small; font-family: Arial; line-height: 1.6em;">&nbsp; &nbsp;&nbsp;</span><span style="font-family: Arial; line-height: 1.6em; font-size: 16px;"><strong><?php echo $info_company[0]['address'] ?></strong></span></span></p>        
-                <div style='width:1000px;margin: 0 auto 0 auto;'>
-                    <ul id='menu_foot'>
-
-                        <li>
-                            <a  href='<?php echo base_url(); ?>hoi-dap'>
-                                Hỏi Đáp		</a>
-                        </li>
-                        <li>
-                            <a  href='<?php echo base_url(); ?>tin-tuc'>
-                                Tin Tức		</a>
-                        </li>
-                        <li>
-                            <a  href='<?php echo base_url(); ?>lien-he'>
-                                Liên hệ		</a>
-                        </li>
-                        <li>
-                            <a  href='<?php echo base_url(); ?>lien-he'>
-                                Liên hệ		</a>
-                        </li>
-                    </ul>
-                    <div style='clear:both'></div>
-                </div>
-                <br />
+                <p style="text-align: center;"><span style="color:#FFF0F5;"><span style="font-size: small; font-family: Arial; line-height: 1.6em;">    </span><span style="font-family: Arial; line-height: 1.6em; font-size: 16px;"><strong> <?php echo $info_company[0]['address'] ?></strong></span></span></p>   
+                <?php echo $info_company[0]['footer'] ?>
                 Developed by <a href="http://www.facebook.com/ezwebvietnam" target="_blank">EZWebVietnam</a>
             </div>
 

@@ -38,6 +38,7 @@ class News extends MY_Controller
        $this->data['list']=$array_sv;
        $this->load->model('productmodel');
        $this->data['list_product_sale']=$this->productmodel->get_list_product_sale_off();
+       $this->data['image']=$this->_create_captcha();
         $this->load->view('home/layout_list_new',$this->data);
     }
     public function detail($id)
@@ -59,7 +60,48 @@ class News extends MY_Controller
             show_404();exit;
         }
         $this->data['main_content']='new/detail_new';
+        $this->data['image']=$this->_create_captcha();
         $this->load->view('home/layout_detail',$this->data);
+    }
+    private function _create_captcha() {
+        $this->load->helper('captcha');
+        $options = array('img_path' => $_SERVER['DOCUMENT_ROOT'] . ROT_DIR . '/captcha/', 'img_url' => base_url() . "captcha/", 'img_width' => '150', 'img_height' => '40', 'expiration' => 7200);
+        $cap = create_captcha($options);
+        $image = $cap['image'];
+        $this->session->set_userdata('captchaword', $cap['word']);
+        return $image;
+    }
+
+    public function check_captcha($string) {
+
+        if ($string == $this->session->userdata('captchaword')) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('check_captcha', 'Wrong captcha code');
+            return FALSE;
+        }
+    }
+    public function check_captcha_ajax()
+    {
+        $captcha = $this->input->post('captcha');
+        if($this->check_captcha($captcha))
+        {
+            $data = array('error'=>'0');
+        }
+        else
+        {
+            $data = array('error'=>'1');
+        }
+        echo json_encode($data);
+    }
+    public function create_captcha_ajax() {
+        $this->load->helper('captcha');
+        $options = array('img_path' => $_SERVER['DOCUMENT_ROOT'] . ROT_DIR . '/captcha/', 'img_url' => base_url() . "captcha/", 'img_width' => '150', 'img_height' => '40', 'expiration' => 7200);
+        $cap = create_captcha($options);
+        $image = $cap['image'];
+        $this->session->set_userdata('captchaword', $cap['word']);
+        $array = array('error'=>0,'img'=>$image);
+        echo json_encode($array);
     }
 }
 ?>

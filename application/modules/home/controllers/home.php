@@ -23,8 +23,8 @@ class Home extends MY_Controller {
         $this->data['main_content'] = 'home_view/home';
         $this->load->view('home/layout_home', $this->data);*/
         $this->data['clip_top'] = $this->productmodel->load_top_clip();
-       
         $detail_product = $this->productmodel->product_detail(1);
+        $this->data['image']=$this->_create_captcha();
         $this->data['main_content']='home_view/detail_home';
         $this->data['product_detail']=$detail_product;
         $this->load->view('home/layout_home',$this->data);
@@ -46,6 +46,7 @@ class Home extends MY_Controller {
             }
         } else {
             $this->load->model('productmodel');
+            $this->data['image']=$this->_create_captcha();
             $this->data['list_product_sale'] = $this->productmodel->get_list_product_sale_off();
             $this->data['main_content'] = 'home_view/contact';
             $this->load->view('home/layout_detail', $this->data);
@@ -130,7 +131,55 @@ class Home extends MY_Controller {
         $messsage = $this->load->view('email/' . $type . '-html', $data, TRUE);
         $this->maillinux->SendMail($from, $email, $subject, $messsage);
     }
+    private function _create_captcha() {
+        $this->load->helper('captcha');
+        $options = array('img_path' => $_SERVER['DOCUMENT_ROOT'] . ROT_DIR . '/captcha/', 'img_url' => base_url() . "captcha/", 'img_width' => '150', 'img_height' => '40', 'expiration' => 7200);
+        $cap = create_captcha($options);
+        $image = $cap['image'];
+        $this->session->set_userdata('captchaword', $cap['word']);
+        return $image;
+    }
 
+    public function check_captcha($string) {
+
+        if ($string == $this->session->userdata('captchaword')) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('check_captcha', 'Wrong captcha code');
+            return FALSE;
+        }
+    }
+    public function check_captcha_ajax()
+    {
+        $captcha = $this->input->post('captcha');
+        if($this->check_captcha($captcha))
+        {
+            $data = array('error'=>'0');
+        }
+        else
+        {
+            $data = array('error'=>'1');
+        }
+        echo json_encode($data);
+    }
+    public function create_captcha_ajax() {
+        $this->load->helper('captcha');
+        $options = array('img_path' => $_SERVER['DOCUMENT_ROOT'] . ROT_DIR . '/captcha/', 'img_url' => base_url() . "captcha/", 'img_width' => '150', 'img_height' => '40', 'expiration' => 7200);
+        $cap = create_captcha($options);
+        $image = $cap['image'];
+        $this->session->set_userdata('captchaword', $cap['word']);
+        $array = array('error'=>0,'img'=>$image);
+        echo json_encode($array);
+    }
+    public function about()
+    {
+        $this->load->model('faq');
+        $this->load->model('productmodel');
+        $this->data['image']=$this->_create_captcha();
+        $this->data['list_product_sale'] = $this->productmodel->get_list_product_sale_off();
+        $this->data['about'] = $this->faq->about();
+        $this->data['main_content'] = 'home_view/detail_about';
+        $this->load->view('home/layout_detail', $this->data);
+    }
 }
-
 ?>

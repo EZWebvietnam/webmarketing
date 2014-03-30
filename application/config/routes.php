@@ -55,6 +55,7 @@ $route['cong-tac-vien/login'] = "ctv/homectv/login";
 $route['cong-tac-vien/register'] = "home/home/register";
 $route['404_override'] = '';
 $route['hoi-dap']='home/product/faq_list';
+$route['gioi-thieu']='home/home/about';
 $route['gui-cau-hoi']='home/product/send_faq';
 $route['tin-tuc']='home/news/list_news';
 $route['tin-tuc-(:any)-(:any)']='home/news/detail/$1';

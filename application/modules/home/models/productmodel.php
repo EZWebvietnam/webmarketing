@@ -112,5 +112,11 @@ class Productmodel extends CI_Model
         $query = $this->db->query($sql);
         return count($query->result_array());
     }
+    public function load_random_clip($id)
+    {
+        $sql="SELECT * FROM clip_marketing WHERE id_product = $id ORDER BY rand() LIMIT 1";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
 }
 ?>
