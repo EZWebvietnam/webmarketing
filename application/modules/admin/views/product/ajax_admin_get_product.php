@@ -86,7 +86,7 @@
                            <th class="checkbox"><input type="checkbox" name="sa" id="sa" onclick="check_chose('sa', 'ar_id[]', 'admindata_kh')"></th>
                            <th class="id">Tên</th>
                            <th>Giới thiệu</th>
-                           <th>Ngày hết hạn</th>
+                          
                            <th>Vị trí hiển thị</th>
                            <th>Giá</th>
                            <th class="publish">Chức năng</th>
@@ -101,7 +101,7 @@
                         <td align="center"><input  type="checkbox" name="ar_id[]" value="<?php echo $product_ref['id_product']?>"></td>
                         <td><?php echo $product_ref['title']?></td>
                         <td><?php echo $product_ref['description']?></td>
-                        <td><?php echo $product_ref['exp_date']?></td>
+                       
                         <td><?php echo $array[$product_ref['position']]?></td>
                         <td><?php echo $product_ref['cost']?></td>
                         <td align="center"><a class="grouped_elements" href="<?php echo base_url();?>admin/productadmin/edit/<?php echo $product_ref['id_product']?>" title="Sửa"><img width="16" height="16" src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/edit.png"></a>

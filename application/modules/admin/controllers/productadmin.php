@@ -130,13 +130,14 @@ class Productadmin extends MY_Controller {
             $clip = $this->input->post('clip');
             $data_save = array(
                 'title' => $this->input->post('title'),
-                'exp_date' => $this->input->post('exp_date'),
+               
                 'id_cate' => $this->input->post('category'),
                 'cost' => intval($this->input->post('cost')),
                 'description' => stripslashes($this->input->post('description')),
                 'content' => stripslashes($this->input->post('content')),
                 'comission' => $this->input->post('hoa_hong'),
-                'img' => $this->input->post('file')
+                'img' => $this->input->post('file'),
+                'position'=>1
             );
             $id = $this->productmodel->add_product($data_save);
             if($clip!='')
@@ -200,7 +201,7 @@ class Productadmin extends MY_Controller {
             if ($file != '') {
                 $data_save = array(
                     'title' => $this->input->post('title'),
-                    'exp_date' => $this->input->post('exp_date'),
+                    
                     'id_cate' => $this->input->post('category'),
                     'cost' => $this->input->post('cost'),
                     'description' => stripslashes($this->input->post('description')),
@@ -211,7 +212,7 @@ class Productadmin extends MY_Controller {
             } else {
                 $data_save = array(
                     'title' => $this->input->post('title'),
-                    'exp_date' => $this->input->post('exp_date'),
+                   
                     'id_cate' => $this->input->post('category'),
                     'cost' => $this->input->post('cost'),
                     'description' => stripslashes($this->input->post('description')),

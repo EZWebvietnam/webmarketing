@@ -39,6 +39,12 @@ $password = array(
     <form action="<?php echo base_url(); ?>admin/ctvadmin/add" method="post" accept-charset="utf-8" id="adminform"><input type="hidden" name="id" value="74">
         <table class="form" style="width: 550px;">
             <tr>
+                <td class="label"></td>
+                <td colspan="3">
+                   Hệ thống tự động kiểm tra username và email, nếu đã tồn tại bạn không thể click Thêm
+                </td>
+            </tr>
+            <tr>
                 <td class="label">Họ tên</td>
                 <td colspan="3">
                     <input  type="text" value="" name="full_name"/>
@@ -129,7 +135,7 @@ $password = array(
             <tr>
                 <td class="label"></td>
                 <td colspan="3">
-                    <input type="submit" class="bt100" value="Thêm"/>
+                    <input id="submit_ctv" type="submit" class="bt100" value="Thêm"/>
                 </td>
             </tr>
             <td></td>
@@ -141,6 +147,7 @@ $password = array(
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
+        $('#submit_ctv').attr('disabled','disabled');
         $('#username').change(function(){
         var username = $(this).val();
         $.ajax({
@@ -151,11 +158,13 @@ $password = array(
                 success: function(data) {
                     if(data.error!=0)
                     {
+                         $('#submit_ctv').attr('disabled','disabled');   
                        $('#error_user').html(data.msg);
                     }
                     else
                     {
-                       
+                        
+                         $('#submit_ctv').attr('disabled',false);
                          $('#error_user').html(data.msg);
                     }
                 }
@@ -172,10 +181,13 @@ $password = array(
                 success: function(data) {
                     if(data.error!=0)
                     {
+                         $('#submit_ctv').attr('disabled','disabled');
                        $('#error_email').html(data.msg);
                     }
                     else
                     {
+                       
+                        $('#submit_ctv').attr('disabled',false);
                         $('#error_email').html(data.msg);
                     }
                 }

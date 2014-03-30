@@ -22,12 +22,7 @@
                     <input id="title" type="text" value="<?php echo $detail_product[0]['title'] ?>" name ="title"/>
                 </td>
             </tr>
-             <tr>
-                <td class="label">Ngày hết hạn</td>
-                <td colspan="3">
-                    <input id="exp_date" type="text" value="<?php echo $detail_product[0]['exp_date'] ?>" name="exp_date"/>
-                </td>
-            </tr>
+             
             <tr>
                 <td class="label">Giá</td>
                 <td colspan="3">
@@ -92,7 +87,7 @@
         $("#adminform").validate({
             rules: {
                 title: "required",
-                exp_date: "required",
+                
                 cost: "required",
                 editor1: "required",
                 editor2: "required",
@@ -101,7 +96,7 @@
             messages: {
                 title: "Vui lòng nhập tên",
                 cost: "Vui lòng nhập giá",
-                exp_date: "Vui lòng nhập ngày hết hạn",
+              
                 editor1: "Vui lòng nhập giới thiệu",
                 editor2: "Vui lòng nhập nội dung",
                 hoa_hong: "Vui lòng nhập hoa hồng"
@@ -115,7 +110,7 @@
                 $.ajax({
                     type: "POST",
                     url: $("#adminform").attr('action'),
-                    data: {title:$('#title').val(),exp_date:$('#exp_date').val(),category:$('#category').val(),cost:$('#cost').val(),hoa_hong:$('#hoa_hong').val(),file:$('#file').val(),description:description,content:content,clip:$('#clip').val()},
+                    data: {title:$('#title').val(),category:$('#category').val(),cost:$('#cost').val(),hoa_hong:$('#hoa_hong').val(),file:$('#file').val(),description:description,content:content,clip:$('#clip').val()},
                     mimeType: "multipart/form-data",
                     dataType: "json",
                     cache: false,

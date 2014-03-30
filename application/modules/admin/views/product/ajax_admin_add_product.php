@@ -23,12 +23,6 @@
                 </td>
             </tr>
             <tr>
-                <td class="label">Ngày hết hạn</td>
-                <td colspan="3">
-                    <input id="exp_date_" type="texbox" name="exp_date"/>
-                </td>
-            </tr>
-            <tr>
                 <td class="label">Danh mục</td>
                 <td colspan="3">
                     <select name="category" id="category">
@@ -98,7 +92,7 @@
         $("#adminform").validate({
             rules: {
                 title: "required",
-                exp_date: "required",
+               
                 cost: "required",
                 description: "required",
                 content: "required",
@@ -107,7 +101,7 @@
             messages: {
                 title: "Vui lòng nhập tên",
                 cost: "Vui lòng nhập giá",
-                exp_date: "Vui lòng nhập ngày hết hạn",
+               
                 description: "Vui lòng nhập giới thiệu",
                 content: "Vui lòng nhập nội dung",
                 hoa_hong: "Vui lòng nhập hoa hồng"
@@ -121,7 +115,7 @@
                 $.ajax({
                     type: "POST",
                     url: $("#adminform").attr('action'),
-                    data: {title:$('#title_').val(),exp_date:$('#exp_date_').val(),category:$('#category').val(),cost_:$('#cost_').val(),hoa_hong:$('#hoa_hong').val(),file:$('#file').val(),description:description,content:content,clip:($('#clip').val())},
+                    data: {title:$('#title_').val(),category:$('#category').val(),cost:$('#cost_').val(),hoa_hong:$('#hoa_hong').val(),file:$('#file').val(),description:description,content:content,clip:($('#clip').val())},
                     mimeType: "multipart/form-data",
                     dataType: "json",
                     cache: false,

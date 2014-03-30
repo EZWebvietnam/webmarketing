@@ -34,7 +34,7 @@
                 var app_ext = ".htm";
                 var my_url = "U1";
                 try {
-                    var new_reg_success = '<p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Xin chúc mừng!</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Bạn đã đăng ký nhận quà thành công.</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Bạn hãy mở Email để nhận quà của chúng tôi.</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Thành công cho bạn.</span></span></span></p>';
+                    var new_reg_success = '<p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Xin chúc mừng!</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;"> bạn đã đặt hàng thành công.</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Bạn hãy mở Email để nhận quà của chúng tôi.</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Thành công cho bạn.</span></span></span></p>';
                 } catch (e) {
                 }
                 var my_template = "template_1";
