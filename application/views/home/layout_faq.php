@@ -82,6 +82,16 @@
 
     </head>
     <body>
+        <script type="text/javascript">
+var __lc = {};
+__lc.license = 4150291;
+
+(function() {
+	var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+	lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+})();
+</script>
         <div class="sidelinks-container"><h3><a href="#top">Top</a></h3></div>
         <div id='banner' style="min-height:80px">
             <div class='banner_content'>
@@ -98,7 +108,7 @@
             </div>
             <div class='top_menu' >
                 <a href="<?php echo base_url(); ?>" class="home">Trang chủ</a>
-                <a href="/U1/contact.htm" class="contact">Liên hệ</a>
+                <a href="<?php echo base_url();?>lien-he" class="contact">Liên hệ</a>
                 <a href="#"  onclick="show_cart('<?php echo base_url(); ?>')"  class="cart">
                     Giỏ hàng (<span id="product_number" style="color:#ef4232;font-weight:700">0</span>)
                 </a>
@@ -508,25 +518,36 @@
                 <div id='left_block' >
                     <div style="padding:5px">
                         <!--Widget-->
-                        <?php
+                          <?php
                         foreach ($list_product_sale as $product_sale) {
                             ?>
                             <div>
                                 <p style="text-align: center;">
-                                    <a href="<?php echo base_url(); ?>">
-                                        <?php
-                                        if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/sale/' . $product_sale['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/sale/' . $product_sale['img']) && $product_sale['img'] != '') {
-                                            ?>
-                                            <img alt="" src="<?php echo base_url(); ?>file/uploads/sale/<?php echo $product_sale['img'] ?>" style="width: 240px; height: 300px;" />
+                                    <?php
+                                    if ($product_sale['position'] != 0) {
+                                        ?>
+                                        <a href="<?php echo base_url(); ?>san-pham/<?php echo $product_sale['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($product_sale['title']))) ?>">
                                         <?php } else { ?>
-                                            <img alt="" src="<?php echo base_url(); ?>file/uploads/no_image.gif" style="width: 240px; height: 300px;" />
-                                        <?php } ?>
-                                    </a></p>    
-                                <p style="text-align: center;"><a href="<?php echo base_url(); ?>" style="line-height: 1.6em;">
-                                    </a><br />  &nbsp;</p>  
-                            </div>
-                        <?php } ?>
-
+                                            <a href="<?php echo base_url(); ?>">
+                                                <?php
+                                            }
+                                            if (file_exists(PATH_FOLDER . ROT_DIR . 'file/uploads/product/' . $product_sale['img']) && is_file(PATH_FOLDER . ROT_DIR . 'file/uploads/product/' . $product_sale['img']) && $product_sale['img'] != '') {
+                                                ?>
+                                                <img alt="" src="<?php echo base_url(); ?>file/uploads/product/<?php echo $product_sale['img'] ?>" style="width: 240px; height: 300px;" />
+                                            <?php } else { ?>
+                                                <img alt="" src="<?php echo base_url(); ?>file/uploads/no_image.gif" style="width: 240px; height: 300px;" />
+                                            <?php } ?>
+                                        </a></p>
+                                <?php
+                                if ($product_sale['position'] != 0) {
+                                    ?>
+                                    <p style="text-align: center;"><a href="<?php echo base_url(); ?>san-pham/<?php echo $product_sale['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($product_sale['title']))) ?>" style="line-height: 1.6em;">
+                                        <?php } else { ?>
+                                            <p style="text-align: center;"><a href="<?php echo base_url(); ?>" style="line-height: 1.6em;">
+                                                <?php } ?>
+                                            </a><br />  &nbsp;</p>  
+                                        </div>
+                                    <?php } ?>
                         <div>
                             <p style="text-align: center;"><iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fvietmongco.vn&amp;width=240&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:240px; height:290px;" allowTransparency="true"></iframe></p>
                         </div>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
@@ -45,6 +44,16 @@
 
     </head>
     <body>
+        <script type="text/javascript">
+var __lc = {};
+__lc.license = 4150291;
+
+(function() {
+	var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+	lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+})();
+</script>
         <div class="sidelinks-container"><h3><a href="#top">Top</a></h3></div>
         <div id='banner' style="min-height:80px">
             <div class='banner_content'>
@@ -61,7 +70,7 @@
             </div>
             <div class='top_menu' >
                 <a href="<?php echo base_url(); ?>" class="home">Trang chủ</a>
-                <a href="/U1/contact.htm" class="contact">Liên hệ</a>
+                <a href="<?php echo base_url();?>lien-he" class="contact">Liên hệ</a>
                 <a href="#"  onclick="show_cart('<?php echo base_url(); ?>')"  class="cart">
                     Giỏ hàng (<span id="product_number" style="color:#ef4232;font-weight:700">0</span>)
                 </a>

@@ -82,6 +82,16 @@
 
     </head>
     <body>
+        <script type="text/javascript">
+var __lc = {};
+__lc.license = 4150291;
+
+(function() {
+	var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+	lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+})();
+</script>
         <div class="sidelinks-container"><h3><a href="#top">Top</a></h3></div>
         <div id='banner' style="min-height:80px">
             <div class='banner_content'>
@@ -98,7 +108,7 @@
             </div>
             <div class='top_menu' >
                 <a href="<?php echo base_url(); ?>" class="home">Trang chủ</a>
-                <a href="/U1/contact.htm" class="contact">Liên hệ</a>
+                <a href="<?php echo base_url();?>lien-he" class="contact">Liên hệ</a>
                 <a href="#"  onclick="show_cart('<?php echo base_url(); ?>')"  class="cart">
                     Giỏ hàng (<span id="product_number" style="color:#ef4232;font-weight:700">0</span>)
                 </a>
@@ -472,7 +482,7 @@
                                     <div style="float:left;border:1px solid #fff;padding:3px;margin:4px">
                                         <a href="<?php echo base_url(); ?>san-pham/<?php echo $list_product_cate['id_product'] ?>-<?php echo mb_strtolower(url_title(removesign($list_product_cate['title']))) ?>">
                                             <?php
-                                            if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/product/' . $list_product_cate['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/product/' . $list_product_cate['img']) && $list_product_cate['img'] != '') {
+                                            if (file_exists(PATH_FOLDER . ROT_DIR . 'file/uploads/product/' . $list_product_cate['img']) && is_file(PATH_FOLDER . ROT_DIR . 'file/uploads/product/' . $list_product_cate['img']) && $list_product_cate['img'] != '') {
                                                 ?>
                                                 <img src="<?php echo base_url(); ?>file/uploads/product/<?php echo $list_product_cate['img'] ?>" alt="<?php echo $list_product_cate['title'] ?>" width="120"/>
                                             <?php } else { ?>
@@ -600,9 +610,9 @@
                                             <a href="<?php echo base_url(); ?>">
                                                 <?php
                                             }
-                                            if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/sale/' . $product_sale['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/sale/' . $product_sale['img']) && $product_sale['img'] != '') {
+                                            if (file_exists(PATH_FOLDER . ROT_DIR . 'file/uploads/product/' . $product_sale['img']) && is_file(PATH_FOLDER . ROT_DIR . 'file/uploads/product/' . $product_sale['img']) && $product_sale['img'] != '') {
                                                 ?>
-                                                <img alt="" src="<?php echo base_url(); ?>file/uploads/sale/<?php echo $product_sale['img'] ?>" style="width: 240px; height: 300px;" />
+                                                <img alt="" src="<?php echo base_url(); ?>file/uploads/product/<?php echo $product_sale['img'] ?>" style="width: 240px; height: 300px;" />
                                             <?php } else { ?>
                                                 <img alt="" src="<?php echo base_url(); ?>file/uploads/no_image.gif" style="width: 240px; height: 300px;" />
                                             <?php } ?>

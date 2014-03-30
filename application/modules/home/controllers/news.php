@@ -65,7 +65,7 @@ class News extends MY_Controller
     }
     private function _create_captcha() {
         $this->load->helper('captcha');
-        $options = array('img_path' => $_SERVER['DOCUMENT_ROOT'] . ROT_DIR . '/captcha/', 'img_url' => base_url() . "captcha/", 'img_width' => '150', 'img_height' => '40', 'expiration' => 7200);
+        $options = array('img_path' => PATH_FOLDER . ROT_DIR . '/captcha/', 'img_url' => base_url() . "captcha/", 'img_width' => '150', 'img_height' => '40', 'expiration' => 7200);
         $cap = create_captcha($options);
         $image = $cap['image'];
         $this->session->set_userdata('captchaword', $cap['word']);
@@ -96,7 +96,7 @@ class News extends MY_Controller
     }
     public function create_captcha_ajax() {
         $this->load->helper('captcha');
-        $options = array('img_path' => $_SERVER['DOCUMENT_ROOT'] . ROT_DIR . '/captcha/', 'img_url' => base_url() . "captcha/", 'img_width' => '150', 'img_height' => '40', 'expiration' => 7200);
+        $options = array('img_path' => PATH_FOLDER . ROT_DIR . '/captcha/', 'img_url' => base_url() . "captcha/", 'img_width' => '150', 'img_height' => '40', 'expiration' => 7200);
         $cap = create_captcha($options);
         $image = $cap['image'];
         $this->session->set_userdata('captchaword', $cap['word']);

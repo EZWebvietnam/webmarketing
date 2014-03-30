@@ -44,7 +44,7 @@
                 <td class="label">Hình ảnh</td>
                 <td colspan="3">
                     <input type="file" name="userfile"/>
-                    <input id="userfile" name="userfile" type="button" class="bt100" value="Upload" onClick="fileUpload(this.form,'<?php echo base_url();?>upload/do_upload','upload','<?php echo base_url(); ?>admin/productadmin/edit/'+<?php echo $detail_product[0]['id_product'] ?>'); return false;">
+                    <input id="userfile" name="userfile" type="button" class="bt100" value="Upload" onClick="fileUpload(this.form,'<?php echo base_url();?>upload/do_upload','upload','<?php echo base_url(); ?>admin/productadmin/edit/<?php echo $detail_product[0]['id_product'] ?>'); return false;">
                    <div id="upload"></div>
                     <input type='hidden' name='file' id='file'/>
                 </td>

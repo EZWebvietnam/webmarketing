@@ -141,19 +141,30 @@ class Productadmin extends MY_Controller {
             $id = $this->productmodel->add_product($data_save);
             if($clip!='')
             {
+                
                 $clip_2 = array();
                 $data_clip = array();
                 $clip = explode(';', $clip);
                 foreach($clip as $k=>$v)
                 {
-                    $clip_2 = explode('?v=', $v);
-                    if(empty($clip_2))
+                    if(strpos('?v=',$v))
                     {
-                        $clip_2 = explode('&v=', $v);
+                        $clip_2 = explode('?v=', $v);
                     }
-                    $data_clip = array('id_product'=>$id,'code'=>$clip_2[1],'create_date'=>strtotime('now'));
-                    $this->productmodel->insert_clip($data_clip);
-                    $data_clip = array();
+                    else
+                    {
+                        if(empty($clip_2))
+                        {
+                            $clip_2 = explode('watch?&v=', $v);
+                        }
+                    }
+                    if(!empty($clip_2))
+                    {
+                        $this->productmodel->delete_clip($id);
+                        $data_clip = array('id_product'=>$id,'code'=>$clip_2[1],'create_date'=>strtotime('now'));
+                        $this->productmodel->insert_clip($data_clip);
+                        $data_clip = array();
+                    }
                 }
             }
             $array = array('error' => 0, 'msg' => 'Thêm thành công');
@@ -221,7 +232,7 @@ class Productadmin extends MY_Controller {
                 {
                     if(strpos('?v=',$v))
                     {
-                    $clip_2 = explode('?v=', $v);
+                        $clip_2 = explode('?v=', $v);
                     }
                     else
                     {

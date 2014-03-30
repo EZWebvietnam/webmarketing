@@ -5,7 +5,7 @@
     </div>
     <div class="mainimages">
         <?php
-        if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/product/' . $product_detail[0]['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/product/' . $product_detail[0]['img']) && $product_detail[0]['img'] != '') {
+        if (file_exists(PATH_FOLDER . ROT_DIR . 'file/uploads/product/' . $product_detail[0]['img']) && is_file(PATH_FOLDER . ROT_DIR . 'file/uploads/product/' . $product_detail[0]['img']) && $product_detail[0]['img'] != '') {
             ?>
             <img src="<?php echo base_url(); ?>file/uploads/product/<?php echo $product_detail[0]['img'] ?>" alt="<?php echo $product_detail[0]['title'] ?>" width="490">
         <?php } else { ?>
