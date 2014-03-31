@@ -202,6 +202,7 @@ if (defined('ENVIRONMENT'))
  */
  if($_SERVER['SERVER_NAME'] == 'localhost')
  {
+      define('HOST','localhost'); 
      define('DB_NAME','webmarketing');
      define('DB_USER','root');
      define('DB_PASS','');
@@ -212,14 +213,14 @@ if (defined('ENVIRONMENT'))
  }
  else
  {
-    define('HOST','mysql-server'); 
-    define('DB_NAME','quantri24v1');
-    define('DB_USER','quantri24v1');
-    define('DB_PASS','aA123456');
+    define('HOST','localhost'); 
+    define('DB_NAME','vietmong_vmc');
+    define('DB_USER','vietmong_vmc');
+    define('DB_PASS','a123456');
     define('ROT_DIR','/');
     define('BASE_URL','http://vietmongco.vn/');
     define('MAIL_ADMIN','giangbeoit@gmail.com');
-    define('PATH_FOLDER','/export/linux/www/vn/o/c/vietmongco/0/7/quantri24.H1207/vietmongco.vn');
+    define('PATH_FOLDER',$_SERVER['DOCUMENT_ROOT']);
  }
 require_once BASEPATH.'core/CodeIgniter.php';
 
