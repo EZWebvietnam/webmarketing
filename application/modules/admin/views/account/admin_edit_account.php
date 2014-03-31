@@ -106,7 +106,7 @@
                     cache: false,
                     success: function(data) {
                         $.fancybox.close();
-                        reload_callback("<?php echo base_url(); ?>admin/ctvadmin/list_ctv", page, 'result');
+                        reload_callback("<?php echo base_url(); ?>admin/accountadmin/list_account", page, 'result');
                         show_msg(data.msg);
                     }
                 });

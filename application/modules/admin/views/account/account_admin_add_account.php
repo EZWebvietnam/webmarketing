@@ -115,13 +115,14 @@ $password = array(
                     if(data.error!=0)
                     {
                        $('#error_user').html(data.msg);
-                       $('#btn_submit').attr('disabled',false);
+                      $('#btn_submit').attr('disabled','disabled');
                     }
                     else
                     {
                        
                          $('#error_user').html(data.msg);
-                         $('#btn_submit').attr('disabled','disabled');
+                         
+                          $('#btn_submit').attr('disabled',false);
                     }
                 }
             });
@@ -138,12 +139,13 @@ $password = array(
                     if(data.error!=0)
                     {
                        $('#error_email').html(data.msg);
-                       $('#btn_submit').attr('disabled',false);
+                       $('#btn_submit').attr('disabled','disabled');
+                       
                     }
                     else
                     {
                         $('#error_email').html(data.msg);
-                        $('#btn_submit').attr('disabled','disabled');
+                        $('#btn_submit').attr('disabled',false);
                     }
                 }
             });
@@ -173,7 +175,7 @@ $password = array(
                     dataType: "json",
                     success: function(data) {
                         $.fancybox.close();
-                        reload_callback("<?php echo base_url(); ?>admin/ctvadmin/list_ctv", page, 'khachhang_content');
+                        reload_callback("<?php echo base_url(); ?>admin/accountadmin/list_account", page, 'khachhang_content');
                         show_msg(data.msg);
                     }
                 });

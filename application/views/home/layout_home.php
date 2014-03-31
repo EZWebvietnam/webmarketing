@@ -46,7 +46,7 @@
     <body>
         <script type="text/javascript">
 var __lc = {};
-__lc.license = 4150291;
+__lc.license = 4174171;
 
 (function() {
 	var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
@@ -421,7 +421,10 @@ __lc.license = 4150291;
         </script>
         <div id="body_bg">
             <div id='main_body_content2'>
-
+                <?php 
+                if(!empty($clip_top))
+                {
+                ?>    
                 <div style="background:#fff;margin:0;padding:10px 10px 10px 0;">
                     <div style="moz-border-radius: 5px;-webkit-border-radius: 5px;padding: 10px;">
                         <div style="clear:both">
@@ -436,7 +439,7 @@ __lc.license = 4150291;
 
                     </div>
                 </div>
-
+                <?php } ?>    
                 <div id="main_page" style="word-break: break-all;">
                     <div id="center222">
                         <?php echo $this->load->view($main_content); ?>
