@@ -124,12 +124,13 @@ class Home extends MY_Controller {
     }
 
     function _send_email($type, $to, $email, &$data, $title) {
-        $this->load->library('email');
-        $this->load->library('maillinux');
+        /*$this->load->library('email');
+        $this->load->library('maillinux');*/
+        $this->load->library('mailer');
         $from = MAIL_ADMIN;
         $subject = $title;
         $messsage = $this->load->view('email/' . $type . '-html', $data, TRUE);
-        $this->maillinux->SendMail($from, $email, $subject, $messsage);
+        $this->mailer->sendmail($email, $email, $subject, $messsage);
     }
     private function _create_captcha() {
         $this->load->helper('captcha');

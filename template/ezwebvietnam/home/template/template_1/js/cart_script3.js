@@ -121,7 +121,7 @@ function order_process(app_main_url) {
             $.ajax({
                 url: app_main_url + 'home/product/check_out',
                 type: 'POST',
-                dataType: "html",
+                dataType: "json",
                 data: {
                     userurl: my_url,
                     realname: $("#o_realname").val(),
@@ -132,6 +132,7 @@ function order_process(app_main_url) {
                     sercuritycode: $("#o_sercuritycode").val(),
                 },
                 success: function(response) {
+                    $('#o_content_result').html(response.html);
                     $("#o_email_form_content_loading").css("display", "none");
                     if (response == "data") {
                         $("#o_content").css("display", "");
@@ -141,7 +142,8 @@ function order_process(app_main_url) {
                         alert("Vui lòng chọn sản phẩm trước!");
                     } else {
                         $("#o_content_result").css("display", "");
-
+                        $("#o_checkout").css("display", "");
+                        
                     }
                     delete_cart(app_main_url);
                 },
@@ -165,7 +167,9 @@ function show_order_form() {
     $("#hide_content").css("display", "");
     $("#show_cart_form").css("display", "none");
     $("#show_order_form").css("display", "");
+    $("#o_checkout").css("display", "");
     $("#show_order_form").draggable();
+    
 }
 function close_show_order_form() {
     // hide form dat hang
@@ -448,10 +452,11 @@ function cal_total_value() {
     }
     $("#total_price").html(set_string);
 }
-function clear_cart() {
+function clear_cart(base_url) {
     setCookie("nccart", "");
     $("#cart_content").html("");
     count_product_quantity();
+    delete_cart(base_url);
 }
 function add_to_cart_db(productid, url)
 {

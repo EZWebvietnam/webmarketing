@@ -292,32 +292,15 @@ __lc.license = 4174171;
         </div>
         <div id='show_cart_form' style="display:none;text-align:left">
             <div  style="float:right;cursor:pointer;margin:0" onclick="close_show_cart_form()"><b>[x]</b></div>
-            <div class="form_header">Giỏ hàng <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/d_icon.png" width="30" alt="Xóa" style="cursor:pointer" onclick="if (confirm('Bạn có chăc muốn xóa?'))
-                        clear_cart()" /></div>
-            <table cellspacing='0' cellpadding='0' width="475" style="float:left">
-                <tr>
-                    <td width="50" align="center">
-                        Ảnh
-                    </td>
-                    <td>
-                        Tên sản phẩm
-                    </td>
-                    <td width="75" align="center">
-                        Đơn giá <br />VND
-                    </td>
-                    <td width="50" align="center">
-                        Số lượng
-                    </td>
-                    <td width="80" align="center">
-                        Thành tiền <br />VND
-                    </td>
-                    <td width="40" align="center">
-                        Xóa
-                    </td>
-                </tr>
-            </table>
+            <div class="form_header">Giỏ hàng <a  alt="Xóa" style="width:30px;cursor:pointer" onclick="if (confirm('Bạn có chăc muốn xóa?'))
+                clear_cart('<?php echo base_url();?>')">[Xóa tất cả]</a></div>
+            <div id="cart_content">
+
+            </div>
             <div class="formcontent" style="height:280px;clear:both;margin-top:25px;overflow:auto;clear:both" onmouseover='$("#show_cart_form").draggable("disable");' onmouseout='$("#show_cart_form").draggable("enable");'>
-                <div id="cart_content"></div>
+
+
+
             </div>
             <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/dathang.png" class="add_cart_button" onclick="show_order_form()" style="padding-top:5px" />
         </div>

@@ -254,8 +254,8 @@ __lc.license = 4174171;
         </div>
         <div id='show_cart_form' style="display:none;text-align:left">
             <div  style="float:right;cursor:pointer;margin:0" onclick="close_show_cart_form()"><b>[x]</b></div>
-            <div class="form_header">Giỏ hàng <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/d_icon.png" width="30" alt="Xóa" style="cursor:pointer" onclick="if (confirm('Bạn có chăc muốn xóa?'))
-                        clear_cart()" /></div>
+            <div class="form_header">Giỏ hàng <a  alt="Xóa" style="width:30px;cursor:pointer" onclick="if (confirm('Bạn có chăc muốn xóa?'))
+                clear_cart('<?php echo base_url();?>')">[Xóa tất cả]</a></div>
             <div id="cart_content">
 
             </div>

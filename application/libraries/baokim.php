@@ -44,7 +44,7 @@ class baokim
 		}
 		return $redirect_url.$url_params;
 	}
-	public function verifyResponseUrl($_GET = array())
+	/*public function verifyResponseUrl($_GET = array())
 	{
 		$checksum = $_GET['checksum'];
 		unset($_GET['checksum']);
@@ -56,6 +56,6 @@ class baokim
 			return true;
 		}
 		return false;
-	}
+	}*/
 }
 ?>

@@ -64,11 +64,12 @@ class Contactadmin extends MY_Controller {
     }
 
     function _send_email($to, $email, &$content, $title) {
-        $this->load->library('email');
-        $this->load->library('maillinux');
+        /*$this->load->library('email');
+        $this->load->library('maillinux');*/
+        $this->load->library('mailer');
         $from = MAIL_ADMIN;
         $subject = $title;
-        $this->maillinux->SendMail($from, $email, $subject, $content);
+        $this->mailer->sendmail($email, $email, $subject, $content);
     }
     public function delete($id){
         if(empty($id))

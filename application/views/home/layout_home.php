@@ -253,8 +253,8 @@ __lc.license = 4174171;
         </div>
         <div id='show_cart_form' style="display:none;text-align:left">
             <div  style="float:right;cursor:pointer;margin:0" onclick="close_show_cart_form()"><b>[x]</b></div>
-            <div class="form_header">Giỏ hàng <img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/d_icon.png" width="30" alt="Xóa" style="cursor:pointer" onclick="if (confirm('Bạn có chăc muốn xóa?'))
-                        clear_cart()" /></div>
+            <div class="form_header">Giỏ hàng <a  alt="Xóa" style="width:30px;cursor:pointer" onclick="if (confirm('Bạn có chăc muốn xóa?'))
+                clear_cart('<?php echo base_url();?>')">[Xóa tất cả]</a></div>
             <div id="cart_content">
 
             </div>
@@ -272,7 +272,9 @@ __lc.license = 4174171;
             <div class="form_header">
                 Đặt hàng
             </div>
-            <div style="clear:both;margin-top:25px;display:none" id="o_content_result"><p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Chúc mừng bạn đã đặt hàng thành công</span></span></span></p>    </div>
+            <div style="clear: both; margin-top: 25px; display:none;" id="o_content_result">
+            </div>
+           
             <div class="formcontent" style="clear:both;margin-top:25px" id="o_content">
                 <table cellspacing='2' cellpadding='0' width="480" >
                     <tr>
