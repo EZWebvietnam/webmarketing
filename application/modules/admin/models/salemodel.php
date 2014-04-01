@@ -7,7 +7,7 @@ class Salemodel extends CI_Model
     }
     public function list_sale($number,$offset)
     {
-        $sql="SELECT *,sale_off.id as id_sale FROM sale_off INNER JOIN product ON product.id_product = sale_off.id_product LIMIT $offset,$number";
+        $sql="SELECT *,sale_off.exp_date as exp_sale,sale_off.id as id_sale FROM sale_off INNER JOIN product ON product.id_product = sale_off.id_product LIMIT $offset,$number";
         $query = $this->db->query($sql);
         return $query->result_array();
     }

@@ -92,6 +92,7 @@
                         </tr>
                      </thead>
                      <?php 
+                    
                         foreach($list_sale as $product_ref)
                         {
                         ?>
@@ -99,7 +100,7 @@
                         <td align="center"><input  type="checkbox" name="ar_id[]" value="<?php echo $product_ref['id_sale']?>"></td>
                         <td><?php echo $product_ref['title']?></td>
                         <td><?php echo $product_ref['percent']?></td>
-                        <td><?php echo $product_ref['exp_date']?></td>
+                        <td><?php echo $product_ref['exp_sale']?></td>
                         <td><?php echo $product_ref['cost']-($product_ref['percent']*$product_ref['cost'])/100?></td>
                         <td align="center">
                            <a class="delete_record" href="<?php echo base_url();?>admin/saleadmin/delete/<?php echo $product_ref['id_sale']?>" title="Xóa"><img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/del.png"></a>        
