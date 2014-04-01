@@ -161,6 +161,12 @@
                                                                 </a>
                                                             </li>
                                                             <li class="main">
+                                                                <a href="<?php echo base_url(); ?>admin/mailbook/list_mailbook" rel="mailbook" class="v_link">
+                                                                    <div><img width="32" height="32" src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/fileopen.png" alt=""></div>
+                                                                    Mail Book
+                                                                </a>
+                                                            </li>
+                                                            <li class="main">
                                                                 <a href="<?php echo base_url(); ?>admin/settingadmin/list_setting" rel="setting" class="v_link">
                                                                     <div><img src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/setting.png" width="32" height="32" alt=""></div>
                                                                     Cấu hình

@@ -58,5 +58,38 @@ class Productmodel extends CI_Model
     {
         $this->db->delete('clip_marketing',array('id_product'=>$id));
     }
+    public function list_mail_book($number,$offset)
+    {
+        $sql ="SELECT * FROM mail_book LIMIT $offset,$number";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+    public function count_mail_book()
+    {
+        $sql ="SELECT * FROM mail_book";
+        $query = $this->db->query($sql);
+        return count($query->result_array());
+    }
+    public function delete_mail($id)
+    {
+        $this->db->delete('mail_book',array('id'=>$id));
+    }
+     public function insert_mail_book(array $data)
+    {
+        $this->db->insert('mail_book',$data);
+        return $this->db->insert_id();
+    }
+    public function detail_mail_book($id)
+    {
+        $sql ="SELECT * FROM mail_book WHERE id = $id";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+    public function update_mail_book($id,array $data)
+    {
+        $id = intval($id);
+        $this->db->where('id',$id);
+        $this->db->update('mail_book',$data);
+    }
 }
 ?>
