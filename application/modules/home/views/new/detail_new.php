@@ -25,6 +25,7 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     <div class="fb-share-button" data-href="<?php echo full_url_($_SERVER)?>" data-type="button_count"></div>
+    <div class="fb-like" data-href="<?php echo full_url_($_SERVER) ?>" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
     <!-- Đặt thẻ này vào nơi bạn muốn Nút +1 kết xuất. -->
 <div class="g-plusone" data-annotation="inline" data-width="37" data-href="<?php echo full_url_($_SERVER)?>"></div>
 
