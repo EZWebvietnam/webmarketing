@@ -33,7 +33,7 @@
                 var app_ext = ".htm";
                 var my_url = "U1";
                 try {
-                    var new_reg_success = '<p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Xin chúc mừng!</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;"> bạn đã đặt hàng thành công.</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Bạn hãy mở Email để nhận quà của chúng tôi.</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Thành công cho bạn.</span></span></span></p>';
+                    var new_reg_success = '<p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Xin chúc mừng!</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;"> bạn đã đăng ký thành công.<br/> Hệ thống đã tự động gửi email có đường link tải về.Bạn nhớ kiểm tra hôp thư của bạn và mục Spam,dể đảm bảo bạn nhận được email của chúng tôi.Nếu bạn có trục trặc gì hãy liên hệ với chúng tôi qua địa chỉ email: <a href="mailto:hotro@vietmongco.vn">hotro@vietmongco.vn</a> để được trợ giúp</span></span></span></p>    ';
                 } catch (e) {
                 }
                 var my_template = "template_1";
@@ -192,11 +192,11 @@ __lc.license = 4174171;
             <div  style="float:right;cursor:pointer;margin:0" onclick="close_form()"><b>[x]</b></div>
             <div id="email_form_content">
                 <div class="content">
-                    <p><embed height="160" loop="true" menu="true" play="true" pluginspage="http://www.macromedia.com/go/getflashplayer" src="https://vinamos.vn/uploads/popup-vinamos.swf" type="application/x-shockwave-flash" width="500"></embed></p>
+                    <p>Việt Mông Cổ - Khỏe từ nguồn cội </br> sẽ gửi tặng bạn cuốn sách có nội dung đầy đủ về các bài thuốc dân gian được sưu tầm.Bạn sẽ có thêm rất nhiều kiến thức để sử dụng các cây,cỏ trong vườn nhà tạo thành thuốc quý.</p>
                 </div>
                 <div class="formcontent">
                     <center>
-                        <form id="email_form_content_table" name='emailform2' action='' method='post' onsubmit='return checkvaliemail()'>
+                        <form id="email_form_content_table" name='emailform2' action='' method='post' onsubmit="return checkvaliemail('<?php echo base_url(); ?>')">
                             <table width="330">
                                 <tr>
                                     <td width="100">
@@ -228,16 +228,14 @@ __lc.license = 4174171;
                                     </td>
                                     <td>
                                         <div style="float:left">
-                                            <input type='text'  name='sercuritycode' id='sercuritycode'  class="textbox" style="width:50px" />
-                                            <br />
-                                            <a href="#" onclick="$('#se_image').attr('src', '/captcha/captcha.php?' + new Date().getTime())">Đổi hình</a>
+                                            <input type='text'  name='sercuritycode' id='sercuritycode_1'  class="textbox" style="width:50px" /><?php echo $captcha_question[0]['question']; ?>
                                         </div>
                                         <span id='sercuritycode_e' style="color:#f00;font-size:11px"></span>
                                     </td>
                                 </tr>
                             </table>
                             <div style="clear:both"></div>
-                            <input type="submit" name="submit_email" value='   Gửi   '  />
+                            <input id="btn_submit_mail" type="submit" name="submit_email" value='   Gửi   '  />
                         </form>
                         <div id="email_form_content_loading" style="display:none"><br /><br /><br /><center><img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/ajax-loader.gif" alt="loading" /></center></div>
                     </center>
@@ -360,8 +358,7 @@ __lc.license = 4174171;
                         </td>
                         <td>
                             <div style="float:left">
-                                <input type='text'  name='sercuritycode' id='o_sercuritycode'  style="width:80px" /><div id="image_cpc"><?php echo $image; ?></div>
-                                <a style="cursor: pointer;" id="change_captcha">Đổi ảnh khác</a>
+                                <input type='text'  name='sercuritycode' id='o_sercuritycode'  style="width:80px" /><div id="image_cpc"><?php echo $captcha_question[0]['question']; ?></div>
                             </div>
                             <span id='sercuritycode_e' style="color:#f00;font-size:11px"></span>
                         </td>
@@ -390,16 +387,9 @@ __lc.license = 4174171;
                     $this.html($this.html().replace(/&nbsp;/g, ''));
                 });
                 document.getElementById('checkout').style.pointerEvents = 'none';
-                $("#o_sercuritycode").change(function() {
-                    $.ajax({
-                        type: "POST",
-                        url: '<?php echo base_url(); ?>home/product/check_captcha_ajax',
-                        data: {captcha: $('#o_sercuritycode').val()},
-                        mimeType: "multipart/form-data",
-                        dataType: "json",
-                        cache: false,
-                        success: function(data) {
-                            if (data.error == 1)
+                $("#o_sercuritycode").keyup(function() {
+                        var code = $(this).val();
+                            if (code != <?php echo $captcha_question['0']['reply']?>)
                             {
                                 document.getElementById('checkout').style.pointerEvents = 'none';
                             }
@@ -407,8 +397,20 @@ __lc.license = 4174171;
                             {
                                 document.getElementById('checkout').style.pointerEvents = 'auto';
                             }
-                        }
-                    });
+                       
+                   
+                });
+                $('#btn_submit_mail').attr('disabled','disabled');
+                $('#sercuritycode_1').keyup(function() {
+                    var code_1 = $(this).val();
+                    if (code_1 == <?php echo $captcha_question['0']['reply'] ?>)
+                    {
+                        $('#btn_submit_mail').attr('disabled',false);
+                    }
+                    else
+                    {
+                        $('#btn_submit_mail').attr('disabled','disabled');
+                    }
                 });
                 $('#change_captcha').click(function() {
                     $.ajax({

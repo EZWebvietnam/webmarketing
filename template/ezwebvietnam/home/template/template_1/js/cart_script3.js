@@ -99,7 +99,31 @@ function LoadPagging(pi, ps, url, total_page, urlext) {
     }
     return content;
 }
-
+function cart_update(id,id_product,id_input,app_main_url)
+{
+    
+    var so_luong = $('#'+id_input).val();
+    $.ajax({
+            url: app_main_url + 'home/product/ajax_update_cart',
+            type: 'POST',
+            dataType: "json",
+            data: {
+                id_order_detail: id,
+                id_product:id_product,
+                quantity:so_luong
+            },
+            success: function(response) {
+                if(response.error==0)
+                {
+                    show_cart(app_main_url);
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, exception) {
+                alert("Ajax failure\n");
+            },
+            async: true
+        });
+}
 function order_process(app_main_url) {
 
     if ($("#o_realname").val() == "") {
@@ -236,7 +260,7 @@ function checkvaliemail(app_main_url) {
                 $("#email_form_content_table").css("display", "none");
                 $("#email_form_content_loading").css("display", "");
                 $.ajax({
-                    url: app_main_url + 'home/login/registerctv',
+                    url: app_main_url + 'home/product/signupbook',
                     type: 'POST',
                     dataType: "html",
                     data: {
@@ -248,7 +272,7 @@ function checkvaliemail(app_main_url) {
                     success: function(response) {
                         $("#email_form_content_table").css("display", "");
                         $("#email_form_content_loading").css("display", "none");
-                        $("#email_form_content").html('Đăng ký thành công');
+                        $("#email_form_content").html(new_reg_success);
 
                     },
                     error: function(XMLHttpRequest, textStatus, exception) {

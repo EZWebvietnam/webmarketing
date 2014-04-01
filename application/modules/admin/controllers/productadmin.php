@@ -130,8 +130,6 @@ class Productadmin extends MY_Controller {
             $clip = $this->input->post('clip');
             $data_save = array(
                 'title' => $this->input->post('title'),
-               
-                'id_cate' => $this->input->post('category'),
                 'cost' => intval($this->input->post('cost')),
                 'description' => stripslashes($this->input->post('description')),
                 'content' => stripslashes($this->input->post('content')),
@@ -201,8 +199,6 @@ class Productadmin extends MY_Controller {
             if ($file != '') {
                 $data_save = array(
                     'title' => $this->input->post('title'),
-                    
-                    'id_cate' => $this->input->post('category'),
                     'cost' => $this->input->post('cost'),
                     'description' => stripslashes($this->input->post('description')),
                     'content' => stripslashes($this->input->post('content')),
@@ -212,8 +208,6 @@ class Productadmin extends MY_Controller {
             } else {
                 $data_save = array(
                     'title' => $this->input->post('title'),
-                   
-                    'id_cate' => $this->input->post('category'),
                     'cost' => $this->input->post('cost'),
                     'description' => stripslashes($this->input->post('description')),
                     'content' => stripslashes($this->input->post('content')),

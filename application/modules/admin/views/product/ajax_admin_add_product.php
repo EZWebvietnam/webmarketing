@@ -23,18 +23,6 @@
                 </td>
             </tr>
             <tr>
-                <td class="label">Danh mục</td>
-                <td colspan="3">
-                    <select name="category" id="category">
-                        <?php
-                        foreach ($list_cate as $cate) {
-                            ?>
-                            <option value="<?php echo $cate['id_cate'] ?>"><?php echo $cate['name'] ?></option>
-                        <?php } ?>
-                    </select>
-                </td>
-            </tr>
-            <tr>
                 <td class="label">Giá</td>
                 <td colspan="3">
                     <input id="cost_" type="texbox" name="cost"/>

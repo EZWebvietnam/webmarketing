@@ -200,45 +200,7 @@
                                                     <table style="width: 100%;" class="table_full">
                                                         <tr>
                                                             <td valign="top" style="background: #FFF;padding: 5px 5px 5px 5px;">
-                                                                <h3>Kết quả bán hàng theo ngày</h3>
-                                                                <p>
-                                                                    Tháng 
-                                                                    <select id="ch_m">
-                                                                        <option value="1" >1</option>
-                                                                        <option value="2" >2</option>
-                                                                        <option value="3" selected="selected">3</option>
-                                                                        <option value="4" >4</option>
-                                                                        <option value="5" >5</option>
-                                                                        <option value="6" >6</option>
-                                                                        <option value="7" >7</option>
-                                                                        <option value="8" >8</option>
-                                                                        <option value="9" >9</option>
-                                                                        <option value="10" >10</option>
-                                                                        <option value="11" >11</option>
-                                                                        <option value="12" >12</option>
-                                                                    </select>
-                                                                    Năm 
-                                                                    <select id="ch_y">
-                                                                        <option value="2014" selected="selected">2014</option>
-                                                                        <option value="2013" >2013</option>
-                                                                        <option value="2012" >2012</option>
-                                                                    </select>
-                                                                    <input type="button" id="bieudo_theongay" class="bt65" value="Xem biểu đồ">
-                                                                </p>
-                                                                <div id="chart_banhang_theo_ngay" style="width: 100%;">
-                                                                </div>
-                                                                <h3>Biểu đồ doanh thu theo năm</h3>
-                                                                <p>
-                                                                    Năm 
-                                                                    <select id="bd_y">
-                                                                        <option value="2014" selected="selected">2014</option>
-                                                                        <option value="2013" >2013</option>
-                                                                        <option value="2012" >2012</option>
-                                                                    </select>
-                                                                    <input type="button" id="bieudo_theonam" class="bt65" value="Xem biểu đồ">                     
-                                                                </p>
-                                                                <div id="chart_tk_theonam" style="width: 100%;"></div>
-                                                                <div id="chart_tk_theonam_ajax"></div>
+                                                              Chào mừng bạn đến với Hệ thống quản trị - Việt Mông Cổ
                                                             </td>
                                                         </tr>
                                                     </table>

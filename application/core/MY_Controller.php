@@ -77,5 +77,10 @@ class MY_Controller extends CI_Controller
         }
         $this->data['list_province_admin'] = $a;
     }
+    public function captcha_random()
+    {
+        $this->load->model('productmodel');
+        $this->data['captcha_question'] = $this->productmodel->random_captcha();
+    }
 }
 ?>

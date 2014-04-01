@@ -8,6 +8,7 @@ class Product extends MY_Controller {
         parent::info_company();
         parent::load_clip();
         parent::load_header();
+        parent::captcha_random();
         $this->load->library('session');
         $this->load->model('productmodel');
         $this->load->helper(array('form', 'url'));
@@ -125,6 +126,35 @@ class Product extends MY_Controller {
         }
     }
 
+    public function ajax_update_cart() {
+        if ($this->input->is_ajax_request()) {
+            $id_cart = $this->input->post('id_order_detail');
+            $id_product = $this->input->post('id_product');
+            $quantity = $this->input->post('quantity');
+            $cart_detail = $this->productmodel->cart_detail($id_cart);
+            $product_sale_off_check = $this->productmodel->get_sale_off_product($id_product);
+            $product_detail = $this->productmodel->product_detail($id_product);
+            if (!empty($product_sale_off_check)) {
+                $percent_and_cost = $product_sale_off_check[0]['percent'] * $product_detail[0]['cost'];
+                $price = $product_detail[0]['cost'] - ($percent_and_cost / 100);
+            } else {
+                $price = $product_detail[0]['cost'];
+            }
+            if ($cart_detail[0]['id_ref'] != 0) {
+                $comission = (($price * $product_detail[0]['comission']) / 100) * $quantity;
+            } else {
+                $comission = 0;
+            }
+            $data_update_cart = array(
+                'quantity'=>$quantity,
+                'price'=>$quantity*$price,
+                'commissions'=>$comission
+            );
+            $this->productmodel->update_cart($id_cart,$data_update_cart);
+            echo json_encode(array('error'=>0));
+        }
+    }
+
     public function delete_from_cart() {
         if ($this->input->is_ajax_request()) {
             $id_product = $this->input->post('productid');
@@ -147,6 +177,7 @@ class Product extends MY_Controller {
 
     public function check_out() {
         if ($this->input->is_ajax_request()) {
+            $id = 0;
             $full_name = $this->input->post('realname');
             $address = $this->input->post('address');
             $phone = $this->input->post('phone');
@@ -162,6 +193,7 @@ class Product extends MY_Controller {
                 'id_ref' => 0
             );
             $id = $this->productmodel->insert_order($data_insert);
+
             if ($id > 0) {
                 $cart = $this->productmodel->load_cart($ip_user);
                 $price_nl = 0;
@@ -190,14 +222,14 @@ class Product extends MY_Controller {
                         'status_money' => 0,
                         'create_date' => strtotime('now')
                     );
-                    $data_mail = array('site_name'=>'Việt Mông Cổ','name'=>$full_name,'order_detail'=>$data_order_detail_send_mail);
+                    $data_mail = array('site_name' => 'Việt Mông Cổ', 'name' => $full_name, 'order_detail' => $data_order_detail_send_mail);
                     $price_nl += $crt['price'] * $crt['quantity'];
                     $this->productmodel->insert_order_detail($data_order_detail);
-                    
                 }
-                $this->_send_email('order',$email,$email,$data_mail,'Chi tiet don dat hang');
-                $image_nl = base_url().'template/ezwebvietnam/home/nganluong.png';
-                $image_bk = base_url().'template/ezwebvietnam/home/baokim.png';
+                $this->_send_email('order', $email, $email, $data_mail, 'Chi tiet don dat hang');
+
+                $image_nl = base_url() . 'template/ezwebvietnam/home/nganluong.png';
+                $image_bk = base_url() . 'template/ezwebvietnam/home/baokim.png';
                 $this->load->library('nl');
                 $url = base_url() . "home/member/ket_qua";
                 $receiver = "nguyentruonggiang91@gmail.com";
@@ -217,21 +249,23 @@ class Product extends MY_Controller {
                 $url_cancel = base_url();
                 $url_detail = base_url();
                 $url_bk = $this->baokim->createRequestUrl($order_id, $business, $total_amount, $shipping_fee, $tax_fee, $order_description, $url_success, $url_cancel, $url_detail);
-                $html = "<p><span style='color: rgb(51, 51, 51);'><span style='<p><span style='color: rgb(51, 51, 51);'><span style='Chúc mừng bạn đã đặt hàng thành công!</span></span></span></p>    <p><span style='color: rgb(51, 51, 51);'><span style='font-size: medium;'><span style='font-family: Arial;'>Chúng tôi đã gửi thông tin đơn hàng về Email của bạn và chúng tôi sẽ sớm liên hệ với bạn để xác minh đơn hàng và phục vụ bạn trong thời gian sớm nhất.</span></span></span></p>    <p><span style='color: rgb(51, 51, 51);'><span style='font-size: medium;'><span style='font-family: Arial;'>Bắt đầu từ giờ phút này bạn được tham gia vào nhóm Khách Hàng của VinaMos trên Facebook&nbsp;để được thảo luận:</span></span></span></p>    <p><span style='color: rgb(51, 51, 51);'><span style='font-size: medium;'><span style='font-family: Arial;'>Bạn hãy xin tham gia nhóm tại link sau:&nbsp;</span></span></span><a href='https://www.facebook.com/groups/khachhangvietmongco/'><span style='font-size:16px;'>https://www.facebook.com/groups/khachhangvietmongco</span></a></p>    <p>-----------------</p>    <p><strong><span style='font-size:20px;'>Nếu đơn hàng của bạn phải thanh toán thì bạn hãy xem hướng dẫn sau:</span></strong></p>    <p><span style='color:#FF0000;'><span style='font-size:18px;'><strong>Có 4&nbsp;phương án để bạn thanh toán đơn hàng:</strong></span></span></p>    <p><span style='font-size:16px;'><strong>Cách thứ nhất:</strong> Thanh toán tiền mặt cho&nbsp;người giao hàng&nbsp;</span></p>    <p><span style='font-size:16px;'><strong>Cách thứ 2:</strong> Thanh toán tiền mặt tại văn phòng VinaMos</span></p>    <p><span style='font-size:16px;'><strong>Cách thứ 3:</strong> Thanh toán&nbsp;chuyển khoản ngân hàng: Xem danh sách tài khoản&nbsp;</span></p>    <p><span style='font-size:16px;'><strong>Cách thứ 4:</strong> Thanh toán qua <strong><span style='color:#FF0000;'>Ngân Lượng</span></strong> hay <strong><span style='color:#FF0000;'>Bảo Kim</span></strong> ở biểu tượng dưới đây:</span></p>
+                $html = "<p><span style='color: rgb(51, 51, 51);'><span style='<p><span style='color: rgb(51, 51, 51);'><span style='Chúc mừng bạn đã đặt hàng thành công!</span></span></span></p>    <p><span style='color: rgb(51, 51, 51);'><span style='font-size: medium;'><span style='font-family: Arial;'>Chúng tôi đã gửi thông tin đơn hàng về Email của bạn và chúng tôi sẽ sớm liên hệ với bạn để xác minh đơn hàng và phục vụ bạn trong thời gian sớm nhất.</span></span></span></p>    <p><span style='color: rgb(51, 51, 51);'><span style='font-size: medium;'><span style='font-family: Arial;'>Bắt đầu từ giờ phút này bạn được tham gia vào nhóm Khách Hàng của Việt Mông Cổ trên Facebook&nbsp;để được thảo luận:</span></span></span></p>    <p><span style='color: rgb(51, 51, 51);'><span style='font-size: medium;'><span style='font-family: Arial;'>Bạn hãy xin tham gia nhóm tại link sau:&nbsp;</span></span></span><a href='https://www.facebook.com/groups/khachhangvietmongco/'><span style='font-size:16px;'>https://www.facebook.com/groups/khachhangvietmongco</span></a></p>    <p>-----------------</p>    <p><strong><span style='font-size:20px;'>Nếu đơn hàng của bạn phải thanh toán thì bạn hãy xem hướng dẫn sau:</span></strong></p>    <p><span style='color:#FF0000;'><span style='font-size:18px;'><strong>Có 4&nbsp;phương án để bạn thanh toán đơn hàng:</strong></span></span></p>    <p><span style='font-size:16px;'><strong>Cách thứ nhất:</strong> Thanh toán tiền mặt cho&nbsp;người giao hàng&nbsp;</span></p>    <p><span style='font-size:16px;'><strong>Cách thứ 2:</strong> Thanh toán tiền mặt tại văn phòng VinaMos</span></p>    <p><span style='font-size:16px;'><strong>Cách thứ 3:</strong> Thanh toán&nbsp;chuyển khoản ngân hàng: Xem danh sách tài khoản&nbsp;</span></p>    <p><span style='font-size:16px;'><strong>Cách thứ 4:</strong> Thanh toán qua <strong><span style='color:#FF0000;'>Ngân Lượng</span></strong> hay <strong><span style='color:#FF0000;'>Bảo Kim</span></strong> ở biểu tượng dưới đây:</span></p>
             <b>Thanh toán trực tuyến:</b><br><a href='$url' id='nganluong_link' target='_blank'><img src='$image_nl' alt='Nganluong'></a><a href='$url_bk' id='baokim_link' target='_blank'><img src='$image_bk' alt='Baokim'></a>";
                 echo json_encode(array('html' => $html));
             }
         }
     }
+
     function _send_email($type, $to, $email, &$data, $title) {
-        /*$this->load->library('email');
-        $this->load->library('maillinux');*/
+        /* $this->load->library('email');
+          $this->load->library('maillinux'); */
         $this->load->library('mailer');
         $from = MAIL_ADMIN;
         $subject = $title;
         $messsage = $this->load->view('email/' . $type . '-html', $data, TRUE);
         $this->mailer->sendmail($email, $email, $subject, $messsage);
     }
+
     public function faq_list() {
         $this->data['list_product_sale'] = $this->productmodel->get_list_product_sale_off();
         $this->load->model('faq');
@@ -332,7 +366,21 @@ class Product extends MY_Controller {
         $array = array('error' => 0, 'img' => $image);
         echo json_encode($array);
     }
-
+    public function signupbook()
+    {
+        $mail = $this->input->post('useremail');
+        $real_name = $this->input->post('userrealname');
+        $data = $this->productmodel->random_mail_book();
+        $title = 'Mail nhận sách';
+        $this->_send_email_book($real_name,$mail,$data[0]['content'],$title);
+    }
+    function _send_email_book($to_name, $email, $messsage,$title) {
+        /* $this->load->library('email');
+          $this->load->library('maillinux'); */
+        $this->load->library('mailer');
+        $from = MAIL_ADMIN;
+        $subject = $title;
+        $this->mailer->sendmail($email, $to_name, $subject, $messsage);
+    }
 }
-
 ?>

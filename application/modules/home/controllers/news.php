@@ -7,6 +7,7 @@ class News extends MY_Controller
          parent::info_company();
          parent::load_clip();
          parent::load_header();
+         parent::captcha_random();
         $this->load->library('session');
         $this->load->model('newshomemodel');
                 $this->load->helper(array('form', 'url'));

@@ -11,8 +11,6 @@
         <meta name="rating" content="<?php echo $header['rating'] ?>" />
         <meta name="keywords" content="<?php echo $header['keywords'] ?>" />
         <meta property="fb:app_id" content="150104728527998">
-
-
             <meta name="description" content="<?php echo $header['description'] ?>" />
             <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/css.css" media="screen"  />
             <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/jquery.countdown.css" media="screen"  />
@@ -33,7 +31,7 @@
                 var app_ext = ".htm";
                 var my_url = "U1";
                 try {
-                    var new_reg_success = '<p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Xin chúc mừng!</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;"> bạn đã đặt hàng thành công.</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Bạn hãy mở Email để nhận quà của chúng tôi.</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Thành công cho bạn.</span></span></span></p>';
+                    var new_reg_success = '<p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;">Xin chúc mừng!</span></span></span></p>    <p><span style="color: rgb(51, 51, 51);"><span style="font-size: medium;"><span style="font-family: Arial;"> bạn đã đăng ký thành công.<br/> Hệ thống đã tự động gửi email có đường link tải về.Bạn nhớ kiểm tra hôp thư của bạn và mục Spam,dể đảm bảo bạn nhận được email của chúng tôi.Nếu bạn có trục trặc gì hãy liên hệ với chúng tôi qua địa chỉ email: <a href="mailto:hotro@vietmongco.vn">hotro@vietmongco.vn</a> để được trợ giúp</span></span></span></p>    ';
                 } catch (e) {
                 }
                 var my_template = "template_1";
@@ -45,15 +43,18 @@
     </head>
     <body>
         <script type="text/javascript">
-var __lc = {};
-__lc.license = 4174171;
+                var __lc = {};
+                __lc.license = 4174171;
 
-(function() {
-	var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
-	lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
-})();
-</script>
+                (function() {
+                    var lc = document.createElement('script');
+                    lc.type = 'text/javascript';
+                    lc.async = true;
+                    lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(lc, s);
+                })();
+        </script>
         <div class="sidelinks-container"><h3><a href="#top">Top</a></h3></div>
         <div id='banner' style="min-height:80px">
             <div class='banner_content'>
@@ -70,7 +71,7 @@ __lc.license = 4174171;
             </div>
             <div class='top_menu' >
                 <a href="<?php echo base_url(); ?>" class="home">Trang chủ</a>
-                <a href="<?php echo base_url();?>lien-he" class="contact">Liên hệ</a>
+                <a href="<?php echo base_url(); ?>lien-he" class="contact">Liên hệ</a>
                 <a href="#"  onclick="show_cart('<?php echo base_url(); ?>')"  class="cart">
                     Giỏ hàng (<span id="product_number" style="color:#ef4232;font-weight:700">0</span>)
                 </a>
@@ -100,7 +101,7 @@ __lc.license = 4174171;
                     ?>
                     <form style='margin:0px;padding:0px' method='post' action='<?php echo base_url(); ?>cong-tac-vien/login'>
 
-                        <input onclick="window.location.href = '<?php echo base_url(); ?>cong-tac-vien/register';
+                        <input onclick="window.location.href = '<?php echo base_url(); ?>cong-tac-vien/checkvaliemail';
                                     return false;" style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/button-title-register.png" name="ss" value='ss' width="126" height="32" />
                         <input style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/button-title-login.png" name="submit" value='submit' width="126" height="32" />
                         <?php echo form_input($login); ?>
@@ -153,11 +154,11 @@ __lc.license = 4174171;
             <div  style="float:right;cursor:pointer;margin:0" onclick="close_form()"><b>[x]</b></div>
             <div id="email_form_content">
                 <div class="content">
-                    <p><embed height="160" loop="true" menu="true" play="true" pluginspage="http://www.macromedia.com/go/getflashplayer" src="https://vinamos.vn/uploads/popup-vinamos.swf" type="application/x-shockwave-flash" width="500"></embed></p>
+                    <p>Việt Mông Cổ - Khỏe từ nguồn cội </br> sẽ gửi tặng bạn cuốn sách có nội dung đầy đủ về các bài thuốc dân gian được sưu tầm.Bạn sẽ có thêm rất nhiều kiến thức để sử dụng các cây,cỏ trong vườn nhà tạo thành thuốc quý.</p>
                 </div>
                 <div class="formcontent">
                     <center>
-                        <form id="email_form_content_table" name='emailform2' action='' method='post' onsubmit='return checkvaliemail()'>
+                        <form id="email_form_content_table" name='emailform2' action='' method='post' onsubmit="return checkvaliemail('<?php echo base_url(); ?>')">
                             <table width="330">
                                 <tr>
                                     <td width="100">
@@ -189,16 +190,14 @@ __lc.license = 4174171;
                                     </td>
                                     <td>
                                         <div style="float:left">
-                                            <input type='text'  name='sercuritycode' id='sercuritycode'  class="textbox" style="width:50px" /><?php echo $image; ?>
-                                            <br />
-                                            <a href="#" onclick="$('#se_image').attr('src', '/captcha/captcha.php?' + new Date().getTime())">Đổi hình</a>
+                                            <input type='text'  name='sercuritycode' id='sercuritycode_1'  class="textbox" style="width:50px" /><?php echo $captcha_question[0]['question']; ?>
                                         </div>
                                         <span id='sercuritycode_e' style="color:#f00;font-size:11px"></span>
                                     </td>
                                 </tr>
                             </table>
                             <div style="clear:both"></div>
-                            <input type="submit" name="submit_email" value='   Gửi   '  />
+                            <input id="btn_submit_mail" type="submit" name="submit_email" value='   Gửi   '  />
                         </form>
                         <div id="email_form_content_loading" style="display:none"><br /><br /><br /><center><img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/ajax-loader.gif" alt="loading" /></center></div>
                     </center>
@@ -254,7 +253,7 @@ __lc.license = 4174171;
         <div id='show_cart_form' style="display:none;text-align:left">
             <div  style="float:right;cursor:pointer;margin:0" onclick="close_show_cart_form()"><b>[x]</b></div>
             <div class="form_header">Giỏ hàng <a  alt="Xóa" style="width:30px;cursor:pointer" onclick="if (confirm('Bạn có chăc muốn xóa?'))
-                clear_cart('<?php echo base_url();?>')">[Xóa tất cả]</a></div>
+                        clear_cart('<?php echo base_url(); ?>')">[Xóa tất cả]</a></div>
             <div id="cart_content">
 
             </div>
@@ -274,7 +273,7 @@ __lc.license = 4174171;
             </div>
             <div style="clear: both; margin-top: 25px; display:none;" id="o_content_result">
             </div>
-           
+
             <div class="formcontent" style="clear:both;margin-top:25px" id="o_content">
                 <table cellspacing='2' cellpadding='0' width="480" >
                     <tr>
@@ -323,8 +322,7 @@ __lc.license = 4174171;
                         </td>
                         <td>
                             <div style="float:left">
-                                <input type='text'  name='sercuritycode' id='o_sercuritycode'  style="width:80px" /><div id="image_cpc"><?php echo $image; ?></div>
-                                <a style="cursor: pointer;" id="change_captcha">Đổi ảnh khác</a>
+                                <input type='text'  name='sercuritycode' id='o_sercuritycode'  style="width:80px" /><div id="image_cpc"><?php echo $captcha_question[0]['question']; ?></div>
                             </div>
                             <span id='sercuritycode_e' style="color:#f00;font-size:11px"></span>
                         </td>
@@ -355,25 +353,30 @@ __lc.license = 4174171;
                     $this.html($this.html().replace(/&nbsp;/g, ''));
                 });
                 document.getElementById('checkout').style.pointerEvents = 'none';
-                $("#o_sercuritycode").change(function() {
-                    $.ajax({
-                        type: "POST",
-                        url: '<?php echo base_url(); ?>home/home/check_captcha_ajax',
-                        data: {captcha: $('#o_sercuritycode').val()},
-                        mimeType: "multipart/form-data",
-                        dataType: "json",
-                        cache: false,
-                        success: function(data) {
-                            if (data.error == 1)
-                            {
-                                document.getElementById('checkout').style.pointerEvents = 'none';
-                            }
-                            else
-                            {
-                                document.getElementById('checkout').style.pointerEvents = 'auto';
-                            }
-                        }
-                    });
+                $("#o_sercuritycode").keyup(function() {
+                    var code = $(this).val();
+                    if (code != <?php echo $captcha_question['0']['reply'] ?>)
+                    {
+                        document.getElementById('checkout').style.pointerEvents = 'none';
+                    }
+                    else
+                    {
+                        document.getElementById('checkout').style.pointerEvents = 'auto';
+                    }
+
+
+                });
+                $('#btn_submit_mail').attr('disabled','disabled');
+                $('#sercuritycode_1').keyup(function() {
+                    var code_1 = $(this).val();
+                    if (code_1 == <?php echo $captcha_question['0']['reply'] ?>)
+                    {
+                        $('#btn_submit_mail').attr('disabled',false);
+                    }
+                    else
+                    {
+                        $('#btn_submit_mail').attr('disabled','disabled');
+                    }
                 });
                 $('#change_captcha').click(function() {
                     $.ajax({
@@ -423,24 +426,23 @@ __lc.license = 4174171;
         </script>
         <div id="body_bg">
             <div id='main_body_content2'>
-                <?php 
-                if(!empty($clip_top))
-                {
-                ?>    
-                <div style="background:#fff;margin:0;padding:10px 10px 10px 0;">
-                    <div style="moz-border-radius: 5px;-webkit-border-radius: 5px;padding: 10px;">
-                        <div style="clear:both">
-                            <div style="background:url(<?php echo base_url(); ?>template/ezwebvietnam/home/uploads/tivi.png) top left no-repeat;width:603px;height:401px;padding:36px 36px 36px 38px">
-                                <?php
-                                foreach ($clip_top as $cl_top) {
-                                    ?>
-                                    <iframe allowfullscreen="" frameborder="0" height="338" name="video" src="//www.youtube.com/embed/<?php echo $cl_top['code'] ?>" width="600"></iframe>
-                                <?php } ?>
-                            </div>    
-                        </div>
+                <?php
+                if (!empty($clip_top)) {
+                    ?>    
+                    <div style="background:#fff;margin:0;padding:10px 10px 10px 0;">
+                        <div style="moz-border-radius: 5px;-webkit-border-radius: 5px;padding: 10px;">
+                            <div style="clear:both">
+                                <div style="background:url(<?php echo base_url(); ?>template/ezwebvietnam/home/uploads/tivi.png) top left no-repeat;width:603px;height:401px;padding:36px 36px 36px 38px">
+                                    <?php
+                                    foreach ($clip_top as $cl_top) {
+                                        ?>
+                                        <iframe allowfullscreen="" frameborder="0" height="338" name="video" src="//www.youtube.com/embed/<?php echo $cl_top['code'] ?>" width="600"></iframe>
+                                    <?php } ?>
+                                </div>    
+                            </div>
 
+                        </div>
                     </div>
-                </div>
                 <?php } ?>    
                 <div id="main_page" style="word-break: break-all;">
                     <div id="center222">

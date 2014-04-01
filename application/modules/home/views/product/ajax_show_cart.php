@@ -65,7 +65,7 @@
                         <td width="75" align="right"><span class="price"> <?php echo $price; ?>VND</span>
                         </td>
                         <td width="50" align="center">
-                            <?php echo $product['quantity'] ?>
+                            <input size="1" id="quantity_<?php echo $product['id_cart'] ?>" onkeyup="cart_update(<?php echo $product['id_cart'] ?>,<?php echo $product['id_product'] ?>,'quantity_<?php echo $product['id_cart'] ?>','<?php echo base_url();?>')" type="" value="<?php echo $product['quantity'] ?>"/>
                         </td>
                         <td width="80" align="right"><span class="price" id="total_one_item_38"><?php echo number_format($price * $product['quantity']) ?>VND</span></td>
                         <td width="40" align="center">

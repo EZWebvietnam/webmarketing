@@ -9,6 +9,7 @@ class Home extends MY_Controller {
         parent::load_clip();
         parent::load_header();
         parent::list_province();
+        parent::captcha_random();
         $this->load->model('productmodel');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');

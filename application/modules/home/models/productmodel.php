@@ -78,10 +78,17 @@ class Productmodel extends CI_Model
     }
     public function load_cart($ip_user)
     {
-        $sql = "SELECT * FROM cart INNER JOIN product ON product.id_product = cart.id_product WHERE ip_user = '$ip_user'";
+        $sql = "SELECT *,cart.id as id_cart FROM cart INNER JOIN product ON product.id_product = cart.id_product WHERE ip_user = '$ip_user'";
         $query = $this->db->query($sql);
         return $query->result_array();
     }
+    public function cart_detail($id_cart)
+    {
+        $sql = "SELECT * FROM cart  WHERE id = $id_cart";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+   
     public function delete_from_cart($ip_user,$id_product)
     {
         $this->db->delete('cart',array('ip_user'=>$ip_user,'id_product'=>$id_product));
@@ -115,6 +122,18 @@ class Productmodel extends CI_Model
     public function load_random_clip($id)
     {
         $sql="SELECT * FROM clip_marketing WHERE id_product = $id ORDER BY rand() LIMIT 1";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+    public function random_mail_book()
+    {
+        $sql="SELECT * FROM mail_book ORDER BY rand() LIMIT 1";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+    public function random_captcha()
+    {
+        $sql="SELECT * FROM captcha_question ORDER BY rand() LIMIT 1";
         $query = $this->db->query($sql);
         return $query->result_array();
     }
