@@ -45,7 +45,7 @@
                      <thead>
                         <tr>
                            <th class="head" colspan="7">
-                              <a class="del" onclick="return action_del('admindata_pro','khachhang');"><span>Xóa</span></a>                                Có <?php echo count($list_product_ref)?> khóa học <span class="pages"><span class="pagebar-mainbody">
+                              <a class="del" onclick="return action_del('admindata_pro','khachhang');"><span>Xóa</span></a>                                Có <?php echo count($list_product_ref)?> sản phẩm<span class="pages"><span class="pagebar-mainbody">
                            <?php 
                            if($total_page == 1 || $page == 1)
                            {
@@ -84,7 +84,7 @@
                         </tr>
                         <tr>
                            <th class="checkbox"><input type="checkbox" name="sa" id="sa" onclick="check_chose('sa', 'ar_id[]', 'admindata_pro')"></th>
-                           <th class="id">Tên khóa học</th>
+                           <th class="id">Tên sản phẩm</th>
                            <th>Giới thiệu</th>
                            <th>Ngày hết hạn</th>
                            <th>Giá</th>
@@ -120,7 +120,7 @@
                      <tfoot>
                         <td colspan="7">
                            <a class="del" onclick="return action_del('admindata_pro','product');"><span>Xóa</span></a>                            
-                           Có <?php echo count($list_product_ref)?> khóa học 
+                           Có <?php echo count($list_product_ref)?> sản phẩm
                            <span class="pages">
                            <span class="pagebar-mainbody">
                            <?php 

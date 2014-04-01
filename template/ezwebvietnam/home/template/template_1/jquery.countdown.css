@@ -59,10 +59,12 @@
 .countdown-amount
 {
 	padding-right:5px;
+        font-size: 15px;
 }
  .countdown-period
  {
 	padding-right:5px;
+        font-size: 15px;
  }
 .countDiv{
 	display:inline-block;

@@ -12,7 +12,7 @@
         <meta name="rating" content="<?php echo $header['rating'] ?>" />
         <meta name="keywords" content="<?php echo $header['keywords'] ?>" />
         <meta property="fb:app_id" content="150104728527998">
-
+        <link rel="shortcut icon" href="<?php echo base_url();?>template/ezwebvietnam/home/favicon.ico" type="image/x-icon"/>    
 
             <meta name="description" content="<?php echo $header['description'] ?>" />
             <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/css.css" media="screen"  />

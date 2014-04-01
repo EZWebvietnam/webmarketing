@@ -46,6 +46,7 @@
         <div>
             <br>
             <center>
+                  <font size="6px">
                 Số người đã mua:<br><span class="price2"> <?php echo $count_buy; ?> </span><br>
                 Thời gian khuyến mại còn lại:
                 <?php
@@ -62,7 +63,7 @@
 
                 </script>
                 <div id="defaultCountdown274" style="text-align:center;font-size:10px" class="hasCountdown"></div>
-
+                </font>
 
             </center>
         </div>
@@ -96,6 +97,13 @@
     <div style="padding:10px">
         <?php echo $product_detail[0]['content'] ?>
     </div>
+    <script>
+    $(document).ready(function() {
+        $('.add_cart_button').click(function(){
+            add_to_card_form(<?php echo $product_detail[0]['id_product'] ?>,<?php echo $price ?>);
+        });
+    });
+    </script>
     <?php 
     if(!empty($list_clip))
     {
@@ -128,6 +136,7 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
     <div class="fb-share-button" data-href="<?php echo full_url_($_SERVER) ?>" data-type="button_count"></div>
+    <div class="fb-like" data-href="<?php echo full_url_($_SERVER) ?>" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
     <!-- Đặt thẻ này vào nơi bạn muốn Nút +1 kết xuất. -->
     <div class="g-plusone" data-annotation="inline" data-width="37" data-href="<?php echo full_url_($_SERVER) ?>"></div>
 

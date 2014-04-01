@@ -11,6 +11,7 @@
         <meta name="rating" content="<?php echo $header['rating'] ?>" />
         <meta name="keywords" content="<?php echo $header['keywords'] ?>" />
         <meta property="fb:app_id" content="150104728527998">
+        <link rel="shortcut icon" href="<?php echo base_url();?>template/ezwebvietnam/home/favicon.ico" type="image/x-icon"/>
             <meta name="description" content="<?php echo $header['description'] ?>" />
             <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/css.css" media="screen"  />
             <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/jquery.countdown.css" media="screen"  />
@@ -101,7 +102,7 @@
                     ?>
                     <form style='margin:0px;padding:0px' method='post' action='<?php echo base_url(); ?>cong-tac-vien/login'>
 
-                        <input onclick="window.location.href = '<?php echo base_url(); ?>cong-tac-vien/checkvaliemail';
+                        <input onclick="window.location.href = '<?php echo base_url(); ?>cong-tac-vien/register';
                                     return false;" style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/button-title-register.png" name="ss" value='ss' width="126" height="32" />
                         <input style='float:right;margin-top:-5px' type="image" src="<?php echo base_url(); ?>template/ezwebvietnam/home/button-title-login.png" name="submit" value='submit' width="126" height="32" />
                         <?php echo form_input($login); ?>

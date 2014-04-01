@@ -210,7 +210,7 @@ class Productadmin extends MY_Controller {
                     'title' => $this->input->post('title'),
                     'cost' => $this->input->post('cost'),
                     'description' => stripslashes($this->input->post('description')),
-                    'content' => stripslashes($this->input->post('content')),
+                    'content' => $this->input->post('content'),
                     'comission' => $this->input->post('hoa_hong')
                 );
             }
