@@ -59,5 +59,11 @@ class Messagememberctv extends MY_Controller
         $data = array('status'=>1);
         $this->messagectv->update($id,$id_user,$data);
     }
+    public function delete($id)
+    {
+        $this->messagectv->delete($id);
+         $data = array('error'=>0,'msg'=>'Xóa thành công');
+         echo json_encode($data);
+    }
 }
 ?>

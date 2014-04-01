@@ -38,7 +38,7 @@ function full_url($s) {
                     </div>
                     <form  method="post" accept-charset="utf-8" id="admindata_mess">
                         <input type="hidden" id="page" value="0"/>
-                        <input type="hidden" id="callback" value="<?php echo base_url(); ?>ctv/productctv/ajax_get_customer"/>
+                        <input type="hidden" id="callback" value="<?php echo base_url(); ?>ctv/messagememberctv/list_message"/>
                         <table class="admindata">
                             <thead>
                                 <tr>
@@ -78,7 +78,7 @@ function full_url($s) {
                                     <th>Nội dung</th>
                                     <th>Ngày gửi</th>
                                     <th>Tình trạng</th>
-                                    <th></th>
+                                    <th class="publish">Chức năng</th>
                                 </tr>
                             </thead>
                             <?php
@@ -92,7 +92,10 @@ function full_url($s) {
                                         <td><?php echo sub_string(loaibohtmltrongvanban($message['content']), 300); ?></td>
                                         <td><?php echo date('d/m/Y', $message['create_date']); ?></td>
                                         <td><?php echo $status[$message['status']] ?></td>
-                                        <td><a class="grouped_elements" href="<?php echo base_url(); ?>ctv/messagememberctv/view/<?php echo $message['id_message'] ?>" title="Xem chi tiết"><img width="16" height="16" src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/view.png"></a></td>
+                                        <td>
+                                            <a class="grouped_elements" href="<?php echo base_url(); ?>ctv/messagememberctv/view/<?php echo $message['id_message'] ?>" title="Xem chi tiết"><img width="16" height="16" src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/view.png"></a>
+                                            <a class="delete_record" href="<?php echo base_url();?>ctv/messagememberctv/delete/<?php echo $message['id_message']?>" title="Xóa"><img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/del.png"></a>  
+                                        </td>
                                     </tr>
                                 <?php } else { ?> 
                                     <tr class="row1 ">
@@ -101,7 +104,9 @@ function full_url($s) {
                                         <td><b><?php echo sub_string(loaibohtmltrongvanban($message['content']), 300); ?></b></td>
                                         <td><b><?php echo date('d/m/Y', $message['create_date']); ?></b></td>
                                         <td><b><?php echo $status[$message['status']] ?></b></td>
-                                        <td><a onclick="update_status(<?php echo $message['id_message'] ?>)" class="grouped_elements" href="<?php echo base_url(); ?>ctv/messagememberctv/view/<?php echo $message['id_message'] ?>" title="Xem chi tiết"><img width="16" height="16" src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/view.png"></a></td>
+                                        <td><a onclick="update_status(<?php echo $message['id_message'] ?>)" class="grouped_elements" href="<?php echo base_url(); ?>ctv/messagememberctv/view/<?php echo $message['id_message'] ?>" title="Xem chi tiết"><img width="16" height="16" src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/icon/view.png"></a>
+                                        <a class="delete_record" href="<?php echo base_url();?>ctv/messagememberctv/delete/<?php echo $message['id_message']?>" title="Xóa"><img src="<?php echo base_url();?>template/ezwebvietnam/admin_cp/icon/del.png"></a>  
+                                        </td>
                                     </tr>          
                                 <?php }
                             }

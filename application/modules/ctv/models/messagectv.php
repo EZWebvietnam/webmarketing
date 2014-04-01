@@ -30,6 +30,10 @@ class Messagectv extends CI_Model
         $this->db->where('id_user',$id_user);
         $this->db->update('message_detail',$data);
     }
+    public function delete($id)
+    {
+         $this->db->delete('message_detail',array('id_message'=>$id));
+    }
     
 }
 ?>
