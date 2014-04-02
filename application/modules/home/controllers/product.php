@@ -371,7 +371,10 @@ class Product extends MY_Controller {
     {
         $mail = $this->input->post('useremail');
         $real_name = $this->input->post('userrealname');
+        $phone = $this->input->post('userphone');
         $data = $this->productmodel->random_mail_book();
+        $data_save = array('full_name'=>$real_name,'email'=>$mail,'phone'=>$phone);
+        $this->productmodel->insert_data_recei_book($data_save);
         $title = 'Mail nhận sách';
         $this->_send_email_book($real_name,$mail,$data[0]['content'],$title);
     }

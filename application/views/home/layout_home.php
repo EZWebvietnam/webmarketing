@@ -166,7 +166,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po
         </div>
         <div id='hide_content' style="display:none"></div>
         <div id='process_loading' style="display:none"></div>
-        <div id='emailform' style="display:none">
+        <div id='emailform'>
             <div  style="float:right;cursor:pointer;margin:0" onclick="close_form()"><b>[x]</b></div>
             <div id="email_form_content">
                 <div class="content">

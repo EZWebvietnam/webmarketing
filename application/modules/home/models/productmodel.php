@@ -131,6 +131,10 @@ class Productmodel extends CI_Model
         $query = $this->db->query($sql);
         return $query->result_array();
     }
+    public function insert_data_recei_book(array $data)
+    {
+        $this->db->insert('mail_book_customer',$data);
+    }
     public function random_captcha()
     {
         $sql="SELECT * FROM captcha_question ORDER BY rand() LIMIT 1";
