@@ -167,7 +167,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po
 
                     </style>
                     <span style="margin-top:-5px;width:160px;border:0;height:23px;color:white;font-style: italic;"> Xin chào <?php echo $this->session->userdata('username') ?> </span>
-                    <span style="margin-top:-5px;width:160px;border:0;height:23px;color:white;font-style: italic;"> Xin chào <?php echo $this->session->userdata('username') ?> </span>
+                    
                     <?php 
                     if($this->session->userdata('role')==4)
                     {
@@ -212,6 +212,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po
             <div id="email_form_content">
                 <div class="content">
                     <p>Việt Mông Cổ - Khỏe từ nguồn cội </br> sẽ gửi tặng bạn cuốn sách có nội dung đầy đủ về các bài thuốc dân gian được sưu tầm.Bạn sẽ có thêm rất nhiều kiến thức để sử dụng các cây,cỏ trong vườn nhà tạo thành thuốc quý.</p>
+                    <p>Hãy điền đầy đủ thông tin vào khung bên dưới để nhận quà miễn phí từ Việt Mông Cổ</p>
                 </div>
                 <div class="formcontent">
                     <center>

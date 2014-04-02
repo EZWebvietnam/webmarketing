@@ -16,11 +16,7 @@
         <span style="text-align: center;">
             <?php echo $info_company[0]['address']?>
         </span>
-
-
-
-    </div>
-    <center>
+        <center>
         <form method="post">
             <table border="1" bordercolor="#FFFFFF" style="background-color:#FFFFFF" width="100%" cellpadding="3" cellspacing="3">
                 <tr>
@@ -41,7 +37,11 @@
                 </tr>
             </table>
         </form>
-    </center>
+    </center>    
+
+
+    </div>
+    
     <div id="main2"></div>
 
 </div>	
