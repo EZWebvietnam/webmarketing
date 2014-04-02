@@ -46,7 +46,7 @@
         <div>
             <br>
             <center>
-                  <font size="6px">
+                  <font size="5px">
                 Số người đã mua:<br><span class="price2"> <?php echo $count_buy; ?> </span><br>
                 Thời gian khuyến mại còn lại:
                 <?php

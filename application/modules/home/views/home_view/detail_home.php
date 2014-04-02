@@ -51,7 +51,7 @@
         <div>
             <br>
             <center>
-                <font size="6px">
+                <font size="5px">
                 SỐ NGƯỜI ĐÃ MUA:<br><span class="price2"> <?php echo $count_buy;?> </span><br>
                 THỜI GIAN KHUYẾN MẠI CÒN LẠI:
                 <?php

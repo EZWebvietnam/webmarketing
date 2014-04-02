@@ -225,9 +225,9 @@ class Productadmin extends MY_Controller {
                 $clip = explode(';', $clip);
                 foreach($clip as $k=>$v)
                 {
-                    if(strpos('?v=',$v))
+                    if(strlen(strstr($v,'?v='))>0)
                     {
-                        $clip_2 = explode('?v=', $v);
+                        $clip_2 = explode('watch?v=',$v);
                     }
                     else
                     {

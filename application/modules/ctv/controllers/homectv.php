@@ -28,10 +28,14 @@ class Homectv extends MY_Controller
 						$this->form_validation->set_value('password'),
 						$this->form_validation->set_value('remember'),
 						$data['login_by_username'],
-						$data['login_by_email'])) {								// success
+						$data['login_by_email'])) {
+                                    if($this->session->userdata('role')==4)
+                                    {// success
                                                 redirect('/cong-tac-vien');
-
-				} else {
+                                    } else {
+                                        redirect('/quan-tri');
+                    }
+                } else {
 					$errors = $this->tank_auth->get_error_message();
 					if (isset($errors['banned'])) {								// banned user
 						$this->_show_message($this->lang->line('auth_message_banned').' '.$errors['banned']);

@@ -14,7 +14,7 @@
 <div class="m-pop">
     <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/js/core/price_format.js"></script>
     <form action="<?php echo base_url(); ?>admin/productadmin/edit/<?php echo $detail_product[0]['id_product'] ?>" method="post" accept-charset="utf-8" id="adminform"><input type="hidden" name="id" value="74">
-        <table class="form" style="width: 550px;">
+        <table class="form" style="width: 1300px;">
 
             <tr>
                 <td class="label">Tên khóa học</td>

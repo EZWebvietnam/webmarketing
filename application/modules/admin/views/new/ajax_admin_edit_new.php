@@ -39,7 +39,7 @@
 <div class="m-pop">
     
     <form action="<?php echo base_url(); ?>admin/newsadmin/edit/<?php echo $detail[0]['id']?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="adminform" name="adminform">
-        <table class="form" style="width: 550px;">
+        <table class="form" style="width: 1300px;">
 
             <tr>
                 <td class="label">Tên bài viết</td>
