@@ -526,7 +526,7 @@ __lc.license = 4174171;
                                                 <table width="290">
                                                     <tbody><tr>
                                                             <td width="120"><a>Giá gốc:</a></td>
-                                                            <td><span class="orgin_price"><strike><?php echo number_format($list_product_cate['cost']) ?></strike> VND</span></td>
+                                                            <td><span class="orgin_price_1"><strike><?php echo number_format($list_product_cate['cost']) ?></strike> VND</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td width="120"><a>Giá:</a></td>
@@ -564,7 +564,7 @@ __lc.license = 4174171;
                                                 <table width="290">
                                                     <tbody><tr>
                                                             <td width="120"><a>Giá gốc:</a></td>
-                                                            <td><span class="orgin_price"><?php echo number_format($list_product_cate['cost']); ?> VND/Bộ </span></td>
+                                                            <td><span class="orgin_price_1"><?php echo number_format($list_product_cate['cost']); ?> VND/Bộ </span></td>
                                                         </tr>
                                                         <tr>
                                                             <td width="120"><a>Giá:</a></td>

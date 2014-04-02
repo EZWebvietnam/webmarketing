@@ -129,7 +129,7 @@ __lc.license = 4174171;
 
                     </style>
                     <span style="margin-top:-5px;width:160px;border:0;height:23px;color:white;font-style: italic;"> Xin chào <?php echo $this->session->userdata('username') ?> </span>
-                    <span style="margin-top:-5px;width:160px;border:0;height:23px;color:white;font-style: italic;"> Xin chào <?php echo $this->session->userdata('username') ?> </span>
+                    
                     <?php 
                     if($this->session->userdata('role')==4)
                     {
