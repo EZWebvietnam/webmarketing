@@ -38,6 +38,16 @@
                 var my_template = "template_1";
                 var my_curent_page = "U1";
             </script>
+            <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-49550436-1', 'vietmongco.vn');
+            ga('send', 'pageview');
+
+            </script>
             <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/cart_script3.js"></script>
 
 
@@ -119,8 +129,15 @@
                         }
 
                     </style>
-                    <span style="margin-top:-5px;width:160px;border:0;height:23px;color:white;font-style: italic;"> Xin chào <?php echo $this->session->userdata('username') ?> </span><span class="setting"> <a href="<?php echo base_url(); ?>cong-tac-vien">Cộng tác viên</a></span>
-                <?php } ?>
+                    <span style="margin-top:-5px;width:160px;border:0;height:23px;color:white;font-style: italic;"> Xin chào <?php echo $this->session->userdata('username') ?> </span>
+                    <?php 
+                    if($this->session->userdata('role')==4)
+                    {
+                    ?>
+                    <span class="setting"> <a href="<?php echo base_url(); ?>cong-tac-vien">Cộng tác viên</a></span>
+                    <?php } else { ?> 
+                        <span class="setting"> <a href="<?php echo base_url(); ?>quan-tri">Quản trị</a></span>
+                        <?php } } ?>
             </div>
         </div>
         <div style='width:1000px;margin: 0 auto 0 auto;'>
