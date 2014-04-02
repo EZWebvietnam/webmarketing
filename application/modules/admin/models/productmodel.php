@@ -91,5 +91,21 @@ class Productmodel extends CI_Model
         $this->db->where('id',$id);
         $this->db->update('mail_book',$data);
     }
+    public function list_customer($number,$offset)
+    {
+        $sql ="SELECT * FROM mail_book_customer LIMIT $offset,$number";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+    public function count_customer()
+    {
+        $sql ="SELECT * FROM mail_book_customer";
+        $query = $this->db->query($sql);
+        return count($query->result_array());
+    }
+    public function delete_mail_customer($id)
+    {
+        $this->db->delete('mail_book_customer',array('id'=>$id));
+    }
 }
 ?>
