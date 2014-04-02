@@ -38,7 +38,7 @@
 <div class="m-pop">
     
     <form action="<?php echo base_url(); ?>admin/newsadmin/add" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="adminform" name="adminform">
-        <table class="form" style="width: 1300px;">
+        <table class="form" style="width: 1200px;">
 
             <tr>
                 <td class="label">Tên bài viết</td>

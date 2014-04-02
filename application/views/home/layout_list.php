@@ -93,13 +93,14 @@
     </head>
     <body>
         <script type="text/javascript">
-var __lc = {};
-__lc.license = 4174171;
-
+var LHCChatOptions = {};
+LHCChatOptions.opt = {widget_height:340,widget_width:300,popup_height:520,popup_width:500};
 (function() {
-	var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
-	lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+var refferer = (document.referrer) ? encodeURIComponent(document.referrer) : '';
+var location  = (document.location) ? encodeURIComponent(document.location) : '';
+po.src = '//vietmongco.vn/livechat/index.php/vnm/chat/getstatus/(click)/internal/(position)/bottom_right/(top)/350/(units)/pixels?r='+refferer+'&l='+location;
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 })();
 </script>
         <div class="sidelinks-container"><h3><a href="#top">Top</a></h3></div>

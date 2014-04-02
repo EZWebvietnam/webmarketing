@@ -13,7 +13,7 @@
 <div class="m-pop">
     <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/admin_cp/js/core/price_format.js"></script>
     <form action="<?php echo base_url(); ?>admin/messageadmin/send_message_to_member/<?php echo $id;?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="adminform">
-        <table class="form" style="width: 550px;">
+        <table class="form" style="width: 1200px;">
 
             <tr>
                 <td class="label">Tiêu đề</td>
