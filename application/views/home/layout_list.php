@@ -256,7 +256,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po
                                 </tr>
                             </table>
                             <div style="clear:both"></div>
-                            <input id="btn_submit_mail" type="submit" name="submit_email" value='   Gửi   '  />
+                            <input id="btn_submit_mail" type="submit" name="submit_email" value='   Nhận Quà   '  />
                         </form>
                         <div id="email_form_content_loading" style="display:none"><br /><br /><br /><center><img src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/images/ajax-loader.gif" alt="loading" /></center></div>
                     </center>
