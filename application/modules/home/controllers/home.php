@@ -103,6 +103,8 @@ class Home extends MY_Controller {
     }
 
     function activate() {
+        $this->load->model('productmodel');
+        $this->data['list_product_sale'] = $this->productmodel->get_list_product_sale_off();
         $user_id = $this->uri->segment(2);
         $user_id = addslashes($user_id);
         $user_id = intval($user_id);
@@ -113,9 +115,13 @@ class Home extends MY_Controller {
             if ($this->tank_auth->is_logged_in()) {
                 $this->tank_auth->logout();
             }
-            $this->_show_message($this->lang->line('auth_message_activation_completed') . ' ' . anchor('/home/auth/login/', 'Login'));
+            $this->data['main_content'] = 'active_success';
+            $this->load->view('home/layout_detail', $this->data);
+            //$this->_show_message($this->lang->line('auth_message_activation_completed') . ' ' . anchor('/home/auth/login/', 'Login'));
+            
         } else {                                                                // fail
-            $this->_show_message($this->lang->line('auth_message_activation_failed'));
+            $this->data['main_content'] = 'active_success';
+            $this->load->view('home/layout_detail', $this->data);
         }
     }
 
