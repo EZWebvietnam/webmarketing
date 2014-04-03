@@ -376,7 +376,10 @@ class Product extends MY_Controller {
         $data_save = array('full_name'=>$real_name,'email'=>$mail,'phone'=>$phone);
         $this->productmodel->insert_data_recei_book($data_save);
         $title = 'Mail nhận sách';
-        $this->_send_email_book($real_name,$mail,$data[0]['content'],$title);
+        if(!empty($data))
+        {
+            $this->_send_email_book($real_name,$mail,$data[0]['content'],$title);
+        }
     }
     function _send_email_book($to_name, $email, $messsage,$title) {
         /* $this->load->library('email');

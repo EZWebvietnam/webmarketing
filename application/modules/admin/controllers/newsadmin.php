@@ -128,10 +128,13 @@ class Newsadmin extends MY_Controller {
         $array = $this->input->post('ar_id');
         foreach ($array as $k => $v) {
             $detail = $this->newsmodel->detail($v);
-            if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/new/' . $detail[0]['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/new/' . $detail[0]['img'])) {
-                unlink($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/new/' . $detail[0]['img']);
+            if(!empty($detail))
+            {
+                if (file_exists($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/new/' . $detail[0]['img']) && is_file($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/new/' . $detail[0]['img'])) {
+                    unlink($_SERVER['DOCUMENT_ROOT'] . ROT_DIR . 'file/uploads/new/' . $detail[0]['img']);
+                }
+                $this->newsmodel->delete($v);
             }
-            $this->newsmodel->delete($v);
         }
         $data = array('error' => 0, 'msg' => 'Xóa thành công');
         echo json_encode($data);

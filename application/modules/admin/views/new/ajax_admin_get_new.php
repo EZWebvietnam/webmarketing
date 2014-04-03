@@ -94,7 +94,7 @@
                      <?php }?>       
                      <tfoot>
                         <td colspan="7">
-                           <a class="del" onclick="return action_del('admindata_new','message');"><span>Xóa</span></a>                            
+                           <a class="del" onclick="return action_del('admindata_new','new');"><span>Xóa</span></a>                            
                            Có <?php echo count($list_new)?> bài viết
                            <span class="pages">
                            <span class="pagebar-mainbody">
