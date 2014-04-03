@@ -26,14 +26,14 @@
             <div class="box-content">
                <div class="box_find">
                </div>
-               <form action="<?php echo base_url();?>admin/contactadmin/deletes" method="post" accept-charset="utf-8" id="admindata_kh">
+               <form action="<?php echo base_url();?>admin/contactadmin/deletes" method="post" accept-charset="utf-8" id="admindata_contact">
                   <input type="hidden" id="page" value="0"/>
                   <input type="hidden" id="callback" value="<?php echo base_url();?>admin/contactadmin/list_contact"/>
                   <table class="admindata">
                      <thead>
                         <tr>
                            <th class="head" colspan="7">
-                              <a class="del" onclick="return action_del('admindata_kh','contact');"><span>Xóa</span></a>                                Có <?php echo count($list_contact)?> liên hệ <span class="pages"><span class="pagebar-mainbody">
+                              <a class="del" onclick="return action_del('admindata_contact','contact');"><span>Xóa</span></a>                                Có <?php echo count($list_contact)?> liên hệ <span class="pages"><span class="pagebar-mainbody">
                            <?php 
                            if($total_page == 1 || $page == 1)
                            {
@@ -71,7 +71,7 @@
                            </th>
                         </tr>
                         <tr>
-                           <th class="checkbox"><input type="checkbox" name="sa" id="sa" onclick="check_chose('sa', 'ar_id[]', 'admindata_kh')"></th>
+                           <th class="checkbox"><input type="checkbox" name="sa" id="sa" onclick="check_chose('sa', 'ar_id[]', 'admindata_contact')"></th>
                            <th class="id">Tên</th>
                            <th>Email</th>
                            <th>Liên hệ</th>
@@ -98,7 +98,7 @@
                      <?php }?>       
                      <tfoot>
                         <td colspan="7">
-                           <a class="del" onclick="return action_del('admindata_kh','khachhang');"><span>Xóa</span></a>                            
+                           <a class="del" onclick="return action_del('admindata_contact','khachhang');"><span>Xóa</span></a>                            
                            Có <?php echo count($list_contact)?> liên hệ
                            <span class="pages">
                            <span class="pagebar-mainbody">

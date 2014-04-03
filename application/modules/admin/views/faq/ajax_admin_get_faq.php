@@ -26,9 +26,9 @@
             <div class="box-content">
                <div class="box_find">
                </div>
-               <form action="<?php echo base_url();?>admin/orderadmin/deletes" method="post" accept-charset="utf-8" id="admindata_kh">
+               <form action="<?php echo base_url();?>admin/faqadmin/deletes" method="post" accept-charset="utf-8" id="admindata_faq">
                   <input type="hidden" id="page" value="0"/>
-                  <input type="hidden" id="callback" value="<?php echo base_url();?>admin/orderadmin/list_order"/>
+                  <input type="hidden" id="callback" value="<?php echo base_url();?>admin/faqadmin/list_faq"/>
                   
                   <?php 
 $status = array('0'=>'Chưa trả lời','1'=>'Đã trả lời ')
@@ -37,7 +37,7 @@ $status = array('0'=>'Chưa trả lời','1'=>'Đã trả lời ')
                      <thead>
                         <tr>
                            <th class="head" colspan="7">
-                              <a class="del" onclick="return action_del('admindata_kh','faq');"><span>Xóa</span></a>                                Có <?php echo count($list_ctv)?> hỏi đáp <span class="pages"><span class="pagebar-mainbody">
+                              <a class="del" onclick="return action_del('admindata_faq','faq');"><span>Xóa</span></a>                                Có <?php echo count($list_ctv)?> hỏi đáp <span class="pages"><span class="pagebar-mainbody">
                            <?php 
                            if($total_page == 1 || $page == 1)
                            {
@@ -75,7 +75,7 @@ $status = array('0'=>'Chưa trả lời','1'=>'Đã trả lời ')
                            </th>
                         </tr>
                         <tr>
-                           <th class="checkbox"><input type="checkbox" name="sa" id="sa" onclick="check_chose('sa', 'ar_id[]', 'admindata_kh')"></th>
+                           <th class="checkbox"><input type="checkbox" name="sa" id="sa" onclick="check_chose('sa', 'ar_id[]', 'admindata_faq')"></th>
                            <th class="id">Tên</th>
                            <th>Email</th>
                            <th>Câu hỏi</th>
@@ -105,7 +105,7 @@ $status = array('0'=>'Chưa trả lời','1'=>'Đã trả lời ')
                      <?php }?>       
                      <tfoot>
                         <td colspan="7">
-                           <a class="del" onclick="return action_del('admindata_kh','faq');"><span>Xóa</span></a>                            
+                           <a class="del" onclick="return action_del('admindata_faq','faq');"><span>Xóa</span></a>                            
                            Có <?php echo count($list_ctv)?> hỏi đáp
                            <span class="pages">
                            <span class="pagebar-mainbody">

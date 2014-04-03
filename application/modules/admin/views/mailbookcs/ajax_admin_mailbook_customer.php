@@ -39,14 +39,14 @@
             <div class="box-content">
                <div class="box_find">
                </div>
-               <form action="<?php echo base_url();?>admin/customeradmin/deletes" method="post" accept-charset="utf-8" id="admindata_kh">
+               <form action="<?php echo base_url();?>admin/customeradmin/deletes" method="post" accept-charset="utf-8" id="admindata_mailbookcs">
                   <input type="hidden" id="page" value="0"/>
                   <input type="hidden" id="callback" value="<?php echo base_url();?>admin/customeradmin/list_mail_customer"/>
                   <table class="admindata">
                      <thead>
                         <tr>
                            <th class="head" colspan="7">
-                              <a class="del" onclick="return action_del('admindata_kh','mailbookcs');"><span>Xóa</span></a>                                Có <?php echo count($list_mail)?><span class="pages"><span class="pagebar-mainbody">
+                              <a class="del" onclick="return action_del('admindata_mailbookcs','mailbookcs');"><span>Xóa</span></a>                                Có <?php echo count($list_mail)?><span class="pages"><span class="pagebar-mainbody">
                            <?php 
                            if($total_page == 1 || $page == 1)
                            {
@@ -84,7 +84,7 @@
                            </th>
                         </tr>
                         <tr>
-                           <th class="checkbox"><input type="checkbox" name="sa" id="sa" onclick="check_chose('sa', 'ar_id[]', 'admindata_kh')"></th>
+                           <th class="checkbox"><input type="checkbox" name="sa" id="sa" onclick="check_chose('sa', 'ar_id[]', 'admindata_mailbookcs')"></th>
                            <th>Họ tên</th>
                            <th>Email</th>
                            <th>SĐT</th>
@@ -108,7 +108,7 @@
                      <?php }?>       
                      <tfoot>
                         <td colspan="7">
-                           <a class="del" onclick="return action_del('admindata_kh','mailbookcs');"><span>Xóa</span></a>                            
+                           <a class="del" onclick="return action_del('admindata_mailbookcs','mailbookcs');"><span>Xóa</span></a>                            
                            Có <?php echo count($list_mail)?>
                            <span class="pages">
                            <span class="pagebar-mainbody">

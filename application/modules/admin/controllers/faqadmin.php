@@ -63,5 +63,20 @@ class Faqadmin extends MY_Controller
             $this->load->view('faq/ajax_admin_faq_edit',$this->data);
         }
     }
+    public function delete($id) {
+       
+        $this->faqmodel->delete($id);
+        $array = array('error' => 0, 'msg' => "Xóa thành công");
+        echo json_encode($array);
+    }
+
+    public function deletes() {
+        $array = $this->input->post('ar_id');
+        foreach ($array as $k => $v) {
+           $this->faqmodel->delete($v);
+        }
+        $array = array('error' => 0, 'msg' => "Xóa thành công");
+        echo json_encode($array);
+    }
 }
 ?>

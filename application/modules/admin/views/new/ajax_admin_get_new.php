@@ -27,14 +27,14 @@
             <div class="box-content">
                <div class="box_find">
                </div>
-               <form action="<?php echo base_url();?>admin/newsadmin/deletes" method="post" accept-charset="utf-8" id="admindata_kh">
+               <form action="<?php echo base_url();?>admin/newsadmin/deletes" method="post" accept-charset="utf-8" id="admindata_new">
                   <input type="hidden" id="page" value="0"/>
                   <input type="hidden" id="callback" value="<?php echo base_url();?>admin/newsadmin/list_new"/>
                   <table class="admindata">
                      <thead>
                         <tr>
                            <th class="head" colspan="7">
-                              <a class="del" onclick="return action_del('admindata_kh','new');"><span>Xóa</span></a>                                Có <?php echo count($list_new)?> bài viết <span class="pages"><span class="pagebar-mainbody">
+                              <a class="del" onclick="return action_del('admindata_new','new');"><span>Xóa</span></a>                                Có <?php echo count($list_new)?> bài viết <span class="pages"><span class="pagebar-mainbody">
                            <?php 
                            if($total_page == 1 || $page == 1)
                            {
@@ -72,7 +72,7 @@
                            </th>
                         </tr>
                         <tr>
-                           <th class="checkbox"><input type="checkbox" name="sa" id="sa" onclick="check_chose('sa', 'ar_id[]', 'admindata_kh')"></th>
+                           <th class="checkbox"><input type="checkbox" name="sa" id="sa" onclick="check_chose('sa', 'ar_id[]', 'admindata_new')"></th>
                            <th class="id">Tiêu đề</th>
                            <th>Nội dung</th>
                            <th class="publish">Chức năng</th>
@@ -94,7 +94,7 @@
                      <?php }?>       
                      <tfoot>
                         <td colspan="7">
-                           <a class="del" onclick="return action_del('admindata_kh','message');"><span>Xóa</span></a>                            
+                           <a class="del" onclick="return action_del('admindata_new','message');"><span>Xóa</span></a>                            
                            Có <?php echo count($list_new)?> bài viết
                            <span class="pages">
                            <span class="pagebar-mainbody">

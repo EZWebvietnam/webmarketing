@@ -27,7 +27,7 @@
             <div class="box-content">
                <div class="box_find">
                </div>
-               <form action="<?php echo base_url();?>admin/orderadmin/deletes" method="post" accept-charset="utf-8" id="admindata_kh">
+               <form action="<?php echo base_url();?>admin/orderadmin/deletes" method="post" accept-charset="utf-8" id="admindata_order_detail">
                   <input type="hidden" id="page" value="0"/>
                   <input type="hidden" id="callback" value="<?php echo base_url();?>admin/orderadmin/list_order"/>
                   

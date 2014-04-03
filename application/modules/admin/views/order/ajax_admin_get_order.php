@@ -27,7 +27,7 @@
             <div class="box-content">
                <div class="box_find">
                </div>
-               <form action="<?php echo base_url();?>admin/orderadmin/deletes" method="post" accept-charset="utf-8" id="admindata_kh">
+               <form action="<?php echo base_url();?>admin/orderadmin/deletes" method="post" accept-charset="utf-8" id="admindata_order">
                   <input type="hidden" id="page" value="0"/>
                   <input type="hidden" id="callback" value="<?php echo base_url();?>admin/orderadmin/list_order"/>
                   Tổng tiền: <?php echo $total_money;?> - Khách hàng chưa thanh toán: <?php echo $not_pay?> - Trả cho cộng tác viên: <?php echo $pay_ctv?> - Tiền: <?php echo $total_money - ($not_pay + $pay_ctv);?>
@@ -38,7 +38,7 @@ $status = array('0'=>'Khách hàng Chưa thanh toán','1'=>'Khách Đã thanh to
                      <thead>
                         <tr>
                            <th class="head" colspan="7">
-                              <a class="del" onclick="return action_del('admindata_kh','order');"><span>Xóa</span></a>                                Có <?php echo count($list_ctv)?> Hóa Đơn <span class="pages"><span class="pagebar-mainbody">
+                              <a class="del" onclick="return action_del('admindata_order','order');"><span>Xóa</span></a>                                Có <?php echo count($list_ctv)?> Hóa Đơn <span class="pages"><span class="pagebar-mainbody">
                            <?php 
                            if($total_page == 1 || $page == 1)
                            {
@@ -76,7 +76,7 @@ $status = array('0'=>'Khách hàng Chưa thanh toán','1'=>'Khách Đã thanh to
                            </th>
                         </tr>
                         <tr>
-                           <th class="checkbox"><input type="checkbox" name="sa" id="sa" onclick="check_chose('sa', 'ar_id[]', 'admindata_kh')"></th>
+                           <th class="checkbox"><input type="checkbox" name="sa" id="sa" onclick="check_chose('sa', 'ar_id[]', 'admindata_order')"></th>
                            <th class="id">Tên</th>
                            <th>SĐT</th>
                            <th>Đia chỉ</th>
@@ -115,7 +115,7 @@ $status = array('0'=>'Khách hàng Chưa thanh toán','1'=>'Khách Đã thanh to
                      <?php }?>       
                      <tfoot>
                         <td colspan="7">
-                           <a class="del" onclick="return action_del('admindata_kh','order');"><span>Xóa</span></a>                            
+                           <a class="del" onclick="return action_del('admindata_order','order');"><span>Xóa</span></a>                            
                            Có <?php echo count($list_ctv)?> Hóa Đơn
                            <span class="pages">
                            <span class="pagebar-mainbody">

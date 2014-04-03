@@ -233,7 +233,7 @@ class Product extends MY_Controller {
                 $link_bank = base_url().'tin-tuc-26-huong-dan-thanh-toan';
                 $this->load->library('nl');
                 $url = base_url() . "home/member/ket_qua";
-                $receiver = "nguyentruonggiang91@gmail.com";
+                $receiver = "nguyendinhhan7781@gmail.com";
                 $transaction_info = '';
                 $order_code = 'VMC-' . $id;
                 $price = $price_nl;
@@ -241,7 +241,7 @@ class Product extends MY_Controller {
 
                 $this->load->library('baokim');
                 $order_id = 'VMC-' . $id;
-                $business = 'nguyentruonggiang91@gmail.com';
+                $business = 'nguyendinhhan7781@gmail.com';
                 $total_amount = $price_nl;
                 $shipping_fee = 0;
                 $tax_fee = 0;

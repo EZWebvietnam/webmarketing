@@ -29,5 +29,9 @@ class Faqmodel extends CI_Model
         $this->db->where('id',$id);
         $this->db->update('faq',$data);
     }
+    public function delete($id)
+    {
+        $this->db->delete('faq',array('id'=>$id));
+    }
 }
 ?>
