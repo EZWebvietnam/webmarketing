@@ -140,19 +140,19 @@
                 height: 25px;
                 }
                 .support_widget .link .content:after {
-content: "";
-position: absolute;
-width: 0;
-height: 0;
-border-width: 13px;
-border-style: solid;
-border-color: transparent transparent transparent #999;
-top: 10px;
-right: -27px;
-}
-.support_widget {
-text-align: left;
-}
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-width: 13px;
+                border-style: solid;
+                border-color: transparent transparent transparent #999;
+                top: 10px;
+                right: -27px;
+                }
+                .support_widget {
+                text-align: left;
+                }
                 </style>
 
     </head>
