@@ -12,8 +12,8 @@
         <meta name="rating" content="<?php echo $header['rating'] ?>" />
         <meta name="keywords" content="<?php echo $header['keywords'] ?>" />
         <meta property="fb:app_id" content="150104728527998">
-        <meta name="google-site-verification" content="ahbpWULSKtyvSaLhhPsdrTl_5ct4Kj1dUqoFGJzcHxc" />
-            <link rel="shortcut icon" href="<?php echo base_url();?>template/ezwebvietnam/home/favicon.ico" type="image/x-icon"/>
+            <meta name="google-site-verification" content="ahbpWULSKtyvSaLhhPsdrTl_5ct4Kj1dUqoFGJzcHxc" />
+            <link rel="shortcut icon" href="<?php echo base_url(); ?>template/ezwebvietnam/home/favicon.ico" type="image/x-icon"/>
 
             <meta name="description" content="<?php echo $header['description'] ?>" />
             <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/css.css" media="screen"  />
@@ -41,32 +41,138 @@
                 var my_template = "template_1";
                 var my_curent_page = "U1";
             </script>
-             <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            <script>
+                (function(i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r;
+                    i[r] = i[r] || function() {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+                    a = s.createElement(o),
+                            m = s.getElementsByTagName(o)[0];
+                    a.async = 1;
+                    a.src = g;
+                    m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-            ga('create', 'UA-49550436-1', 'vietmongco.vn');
-            ga('send', 'pageview');
+                ga('create', 'UA-49550436-1', 'vietmongco.vn');
+                ga('send', 'pageview');
 
             </script>
             <script type="text/javascript" src="<?php echo base_url(); ?>template/ezwebvietnam/home/template/template_1/js/cart_script3.js"></script>
-
+            <style>
+                .support_widget {
+                    text-align: left;
+                    border-top: 1px solid #d5d5d5;
+                    border-left: 1px solid #d5d5d5;
+                    border-bottom: 1px solid #d5d5d5;
+                    border-radius: 5px 0 0 5px;
+                    -moz-border-radius: 5px 0 0 5px;
+                    -webkit-border-radius: 5px 0 0 5px;
+                    width: 33px;
+                    padding: 2px;
+                    position: fixed;
+                    z-index: 50;
+                    right: 0;
+                    bottom: 200px;
+                    background: #f5f5f5;
+                }
+                .support_widget .link {
+                    border-radius: 15px;
+                    -moz-border-radius: 15px;
+                    -webkit-border-radius: 15px;
+                    width: 25px;
+                    height: 25px;
+                    border: 1px solid #d5d5d5;
+                    background: #fff;
+                    margin: 3px;
+                    position: relative;
+                }
+                .support_widget .home {
+                    background: url(<?php echo base_url(); ?>template/ezwebvietnam/home/support/wg_home.png) no-repeat center center;
+                    opacity: .5;
+                    display: block;
+                    width: 25px;
+                    height: 25px;
+                }
+                .support_widget .phone {
+                    text-align: left;
+                    background: url(<?php echo base_url(); ?>template/ezwebvietnam/home/support/wg_phone.png) no-repeat center center;
+                    opacity: .5;
+                    display: block;
+                    width: 25px;
+                    height: 25px;
+                }
+                .support_widget .link .content {
+                    background: #fff;
+                    position: absolute;
+                    min-width: 200px;
+                    top: -10px;
+                    right: 35px;
+                    z-index: 9999;
+                    border-radius: 5px;
+                    -moz-border-radius: 5px;
+                    -webkit-border-radius: 5px;
+                    border: 1px solid #999;
+                    min-height: 35px;
+                    padding: 5px;
+                    display: none;
+                    font-size: 12px;
+                    font-weight: 700;
+                }
+                .support_widget .link .content {
+                    font-size: 12px;
+                    font-weight: 700;
+                }
+                .support_widget .chat {
+                    text-align: left;
+                    background: url(<?php echo base_url(); ?>template/ezwebvietnam/home/support/wg_chat.png) no-repeat center center;
+                    opacity: .5;
+                    display: block;
+                    width: 25px;
+                    height: 25px;
+                }
+                .support_widget .link:hover>.content {
+                    display: block;
+                }
+                .support_widget .top {
+                    background: url(<?php echo base_url(); ?>template/ezwebvietnam/home/support/wg_top.png) no-repeat center center;
+                    opacity: .5;
+                    display: block;
+                    width: 25px;
+                    height: 25px;
+                }
+                .support_widget .link .content:after {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-width: 13px;
+                border-style: solid;
+                border-color: transparent transparent transparent #999;
+                top: 10px;
+                right: -27px;
+                }
+                .support_widget {
+                text-align: left;
+                }
+            </style>
 
     </head>
     <body>
         <script type="text/javascript">
-var LHCChatOptions = {};
-LHCChatOptions.opt = {widget_height:340,widget_width:300,popup_height:520,popup_width:500};
-(function() {
-var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-var refferer = (document.referrer) ? encodeURIComponent(document.referrer) : '';
-var location  = (document.location) ? encodeURIComponent(document.location) : '';
-po.src = '//vietmongco.vn/livechat/index.php/vnm/chat/getstatus/(click)/internal/(position)/bottom_right/(top)/350/(units)/pixels?r='+refferer+'&l='+location;
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-})();
-</script>
+                 var LHCChatOptions = {};
+                 LHCChatOptions.opt = {widget_height: 340, widget_width: 300, popup_height: 520, popup_width: 500};
+                 (function() {
+                     var po = document.createElement('script');
+                     po.type = 'text/javascript';
+                     po.async = true;
+                     var refferer = (document.referrer) ? encodeURIComponent(document.referrer) : '';
+                     var location = (document.location) ? encodeURIComponent(document.location) : '';
+                     po.src = '//vietmongco.vn/livechat/index.php/vnm/chat/getstatus/(click)/internal/(position)/bottom_right/(top)/350/(units)/pixels?r=' + refferer + '&l=' + location;
+                     var s = document.getElementsByTagName('script')[0];
+                     s.parentNode.insertBefore(po, s);
+                 })();
+        </script>
         <div class="sidelinks-container"><h3><a href="#top">Top</a></h3></div>
         <div id='banner' style="min-height:80px">
             <div class='banner_content'>
@@ -83,7 +189,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po
             </div>
             <div class='top_menu' >
                 <a href="<?php echo base_url(); ?>" class="home">Trang chủ</a>
-                <a href="<?php echo base_url();?>lien-he" class="contact">Liên hệ</a>
+                <a href="<?php echo base_url(); ?>lien-he" class="contact">Liên hệ</a>
                 <a href="#"  onclick="show_cart('<?php echo base_url(); ?>')"  class="cart">
                     Giỏ hàng (<span id="product_number" style="color:#ef4232;font-weight:700">0</span>)
                 </a>
@@ -131,15 +237,15 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po
 
                     </style>
                     <span style="margin-top:-5px;width:160px;border:0;height:23px;color:white;font-style: italic;"> Xin chào <?php echo $this->session->userdata('username') ?> </span>
-                    
-                    <?php 
-                    if($this->session->userdata('role')==4)
-                    {
-                    ?>
-                    <span class="setting"> <a href="<?php echo base_url(); ?>cong-tac-vien">Cộng tác viên</a></span>
+
+                    <?php
+                    if ($this->session->userdata('role') == 4) {
+                        ?>
+                        <span class="setting"> <a href="<?php echo base_url(); ?>cong-tac-vien">Cộng tác viên</a></span>
                     <?php } else { ?> 
                         <span class="setting"> <a href="<?php echo base_url(); ?>quan-tri">Quản trị</a></span>
-                        <?php } } ?>
+                    <?php }
+                } ?>
             </div>
         </div>
         <div style='width:1000px;margin: 0 auto 0 auto;'>
@@ -274,7 +380,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po
         <div id='show_cart_form' style="display:none;text-align:left">
             <div  style="float:right;cursor:pointer;margin:0" onclick="close_show_cart_form()"><b>[x]</b></div>
             <div class="form_header">Giỏ hàng <a  alt="Xóa" style="width:30px;cursor:pointer" onclick="if (confirm('Bạn có chăc muốn xóa?'))
-                clear_cart('<?php echo base_url();?>')">[Xóa tất cả]</a></div>
+                        clear_cart('<?php echo base_url(); ?>')">[Xóa tất cả]</a></div>
             <div id="cart_content">
 
             </div>
@@ -371,28 +477,28 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po
                 });
                 document.getElementById('checkout').style.pointerEvents = 'none';
                 $("#o_sercuritycode").keyup(function() {
-                        var code = $(this).val();
-                            if (code != <?php echo $captcha_question['0']['reply']?>)
-                            {
-                                document.getElementById('checkout').style.pointerEvents = 'none';
-                            }
-                            else
-                            {
-                                document.getElementById('checkout').style.pointerEvents = 'auto';
-                            }
-                       
-                   
+                    var code = $(this).val();
+                    if (code != <?php echo $captcha_question['0']['reply'] ?>)
+                    {
+                        document.getElementById('checkout').style.pointerEvents = 'none';
+                    }
+                    else
+                    {
+                        document.getElementById('checkout').style.pointerEvents = 'auto';
+                    }
+
+
                 });
-                $('#btn_submit_mail').attr('disabled','disabled');
+                $('#btn_submit_mail').attr('disabled', 'disabled');
                 $('#sercuritycode_1').keyup(function() {
                     var code_1 = $(this).val();
                     if (code_1 == <?php echo $captcha_question['0']['reply'] ?>)
                     {
-                        $('#btn_submit_mail').attr('disabled',false);
+                        $('#btn_submit_mail').attr('disabled', false);
                     }
                     else
                     {
-                        $('#btn_submit_mail').attr('disabled','disabled');
+                        $('#btn_submit_mail').attr('disabled', 'disabled');
                     }
                 });
                 $('#change_captcha').click(function() {
@@ -458,7 +564,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po
                 <div id='left_block' >
                     <div style="padding:5px">
                         <!--Widget-->
-                         <?php
+                        <?php
                         foreach ($list_product_sale as $product_sale) {
                             ?>
                             <div>
@@ -488,39 +594,66 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po
                                             </a><br />  &nbsp;</p>  
                                         </div>
                                     <?php } ?>
-                        <div>
-                            <p style="text-align: center;"><iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fvietmongco.vn&amp;width=240&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:240px; height:290px;" allowTransparency="true"></iframe></p>
-                        </div>
-                        <div>
-                            <iframe target="__blank" src="http://www.youtube.com/subscribe_widget?p=vietmongco" 
-                                    style="overflow: hidden; height: 105px; width: 240px; border: 0;" 
-                                    scrolling="no" frameBorder="0">
-                            </iframe>
-                        </div>
-                        <!--
-                        <?php
-                        foreach ($list_clip as $clip) {
-                            ?>
-                                        <div>
-                                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/<?php echo $clip['code'] ?>" width="235"></iframe></p>
+                                    <div>
+                                        <p style="text-align: center;"><iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fvietmongco.vn&amp;width=240&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:240px; height:290px;" allowTransparency="true"></iframe></p>
+                                    </div>
+                                    <div>
+                                        <iframe target="__blank" src="http://www.youtube.com/subscribe_widget?p=vietmongco" 
+                                                style="overflow: hidden; height: 105px; width: 240px; border: 0;" 
+                                                scrolling="no" frameBorder="0">
+                                        </iframe>
+                                    </div>
+                                    <!--
+                                    <?php
+                                    foreach ($list_clip as $clip) {
+                                        ?>
+                                                        <div>
+                                                            <p><iframe allowfullscreen="" frameborder="0" height="200" src="//www.youtube.com/embed/<?php echo $clip['code'] ?>" width="235"></iframe></p>
+                
+                                                        </div>
+                                    <?php } ?>
+                                    -->
+                                    <div>
 
-                                        </div>
-                        <?php } ?>
-                        -->
-                        <div>
+                                    </div>
+                                    <!--/Widget-->
+                                    </div>
+                                </div>	<div style='clear:both'></div>
+                            </div>
+                            <!--Widget-->
+                            <!--/Widget-->
+                            <div id="footer">
+                                <p style="text-align: center;"><span style="color:#FFF0F5;"><span style="font-size: small; font-family: Arial; line-height: 1.6em;">    </span><span style="font-family: Arial; line-height: 1.6em; font-size: 16px;"><strong> <?php echo $info_company[0]['address'] ?></strong></span></span></p>   
+                                <?php echo $info_company[0]['footer'] ?>
+                                Developed by <a href="http://www.facebook.com/ezwebvietnam" target="_blank">EZWebVietnam</a>
+                            </div>
+                            <div class="support_widget">
+                                <div class="link">
+                                    <a href="<?php echo base_url(); ?>" class="home"></a>
+                                </div>
+                                <div class="link">
+                                    <a class="phone" tabindex="1"></a>
+                                    <div class="content">
+                                        <!--Widget-->
+                                        <p><span style="font-size:18px;"><span style="font-size:16px;"><span style="color:#FF0000;"><strong><span style="font-size:20px;">Hotline:</span> &nbsp;</strong></span></span><span style="color:#0066cc;"><strong>0918.870.781</strong></span></span></p>
 
-                        </div>
-                        <!--/Widget-->
-                    </div>
-                </div>	<div style='clear:both'></div>
-            </div>
-            <!--Widget-->
-            <!--/Widget-->
-            <div id="footer">
-                <p style="text-align: center;"><span style="color:#FFF0F5;"><span style="font-size: small; font-family: Arial; line-height: 1.6em;">    </span><span style="font-family: Arial; line-height: 1.6em; font-size: 16px;"><strong> <?php echo $info_company[0]['address'] ?></strong></span></span></p>   
-                <?php echo $info_company[0]['footer'] ?>
-                Developed by <a href="http://www.facebook.com/ezwebvietnam" target="_blank">EZWebVietnam</a>
-            </div>
 
-    </body>
-</html>
+                                        <!--/Widget-->
+                                    </div>
+                                </div>
+                                <div class="link">
+                                    <a class="chat" tabindex="2"></a>
+                                    <div class="content">
+                                        <!--Widget-->
+                                        <p><span style="color:#FF0000;"><strong><span style="font-size:20px;">Chat: &nbsp;&nbsp;</span></strong></span><a href="skype:nguyendinhhan81?call"><img alt="Skype Me™!" height="30" src="<?php echo base_url(); ?>template/ezwebvietnam/home/support/skype.jpg" style="border: none;" width="30"></a>&nbsp; &nbsp; &nbsp; &nbsp;<a href="ymsgr:sendIM?quantri24&amp;m=Chào bạn ! Tôi đang cần giúp đỡ!" style="line-height: 1.6em;"><img alt="CEO chuyen nghiep" border="0" height="30" src="<?php echo base_url(); ?>template/ezwebvietnam/home/support/yahoo.png" width="30"></a></p>
+
+
+                                        <!--/Widget-->
+                                    </div>
+                                </div>
+                                <div class="link">
+                                    <a href="#top" class="top"></a>
+                                </div>
+                            </div>   
+                            </body>
+                            </html>
