@@ -36,7 +36,7 @@
             <tr>
                 <td class="label">Nội dung</td>
                 <td colspan="3">
-                    <textarea id="editor2" name="content"></textarea>
+                    <textarea id="editor2" name="content"><?php echo $detail[0]['answer']?></textarea>
                     <script type="text/javascript">
                         CKEDITOR.replace('editor2');
                     </script>
