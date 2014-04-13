@@ -78,14 +78,26 @@
         </center>
     </div>
     <?php
+    $this->load->helper('cookie'); 
     if ($this->uri->segment(4) != '' || $this->uri->segment(4) != null) {
+        $cookie = array(
+                    'name'   => 'id_ref',
+                    'value'  => base64_encode($this->uri->segment(4)),
+                    'expire' =>  86500,
+                    'secure' => false
+                );
+        $this->input->set_cookie($cookie);
         ?>
         <input type="hidden" name="id_ref" id="id_ref" value="<?php echo base64_encode($this->uri->segment(4)); ?>" />
         <?php
     } else {
+        if($this->input->cookie('id_ref', false))
+        {
         ?>
-        <input type="hidden" name="id_ref" id="id_ref" value="0" />
-    <?php } ?>
+        <input type="hidden" name="id_ref" id="id_ref" value="<?php echo $this->input->cookie('id_ref', false)?>" />
+    <?php } else { ?> 
+         <input type="hidden" name="id_ref" id="id_ref" value="0" />
+        <?php } } ?>
 
     <div style="height:1px;clear:both"></div>
 </div>
