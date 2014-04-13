@@ -382,8 +382,9 @@ class Tank_auth {
      */
     function can_reset_password($user_id, $new_pass_key) {
         if ((strlen($user_id) > 0) AND ( strlen($new_pass_key) > 0)) {
+
             return $this->ci->users->can_reset_password(
-                            $user_id, $new_pass_key, $this->ci->config->item('forgot_password_expire', 'tank_auth'));
+                            $user_id, $new_pass_key, 3600);
         }
         return FALSE;
     }
@@ -407,7 +408,7 @@ class Tank_auth {
                 $hashed_password = $hasher->HashPassword($new_password);
 
                 if ($this->ci->users->reset_password(
-                                $user_id, $hashed_password, $new_pass_key, $this->ci->config->item('forgot_password_expire', 'tank_auth'))) { // success
+                                $user_id, $hashed_password, $new_pass_key, 3600)) { // success
                     // Clear all user's autologins
                     $this->ci->load->model('home/user_autologin');
                     $this->ci->user_autologin->clear($user->id);

@@ -31,7 +31,7 @@ $password = array(
     <?php echo form_input($password); ?>            
 </div>
 <div class="account_login">
-   
+   <a href="<?php echo base_url();?>quen-mat-khau">Quên mật khẩu</a>
 </div>
 <input type="submit" class="button_login" title="Đăng nhập" id="btnDangnhap" value="Đăng nhập" name="btnDangnhap">
 </form></div>
