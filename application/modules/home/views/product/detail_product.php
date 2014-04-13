@@ -83,7 +83,7 @@
         $cookie = array(
                     'name'   => 'id_ref',
                     'value'  => base64_encode($this->uri->segment(4)),
-                    'expire' =>  86500,
+                    'expire' =>  2592000,
                     'secure' => false
                 );
         $this->input->set_cookie($cookie);
